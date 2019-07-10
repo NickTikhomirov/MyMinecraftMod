@@ -1,0 +1,87 @@
+itemGroup.magicTab=Another Magic Mod Please Don't Blame Me
+
+item.broom.name=Broom
+item.bitcoin.name=One Bitcoin
+item.dusttrans.name=Transformation Dust
+item.curinggrass.name=Curing Grass
+item.supercuringgrass.name=Curing Grass++
+item.netherdrink.name=...potion?
+item.rEssence.name=Rainbow Essence
+item.potatogp.name=Golden Poisoned Potato
+item.magic_ball.name=Cursed Rock
+item.sparkles.name=Sparkles
+item.effect_freezer.name=Effect Container
+item.flesh.name=Flesh
+item.lasercore.name=Simple Laser
+item.curingseeds.name=Seeds of Curing Grass
+item.stealer.name=Stealer
+item.flint_base.name=Inert Magic Flint
+item.fishy.name=Fishy
+item.runic_stick.name=Runic Rod
+item.rose.name=Rose Flower
+item.rose_b.name=Blue Flower
+item.curedeye.name=Safe Spider Eye
+
+item.dye.green.name=Green Dye
+item.dye.black.name=Black Dye
+item.dye.blue.name=Blue Dye
+item.dye.brown.name=Brown Dye
+item.dye.white.name=White Dye
+
+item.magic_flint.weak.name=Weak Magic Flint
+item.magic_flint.void.name=Void Magic Flint
+
+tile.ore_bit.name=Bitcoin Ore
+tile.ore_rainbow.name=Dye Ore
+tile.ore_egg.name=Егор
+tile.sparkleore.name=Sparkling Stone
+tile.block_charcoal.name=Charcoal Block
+tile.block_bricks_dark.name=Strange Bricks
+tile.block_bricks_light.name=Light Bricks
+tile.block_planks_light.name=Gray Planks
+tile.block_planks_uncommon.name=Strange Planks
+tile.block_oldmoss.name=Old Moss Cobble
+
+potion.effect.minddevourpotion=Potion of Mind Devouring
+potion.effect.oceanpotion=Ocean Potion
+potion.effect.oceanpotionl=Ocean Potion
+potion.effect.oceanpotioncombat=Combat Ocean Potion
+potion.effect.ammpdbm_mod:mindprotection=Potion of Mind Protection
+potion.effect.ammpdbm_mod:magicprotection=Potion of Magic Conversion
+potion.effect.minecraft:haste=Potion of Haste
+potion.effect.ammpdbm_mod:enderprotection=Potion of Ender Protection
+
+
+splash_potion.effect.minddevourpotion=Splash Potion of Mind Devouring
+splash_potion.effect.oceanpotion=Splash Ocean Potion
+splash_potion.effect.oceanpotionl=Splash Ocean Potion
+splash_potion.effect.oceanpotioncombat=Splash Combat Ocean Potion
+splash_potion.effect.ammpdbm_mod:mindprotection=Splash Potion of Mind Protection
+splash_potion.effect.ammpdbm_mod:magicprotection=Splash Potion of Magic Conversion
+splash_potion.effect.minecraft:haste=Splash Potion of Haste
+splash_potion.effect.ammpdbm_mod:enderprotection=Splash Potion of Ender Protection
+
+lingering_potion.effect.oceanpotion=Lingering Ocean Potion
+lingering_potion.effect.oceanpotionl=Lingering Ocean Potion
+lingering_potion.effect.oceanpotioncombat=Lingering Combat Ocean Potion
+lingering_potion.effect.ammpdbm_mod:mindprotection=Lingering Potion of Mind Protection
+lingering_potion.effect.ammpdbm_mod:magicprotection=Lingering Potion of Magic Conversion
+lingering_potion.effect.minecraft:haste=Lingering Potion of Haste
+lingering_potion.effect.ammpdbm_mod:enderprotection=Lingering Potion of Ender Protection
+
+tipped_arrow.effect.oceanpotion=Ocean Arrow
+tipped_arrow.effect.oceanpotionl=Ocean Arrow
+tipped_arrow.effect.oceanpotioncombat=Combat Ocean Arrow
+tipped_arrow.effect.ammpdbm_mod:mindprotection=Arrow of Mind Protection
+tipped_arrow.effect.ammpdbm_mod:magicprotection=Arrow of Magic Conversion
+tipped_arrow.effect.minecraft:haste=Arrow of Haste
+tipped_arrow.effect.ammpdbm_mod:enderprotection=_xX*DragonKiller-3000*Xx_
+
+
+effect.ammpdbm_mod:mindprotection=Mind Protection
+effect.ammpdbm_mod:magicprotection=Magic Conversion
+effect.ammpdbm_mod:enderprotection=Ender Protection
+
+
+lingering_potion.effect.minddevourpotion=Probably honey, but I'm not sure
+tipped_arrow.effect.minddevourpotion=Surpise Arrow

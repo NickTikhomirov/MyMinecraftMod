@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:brown_mushroom"
+    }
+  ],
+  "result":
+    {
+    "item": "ammpdbm_mod:dye",
+    "data": 2,
+    "count": 2
+    }
+}

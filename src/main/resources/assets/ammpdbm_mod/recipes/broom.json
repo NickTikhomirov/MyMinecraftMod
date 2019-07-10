@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "HN ",
+    "NSN",
+    " NS"
+  ],
+  "key": {
+    "H": {
+      "item": "minecraft:hay_block"
+    },
+    "N": {
+      "item": "minecraft:gold_nugget"
+    },
+    "S": {
+      "item": "ammpdbm_mod:runic_stick"
+    }
+  },
+  "result": {
+    "item": "ammpdbm_mod:broom",
+    "count": 1
+  }
+}

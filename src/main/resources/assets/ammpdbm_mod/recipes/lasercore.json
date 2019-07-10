@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "gs ",
+    "sti",
+    " ib"
+  ],
+  "key": {
+    "g": {
+      "item": "minecraft:ghast_tear"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    },
+    "t": {
+      "item": "minecraft:redstone_torch"
+    },
+    "i": {
+      "type": "forge:ore_dict",
+      "ore": "ingotIron"
+    },
+    "b": {
+      "item": "minecraft:stone_button"
+    }
+  },
+  "result": {
+    "item": "ammpdbm_mod:lasercore",
+    "count": 1
+  }
+}

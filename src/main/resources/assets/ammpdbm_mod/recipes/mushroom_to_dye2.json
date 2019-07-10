@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:red_mushroom"
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:dye",
+      "data": 1,
+      "count": 2
+    }
+}
