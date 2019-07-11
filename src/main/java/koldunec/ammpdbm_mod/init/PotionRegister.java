@@ -20,8 +20,8 @@ public class PotionRegister {
             MINDPROTECTION = new potionmindprotection("mindprotection", false, 0xFFE4E1);
     public static final Potion
             MAGICPROTECTION = new potionmagicprotection("magicprotection", false, 0xFFFF00);
-    public static final Potion
-            EFFECT_STORAGE = effectstorage.EFFECT_S;
+    //public static final Potion
+    //        EFFECT_STORAGE = effectstorage.EFFECT_S;
     public static final Potion
             ENDERPROTECTION = new potionenderprotection("enderprotection",false, 0x00FF60);
 
@@ -42,9 +42,12 @@ public class PotionRegister {
             OCEANPOTION_TYPE_LONG = createCompositePotionType("oceanpotionl", "long", new PotionEffect(Potion.getPotionById(13), 9000),new PotionEffect(Potion.getPotionById(16), 9000)),
             OCEANPOTIONCOMBAT_TYPE_LONG = createCompositePotionType("oceanpotioncombat", "long", new PotionEffect(Potion.getPotionById(13), 8400),new PotionEffect(Potion.getPotionById(16), 8400),new PotionEffect(MINDPROTECTION, 8400,1)),
 
-            ENDERPROTECTION_TYPE_STANDART = createPotionType(null, new PotionEffect(ENDERPROTECTION, 3600));
-            //OCEANPOTIONCOMBAT_TYPE_STANDARD = createCompositePotionType("oceanpotioncombat", null, new PotionEffect(Potion.getPotionById(13), 3000),new PotionEffect(Potion.getPotionById(16), 3000),new PotionEffect(MINDPROTECTION, 3000,1)),
-            //MINDPROTECTION_TYPE_LONG = createPotionType("long", new PotionEffect(MINDPROTECTION, 9600)),
+            ENDERPROTECTION_TYPE_SHORT = createPotionType("short",new PotionEffect(ENDERPROTECTION,1200,2)),
+            ENDERPROTECTION_TYPE_STANDART = createPotionType(null, new PotionEffect(ENDERPROTECTION, 3600)),
+            ENDERPROTECTION_TYPE_STRONG = createPotionType("strong", new PotionEffect(ENDERPROTECTION, 3600,1)),
+            ENDERPROTECTION_TYPE_LONG = createPotionType("long", new PotionEffect(ENDERPROTECTION, 9600));
+
+
 
 
 
@@ -85,7 +88,7 @@ public class PotionRegister {
         event.getRegistry().registerAll(
                 MINDPROTECTION,
                 MAGICPROTECTION,
-                EFFECT_STORAGE,
+                //EFFECT_STORAGE,
                 ENDERPROTECTION
         );
     }
@@ -109,7 +112,10 @@ public class PotionRegister {
 
                 MINDDEVOUR_TYPE_STANDARD,
 
-                ENDERPROTECTION_TYPE_STANDART
+                ENDERPROTECTION_TYPE_SHORT,
+                ENDERPROTECTION_TYPE_STANDART,
+                ENDERPROTECTION_TYPE_STRONG,
+                ENDERPROTECTION_TYPE_LONG
         );
     }
 }

@@ -21,6 +21,9 @@ item.runic_stick.name=Runic Rod
 item.rose.name=Rose Flower
 item.rose_b.name=Blue Flower
 item.curedeye.name=Safe Spider Eye
+item.curedchicken.name=Safe Chicken
+item.curedfish.name=Safe Pufferfish
+item.curedpotato.name=Safe Potato
 
 item.dye.green.name=Green Dye
 item.dye.black.name=Black Dye

@@ -21,6 +21,7 @@ import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
@@ -28,6 +29,7 @@ import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.RecipeTippedArrow;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.*;
 import net.minecraft.world.World;
@@ -38,6 +40,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -311,4 +314,17 @@ public class EventHandler{
         //}
     }
 
+    @SubscribeEvent
+    public void onTeleport(EnderTeleportEvent e) {
+        if(!e.getEntityLiving().isPotionActive(PotionRegister.ENDERPROTECTION)) return;
+        if(e.getEntityLiving() instanceof EntityEnderman ||
+           e.getEntityLiving() instanceof EntityShulker){
+            e.setTargetX(e.getEntity().posX);
+            e.setTargetY(e.getEntity().posY);
+            e.setTargetZ(e.getEntity().posZ);
+        } else if(e.getAttackDamage()>0F){
+            e.setAttackDamage(0F);
+            e.getEntityLiving().addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY,600));
+        }
+    }
 }

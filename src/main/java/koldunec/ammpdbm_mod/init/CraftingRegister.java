@@ -3,6 +3,7 @@ package koldunec.ammpdbm_mod.init;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -28,6 +29,9 @@ public class CraftingRegister
         registerRecipes("flint_weak");
         registerRecipes("runic_stick");
         registerRecipes("curedeye");
+        registerRecipes("curedchicken");
+        registerRecipes("curedpotato");
+        registerRecipes("curedfish");
         registerRecipes("mushroom_to_dye");
         registerRecipes("mushroom_to_dye2");
 
@@ -79,8 +83,8 @@ public class CraftingRegister
         PotionHelper.addMix(PotionTypes.LONG_NIGHT_VISION, Ingredient.fromStacks(new ItemStack(Items.FISH, 1, ItemFishFood.FishType.PUFFERFISH.getMetadata())), PotionRegister.OCEANPOTION_TYPE_LONG);
 
         PotionHelper.addMix(PotionRegister.OCEANPOTION_TYPE_STANDARD, Items.REDSTONE, PotionRegister.OCEANPOTION_TYPE_LONG);
-        PotionHelper.addMix(PotionRegister.OCEANPOTION_TYPE_LONG, Ingredient.fromStacks(new ItemStack(Items.FISH, 1, ItemFishFood.FishType.CLOWNFISH.getMetadata())), PotionRegister.OCEANPOTIONCOMBAT_TYPE_LONG);
-        BrewingRecipeRegistry.addRecipe(PotionUtils.addPotionToItemStack(new ItemStack(Items.POTIONITEM), PotionTypes.NIGHT_VISION), new ItemStack(Items.NETHER_STAR), new ItemStack(ItemRegister.NETHER_DRINK));
+        PotionHelper.addMix(PotionRegister.OCEANPOTION_TYPE_LONG, ItemRegister.FISH_C, PotionRegister.OCEANPOTIONCOMBAT_TYPE_LONG);
+        BrewingRecipeRegistry.addRecipe(new ItemStack(Items.POTIONITEM), new ItemStack(Items.NETHER_STAR), new ItemStack(ItemRegister.NETHER_DRINK));
     }
 
     private static void registerRecipes(String name)

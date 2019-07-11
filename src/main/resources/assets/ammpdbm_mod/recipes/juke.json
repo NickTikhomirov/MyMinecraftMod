@@ -32,28 +32,11 @@
         "data": 5
       }
     ],
-    "O": [
+    "O":
       {
-        "item": "projectx:xycronium_crystal",
-        "data": 0
-      },
-      {
-        "item": "projectx:xycronium_crystal",
-        "data": 1
-      },
-      {
-        "item": "projectx:xycronium_crystal",
-        "data": 2
-      },
-      {
-        "item": "projectx:xycronium_crystal",
-        "data": 3
-      },
-      {
-        "item": "projectx:xycronium_crystal",
-        "data": 4
+        "type": "forge:ore_dict",
+        "ore": "crystalXycronium"
       }
-    ]
   },
   "result": {
     "item": "minecraft:jukebox"

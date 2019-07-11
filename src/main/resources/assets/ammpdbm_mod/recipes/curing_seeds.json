@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "magicFlintWeak"
+    },
+    {
+      "item": "ammpdbm_mod:curinggrass"
+    }
+  ],
+  "result":
+    {
+      "item": "ammpdbm_mod:curingseeds",
+      "count": 3
+    }
+}

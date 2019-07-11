@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ammpdbm_mod:curinggrass"
+    },
+    {
+      "item": "minecraft:chicken"
+    }
+  ],
+  "result":
+    {
+    "item": "ammpdbm_mod:curedchicken",
+    "count": 1
+    }
+}

@@ -11,6 +11,7 @@ import koldunec.ammpdbm_mod.broomitems.curinggrass.curingseeds;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.supercuringgrass;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -36,6 +37,9 @@ public class ItemRegister
     public static Item GOLDEN_POTATO= new potatogp();
     public static Item FLESH = new flesh();
     public static Item EYE_C = new base_food("curedeye",64,3,0.8F,false);
+    public static Item FISH_C = new base_food("curedfish",64,3, 0.8F,false);
+    public static Item POTATO_C = new base_food("curedpotato",64,3,1.2F,false);
+    public static Item CHICKEN_C = new base_food("curedchicken",64,3,1.2F,false);
     public static Item FISHY = new base_food("fishy",64,1,1,false);
     public static Item EFFECTSTORAGE = new effectFreezer();
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
@@ -73,6 +77,9 @@ public class ItemRegister
         setRegister(LASERCORE);
         setRegister(STEALER);
         setRegister(EYE_C);
+        setRegister(CHICKEN_C);
+        setRegister(POTATO_C);
+        setRegister(FISH_C);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -127,6 +134,9 @@ public class ItemRegister
         setRender(RUNIC_STICK);
         setRender(EYE_C);
         setRender(NETHER_DRINK);
+        setRender(POTATO_C);
+        setRender(CHICKEN_C);
+        setRender(FISH_C);
 
         if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest")) {
             setRender(TRANSFORMATION_DUST);

@@ -26,9 +26,7 @@ public class tipped_crafting extends net.minecraftforge.registries.IForgeRegistr
                         if (item != Items.TIPPED_ARROW){
                             return false;
                         }
-                        //if(PotionUtils.getEffectsFromStack(new ItemStack(item))!=PotionRegister.MINDDEVOUR_TYPE_STANDARD.getEffects()){
-                        //    return false;
-                        //}
+
                     }
                     else if (item != ItemRegister.CURING_GRASS)
                     {
