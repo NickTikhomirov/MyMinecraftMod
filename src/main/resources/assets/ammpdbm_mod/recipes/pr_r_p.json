@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "gemRuby",
+      "count": 1
+    },
+    {
+      "item": "projectx:xycronium_crystal",
+      "data": 1
+    }
+  ],
+  "result": {
+    "item": "projectred-core:resource_item",
+    "data": 202,
+    "count": 1
+  }
+}

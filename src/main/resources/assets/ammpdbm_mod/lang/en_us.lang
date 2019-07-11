@@ -85,3 +85,8 @@ effect.ammpdbm_mod:enderprotection=Ender Protection
 
 lingering_potion.effect.minddevourpotion=Probably honey, but I'm not sure
 tipped_arrow.effect.minddevourpotion=Surpise Arrow
+
+item.aluminum.name=Aluminum
+item.sulfur.name=Sulfur
+tile.block_aluminum.name=Aluminum Block
+tile.ore_al.name=Aluminum Ore

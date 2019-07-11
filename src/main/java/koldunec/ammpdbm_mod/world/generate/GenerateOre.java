@@ -1,5 +1,6 @@
 package koldunec.ammpdbm_mod.world.generate;
 
+import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -29,6 +30,8 @@ public class GenerateOre implements IWorldGenerator {
                 //runGenerator(BlockRegister.ORE_SPARKLE.getDefaultState(), 7, 8, 30, 64, Blocks.STONE, world, random, chunkX, chunkZ);
                 runGenerator(BlockRegister.ORE_EGG.getDefaultState(), 3, 5, 10, 20, Blocks.STONE, world, random, chunkX, chunkZ);
                 runGenerator(BlockRegister.ORE_RAINBOW.getDefaultState(), 4, 15, 49, 110, Blocks.DIRT, world, random, chunkX, chunkZ);
+                if(ammpdbm_mod.isLoadedProjectX)
+                    runGenerator(BlockRegister.ORE_ALUMINUM.getDefaultState(), 3, 12, 25, 50, Blocks.STONE, world, random, chunkX, chunkZ);
                 break;
             case 1: //Край
                 break;

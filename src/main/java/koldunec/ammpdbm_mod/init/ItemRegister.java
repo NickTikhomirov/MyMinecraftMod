@@ -1,6 +1,7 @@
 package koldunec.ammpdbm_mod.init;
 
 
+import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.broomitems.*;
 import koldunec.ammpdbm_mod.broomitems.baseItems.base_food;
 import koldunec.ammpdbm_mod.broomitems.baseItems.base_fuel;
@@ -47,6 +48,9 @@ public class ItemRegister
     public static Item NETHER_DRINK = new nether_drink();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
 
+    public static Item ALUMINUM = new base_item("aluminum", 64);
+    public static Item SULFUR = new base_item("sulfur", 64);
+
     public static void register()
     {
         setRegister(CURINGSEEDS);
@@ -70,13 +74,6 @@ public class ItemRegister
         setRegister(STEALER);
         setRegister(EYE_C);
 
-        MinecraftForge.addGrassSeed(new ItemStack(CURING_GRASS),10);
-
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest")){
-            setRegister(TRANSFORMATION_DUST);
-        }
-
-        OreDictionary.registerOre("bone",new ItemStack(Item.getByNameOrId("tconstruct:necrotic_bone"),1,0));
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
         OreDictionary.registerOre("dyeBrown",new ItemStack(ANOTHER_DYE,1,2));
@@ -86,6 +83,27 @@ public class ItemRegister
         OreDictionary.registerOre("magicFlintWeak", new ItemStack(MAGIC_FLINTS, 1,0));
         OreDictionary.registerOre("magicFlintWeak", new ItemStack(MAGIC_FLINTS, 1,1));
 
+        if(ammpdbm_mod.isLoadedTwilight){
+            setRegister(TRANSFORMATION_DUST);
+        }
+        if(ammpdbm_mod.isLoadedTinkers) {
+            OreDictionary.registerOre("bone", new ItemStack(Item.getByNameOrId("tconstruct:necrotic_bone"), 1));
+        }
+        if(ammpdbm_mod.isLoadedProjectX) {
+            setRegister(SULFUR);
+            setRegister(ALUMINUM);
+
+            OreDictionary.registerOre("nuggetAluminium",new ItemStack(ItemRegister.ALUMINUM));
+            OreDictionary.registerOre("dustSulfur",new ItemStack(ItemRegister.SULFUR));
+
+            OreDictionary.registerOre("dyeBlue", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 0));
+            OreDictionary.registerOre("dyeLime", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 1));
+            OreDictionary.registerOre("dyeRed", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 2));
+            OreDictionary.registerOre("dyeBlack", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 3));
+            OreDictionary.registerOre("dyeWhite", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 4));
+        }
+
+        MinecraftForge.addGrassSeed(new ItemStack(CURING_GRASS),10);
     }
 
     @SideOnly(Side.CLIENT)
@@ -108,10 +126,15 @@ public class ItemRegister
         setRender(FLINTBASE);
         setRender(RUNIC_STICK);
         setRender(EYE_C);
-
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest"))
-            setRender(TRANSFORMATION_DUST);
         setRender(NETHER_DRINK);
+
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest")) {
+            setRender(TRANSFORMATION_DUST);
+        }
+        if(ammpdbm_mod.isLoadedProjectX){
+            setRender(ALUMINUM);
+            setRender(SULFUR);
+        }
     }
 
     private static void setRegister(Item item)

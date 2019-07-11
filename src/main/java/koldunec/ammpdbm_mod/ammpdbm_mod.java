@@ -11,7 +11,18 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import java.util.Random;
 
 
-@Mod(modid = ammpdbm_mod.MODID, name = ammpdbm_mod.NAME, version = ammpdbm_mod.VERSION,dependencies = "after:twilightforest; after:tconstruct")
+@Mod(
+        modid = ammpdbm_mod.MODID,
+        name = ammpdbm_mod.NAME,
+        version = ammpdbm_mod.VERSION,
+
+        dependencies =
+                "after:twilightforest; " +
+                "after:tconstruct;" +
+                "after:projectx;" +
+                "after:projectred-exploration;" +
+                "after:sulfurtorches;"
+)
 public class ammpdbm_mod
 {
     @Mod.Instance("ammpdbm_mod")
@@ -23,12 +34,29 @@ public class ammpdbm_mod
     public static CommonProxy proxy;
     public static CreativeTabs magicTab = new magicTab("magicTab");
     public static Random random = new Random();
+    public static Boolean isLoadedTwilight = false;
+    public static Boolean isLoadedTinkers = false;
+    public static Boolean isLoadedProjectX = false;
+    public static Boolean isLoadedProjectRed_exploration = false;
+    public static Boolean isLoadedSulfurTorches = false;
+    public static Boolean isLoadedCorn = false;
 
 
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest"))
+            isLoadedTwilight = true;
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("tconstruct"))
+            isLoadedTinkers = true;
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("projectx"))
+            isLoadedProjectX = true;
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("sulfurtorches"))
+            isLoadedSulfurTorches = true;
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("projectred-exploration"))
+            isLoadedProjectRed_exploration = true;
+
         proxy.preInit(event);
 
 

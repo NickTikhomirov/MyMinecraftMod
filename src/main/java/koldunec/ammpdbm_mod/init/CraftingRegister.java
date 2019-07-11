@@ -1,9 +1,11 @@
 package koldunec.ammpdbm_mod.init;
 
+import koldunec.ammpdbm_mod.ammpdbm_mod;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
 import net.minecraft.item.ItemFishFood;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.potion.PotionHelper;
 import net.minecraft.potion.PotionUtils;
@@ -29,9 +31,29 @@ public class CraftingRegister
         registerRecipes("mushroom_to_dye");
         registerRecipes("mushroom_to_dye2");
 
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest")){
+        if(ammpdbm_mod.isLoadedTwilight){
             registerRecipes("trans_1");
             registerRecipes("trans_1_");
+        }
+
+        if(ammpdbm_mod.isLoadedProjectX){
+            registerRecipes("alblock");
+            registerRecipes("alblock_");
+            registerRecipes("juke");
+            registerRecipes("sparksToSulfur");
+            registerRecipes("sparksToSulfur2");
+            if(ammpdbm_mod.isLoadedProjectRed_exploration){
+                registerRecipes("pr_s_r");
+                registerRecipes("pr_s_p");
+                registerRecipes("pr_p_r");
+                registerRecipes("pr_p_s");
+                registerRecipes("pr_r_s");
+                registerRecipes("pr_r_p");
+            }
+            if(ammpdbm_mod.isLoadedSulfurTorches){
+                registerRecipes("altorch");
+                registerRecipes("sultorch");
+            }
         }
         //GameRegistry.addSmelting(Items.WATER_BUCKET,new ItemStack(Items.LAVA_BUCKET),0.5F);
 

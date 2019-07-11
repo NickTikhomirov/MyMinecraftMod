@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ammpdbm_mod:block_aluminum"
+    }
+  ],
+  "result": {
+    "item": "ammpdbm_mod:aluminum",
+    "count": 4
+  }
+}
