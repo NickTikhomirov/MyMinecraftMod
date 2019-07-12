@@ -13,20 +13,14 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Iterator;
 
-public class potionmindprotection extends Potion {
+public class potionmindprotection extends potion_base {
 
     private final ResourceLocation sprite = new ResourceLocation(ammpdbm_mod.MODID, "textures/gui/effectmindprotection.png");
 
-    public potionmindprotection(String name, boolean isBadEffectIn, int liquidColorIn) {
-        super(isBadEffectIn, liquidColorIn);
-        this.setName(name);
+    public potionmindprotection(int liquidColorIn) {
+        super("mindprotection",false, liquidColorIn);
     }
 
-    public void setName(String potionName) {
-
-        this.setRegistryName(ammpdbm_mod.MODID, potionName);
-        this.setPotionName("effect." + this.getRegistryName().toString());
-    }
 
     @Override
     public void performEffect(EntityLivingBase entityLivingBase, int amplifier) {
@@ -51,24 +45,7 @@ public class potionmindprotection extends Potion {
     }
 
     @Override
-    public boolean hasStatusIcon() {
-        return false;
-    }
-
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void renderInventoryEffect(int x, int y, PotionEffect potionEffect, Minecraft mc) {
-        if (mc.currentScreen != null) {
-            mc.getTextureManager().bindTexture(this.sprite);
-            Gui.drawModalRectWithCustomSizedTexture(x + 6, y + 7, 0, 0, 18, 18, 18, 18);
-        }
-    }
-
-    @SideOnly(Side.CLIENT)
-    @Override
-    public void renderHUDEffect(int x, int y, PotionEffect potionEffect, Minecraft mc, float alpha) {
-        mc.getTextureManager().bindTexture(this.sprite);
-        Gui.drawModalRectWithCustomSizedTexture(x + 3, y + 3, 0, 0, 18, 18, 18, 18);
+    public ResourceLocation getSprite() {
+        return sprite;
     }
 }

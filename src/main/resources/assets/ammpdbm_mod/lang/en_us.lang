@@ -2,6 +2,7 @@ itemGroup.magicTab=Another Magic Mod Please Don't Blame Me
 
 item.broom.name=Broom
 item.bitcoin.name=One Bitcoin
+item.bitcoin5000.name=Bitcoin-5000
 item.dusttrans.name=Transformation Dust
 item.curinggrass.name=Curing Grass
 item.supercuringgrass.name=Curing Grass++
@@ -24,6 +25,9 @@ item.curedeye.name=Safe Spider Eye
 item.curedchicken.name=Safe Chicken
 item.curedfish.name=Safe Pufferfish
 item.curedpotato.name=Safe Potato
+item.round_stone.name=Inert Stone
+item.magnetpick.name=Magnetic Pickaxe
+item.soul_crystal.name=Ghast Crystal
 
 item.dye.green.name=Green Dye
 item.dye.black.name=Black Dye
@@ -53,6 +57,11 @@ potion.effect.ammpdbm_mod:mindprotection=Potion of Mind Protection
 potion.effect.ammpdbm_mod:magicprotection=Potion of Magic Conversion
 potion.effect.minecraft:haste=Potion of Haste
 potion.effect.ammpdbm_mod:enderprotection=Potion of Ender Protection
+potion.effect.ammpdbm_mod:short_enderprotection=Short Potion of Ender Protection
+potion.effect.ammpdbm_mod:humanity=Elixir of Humanity
+potion.effect.goldenapple_potion=Bottled Golden Apple
+potion.effect.ammpdbm_mod:witherprotection=Potion of Wither Protection
+
 
 
 splash_potion.effect.minddevourpotion=Splash Potion of Mind Devouring
@@ -63,6 +72,10 @@ splash_potion.effect.ammpdbm_mod:mindprotection=Splash Potion of Mind Protection
 splash_potion.effect.ammpdbm_mod:magicprotection=Splash Potion of Magic Conversion
 splash_potion.effect.minecraft:haste=Splash Potion of Haste
 splash_potion.effect.ammpdbm_mod:enderprotection=Splash Potion of Ender Protection
+splash_potion.effect.ammpdbm_mod:humanity=Splash Elixir of Humanity
+splash_potion.effect.goldenapple_potion=Splash Golden Apple
+splash_potion.effect.ammpdbm_mod:witherprotection=Splash Potion of Wither Protection
+
 
 lingering_potion.effect.oceanpotion=Lingering Ocean Potion
 lingering_potion.effect.oceanpotionl=Lingering Ocean Potion
@@ -71,6 +84,9 @@ lingering_potion.effect.ammpdbm_mod:mindprotection=Lingering Potion of Mind Prot
 lingering_potion.effect.ammpdbm_mod:magicprotection=Lingering Potion of Magic Conversion
 lingering_potion.effect.minecraft:haste=Lingering Potion of Haste
 lingering_potion.effect.ammpdbm_mod:enderprotection=Lingering Potion of Ender Protection
+lingering_potion.effect.ammpdbm_mod:humanity=Lingering Elixir of Humanity
+lingering_potion.effect.goldenapple_potion=Lingering Golden Apple
+lingering_potion.effect.ammpdbm_mod:witherprotection=Lingering Potion of Wither Protection
 
 tipped_arrow.effect.oceanpotion=Ocean Arrow
 tipped_arrow.effect.oceanpotionl=Ocean Arrow
@@ -78,18 +94,29 @@ tipped_arrow.effect.oceanpotioncombat=Combat Ocean Arrow
 tipped_arrow.effect.ammpdbm_mod:mindprotection=Arrow of Mind Protection
 tipped_arrow.effect.ammpdbm_mod:magicprotection=Arrow of Magic Conversion
 tipped_arrow.effect.minecraft:haste=Arrow of Haste
-tipped_arrow.effect.ammpdbm_mod:enderprotection=_xX*DragonKiller-3000*Xx_
+tipped_arrow.effect.ammpdbm_mod:humanity=Arrow of Humanity
+tipped_arrow.effect.goldenapple_potion=Arrow With Golden Apple
+tipped_arrow.effect.ammpdbm_mod:witherprotection=Arrow of Wither Protection
 
 
 effect.ammpdbm_mod:mindprotection=Mind Protection
 effect.ammpdbm_mod:magicprotection=Magic Conversion
 effect.ammpdbm_mod:enderprotection=Ender Protection
+effect.ammpdbm_mod:humanity=Humanity
+effect.ammpdbm_mod:witherprotection=Wither Protection
 
 
 lingering_potion.effect.minddevourpotion=Probably honey, but I'm not sure
 tipped_arrow.effect.minddevourpotion=Surpise Arrow
 
+splash_potion.effect.ammpdbm_mod:short_enderprotection=Bomb for Endermen
+lingering_potion.effect.ammpdbm_mod:short_enderprotection=Bomb for Endermen
+tipped_arrow.effect.ammpdbm_mod:enderprotection=Useless Arrow
+tipped_arrow.effect.ammpdbm_mod:short_enderprotection=Useless Arrow
+
 item.aluminum.name=Aluminum
 item.sulfur.name=Sulfur
 tile.block_aluminum.name=Aluminum Block
 tile.ore_al.name=Aluminum Ore
+
+potion.potency.3=IV

@@ -55,6 +55,8 @@ import twilightforest.block.BlockTFMagicLeaves;
 import org.apache.logging.log4j.LogManager;
 
 import static java.lang.Math.round;
+import static koldunec.ammpdbm_mod.init.PotionRegister.ENDERPROTECTION;
+import static koldunec.ammpdbm_mod.init.PotionRegister.WITHERPROTECTION;
 
 
 @Mod.EventBusSubscriber
@@ -93,15 +95,11 @@ public class EventHandler{
 
     @SubscribeEvent
     public static void onItemCrafted(PlayerEvent.ItemCraftedEvent e){
-        /*
-        if(e.crafting.getItem().equals(ItemRegister.ESSENCE_RAINBOW))
-            for(int i=0;i<9;i++)
-                if(e.craftMatrix.getStackInSlot(i).getItem().equals(ItemRegister.SPARKLES)) {
-                    e.craftMatrix.getStackInSlot(i).grow(1);
-                    break;
-                }
-                */
-        if(e.crafting.getItem().equals(ItemRegister.RUNIC_STICK))
+        Item result = e.crafting.getItem();
+
+        if(result.equals(ItemRegister.RUNIC_STICK) ||
+           result.equals(ItemRegister.ROUND_STONE) ||
+           result.equals(ItemRegister.CURINGSEEDS))
             for(int i=0;i<9;i++){
                 Item ii = e.craftMatrix.getStackInSlot(i).getItem();
                 if(ii.equals(Items.AIR)) continue;
@@ -120,38 +118,56 @@ public class EventHandler{
     @SubscribeEvent
     public static void blockBr(BlockEvent.HarvestDropsEvent e) {
         EntityPlayer player = (EntityPlayer) e.getHarvester();
-        if(!e.getWorld().isRemote){
-            if(player!=null){
-                if(e.getState().getBlock().equals(BlockRegister.ORE_RAINBOW)){
-                    e.getDrops().add(new ItemStack(Items.DYE,1,1));
-                    for(int ii=5; ii<15; ii++){
-                        e.getDrops().add(new ItemStack(Items.DYE,1,ii));
-                    }
-                    for(int ii=0; ii<5; ii++){
-                        e.getDrops().add(new ItemStack(ItemRegister.ANOTHER_DYE,1,ii));
-                    }
-                }
-                ItemStack itemstack = player.getHeldItemMainhand();
-                if(itemstack!=null)
-                    if(itemstack.getItem().equals(ItemRegister.BROOM)&(e.getState().getBlock().equals(Blocks.BOOKSHELF)|e.getState().getBlock().equals(Blocks.ENDER_CHEST))){
-                        e.getDrops().clear();
-                        e.getDrops().add(new ItemStack(e.getState().getBlock()));
-                    }
-            }
-            if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest")){
-                if(e.getState().getBlock() instanceof  BlockTFMagicLeaves)
-                    if((((BlockTFMagicLeaves)e.getState().getBlock()).func_176201_c(e.getState())&3)==1){
-                        if(!e.getDrops().contains(new ItemStack(Item.getItemFromBlock(e.getState().getBlock())))) {
-                            e.getDrops().clear();
-                            if(ammpdbm_mod.random.nextInt(4)==0)
-                                e.getDrops().add(new ItemStack(ItemRegister.TRANSFORMATION_DUST));
+        if(e.getWorld().isRemote) return;
+        if(player!=null){
+            ItemStack itemstack = player.getHeldItemMainhand();
+            if(!itemstack.isEmpty())
+                if(itemstack.getItem().equals(ItemRegister.BROOM)&(e.getState().getBlock().equals(Blocks.BOOKSHELF)|e.getState().getBlock().equals(Blocks.ENDER_CHEST))){
+                    e.getDrops().clear();
+                    e.getDrops().add(new ItemStack(e.getState().getBlock()));
+                } else if(itemstack.getItem().equals(ItemRegister.MAGNETPICK)){
+                    if(e.getState().getBlock().equals(Blocks.COBBLESTONE) ||
+                       e.getState().getBlock().equals(Blocks.STONEBRICK)){
+                        for(ItemStack a: e.getDrops()){
+                            if(a.getItem().equals(Item.getItemFromBlock(Blocks.COBBLESTONE)) ||
+                                a.getItem().equals(Item.getItemFromBlock(Blocks.STONEBRICK))){
+                                ItemStack b = a.copy();
+                                if(!player.inventory.addItemStackToInventory(a))
+                                    player.dropItem(a,false);
+                                e.getDrops().remove(a);
+                            }
                         }
-                }
-                if(e.getState().getBlock() instanceof BlockTFLeaves && ((BlockTFLeaves) e.getState().getBlock()).func_180651_a(e.getState())==9){
-                    if(!e.getDrops().contains(new ItemStack(Item.getItemFromBlock(e.getState().getBlock())))) {
-                        if(ammpdbm_mod.random.nextInt(3)==0)
-                            e.getDrops().add(new ItemStack(ItemRegister.ESSENCE_RAINBOW));
+                    } else if(e.getState().getBlock().equals(Blocks.LOG)){
+                        e.getDrops().clear();
+                        ItemStack pick = e.getHarvester().getHeldItemMainhand();
+                        pick.setItemDamage(Math.max(0,pick.getItemDamage()-20));
                     }
+                }
+        }
+
+        if(e.getState().getBlock().equals(BlockRegister.ORE_RAINBOW)){
+            e.getDrops().add(new ItemStack(Items.DYE,1,1));
+            for(int ii=5; ii<15; ii++){
+                e.getDrops().add(new ItemStack(Items.DYE,1,ii));
+            }
+            for(int ii=0; ii<5; ii++){
+                e.getDrops().add(new ItemStack(ItemRegister.ANOTHER_DYE,1,ii));
+            }
+        }
+
+        if(ammpdbm_mod.isLoadedTwilight){
+            if(e.getState().getBlock() instanceof BlockTFMagicLeaves)
+                if((((BlockTFMagicLeaves)e.getState().getBlock()).func_176201_c(e.getState())&3)==1){
+                    if(!e.getDrops().contains(new ItemStack(Item.getItemFromBlock(e.getState().getBlock())))) {
+                        e.getDrops().clear();
+                        if(ammpdbm_mod.random.nextInt(4)==0)
+                            e.getDrops().add(new ItemStack(ItemRegister.TRANSFORMATION_DUST));
+                    }
+                }
+            if(e.getState().getBlock() instanceof BlockTFLeaves && ((BlockTFLeaves) e.getState().getBlock()).func_180651_a(e.getState())==9){
+                if(!e.getDrops().contains(new ItemStack(Item.getItemFromBlock(e.getState().getBlock())))) {
+                    if(ammpdbm_mod.random.nextInt(3)==0)
+                        e.getDrops().add(new ItemStack(ItemRegister.ESSENCE_RAINBOW));
                 }
             }
         }
@@ -166,7 +182,7 @@ public class EventHandler{
         Entity enemy = e.getSource().getTrueSource();
         DamageSource damage_type = e.getSource();
 
-        if(victim.getActivePotionMap().containsKey(PotionRegister.ENDERPROTECTION) &&
+        if(victim.isPotionActive(PotionRegister.ENDERPROTECTION) &&
                 (enemy instanceof EntityEnderman ||
                  enemy instanceof EntityEndermite ||
                  enemy instanceof EntityEnderCrystal ||
@@ -177,12 +193,53 @@ public class EventHandler{
                 enemy.attackEntityFrom(DamageSource.causeIndirectMagicDamage(victim, victim),100F);
             } else {
                 int ampl = victim.getActivePotionEffect(PotionRegister.ENDERPROTECTION).getAmplifier();
-                e.setAmount(Math.round(e.getAmount()*Math.min(1-0.1*ampl,0)));
+                if(enemy instanceof EntityDragon){
+                    e.setAmount(Math.max(e.getAmount()-(ampl+1)*2,0));
+                }
+                if(enemy instanceof EntityEnderman){
+                    e.setAmount(Math.max(e.getAmount()-Math.round(Math.pow(2,ampl)),0));
+                }
+                if(enemy instanceof EntityEnderCrystal){
+                    e.setAmount(0);
+                }
+                if(enemy instanceof EntityShulker){
+                    int newDamage = (int)(e.getAmount() - 2*ampl);
+                    e.setAmount(Math.max(0,newDamage));
+                    e.getSource().getTrueSource().attackEntityFrom(DamageSource.causeIndirectMagicDamage(e.getEntity(),null),newDamage);
+                }
             }
         }
-        if(e.getSource().isMagicDamage()){
-            if(e.getEntityLiving().isPotionActive(PotionRegister.MAGICPROTECTION)){
-                int a = e.getEntityLiving().getActivePotionMap().get(PotionRegister.MAGICPROTECTION).getAmplifier();
+        if(victim.isPotionActive(PotionRegister.ENDERPROTECTION) &&
+            damage_type.equals(DamageSource.ANVIL)){
+            int ampl = victim.getActivePotionEffect(PotionRegister.ENDERPROTECTION).getAmplifier();
+            e.getEntityLiving().addPotionEffect(
+                    new PotionEffect(
+                            ENDERPROTECTION,
+                            Math.min(12000,e.getEntityLiving().getActivePotionEffect(ENDERPROTECTION).getDuration()*(ampl+1)),ampl));
+        }
+        if(victim.isPotionActive(WITHERPROTECTION) && e.getSource().equals(DamageSource.WITHER)){
+            int ampl = victim.getActivePotionEffect(WITHERPROTECTION).getAmplifier();
+            if(ampl==0) e.setAmount(e.getAmount()*1.0F/2);
+            else e.setAmount(0);
+        }
+        if(victim.isPotionActive(WITHERPROTECTION) && e.getSource().isExplosion()){
+            if(victim.getActivePotionEffect(WITHERPROTECTION).getAmplifier()>0)
+                victim.addPotionEffect(new PotionEffect(
+                        WITHERPROTECTION,
+                        victim.getActivePotionEffect(WITHERPROTECTION).getDuration()+600,
+                        victim.getActivePotionEffect(WITHERPROTECTION).getAmplifier()));
+        }
+        if(victim.isPotionActive(PotionRegister.HUMANITY)){
+            if(e.getSource().getTrueSource() instanceof EntityZombie){
+                e.setAmount(
+                        e.getAmount() +
+                                victim.getEntityWorld().provider.getDimension()==-1?-1:-2 -
+                                victim.getActivePotionEffect(PotionRegister.HUMANITY).getAmplifier()*2);
+            }
+        }
+        if(damage_type.isMagicDamage()){
+            if(victim.isPotionActive(PotionRegister.MAGICPROTECTION)){
+                int a = victim.getActivePotionEffect(PotionRegister.MAGICPROTECTION).getAmplifier();
                 if(a==0) {
                     DamageSource nn = DamageSource.IN_FIRE;
                     nn.setFireDamage();
@@ -195,7 +252,7 @@ public class EventHandler{
                     e.getEntityLiving().attackEntityFrom(nn, e.getAmount()-2);
                 }
                 e.setAmount(0);
-            } else if((net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest")&(e.getEntity() instanceof EntityPlayer))){
+            } else if(ammpdbm_mod.isLoadedTwilight & victim instanceof EntityPlayer){
                 EntityPlayer player = (EntityPlayer) e.getEntity();
                 Item curer = ItemRegister.SPARKLES;
                 if(player.getHeldItem(EnumHand.OFF_HAND).getItem().equals(curer)) {
@@ -228,8 +285,8 @@ public class EventHandler{
         }
         if(e.getSource().getTrueSource() instanceof EntityPlayer){
             if(((EntityPlayer)e.getSource().getTrueSource()).getHeldItem(EnumHand.MAIN_HAND).getItem().equals(ItemRegister.BROOM)){
-                if(e.getEntityLiving() instanceof EntityIronGolem){
-                    if(!e.getEntityLiving().getEntityWorld().isRemote){
+                if(victim instanceof EntityIronGolem){
+                    if(!victim.getEntityWorld().isRemote){
                         int px = e.getEntityLiving().getPosition().getX();
                         int py = e.getEntityLiving().getPosition().getY();
                         int pz = e.getEntityLiving().getPosition().getZ();
@@ -247,8 +304,8 @@ public class EventHandler{
                         e.getEntityLiving().setDead();
                     }
                 }
-                if(e.getEntityLiving() instanceof EntitySnowman){
-                    if(!e.getEntityLiving().getEntityWorld().isRemote){
+                if(victim instanceof EntitySnowman){
+                    if(!victim.getEntityWorld().isRemote){
                         EntityItem aa = new EntityItem(
                                 e.getEntity().world,
                                 e.getEntityLiving().getPosition().getX(),
@@ -267,7 +324,7 @@ public class EventHandler{
                         e.getEntityLiving().setDead();
                     }
                 }
-                if(e.getEntityLiving() instanceof EntitySpider | e.getEntityLiving() instanceof EntitySilverfish){
+                if(victim instanceof EntitySpider | victim instanceof EntitySilverfish){
                     e.getEntityLiving().hurtResistantTime = 0;
                     e.getEntityLiving().attackEntityFrom(DamageSource.GENERIC,10);
                 }
@@ -280,7 +337,7 @@ public class EventHandler{
 
     @SubscribeEvent
     public void onLootTablesLoaded(LootTableLoadEvent e) {
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest")) {
+        if(ammpdbm_mod.isLoadedTwilight) {
             ResourceLocation r = new ResourceLocation("twilightforest","structures/hill_1/common");
             if (e.getName().equals(r)) {
                 final LootPool pool2 = e.getTable().getPool("main");
@@ -317,12 +374,7 @@ public class EventHandler{
     @SubscribeEvent
     public void onTeleport(EnderTeleportEvent e) {
         if(!e.getEntityLiving().isPotionActive(PotionRegister.ENDERPROTECTION)) return;
-        if(e.getEntityLiving() instanceof EntityEnderman ||
-           e.getEntityLiving() instanceof EntityShulker){
-            e.setTargetX(e.getEntity().posX);
-            e.setTargetY(e.getEntity().posY);
-            e.setTargetZ(e.getEntity().posZ);
-        } else if(e.getAttackDamage()>0F){
+        if(e.getAttackDamage()>0F){
             e.setAttackDamage(0F);
             e.getEntityLiving().addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY,600));
         }

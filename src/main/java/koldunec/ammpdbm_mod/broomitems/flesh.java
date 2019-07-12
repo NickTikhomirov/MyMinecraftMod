@@ -1,6 +1,7 @@
 package koldunec.ammpdbm_mod.broomitems;
 
 import koldunec.ammpdbm_mod.broomitems.baseItems.base_food;
+import koldunec.ammpdbm_mod.init.PotionRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -17,7 +18,8 @@ public class flesh extends base_food {
 
     @Override
     public void onFoodEaten(ItemStack is, World w, EntityPlayer player){
-        if(player.isPotionActive(Potion.getPotionById(17))) player.removePotionEffect(Potion.getPotionById(17));
+        if(player.isPotionActive(PotionRegister.HUMANITY))
+            player.removePotionEffect(PotionRegister.HUMANITY);
         if(w.provider.getDimension()==-1) {
             player.extinguish();
             player.getFoodStats().addStats(3,0.7F);

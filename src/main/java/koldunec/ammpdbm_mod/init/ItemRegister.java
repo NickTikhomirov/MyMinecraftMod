@@ -9,9 +9,11 @@ import koldunec.ammpdbm_mod.broomitems.baseItems.base_item;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curinggrass;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curingseeds;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.supercuringgrass;
+import koldunec.ammpdbm_mod.broomitems.throwables.bitcoin5000;
+import koldunec.ammpdbm_mod.broomitems.throwables.cursedRock;
+import koldunec.ammpdbm_mod.broomitems.throwables.inertstone;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -28,11 +30,14 @@ public class ItemRegister
 
     public static Item SPARKLES = new base_fuel("sparkles",64, (short)100);
     public static Item BITCOIN = new bitcoin();
+    public static Item BITCOIN5000 = new bitcoin5000("bitcoin5000",64);
 
     public static Item ESSENCE_RAINBOW= new base_item("rEssence", 64);
     public static Item FLINTBASE = new flint_base();
     public static Item MAGIC_FLINTS = new flints();
     public static Item RUNIC_STICK = new base_item("runic_stick",64);
+    public static Item ROUND_STONE = new inertstone("round_stone",64);
+    public static Item SOUL_CRYSTAL_s = new base_item("soul_crystal",64);
 
     public static Item GOLDEN_POTATO= new potatogp();
     public static Item FLESH = new flesh();
@@ -45,6 +50,7 @@ public class ItemRegister
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
 
     public static Item BROOM = new broom("broom");
+    public static Item MAGNETPICK = new magnetpick();
     public static Item MAGICBALL = new cursedRock("magic_ball",24);
     public static Item LASERCORE = new LaserCore();
     public static Item STEALER = new Stealer();
@@ -80,6 +86,10 @@ public class ItemRegister
         setRegister(CHICKEN_C);
         setRegister(POTATO_C);
         setRegister(FISH_C);
+        setRegister(ROUND_STONE);
+        setRegister(MAGNETPICK);
+        setRegister(BITCOIN5000);
+        setRegister(SOUL_CRYSTAL_s);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -94,7 +104,7 @@ public class ItemRegister
             setRegister(TRANSFORMATION_DUST);
         }
         if(ammpdbm_mod.isLoadedTinkers) {
-            OreDictionary.registerOre("bone", new ItemStack(Item.getByNameOrId("tconstruct:necrotic_bone"), 1));
+            OreDictionary.registerOre("bone", new ItemStack(Item.getByNameOrId("tconstruct:materals"),1,17));
         }
         if(ammpdbm_mod.isLoadedProjectX) {
             setRegister(SULFUR);
@@ -137,8 +147,12 @@ public class ItemRegister
         setRender(POTATO_C);
         setRender(CHICKEN_C);
         setRender(FISH_C);
+        setRender(ROUND_STONE);
+        setRender(MAGNETPICK);
+        setRender(BITCOIN5000);
+        setRender(SOUL_CRYSTAL_s);
 
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest")) {
+        if(ammpdbm_mod.isLoadedTwilight) {
             setRender(TRANSFORMATION_DUST);
         }
         if(ammpdbm_mod.isLoadedProjectX){

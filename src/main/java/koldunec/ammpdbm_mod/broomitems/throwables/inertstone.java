@@ -1,7 +1,7 @@
-package koldunec.ammpdbm_mod.broomitems;
+package koldunec.ammpdbm_mod.broomitems.throwables;
 
 import koldunec.ammpdbm_mod.broomitems.baseItems.base_item;
-import koldunec.ammpdbm_mod.utils.entityMagicBall;
+import koldunec.ammpdbm_mod.entities.entityStone;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemStack;
@@ -11,9 +11,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 
-public class cursedRock extends base_item {
+public class inertstone extends base_item {
 
-    public cursedRock(String name, int stackMax){
+    public inertstone(String name, int stackMax){
         super(name,stackMax);
     }
 
@@ -26,7 +26,7 @@ public class cursedRock extends base_item {
         player.getCooldownTracker().setCooldown(this, 10);
 
         if (!world.isRemote) {
-            entityMagicBall b = new entityMagicBall(world, player);
+            entityStone b = new entityStone(world, player);
             b.shoot(player, player.rotationPitch, player.rotationYaw, 0.0F, 1.5F, 1.0F);
             world.spawnEntity(b);
         }

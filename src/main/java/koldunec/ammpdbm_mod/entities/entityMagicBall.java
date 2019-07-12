@@ -1,4 +1,4 @@
-package koldunec.ammpdbm_mod.utils;
+package koldunec.ammpdbm_mod.entities;
 
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -69,9 +69,9 @@ public class entityMagicBall extends EntityThrowable {
                 } else {
                     EntityItem o = new EntityItem(
                             world,
-                            thrower.posX,
-                            thrower.posY,
-                            thrower.posZ,
+                            result.entityHit.posX,
+                            result.entityHit.posY,
+                            result.entityHit.posZ,
                             new ItemStack(Items.EGG, 200));
                     world.spawnEntity(o);
                     result.entityHit.setDead();
@@ -102,10 +102,7 @@ public class entityMagicBall extends EntityThrowable {
                 if(world.isRemote) return;
                 int i = 2;
                 if(Math.abs(world.provider.getDimension())>1) i++;
-                if(thrower instanceof EntityPlayer && ((EntityPlayer)thrower).isPotionActive(MobEffects.UNLUCK))
-                    result.entityHit.attackEntityFrom(DamageSource.causeIndirectMagicDamage(this, this.getThrower()), (float) i);
-                else
-                    result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float) i);
+                result.entityHit.attackEntityFrom(DamageSource.causeIndirectMagicDamage(this, this.getThrower()), (float) i);
             }
             this.world.setEntityState(this, (byte)3);
             this.setDead();

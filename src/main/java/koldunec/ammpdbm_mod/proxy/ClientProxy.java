@@ -1,10 +1,12 @@
 package koldunec.ammpdbm_mod.proxy;
 
 
-import koldunec.ammpdbm_mod.utils.entityMagicBall;
+import koldunec.ammpdbm_mod.entities.entityBitcoin;
+import koldunec.ammpdbm_mod.entities.entityMagicBall;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import koldunec.ammpdbm_mod.utils.SnowballRenderFactory;
+import koldunec.ammpdbm_mod.entities.entityStone;
 import net.minecraftforge.fml.client.registry.RenderingRegistry;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -16,6 +18,9 @@ public class ClientProxy extends CommonProxy{
     public void preInit(FMLPreInitializationEvent event)
     {
         RenderingRegistry.registerEntityRenderingHandler(entityMagicBall.class, new SnowballRenderFactory(ItemRegister.MAGICBALL));
+        RenderingRegistry.registerEntityRenderingHandler(entityStone.class, new SnowballRenderFactory(ItemRegister.ROUND_STONE));
+        RenderingRegistry.registerEntityRenderingHandler(entityBitcoin.class, new SnowballRenderFactory(ItemRegister.BITCOIN5000));
+
         super.preInit(event);
     }
 

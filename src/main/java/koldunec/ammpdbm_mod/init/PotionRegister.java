@@ -17,13 +17,17 @@ import static net.minecraft.init.MobEffects.*;
 public class PotionRegister {
 
     public static final Potion
-            MINDPROTECTION = new potionmindprotection("mindprotection", false, 0xFFE4E1);
+            MINDPROTECTION = new potionmindprotection(0xFFE4E1);
     public static final Potion
-            MAGICPROTECTION = new potionmagicprotection("magicprotection", false, 0xFFFF00);
+            MAGICPROTECTION = new potionmagicprotection(0xFFFF00);
     //public static final Potion
     //        EFFECT_STORAGE = effectstorage.EFFECT_S;
     public static final Potion
-            ENDERPROTECTION = new potionenderprotection("enderprotection",false, 0x00FF60);
+            ENDERPROTECTION = new potionenderprotection(0x00FF60);
+    public static final Potion
+            HUMANITY = new potionhumanity(0xffc8a8);
+    public static final Potion
+            WITHERPROTECTION = new potionwitherprotection(0xe34234);
 
 
     public static final PotionType
@@ -36,16 +40,43 @@ public class PotionRegister {
             MAGICPROTECTION_TYPE_STANDARD = createPotionType(null, new PotionEffect(MAGICPROTECTION, 1800)),
             MAGICPROTECTION_TYPE_STRONG = createPotionType("strong", new PotionEffect(MAGICPROTECTION, 6000, 1)),
 
-            MINDDEVOUR_TYPE_STANDARD = createCompositePotionType("minddevourpotion", null, new PotionEffect(BLINDNESS, 4800), new PotionEffect(NAUSEA, 4800)),
+            MINDDEVOUR_TYPE_STANDARD = createCompositePotionType("minddevourpotion", null,
+                    new PotionEffect(BLINDNESS, 4800),
+                    new PotionEffect(NAUSEA, 4800)),
 
-            OCEANPOTION_TYPE_STANDARD = createCompositePotionType("oceanpotion", null, new PotionEffect(Potion.getPotionById(13), 3000),new PotionEffect(Potion.getPotionById(16), 3000)),
-            OCEANPOTION_TYPE_LONG = createCompositePotionType("oceanpotionl", "long", new PotionEffect(Potion.getPotionById(13), 9000),new PotionEffect(Potion.getPotionById(16), 9000)),
-            OCEANPOTIONCOMBAT_TYPE_LONG = createCompositePotionType("oceanpotioncombat", "long", new PotionEffect(Potion.getPotionById(13), 8400),new PotionEffect(Potion.getPotionById(16), 8400),new PotionEffect(MINDPROTECTION, 8400,1)),
+            OCEANPOTION_TYPE_STANDARD = createCompositePotionType("oceanpotion", null,
+                    new PotionEffect(NIGHT_VISION, 3000),
+                    new PotionEffect(WATER_BREATHING, 3000)),
+            OCEANPOTION_TYPE_LONG = createCompositePotionType("oceanpotionl", "long",
+                    new PotionEffect(NIGHT_VISION, 9000),
+                    new PotionEffect(WATER_BREATHING, 9000)),
+            OCEANPOTIONCOMBAT_TYPE_LONG = createCompositePotionType("oceanpotioncombat", "long",
+                    new PotionEffect(NIGHT_VISION, 8400),
+                    new PotionEffect(WATER_BREATHING, 8400),
+                    new PotionEffect(MINDPROTECTION, 8400,1)),
 
             ENDERPROTECTION_TYPE_SHORT = createPotionType("short",new PotionEffect(ENDERPROTECTION,1200,2)),
             ENDERPROTECTION_TYPE_STANDART = createPotionType(null, new PotionEffect(ENDERPROTECTION, 3600)),
             ENDERPROTECTION_TYPE_STRONG = createPotionType("strong", new PotionEffect(ENDERPROTECTION, 3600,1)),
-            ENDERPROTECTION_TYPE_LONG = createPotionType("long", new PotionEffect(ENDERPROTECTION, 9600));
+            ENDERPROTECTION_TYPE_LONG = createPotionType("long", new PotionEffect(ENDERPROTECTION, 9600)),
+
+            HUMANITY_TYPE_STANDART = createPotionType(null,new PotionEffect(HUMANITY,3600)),
+            HUMANITY_TYPE_STRONG = createPotionType("strong",new PotionEffect(HUMANITY,3600,1)),
+            HUMANITY_TYPE_LONG = createPotionType("long",new PotionEffect(HUMANITY,9600)),
+
+            WITHERPROTECTION_TYPE_STANDART = createPotionType(null,new PotionEffect(WITHERPROTECTION,3600)),
+            WITHERPROTECTION_TYPE_STRONG = createPotionType("strong",new PotionEffect(WITHERPROTECTION,2400,1)),
+
+
+            GOLDENAPLLE_TYPE_STANDART = createCompositePotionType("goldenapple_potion",null,
+                    new PotionEffect(ABSORPTION,2400),
+                    new PotionEffect(REGENERATION,100,1)),
+            GOLDENAPLLE_TYPE_STRONG = createCompositePotionType("goldenapple_potion","strong",
+                    new PotionEffect(ABSORPTION,2400,3),
+                    new PotionEffect(REGENERATION,400,1),
+                    new PotionEffect(FIRE_RESISTANCE,6000),
+                    new PotionEffect(RESISTANCE,6000));
+
 
 
 
@@ -53,11 +84,13 @@ public class PotionRegister {
 
     private static PotionType createPotionType(String namePrefix, PotionEffect potionEffect) {
         ResourceLocation potionName = potionEffect.getPotion().getRegistryName();
-        ResourceLocation potionTypeName;
+        ResourceLocation potionTypeName ;
         if (namePrefix != null)
             potionTypeName = new ResourceLocation(potionName.getResourceDomain(), namePrefix + "_" + potionName.getResourcePath());
         else
             potionTypeName = potionName;
+        if(namePrefix!=null && !namePrefix.equals("strong") && !namePrefix.equals("long"))
+            potionName = potionTypeName;
         return new PotionType(potionName.toString(), potionEffect).setRegistryName(potionTypeName);
     }
 
@@ -89,7 +122,9 @@ public class PotionRegister {
                 MINDPROTECTION,
                 MAGICPROTECTION,
                 //EFFECT_STORAGE,
-                ENDERPROTECTION
+                ENDERPROTECTION,
+                HUMANITY,
+                WITHERPROTECTION
         );
     }
 
@@ -115,7 +150,17 @@ public class PotionRegister {
                 ENDERPROTECTION_TYPE_SHORT,
                 ENDERPROTECTION_TYPE_STANDART,
                 ENDERPROTECTION_TYPE_STRONG,
-                ENDERPROTECTION_TYPE_LONG
+                ENDERPROTECTION_TYPE_LONG,
+
+                HUMANITY_TYPE_STANDART,
+                HUMANITY_TYPE_STRONG,
+                HUMANITY_TYPE_LONG,
+
+                WITHERPROTECTION_TYPE_STANDART,
+                WITHERPROTECTION_TYPE_STRONG,
+
+                GOLDENAPLLE_TYPE_STANDART,
+                GOLDENAPLLE_TYPE_STRONG
         );
     }
 }
