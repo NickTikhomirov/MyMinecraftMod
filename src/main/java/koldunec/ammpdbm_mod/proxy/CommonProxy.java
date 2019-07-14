@@ -26,8 +26,8 @@ public class CommonProxy {
                 EntityRegistry.registerModEntity(new ResourceLocation("ammpdbm_mod", "round_stone"), entityStone.class, "ammpdbm:round_stone", 1, ammpdbm_mod.instance, 64, 20, true);
                 EntityRegistry.registerModEntity(new ResourceLocation("ammpdbm_mod", "bitcoin5000"), entityBitcoin.class, "ammpdbm:bitcoin5000", 2, ammpdbm_mod.instance, 64, 20, true);
 
-                BlockRegister.register();
                 ItemRegister.register();
+                BlockRegister.register();
                 MinecraftForge.EVENT_BUS.register(new EventHandler());
         }
 

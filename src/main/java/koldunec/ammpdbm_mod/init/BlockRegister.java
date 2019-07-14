@@ -61,10 +61,12 @@ public class BlockRegister
         ForgeRegistries.BLOCKS.register(CURING_CROPS);
 
         if(ammpdbm_mod.isLoadedProjectX) {
-            registerBlock(ORE_ALUMINUM);
-            registerBlock(ALBLOCK);
-            OreDictionary.registerOre("oreAluminum",new ItemStack(BlockRegister.ORE_ALUMINUM));
-            OreDictionary.registerOre("blockAluminum",new ItemStack(BlockRegister.ALBLOCK));
+            if(ammpdbm_mod.isLoadedSulfurTorches) {
+                registerBlock(ORE_ALUMINUM);
+                registerBlock(ALBLOCK);
+                OreDictionary.registerOre("oreAluminum", new ItemStack(BlockRegister.ORE_ALUMINUM));
+                OreDictionary.registerOre("blockAluminum", new ItemStack(BlockRegister.ALBLOCK));
+            }
         }
         //if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest"));
 
@@ -87,8 +89,10 @@ public class BlockRegister
         setRender(COBBLE_MOSS_old);
         setRender(ORE_RAINBOW);
         if(ammpdbm_mod.isLoadedProjectX) {
-            setRender(ORE_ALUMINUM);
-            setRender(ALBLOCK);
+            if(ammpdbm_mod.isLoadedSulfurTorches) {
+                setRender(ORE_ALUMINUM);
+                setRender(ALBLOCK);
+            }
         }
 
     }

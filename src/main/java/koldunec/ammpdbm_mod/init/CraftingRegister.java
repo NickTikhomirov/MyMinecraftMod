@@ -60,10 +60,18 @@ public class CraftingRegister
             if(ammpdbm_mod.isLoadedSulfurTorches){
                 registerRecipes("altorch");
                 registerRecipes("sultorch");
+                registerRecipes("xy_amulet");
             }
+        }
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("retroexchange")){
+            registerRecipes("retroexchange_");
+            registerRecipes("retroexchange__");
         }
         GameRegistry.addSmelting(BlockRegister.ORE_BIT,new ItemStack(ItemRegister.BITCOIN5000),0.5F);
         GameRegistry.addSmelting(Items.GHAST_TEAR,new ItemStack(ItemRegister.SOUL_CRYSTAL_s),0.5F);
+        if(ammpdbm_mod.isLoadedSulfurTorches && ammpdbm_mod.isLoadedProjectX) {
+            GameRegistry.addSmelting(Items.GUNPOWDER, new ItemStack(ItemRegister.SULFUR), 0.5F);
+        }
 
 
         PotionHelper.addMix(PotionTypes.SWIFTNESS, Ingredient.fromStacks(new ItemStack(Items.DYE,1,3)), PotionRegister.HASTE_TYPE_STANDART);
@@ -105,6 +113,11 @@ public class CraftingRegister
 
         PotionHelper.addMix(PotionTypes.THICK, Ingredient.fromStacks(new ItemStack(Items.GOLDEN_APPLE,1,0)), PotionRegister.GOLDENAPLLE_TYPE_STANDART);
         PotionHelper.addMix(PotionTypes.THICK, Ingredient.fromStacks(new ItemStack(Items.GOLDEN_APPLE,1,1)), PotionRegister.GOLDENAPLLE_TYPE_STRONG);
+
+        PotionHelper.addMix(PotionRegister.MINDDEVOUR_TYPE_STANDARD, Items.SPIDER_EYE, PotionRegister.ACID_TYPE_STANDART);
+        PotionHelper.addMix(PotionRegister.ACID_TYPE_STANDART, ItemRegister.ESSENCE_RAINBOW, PotionRegister.ACID_TYPE_STRONG);
+        PotionHelper.addMix(PotionRegister.ACID_TYPE_STRONG, Ingredient.fromStacks(new ItemStack(Items.FISH, 1, ItemFishFood.FishType.PUFFERFISH.getMetadata())), PotionRegister.ACID_TYPE_SUPERSTRONG);
+
 
         BrewingRecipeRegistry.addRecipe(new ItemStack(Items.POTIONITEM), new ItemStack(Items.NETHER_STAR), new ItemStack(ItemRegister.NETHER_DRINK));
 

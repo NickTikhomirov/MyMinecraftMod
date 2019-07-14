@@ -21,7 +21,9 @@ import java.util.Random;
                 "after:tconstruct;" +
                 "after:projectx;" +
                 "after:projectred-exploration;" +
-                "after:sulfurtorches;"
+                "after:sulfurtorches;" +
+                "after:retroexchange;" +
+                "after:baubles"
 )
 public class ammpdbm_mod
 {
@@ -39,7 +41,7 @@ public class ammpdbm_mod
     public static Boolean isLoadedProjectX = false;
     public static Boolean isLoadedProjectRed_exploration = false;
     public static Boolean isLoadedSulfurTorches = false;
-    public static Boolean isLoadedCorn = false;
+    public static Boolean isLoadedBaubles = false;
 
 
 
@@ -56,6 +58,8 @@ public class ammpdbm_mod
             isLoadedSulfurTorches = true;
         if(net.minecraftforge.fml.common.Loader.isModLoaded("projectred-exploration"))
             isLoadedProjectRed_exploration = true;
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("baubles"))
+            isLoadedBaubles = true;
 
         proxy.preInit(event);
 

@@ -28,6 +28,8 @@ public class PotionRegister {
             HUMANITY = new potionhumanity(0xffc8a8);
     public static final Potion
             WITHERPROTECTION = new potionwitherprotection(0xe34234);
+    public static final Potion
+            ACID = new potionacid(0x02ab9d);
 
 
     public static final PotionType
@@ -67,6 +69,9 @@ public class PotionRegister {
             WITHERPROTECTION_TYPE_STANDART = createPotionType(null,new PotionEffect(WITHERPROTECTION,3600)),
             WITHERPROTECTION_TYPE_STRONG = createPotionType("strong",new PotionEffect(WITHERPROTECTION,2400,1)),
 
+            ACID_TYPE_STANDART = createPotionType(null,new PotionEffect(ACID,1)),
+            ACID_TYPE_STRONG = createPotionType("strong", new PotionEffect(ACID,1,1)),
+            ACID_TYPE_SUPERSTRONG = createPotionType("strongP", new PotionEffect(ACID, 1, 2)),
 
             GOLDENAPLLE_TYPE_STANDART = createCompositePotionType("goldenapple_potion",null,
                     new PotionEffect(ABSORPTION,2400),
@@ -124,7 +129,8 @@ public class PotionRegister {
                 //EFFECT_STORAGE,
                 ENDERPROTECTION,
                 HUMANITY,
-                WITHERPROTECTION
+                WITHERPROTECTION,
+                ACID
         );
     }
 
@@ -158,6 +164,10 @@ public class PotionRegister {
 
                 WITHERPROTECTION_TYPE_STANDART,
                 WITHERPROTECTION_TYPE_STRONG,
+
+                ACID_TYPE_STANDART,
+                ACID_TYPE_STRONG,
+                ACID_TYPE_SUPERSTRONG,
 
                 GOLDENAPLLE_TYPE_STANDART,
                 GOLDENAPLLE_TYPE_STRONG

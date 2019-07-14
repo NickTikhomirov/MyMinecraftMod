@@ -11,7 +11,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "0.1"
+version = "0.0.4"
 group = "com.koldunec.ammpdbm" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ammpdbm"
 
@@ -46,6 +46,9 @@ dependencies {
     // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
     //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
     provided 'twilightforest:twilightforest-1.12.2-3.8.654-universal'
+    provided 'baubles:Baubles-1.12-1.5.2'
+    provided 'tconstruct:TConstruct-1.12.2-2.12.0.135'
+    provided 'projectx:ProjectX-1.12.2-2.2.7-universal'
 
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings

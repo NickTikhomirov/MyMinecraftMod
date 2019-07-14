@@ -6,6 +6,7 @@ import com.sun.media.jfxmedia.logging.Logger;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.broomitems.another_dye_please_dont_blame_me;
 import koldunec.ammpdbm_mod.broomitems.flints;
+import koldunec.ammpdbm_mod.broomitems.xyAmulet;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import koldunec.ammpdbm_mod.init.PotionRegister;
@@ -41,6 +42,7 @@ import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
+import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.world.BlockEvent;
@@ -121,6 +123,7 @@ public class EventHandler{
         if(e.getWorld().isRemote) return;
         if(player!=null){
             ItemStack itemstack = player.getHeldItemMainhand();
+            ItemStack itemleft = player.getHeldItemOffhand();
             if(!itemstack.isEmpty())
                 if(itemstack.getItem().equals(ItemRegister.BROOM)&(e.getState().getBlock().equals(Blocks.BOOKSHELF)|e.getState().getBlock().equals(Blocks.ENDER_CHEST))){
                     e.getDrops().clear();
@@ -143,9 +146,36 @@ public class EventHandler{
                         pick.setItemDamage(Math.max(0,pick.getItemDamage()-20));
                     }
                 }
+                if(xyAmulet.isEquiped(player) && !e.isSilkTouching()){
+                    if(e.getState().getBlock().equals(Blocks.REDSTONE_ORE)){
+                        if(ammpdbm_mod.random.nextInt(20)==0){
+                            e.getDrops().add(new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),1,2));
+                        }
+                    } else if(e.getState().getBlock().equals(Blocks.COAL_ORE)){
+                        if(ammpdbm_mod.random.nextInt(100)==0){
+                            e.getDrops().add(new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),1,3));
+                        }
+                    } else if(e.getState().getBlock().equals(Blocks.QUARTZ_ORE)){
+                        if(ammpdbm_mod.random.nextInt(10)==0){
+                            e.getDrops().add(new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),1,4));
+                        }
+                    } else if(e.getState().getBlock().equals(BlockRegister.ORE_RAINBOW)){
+                        for(int i=0; i<5;i++){
+                            e.getDrops().add(
+                                    new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),
+                                    ammpdbm_mod.random.nextInt(2)+1,
+                                    i));
+                        }
+                    } else if(e.getState().getBlock().equals(Blocks.DIAMOND_ORE)){
+                        e.getDrops().add(new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),1,4));
+                    } else if(e.getState().getBlock().equals(Blocks.EMERALD_ORE)){
+                        e.getDrops().add(new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),2,1));
+                    }
+                }
         }
 
         if(e.getState().getBlock().equals(BlockRegister.ORE_RAINBOW)){
+            e.getDrops().add(new ItemStack(ItemRegister.ESSENCE_RAINBOW,ammpdbm_mod.random.nextInt(2)+1));
             e.getDrops().add(new ItemStack(Items.DYE,1,1));
             for(int ii=5; ii<15; ii++){
                 e.getDrops().add(new ItemStack(Items.DYE,1,ii));
@@ -377,6 +407,88 @@ public class EventHandler{
         if(e.getAttackDamage()>0F){
             e.setAttackDamage(0F);
             e.getEntityLiving().addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY,600));
+        }
+    }
+
+    @SubscribeEvent
+    public void onDeath(LivingDeathEvent e) {
+        if(e.getSource().getTrueSource() instanceof EntityPlayer){
+            EntityPlayer player = (EntityPlayer) e.getSource().getTrueSource();
+            if(player==null) return;
+            if(xyAmulet.isEquiped(player)){
+                if(!e.getEntity().isNonBoss()) {
+                    for(int i=0; i<5;i++){
+                        e.getEntity().entityDropItem(
+                                new ItemStack(
+                                        Item.getByNameOrId("projectx:xycronium_crystal"),
+                                        ammpdbm_mod.random.nextInt(5)+16,
+                                        i),
+                                1F);
+                    }
+                }
+                if(e.getEntity() instanceof EntityWitherSkeleton){
+                    if(ammpdbm_mod.random.nextInt(5)==0)
+                        e.getEntity().entityDropItem(
+                            new ItemStack(
+                                    Item.getByNameOrId("projectx:xycronium_crystal"),
+                                    ammpdbm_mod.random.nextInt(3)+1,
+                                    3),
+                            1F);
+                }
+                if(e.getEntity() instanceof EntityGuardian){
+                    e.getEntity().entityDropItem(
+                        new ItemStack(
+                            Item.getByNameOrId("projectx:xycronium_crystal"),
+                            ammpdbm_mod.random.nextInt(2)+2,
+                            0),
+                        1F);
+                }
+                if(e.getEntity() instanceof EntityElderGuardian){
+                    e.getEntity().entityDropItem(
+                            new ItemStack(
+                                    Item.getByNameOrId("projectx:xycronium_crystal"),
+                                    8,
+                                    0),
+                            1F);
+                    e.getEntity().entityDropItem(
+                            new ItemStack(
+                                    Item.getByNameOrId("projectx:xycronium_crystal"),
+                                    10+ammpdbm_mod.random.nextInt(2),
+                                    4),
+                            1F);
+                }
+                if(e.getEntity() instanceof EntityGhast){
+                    if(ammpdbm_mod.random.nextInt(2)==0)
+                        e.getEntity().entityDropItem(
+                                new ItemStack(
+                                        Item.getByNameOrId("projectx:xycronium_crystal"),
+                                        1+ammpdbm_mod.random.nextInt(2),
+                                        4),
+                                1F);
+                    if(ammpdbm_mod.random.nextInt(5)==0)
+                        e.getEntity().entityDropItem(
+                            new ItemStack(
+                                    Item.getByNameOrId("projectx:xycronium_crystal"),
+                                    2+ammpdbm_mod.random.nextInt(2),
+                                    2),
+                            1F);
+                    if(ammpdbm_mod.random.nextInt(5)==0)
+                        e.getEntity().entityDropItem(
+                            new ItemStack(
+                                    Item.getByNameOrId("projectx:xycronium_crystal"),
+                                    1+ammpdbm_mod.random.nextInt(2),
+                                    3),
+                            1F);
+                }
+                if(e.getEntity() instanceof EntitySilverfish){
+                    e.getEntity().entityDropItem(
+                        new ItemStack(
+                            Item.getByNameOrId("projectx:xycronium_crystal"),
+                            1,
+                            ammpdbm_mod.random.nextInt(5)),
+                        1F);
+                }
+            }
         }
     }
 }

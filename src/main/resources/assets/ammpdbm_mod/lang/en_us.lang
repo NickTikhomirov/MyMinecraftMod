@@ -28,6 +28,7 @@ item.curedpotato.name=Safe Potato
 item.round_stone.name=Inert Stone
 item.magnetpick.name=Magnetic Pickaxe
 item.soul_crystal.name=Ghast Crystal
+item.xy_amulet.name=Xycronium Amulet
 
 item.dye.green.name=Green Dye
 item.dye.black.name=Black Dye
@@ -61,6 +62,8 @@ potion.effect.ammpdbm_mod:short_enderprotection=Short Potion of Ender Protection
 potion.effect.ammpdbm_mod:humanity=Elixir of Humanity
 potion.effect.goldenapple_potion=Bottled Golden Apple
 potion.effect.ammpdbm_mod:witherprotection=Potion of Wither Protection
+potion.effect.ammpdbm_mod:acid=Magic Acid
+potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid
 
 
 
@@ -75,6 +78,8 @@ splash_potion.effect.ammpdbm_mod:enderprotection=Splash Potion of Ender Protecti
 splash_potion.effect.ammpdbm_mod:humanity=Splash Elixir of Humanity
 splash_potion.effect.goldenapple_potion=Splash Golden Apple
 splash_potion.effect.ammpdbm_mod:witherprotection=Splash Potion of Wither Protection
+splash_potion.effect.ammpdbm_mod:acid=Magic Acid Bomb
+splash_potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid Bomb
 
 
 lingering_potion.effect.oceanpotion=Lingering Ocean Potion
@@ -87,6 +92,9 @@ lingering_potion.effect.ammpdbm_mod:enderprotection=Lingering Potion of Ender Pr
 lingering_potion.effect.ammpdbm_mod:humanity=Lingering Elixir of Humanity
 lingering_potion.effect.goldenapple_potion=Lingering Golden Apple
 lingering_potion.effect.ammpdbm_mod:witherprotection=Lingering Potion of Wither Protection
+lingering_potion.effect.ammpdbm_mod:acid=Magic Acid Bomb
+lingering_potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid Bomb
+
 
 tipped_arrow.effect.oceanpotion=Ocean Arrow
 tipped_arrow.effect.oceanpotionl=Ocean Arrow
@@ -97,6 +105,8 @@ tipped_arrow.effect.minecraft:haste=Arrow of Haste
 tipped_arrow.effect.ammpdbm_mod:humanity=Arrow of Humanity
 tipped_arrow.effect.goldenapple_potion=Arrow With Golden Apple
 tipped_arrow.effect.ammpdbm_mod:witherprotection=Arrow of Wither Protection
+tipped_arrow.effect.ammpdbm_mod:acid=Acid Arrow
+tipped_arrow.effect.ammpdbm_mod:strongp_acid=Acid Arrow
 
 
 effect.ammpdbm_mod:mindprotection=Mind Protection
@@ -104,6 +114,7 @@ effect.ammpdbm_mod:magicprotection=Magic Conversion
 effect.ammpdbm_mod:enderprotection=Ender Protection
 effect.ammpdbm_mod:humanity=Humanity
 effect.ammpdbm_mod:witherprotection=Wither Protection
+effect.ammpdbm_mod:acid=Magic Acid
 
 
 lingering_potion.effect.minddevourpotion=Probably honey, but I'm not sure

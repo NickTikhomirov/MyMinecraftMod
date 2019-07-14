@@ -65,7 +65,7 @@ public class entityBitcoin extends EntityThrowable {
                             if(((ItemArmor)a.getItem()).getArmorMaterial().equals(ItemArmor.ArmorMaterial.CHAIN)) o++;
                         }
                     }
-                    if(o==4 && thrower.getActivePotionEffect(ENDERPROTECTION).getDuration()>9999) result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this,this.getThrower()),1000);
+                    if(o==4 && thrower.getActivePotionEffect(ENDERPROTECTION).getDuration()>9600) result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this,this.getThrower()),1000);
                 }
             }
             result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.getThrower()), (float) 2);

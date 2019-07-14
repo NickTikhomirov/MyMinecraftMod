@@ -10,8 +10,8 @@
       "item": "minecraft:flint"
     },
     "N": {
-      "item": "ammpdbm_mod:flints",
-      "data": 1
+      "type": "forge:ore_dict",
+      "ore": "magicFlintWeak"
     },
     "S": {
       "item": "minecraft:stick"

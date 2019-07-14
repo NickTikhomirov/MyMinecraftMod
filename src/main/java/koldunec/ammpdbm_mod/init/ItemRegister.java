@@ -54,6 +54,7 @@ public class ItemRegister
     public static Item MAGICBALL = new cursedRock("magic_ball",24);
     public static Item LASERCORE = new LaserCore();
     public static Item STEALER = new Stealer();
+    public static Item xyAMULET = new xyAmulet();
 
     public static Item NETHER_DRINK = new nether_drink();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
@@ -107,11 +108,13 @@ public class ItemRegister
             OreDictionary.registerOre("bone", new ItemStack(Item.getByNameOrId("tconstruct:materals"),1,17));
         }
         if(ammpdbm_mod.isLoadedProjectX) {
-            setRegister(SULFUR);
-            setRegister(ALUMINUM);
-
-            OreDictionary.registerOre("nuggetAluminium",new ItemStack(ItemRegister.ALUMINUM));
-            OreDictionary.registerOre("dustSulfur",new ItemStack(ItemRegister.SULFUR));
+            if(ammpdbm_mod.isLoadedSulfurTorches) {
+                setRegister(SULFUR);
+                setRegister(ALUMINUM);
+                setRegister(xyAMULET);
+                OreDictionary.registerOre("nuggetAluminium",new ItemStack(ItemRegister.ALUMINUM));
+                OreDictionary.registerOre("dustSulfur",new ItemStack(ItemRegister.SULFUR));
+            }
 
             OreDictionary.registerOre("dyeBlue", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 0));
             OreDictionary.registerOre("dyeLime", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 1));
@@ -156,8 +159,11 @@ public class ItemRegister
             setRender(TRANSFORMATION_DUST);
         }
         if(ammpdbm_mod.isLoadedProjectX){
-            setRender(ALUMINUM);
-            setRender(SULFUR);
+            if(ammpdbm_mod.isLoadedSulfurTorches) {
+                setRender(ALUMINUM);
+                setRender(SULFUR);
+                setRender(xyAMULET);
+            }
         }
     }
 
