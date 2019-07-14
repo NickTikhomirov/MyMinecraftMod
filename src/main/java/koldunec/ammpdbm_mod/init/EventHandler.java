@@ -175,7 +175,7 @@ public class EventHandler{
         }
 
         if(e.getState().getBlock().equals(BlockRegister.ORE_RAINBOW)){
-            e.getDrops().add(new ItemStack(ItemRegister.ESSENCE_RAINBOW,ammpdbm_mod.random.nextInt(2)+1));
+            //e.getDrops().add(new ItemStack(ItemRegister.ESSENCE_RAINBOW,ammpdbm_mod.random.nextInt(2)+1));
             e.getDrops().add(new ItemStack(Items.DYE,1,1));
             for(int ii=5; ii<15; ii++){
                 e.getDrops().add(new ItemStack(Items.DYE,1,ii));

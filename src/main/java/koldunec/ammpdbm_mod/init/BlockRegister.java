@@ -33,12 +33,12 @@ public class BlockRegister
     public static Block PLANKS_Light = new basic_planks("block_planks_light", 2F ,15F);
     public static Block PLANKS_uncommon = new basic_planks("block_planks_uncommon", 2F ,15F);
 
-    public static Block ORE_BIT = new bitore("ore_bit", ItemRegister.BITCOIN,2,5,6);
-    public static Block ORE_SPARKLE = new bitore("sparkleore",ItemRegister.SPARKLES,5,7,11);
+    public static Block ORE_BIT = new bitore("ore_bit",2,5,6);
+    public static Block ORE_SPARKLE = new bitore("sparkleore",5,7,11);
     public static Block ORE_EGG = new eggore("ore_egg",64);
-    public static Block ORE_RAINBOW = new rainbow_ore("ore_rainbow",ItemRegister.ESSENCE_RAINBOW,1,2,3);
+    public static Block ORE_RAINBOW = new rainbow_ore("ore_rainbow",1,2,3);
 
-    public static Block ORE_ALUMINUM = new bitore("ore_al",ItemRegister.ALUMINUM,4,7,10);
+    public static Block ORE_ALUMINUM = new bitore("ore_al",4,7,10);
     public static Block  ALBLOCK = new basic_block("block_aluminum",Material.IRON,"pickaxe",1,1F,50F);
     //public static Block TOWER_FURNACE = new TowerFurnace(2F,30F);
 

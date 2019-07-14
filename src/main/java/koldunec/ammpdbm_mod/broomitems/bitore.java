@@ -1,6 +1,9 @@
 package koldunec.ammpdbm_mod.broomitems;
 
 import koldunec.ammpdbm_mod.ammpdbm_mod;
+import koldunec.ammpdbm_mod.init.BlockRegister;
+import koldunec.ammpdbm_mod.init.ItemRegister;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockOre;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -16,7 +19,7 @@ public class bitore extends BlockOre
     int am;
     int aM;
     int AM;
-    public bitore (String name, Item drop,int amountMin, int amountMax, int amountMaxWithFortune)
+    public bitore (String name,int amountMin, int amountMax, int amountMaxWithFortune)
     {
         this.setRegistryName(name);
         this.setUnlocalizedName(name);
@@ -24,22 +27,29 @@ public class bitore extends BlockOre
         this.setHarvestLevel("pickaxe",1);
         this.setHardness(1F);
         this.setResistance(50.0F);
-        drops = drop;
         am = amountMin;
         aM = amountMax;
         AM = amountMaxWithFortune;
     }
+
+    @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return drops;
+
+        if(this==BlockRegister.ORE_ALUMINUM)
+            return ItemRegister.ALUMINUM;
+        else if(this==BlockRegister.ORE_BIT)
+            return ItemRegister.BITCOIN;
+        return ItemRegister.FISHY;
     }
 
+    @Override
     public int quantityDropped(Random random)
     {
-        int f = am + random.nextInt(5);
+        int f = am + random.nextInt(aM-am+1);
         return (f>aM)?aM:f;
     }
 
-
+    @Override
     public int quantityDroppedWithBonus(int fortune, Random random) {
 
         if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped((IBlockState)this.getBlockState().getValidStates().iterator().next(), random, fortune)) {
@@ -72,7 +82,7 @@ public class bitore extends BlockOre
         if (this.getItemDropped(state, rand, fortune) != Item.getItemFromBlock(this)) {
 
             int i = 0;
-            i = MathHelper.getInt(rand, 0, 2); //Количество опыта (от 0 до 2)
+            i = MathHelper.getInt(rand, 2, 4); //Количество опыта (от 0 до 2)
             return i;
 
         }

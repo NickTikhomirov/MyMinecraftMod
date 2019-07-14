@@ -1,5 +1,6 @@
 package koldunec.ammpdbm_mod.broomitems;
 
+import koldunec.ammpdbm_mod.init.ItemRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -20,7 +21,7 @@ public class rainbow_ore extends Block
     int am;
     int aM;
     int AM;
-    public rainbow_ore(String name, Item drop, int amountMin, int amountMax, int amountMaxWithFortune)
+    public rainbow_ore(String name, int amountMin, int amountMax, int amountMaxWithFortune)
     {
         super(Material.GROUND);
         this.setRegistryName(name);
@@ -29,18 +30,17 @@ public class rainbow_ore extends Block
         this.setHardness(0.2F);
         this.setResistance(Blocks.DIRT.getExplosionResistance(null,null,null,null));
         this.setSoundType(SoundType.GROUND);
-        drops = drop;
         am = amountMin;
         aM = amountMax;
         AM = amountMaxWithFortune;
     }
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return drops;
+        return ItemRegister.ESSENCE_RAINBOW;
     }
 
     public int quantityDropped(Random random)
     {
-        int f = am + random.nextInt(5);
+        int f = am + random.nextInt(aM-am+1);
         return (f>aM)?aM:f;
     }
 
