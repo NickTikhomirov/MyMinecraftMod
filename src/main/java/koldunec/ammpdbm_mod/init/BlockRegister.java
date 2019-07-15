@@ -68,7 +68,8 @@ public class BlockRegister
                 OreDictionary.registerOre("blockAluminum", new ItemStack(BlockRegister.ALBLOCK));
             }
         }
-        //if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest"));
+        //if(ammpdbm_mod.isLoadedTwilight)
+            //registerBlock(TOWER_FURNACE);
 
     }
 
@@ -94,6 +95,9 @@ public class BlockRegister
                 setRender(ALBLOCK);
             }
         }
+
+        //if(ammpdbm_mod.isLoadedTwilight)
+            //setRender(TOWER_FURNACE);
 
     }
 

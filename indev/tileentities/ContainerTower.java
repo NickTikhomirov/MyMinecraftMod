@@ -1,11 +1,10 @@
 package koldunec.ammpdbm_mod.tileentities;
 
+import koldunec.ammpdbm_mod.slots.Slot_TowerCatalyst;
+import koldunec.ammpdbm_mod.slots.Slot_TowerFuel_1;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.FurnaceRecipes;
-import net.minecraft.tileentity.TileEntityFurnace;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
@@ -19,8 +18,8 @@ public class ContainerTower extends Container
     {
         this.tileTower = furnaceInventory;
         this.addSlotToContainer(new Slot(furnaceInventory, 0, 54, 36));
-        this.addSlotToContainer(new Slot_TowerFuel(furnaceInventory, 3, 56, 53));
-        this.addSlotToContainer(new Slot_TowerFuel(furnaceInventory, 4, 151, 11));
+        this.addSlotToContainer(new Slot_TowerFuel_1(furnaceInventory, 3, 56, 53));
+        this.addSlotToContainer(new Slot_TowerFuel_1(furnaceInventory, 4, 151, 11));
         this.addSlotToContainer(new Slot_TowerCatalyst(furnaceInventory, 2, 151, 30));
         this.addSlotToContainer(new SlotFurnaceOutput(playerInventory.player, furnaceInventory, 1, 100, 32));
 

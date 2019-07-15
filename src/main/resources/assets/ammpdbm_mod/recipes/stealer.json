@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SN ",
+    "NSN",
+    " NN"
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:iron_nugget"
+    },
+    "S": {
+      "item": "ammpdbm_mod:rEssence"
+    }
+  },
+  "result": {
+    "item": "ammpdbm_mod:stealer",
+    "count": 1
+  }
+}

@@ -1,23 +1,20 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " NH",
+    " N ",
     "NSN",
-    "SN "
+    "S  "
   ],
   "key": {
-    "H": {
-      "item": "minecraft:hay_block"
-    },
     "N": {
-      "item": "minecraft:gold_nugget"
+      "item": "twilightforest:carminite"
     },
     "S": {
       "item": "ammpdbm_mod:runic_stick"
     }
   },
   "result": {
-    "item": "ammpdbm_mod:broom",
+    "item": "ammpdbm_mod:carminite_axe",
     "count": 1
   }
 }

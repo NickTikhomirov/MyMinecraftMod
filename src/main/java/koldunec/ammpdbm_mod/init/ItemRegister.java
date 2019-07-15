@@ -12,6 +12,7 @@ import koldunec.ammpdbm_mod.broomitems.curinggrass.supercuringgrass;
 import koldunec.ammpdbm_mod.broomitems.throwables.bitcoin5000;
 import koldunec.ammpdbm_mod.broomitems.throwables.cursedRock;
 import koldunec.ammpdbm_mod.broomitems.throwables.inertstone;
+import koldunec.ammpdbm_mod.toolmaterials.magicCarminite;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -58,6 +59,7 @@ public class ItemRegister
 
     public static Item NETHER_DRINK = new nether_drink();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
+    public static Item CARMINITE_AXE = new CarminiteAxe();
 
     public static Item ALUMINUM = new base_item("aluminum", 64);
     public static Item SULFUR = new base_item("sulfur", 64);
@@ -103,6 +105,8 @@ public class ItemRegister
 
         if(ammpdbm_mod.isLoadedTwilight){
             setRegister(TRANSFORMATION_DUST);
+            setRegister(CARMINITE_AXE);
+            magicCarminite.magicCarminite.setRepairItem(new ItemStack(Item.getByNameOrId("twilightforest:borerEssence")));
         }
         if(ammpdbm_mod.isLoadedTinkers) {
             OreDictionary.registerOre("bone", new ItemStack(Item.getByNameOrId("tconstruct:materals"),1,17));
@@ -154,6 +158,7 @@ public class ItemRegister
         setRender(MAGNETPICK);
         setRender(BITCOIN5000);
         setRender(SOUL_CRYSTAL_s);
+        setRender(CARMINITE_AXE);
 
         if(ammpdbm_mod.isLoadedTwilight) {
             setRender(TRANSFORMATION_DUST);

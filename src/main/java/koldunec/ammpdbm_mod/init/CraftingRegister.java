@@ -41,6 +41,7 @@ public class CraftingRegister
         if(ammpdbm_mod.isLoadedTwilight){
             registerRecipes("trans_1");
             registerRecipes("trans_1_");
+            registerRecipes("carminite_axe");
         }
 
         if(ammpdbm_mod.isLoadedProjectX){

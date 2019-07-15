@@ -1,6 +1,5 @@
 package koldunec.ammpdbm_mod.broomitems;
 
-import com.google.common.collect.Sets;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -8,11 +7,10 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import static koldunec.ammpdbm_mod.utils.magicFlint.magicFlint;
+import static koldunec.ammpdbm_mod.toolmaterials.magicFlint.magicFlint;
 
 public class magnetpick extends ItemPickaxe {
     public magnetpick(){

@@ -1,7 +1,7 @@
 package koldunec.ammpdbm_mod.tileentities;
 
 
-import koldunec.ammpdbm_mod.proxy.BlockRegister;
+import koldunec.ammpdbm_mod.init.BlockRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;

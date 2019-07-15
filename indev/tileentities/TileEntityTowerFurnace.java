@@ -1,6 +1,6 @@
 package koldunec.ammpdbm_mod.tileentities;
 
-import koldunec.ammpdbm_mod.proxy.ItemRegister;
+import koldunec.ammpdbm_mod.init.ItemRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;

@@ -1,6 +1,8 @@
-package koldunec.ammpdbm_mod.tileentities;
+package koldunec.ammpdbm_mod.slots;
 
 
+import koldunec.ammpdbm_mod.ammpdbm_mod;
+import koldunec.ammpdbm_mod.init.ItemRegister;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
@@ -14,17 +16,16 @@ public class Slot_TowerCatalyst extends Slot {
         super(inventoryIn, slotIndex, xPosition, yPosition);
     }
 
-    /**
-     * Check if the stack is allowed to be placed in this slot, used for armor slots as well as furnace fuel.
-     */
+
     public boolean isItemValid(ItemStack stack)
     {
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest")){
-            if(stack.getItem().getUnlocalizedName().equals("carminite")) return true;
-            if(stack.getItem().getUnlocalizedName().equals("nagaScale")) return true;
+        if(ammpdbm_mod.isLoadedTwilight){
+            if(stack.getItem().equals(ItemRegister.ESSENCE_RAINBOW)) return true;
             if(stack.getItem().equals(Items.GOLD_INGOT)) return true;
             if(stack.getItem().equals(Items.DIAMOND)) return true;
             if(stack.getItem().equals(Items.EMERALD)) return true;
+            if(stack.getItem().getUnlocalizedName().equals("carminite")) return true;
+            if(stack.getItem().getUnlocalizedName().equals("nagaScale")) return true;
             if(stack.getItem() instanceof ItemTFMoonwormQueen) return true;
             if(stack.getItem() instanceof ItemTFTransformPowder) return true;
 
@@ -34,7 +35,7 @@ public class Slot_TowerCatalyst extends Slot {
 
     public int getItemStackLimit(ItemStack stack)
     {
-        return 64;
+        return 1;
     }
 
 }

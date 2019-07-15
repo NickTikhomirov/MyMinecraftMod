@@ -4,6 +4,7 @@ package koldunec.ammpdbm_mod.init;
 
 import com.sun.media.jfxmedia.logging.Logger;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
+import koldunec.ammpdbm_mod.broomitems.CarminiteAxe;
 import koldunec.ammpdbm_mod.broomitems.another_dye_please_dont_blame_me;
 import koldunec.ammpdbm_mod.broomitems.flints;
 import koldunec.ammpdbm_mod.broomitems.xyAmulet;
@@ -55,6 +56,7 @@ import twilightforest.block.BlockTFLeaves;
 import twilightforest.block.BlockTFMagicLeaves;
 
 import org.apache.logging.log4j.LogManager;
+import twilightforest.entity.EntityTFTowerTermite;
 
 import static java.lang.Math.round;
 import static koldunec.ammpdbm_mod.init.PotionRegister.ENDERPROTECTION;
@@ -357,6 +359,15 @@ public class EventHandler{
                 if(victim instanceof EntitySpider | victim instanceof EntitySilverfish){
                     e.getEntityLiving().hurtResistantTime = 0;
                     e.getEntityLiving().attackEntityFrom(DamageSource.GENERIC,10);
+                }
+            }
+            if(ammpdbm_mod.isLoadedTwilight) {
+                ItemStack weapon = ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand();
+                if (weapon.getItem() instanceof CarminiteAxe &&
+                        victim instanceof EntityTFTowerTermite) {
+                    ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand().setItemDamage(
+                            Math.max(weapon.getItemDamage() - 5, 0));
+                    e.setAmount(e.getAmount()+4F);
                 }
             }
         }

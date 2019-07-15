@@ -47,4 +47,5 @@ public class eggore extends BlockOre
         }
         return 0;
     }
+
 }

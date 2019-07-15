@@ -1,4 +1,4 @@
-package koldunec.ammpdbm_mod.utils;
+package koldunec.ammpdbm_mod.toolmaterials;
 
 
 import net.minecraft.item.Item;
