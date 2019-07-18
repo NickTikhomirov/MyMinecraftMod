@@ -33,7 +33,7 @@ public class potionacid extends potion_base {
 
     @Override
     public void affectEntity(@Nullable Entity source, @Nullable Entity indirectSource, EntityLivingBase entityLivingBaseIn, int amplifier, double health) {
-        if(entityLivingBaseIn.isPotionActive(PotionRegister.HUMANITY)) return;
+        if(entityLivingBaseIn.isPotionActive(PotionRegister.POISONPROTECTION)) return;
         int j = (int)(health * (double)(6 << amplifier) + 0.5D);
         if (source == null){
             entityLivingBaseIn.attackEntityFrom(DamageSource.MAGIC, (float)j);

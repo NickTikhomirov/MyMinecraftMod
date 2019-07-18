@@ -2,15 +2,8 @@ package koldunec.ammpdbm_mod.init;
 
 
 
-import com.sun.media.jfxmedia.logging.Logger;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
-import koldunec.ammpdbm_mod.broomitems.CarminiteAxe;
-import koldunec.ammpdbm_mod.broomitems.another_dye_please_dont_blame_me;
-import koldunec.ammpdbm_mod.broomitems.flints;
-import koldunec.ammpdbm_mod.broomitems.xyAmulet;
-import koldunec.ammpdbm_mod.init.BlockRegister;
-import koldunec.ammpdbm_mod.init.ItemRegister;
-import koldunec.ammpdbm_mod.init.PotionRegister;
+import koldunec.ammpdbm_mod.broomitems.*;
 import koldunec.ammpdbm_mod.utils.dragonBreathFix;
 import koldunec.ammpdbm_mod.utils.tipped_crafting;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -25,12 +18,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
-import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.RecipeTippedArrow;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.*;
@@ -45,18 +36,17 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.Event;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
-import net.minecraftforge.oredict.OreDictionary;
 import twilightforest.block.BlockTFLeaves;
 import twilightforest.block.BlockTFMagicLeaves;
 
-import org.apache.logging.log4j.LogManager;
-import twilightforest.entity.EntityTFTowerTermite;
+import twilightforest.block.BlockTFMagicLogSpecial;
+import twilightforest.item.ItemTFMinotaurAxe;
 
 import static java.lang.Math.round;
 import static koldunec.ammpdbm_mod.init.PotionRegister.ENDERPROTECTION;
@@ -103,7 +93,8 @@ public class EventHandler{
 
         if(result.equals(ItemRegister.RUNIC_STICK) ||
            result.equals(ItemRegister.ROUND_STONE) ||
-           result.equals(ItemRegister.CURINGSEEDS))
+           result.equals(ItemRegister.CURINGSEEDS) ||
+           result.equals(ItemRegister.WOODEN_RUNE))
             for(int i=0;i<9;i++){
                 Item ii = e.craftMatrix.getStackInSlot(i).getItem();
                 if(ii.equals(Items.AIR)) continue;
@@ -146,6 +137,17 @@ public class EventHandler{
                         e.getDrops().clear();
                         ItemStack pick = e.getHarvester().getHeldItemMainhand();
                         pick.setItemDamage(Math.max(0,pick.getItemDamage()-20));
+                    }
+                } else if(ammpdbm_mod.isLoadedTwilight &&
+                        (itemstack.getItem().equals(ItemRegister.CARMINITE_AXE)) ||
+                        itemstack.getItem() instanceof ItemTFMinotaurAxe){
+                    if(e.getState().getBlock() instanceof BlockTFMagicLogSpecial) {
+                        e.getDrops().clear();
+                        e.getDrops().add(
+                                new ItemStack(
+                                        e.getState().getBlock(),
+                                        1,
+                                        e.getState().getBlock().getMetaFromState(e.getState())));
                     }
                 }
                 if(xyAmulet.isEquiped(player) && !e.isSilkTouching()){
@@ -286,7 +288,7 @@ public class EventHandler{
                 e.setAmount(0);
             } else if(ammpdbm_mod.isLoadedTwilight & victim instanceof EntityPlayer){
                 EntityPlayer player = (EntityPlayer) e.getEntity();
-                Item curer = ItemRegister.SPARKLES;
+                Item curer = ItemRegister.MAGIC_PROTECTOR;
                 if(player.getHeldItem(EnumHand.OFF_HAND).getItem().equals(curer)) {
                     e.setAmount(0);
                     ItemStack c = player.getHeldItem(EnumHand.OFF_HAND);
@@ -361,15 +363,15 @@ public class EventHandler{
                     e.getEntityLiving().attackEntityFrom(DamageSource.GENERIC,10);
                 }
             }
-            if(ammpdbm_mod.isLoadedTwilight) {
-                ItemStack weapon = ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand();
-                if (weapon.getItem() instanceof CarminiteAxe &&
-                        victim instanceof EntityTFTowerTermite) {
-                    ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand().setItemDamage(
-                            Math.max(weapon.getItemDamage() - 5, 0));
-                    e.setAmount(e.getAmount()+4F);
-                }
-            }
+//            if(ammpdbm_mod.isLoadedTwilight) {
+//                ItemStack weapon = ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand();
+//                if (weapon.getItem() instanceof CarminiteAxe &&
+//                        victim instanceof EntityTFTowerTermite) {
+//                    ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand().setItemDamage(
+//                            Math.max(weapon.getItemDamage() - 5, 0));
+//                    e.setAmount(e.getAmount()+4F);
+//                }
+//            }
         }
     }
 
@@ -501,5 +503,14 @@ public class EventHandler{
                 }
             }
         }
+
+        if(e.getEntity() instanceof EntityPlayer){
+            EntityPlayer p = (EntityPlayer)e.getEntity();
+            if(saviour.isEquiped(p))
+                saviour.savePoorThing(p);
+        }
     }
+
+    //@SubscribeEvent
+    //public void onEmptyClick(PlayerInteractEvent.LeftClickEmpty e) {}
 }

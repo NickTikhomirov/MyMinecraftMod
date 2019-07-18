@@ -30,6 +30,10 @@ public class PotionRegister {
             WITHERPROTECTION = new potionwitherprotection(0xe34234);
     public static final Potion
             ACID = new potionacid(0x02ab9d);
+    public static final Potion
+            POISONPROTECTION = new potionpoisonprotection(0xa3481d);
+    public static final Potion
+            PLAGUE = new potionplague(0x0000ff);
 
 
     public static final PotionType
@@ -72,6 +76,11 @@ public class PotionRegister {
             ACID_TYPE_STANDART = createPotionType(null,new PotionEffect(ACID,1)),
             ACID_TYPE_STRONG = createPotionType("strong", new PotionEffect(ACID,1,1)),
             ACID_TYPE_SUPERSTRONG = createPotionType("strongP", new PotionEffect(ACID, 1, 2)),
+
+            POISONPROTECTION_TYPE_STANDART = createPotionType(null, new PotionEffect(POISONPROTECTION,3600,0,false,false)),
+            POISONPROTECTION_TYPE_STRONG = createPotionType("strong", new PotionEffect(POISONPROTECTION,3600,1,false,false)),
+
+            PLAGUE_TYPE_STANDART = createPotionType(null, new PotionEffect(PLAGUE,3600)),
 
             GOLDENAPLLE_TYPE_STANDART = createCompositePotionType("goldenapple_potion",null,
                     new PotionEffect(ABSORPTION,2400),
@@ -130,7 +139,9 @@ public class PotionRegister {
                 ENDERPROTECTION,
                 HUMANITY,
                 WITHERPROTECTION,
-                ACID
+                ACID,
+                POISONPROTECTION,
+                PLAGUE
         );
     }
 
@@ -168,6 +179,11 @@ public class PotionRegister {
                 ACID_TYPE_STANDART,
                 ACID_TYPE_STRONG,
                 ACID_TYPE_SUPERSTRONG,
+
+                POISONPROTECTION_TYPE_STANDART,
+                POISONPROTECTION_TYPE_STRONG,
+
+                PLAGUE_TYPE_STANDART,
 
                 GOLDENAPLLE_TYPE_STANDART,
                 GOLDENAPLLE_TYPE_STRONG

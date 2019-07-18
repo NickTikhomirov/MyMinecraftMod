@@ -30,6 +30,10 @@ item.magnetpick.name=Magnetic Pickaxe
 item.soul_crystal.name=Ghast Crystal
 item.xy_amulet.name=Xycronium Amulet
 item.carminite_axe.name=Carminite Axe
+item.carminite_pick.name=Carminite Pickaxe
+item.saviour.name=Ring of Keeping
+item.wooden_rune.name=Wooden Rune
+item.amulet0.name=Amulet of Magic Protection
 
 item.dye.green.name=Green Dye
 item.dye.black.name=Black Dye
@@ -65,6 +69,8 @@ potion.effect.goldenapple_potion=Bottled Golden Apple
 potion.effect.ammpdbm_mod:witherprotection=Potion of Wither Protection
 potion.effect.ammpdbm_mod:acid=Magic Acid
 potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid
+potion.effect.ammpdbm_mod:poisonprotection=Potion of Poison Protection
+potion.effect.ammpdbm_mod:plague=Bottled Plague
 
 
 
@@ -81,6 +87,7 @@ splash_potion.effect.goldenapple_potion=Splash Golden Apple
 splash_potion.effect.ammpdbm_mod:witherprotection=Splash Potion of Wither Protection
 splash_potion.effect.ammpdbm_mod:acid=Magic Acid Bomb
 splash_potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid Bomb
+splash_potion.effect.ammpdbm_mod:poisonprotection=Splash Potion of Poison Protection
 
 
 lingering_potion.effect.oceanpotion=Lingering Ocean Potion
@@ -95,6 +102,7 @@ lingering_potion.effect.goldenapple_potion=Lingering Golden Apple
 lingering_potion.effect.ammpdbm_mod:witherprotection=Lingering Potion of Wither Protection
 lingering_potion.effect.ammpdbm_mod:acid=Magic Acid Bomb
 lingering_potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid Bomb
+lingering_potion.effect.ammpdbm_mod:poisonprotection=Lingering Potion of Poison Protection
 
 
 tipped_arrow.effect.oceanpotion=Ocean Arrow
@@ -108,6 +116,7 @@ tipped_arrow.effect.goldenapple_potion=Arrow With Golden Apple
 tipped_arrow.effect.ammpdbm_mod:witherprotection=Arrow of Wither Protection
 tipped_arrow.effect.ammpdbm_mod:acid=Acid Arrow
 tipped_arrow.effect.ammpdbm_mod:strongp_acid=Acid Arrow
+tipped_arrow.effect.ammpdbm_mod:poisonprotection=Arrow of Poison Protection
 
 
 effect.ammpdbm_mod:mindprotection=Mind Protection
@@ -116,6 +125,8 @@ effect.ammpdbm_mod:enderprotection=Ender Protection
 effect.ammpdbm_mod:humanity=Humanity
 effect.ammpdbm_mod:witherprotection=Wither Protection
 effect.ammpdbm_mod:acid=Magic Acid
+effect.ammpdbm_mod:poisonprotection=Poison Protection
+effect.ammpdbm_mod:plague=Plague
 
 
 lingering_potion.effect.minddevourpotion=Probably honey, but I'm not sure

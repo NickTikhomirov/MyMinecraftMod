@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "ammpdbm_mod:rEssence"
+    },
+    "D": [
+      {
+        "item": "twilightforest:twilight_sapling",
+        "data": 0
+      },
+      {
+        "item": "twilightforest:twilight_sapling",
+        "data": 1
+      },
+      {
+        "item": "twilightforest:twilight_sapling",
+        "data": 2
+      }
+    ]
+  },
+  "result": {
+    "item": "twilightforest:twilight_sapling",
+    "data": 9
+  }
+}

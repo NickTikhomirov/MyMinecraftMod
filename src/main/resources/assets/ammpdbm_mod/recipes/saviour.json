@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "nEn",
+    "BrB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:gold_block"
+    },
+    "n": {
+      "item": "minecraft:gold_nugget"
+    },
+    "r": {
+      "item": "ammpdbm_mod:rEssence"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    }
+  },
+  "result": {
+    "item": "ammpdbm_mod:saviour"
+  }
+}

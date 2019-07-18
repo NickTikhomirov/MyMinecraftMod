@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "NNN",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "N": {
+      "item": "twilightforest:carminite"
+    },
+    "S": {
+      "item": "ammpdbm_mod:runic_stick"
+    }
+  },
+  "result": {
+    "item": "ammpdbm_mod:carminite_pick",
+    "count": 1
+  }
+}

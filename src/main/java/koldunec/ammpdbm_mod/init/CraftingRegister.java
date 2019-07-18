@@ -42,6 +42,11 @@ public class CraftingRegister
             registerRecipes("trans_1");
             registerRecipes("trans_1_");
             registerRecipes("carminite_axe");
+            registerRecipes("carminite_pick");
+        }
+
+        if(ammpdbm_mod.isLoadedBaubles){
+        //    registerRecipes("saviour");
         }
 
         if(ammpdbm_mod.isLoadedProjectX){

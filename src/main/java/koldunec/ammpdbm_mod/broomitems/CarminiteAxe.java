@@ -11,6 +11,7 @@ import koldunec.ammpdbm_mod.toolmaterials.magicCarminite;
 import net.minecraft.item.ItemStack;
 import twilightforest.block.*;
 import twilightforest.enums.WoodVariant;
+import twilightforest.item.TFItems;
 
 public class CarminiteAxe extends ItemAxe {
     public CarminiteAxe() {
@@ -26,11 +27,19 @@ public class CarminiteAxe extends ItemAxe {
         if(ammpdbm_mod.isLoadedTwilight){
             if(state.getBlock() instanceof BlockTFTowerWood ||
                state.getBlock() instanceof BlockTFTowerDevice ||
-               state.getBlock() instanceof BlockTFDarkLeaves ){
+               state.getBlock() instanceof BlockTFDarkLeaves ||
+               state.getBlock() instanceof BlockTFHedge){
                     //|| (state.getBlock() instanceof BlockTFLog && state.getBlock().getMetaFromState(state)==3)){
                 return 48F;
             }
         }
         return super.getDestroySpeed(stack, state);
+    }
+
+    @Override
+    public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
+        if(ammpdbm_mod.isLoadedTwilight)
+            if(repair.getItem().equals(TFItems.carminite)) return true;
+        return false;
     }
 }

@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "wrr",
+    "rwr",
+    "rrw"
+  ],
+  "key": {
+    "r": {
+      "item": "ammpdbm_mod:rEssence"
+    },
+    "w": {
+      "item": "ammpdbm_mod:wooden_rune"
+    }
+  },
+  "result": {
+    "item": "ammpdbm_mod:amulet0",
+    "count": 2
+  }
+}

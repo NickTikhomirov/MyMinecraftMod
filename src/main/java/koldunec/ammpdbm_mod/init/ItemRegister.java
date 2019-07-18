@@ -1,6 +1,7 @@
 package koldunec.ammpdbm_mod.init;
 
 
+import koldunec.ammpdbm_mod.broomitems.CarminitePick;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.broomitems.*;
 import koldunec.ammpdbm_mod.broomitems.baseItems.base_food;
@@ -12,7 +13,7 @@ import koldunec.ammpdbm_mod.broomitems.curinggrass.supercuringgrass;
 import koldunec.ammpdbm_mod.broomitems.throwables.bitcoin5000;
 import koldunec.ammpdbm_mod.broomitems.throwables.cursedRock;
 import koldunec.ammpdbm_mod.broomitems.throwables.inertstone;
-import koldunec.ammpdbm_mod.toolmaterials.magicCarminite;
+import koldunec.ammpdbm_mod.broomitems.saviour;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -39,6 +40,7 @@ public class ItemRegister
     public static Item RUNIC_STICK = new base_item("runic_stick",64);
     public static Item ROUND_STONE = new inertstone("round_stone",64);
     public static Item SOUL_CRYSTAL_s = new base_item("soul_crystal",64);
+    public static Item WOODEN_RUNE = new base_item("wooden_rune",64);
 
     public static Item GOLDEN_POTATO= new potatogp();
     public static Item FLESH = new flesh();
@@ -56,10 +58,13 @@ public class ItemRegister
     public static Item LASERCORE = new LaserCore();
     public static Item STEALER = new Stealer();
     public static Item xyAMULET = new xyAmulet();
+    public static Item SAVIOUR = new saviour();
+    public static Item MAGIC_PROTECTOR = new base_item("amulet0",16);
 
     public static Item NETHER_DRINK = new nether_drink();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
     public static Item CARMINITE_AXE = new CarminiteAxe();
+    public static Item CARMINITE_PICKAXE = new CarminitePick();
 
     public static Item ALUMINUM = new base_item("aluminum", 64);
     public static Item SULFUR = new base_item("sulfur", 64);
@@ -93,6 +98,8 @@ public class ItemRegister
         setRegister(MAGNETPICK);
         setRegister(BITCOIN5000);
         setRegister(SOUL_CRYSTAL_s);
+        setRegister(MAGIC_PROTECTOR);
+        setRegister(WOODEN_RUNE);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -106,7 +113,7 @@ public class ItemRegister
         if(ammpdbm_mod.isLoadedTwilight){
             setRegister(TRANSFORMATION_DUST);
             setRegister(CARMINITE_AXE);
-            magicCarminite.magicCarminite.setRepairItem(new ItemStack(Item.getByNameOrId("twilightforest:borerEssence")));
+            setRegister(CARMINITE_PICKAXE);
         }
         if(ammpdbm_mod.isLoadedTinkers) {
             OreDictionary.registerOre("bone", new ItemStack(Item.getByNameOrId("tconstruct:materals"),1,17));
@@ -125,6 +132,9 @@ public class ItemRegister
             OreDictionary.registerOre("dyeRed", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 2));
             OreDictionary.registerOre("dyeBlack", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 3));
             OreDictionary.registerOre("dyeWhite", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 4));
+        }
+        if(ammpdbm_mod.isLoadedBaubles){
+            setRegister(SAVIOUR);
         }
 
         MinecraftForge.addGrassSeed(new ItemStack(CURING_GRASS),10);
@@ -158,10 +168,16 @@ public class ItemRegister
         setRender(MAGNETPICK);
         setRender(BITCOIN5000);
         setRender(SOUL_CRYSTAL_s);
-        setRender(CARMINITE_AXE);
+        setRender(MAGIC_PROTECTOR);
+        setRender(WOODEN_RUNE);
+
+        if(ammpdbm_mod.isLoadedBaubles)
+            setRender(SAVIOUR);
 
         if(ammpdbm_mod.isLoadedTwilight) {
             setRender(TRANSFORMATION_DUST);
+            setRender(CARMINITE_AXE);
+            setRender(CARMINITE_PICKAXE);
         }
         if(ammpdbm_mod.isLoadedProjectX){
             if(ammpdbm_mod.isLoadedSulfurTorches) {
