@@ -46,7 +46,7 @@ public class CraftingRegister
         }
 
         if(ammpdbm_mod.isLoadedBaubles){
-        //    registerRecipes("saviour");
+            registerRecipes("saviour");
         }
 
         if(ammpdbm_mod.isLoadedProjectX){
@@ -104,7 +104,7 @@ public class CraftingRegister
         PotionHelper.addMix(PotionRegister.OCEANPOTION_TYPE_STANDARD, Items.REDSTONE, PotionRegister.OCEANPOTION_TYPE_LONG);
         PotionHelper.addMix(PotionRegister.OCEANPOTION_TYPE_LONG, ItemRegister.FISH_C, PotionRegister.OCEANPOTIONCOMBAT_TYPE_LONG);
 
-        PotionHelper.addMix(PotionTypes.AWKWARD,ItemRegister.FLESH,PotionRegister.HUMANITY_TYPE_STANDART);
+        PotionHelper.addMix(PotionTypes.MUNDANE,ItemRegister.FLESH,PotionRegister.HUMANITY_TYPE_STANDART);
         PotionHelper.addMix(PotionRegister.HUMANITY_TYPE_STANDART, Items.REDSTONE, PotionRegister.HUMANITY_TYPE_LONG);
         PotionHelper.addMix(PotionRegister.HUMANITY_TYPE_STANDART, Items.APPLE, PotionRegister.HUMANITY_TYPE_STRONG);
 
@@ -124,6 +124,15 @@ public class CraftingRegister
         PotionHelper.addMix(PotionRegister.ACID_TYPE_STANDART, ItemRegister.ESSENCE_RAINBOW, PotionRegister.ACID_TYPE_STRONG);
         PotionHelper.addMix(PotionRegister.ACID_TYPE_STRONG, Ingredient.fromStacks(new ItemStack(Items.FISH, 1, ItemFishFood.FishType.PUFFERFISH.getMetadata())), PotionRegister.ACID_TYPE_SUPERSTRONG);
 
+        PotionHelper.addMix(PotionTypes.POISON,ItemRegister.CURING_GRASS,PotionRegister.POISONPROTECTION_TYPE_STANDART);
+        PotionHelper.addMix(PotionTypes.LONG_POISON,ItemRegister.CURING_GRASS,PotionRegister.POISONPROTECTION_TYPE_STRONG);
+        PotionHelper.addMix(PotionRegister.POISONPROTECTION_TYPE_STANDART,Items.REDSTONE,PotionRegister.POISONPROTECTION_TYPE_STRONG);
+
+        PotionHelper.addMix(PotionTypes.POISON,Item.getItemFromBlock(Blocks.BROWN_MUSHROOM),PotionRegister.PLAGUE_TYPE_STANDART);
+        PotionHelper.addMix(PotionTypes.POISON,Item.getItemFromBlock(Blocks.RED_MUSHROOM),PotionRegister.PLAGUE_TYPE_STANDART);
+
+        PotionHelper.addMix(PotionRegister.PLAGUE_TYPE_STANDART,Items.GHAST_TEAR,PotionRegister.PLAGUE_TYPE_MIXED1);
+        PotionHelper.addMix(PotionRegister.PLAGUE_TYPE_MIXED1,ItemRegister.FLESH,PotionRegister.PLAGUE_TYPE_MIXED2);
 
         BrewingRecipeRegistry.addRecipe(new ItemStack(Items.POTIONITEM), new ItemStack(Items.NETHER_STAR), new ItemStack(ItemRegister.NETHER_DRINK));
 

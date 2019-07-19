@@ -11,7 +11,7 @@ item.rEssence.name=Rainbow Essence
 item.potatogp.name=Golden Poisoned Potato
 item.magic_ball.name=Cursed Rock
 item.sparkles.name=Sparkles
-item.effect_freezer.name=Effect Container
+item.effect_freezer.name=Potion Mix
 item.flesh.name=Flesh
 item.lasercore.name=Simple Laser
 item.curingseeds.name=Seeds of Curing Grass
@@ -34,6 +34,7 @@ item.carminite_pick.name=Carminite Pickaxe
 item.saviour.name=Ring of Keeping
 item.wooden_rune.name=Wooden Rune
 item.amulet0.name=Amulet of Magic Protection
+item.ghast_seeds.name=Soul Seeds
 
 item.dye.green.name=Green Dye
 item.dye.black.name=Black Dye

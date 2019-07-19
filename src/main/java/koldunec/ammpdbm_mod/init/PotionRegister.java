@@ -20,10 +20,8 @@ public class PotionRegister {
             MINDPROTECTION = new potionmindprotection(0xFFE4E1);
     public static final Potion
             MAGICPROTECTION = new potionmagicprotection(0xFFFF00);
-    //public static final Potion
-    //        EFFECT_STORAGE = effectstorage.EFFECT_S;
     public static final Potion
-            ENDERPROTECTION = new potionenderprotection(0x00FF60);
+            ENDERPROTECTION = new potionenderprotection(0x6e5160);
     public static final Potion
             HUMANITY = new potionhumanity(0xffc8a8);
     public static final Potion
@@ -31,9 +29,9 @@ public class PotionRegister {
     public static final Potion
             ACID = new potionacid(0x02ab9d);
     public static final Potion
-            POISONPROTECTION = new potionpoisonprotection(0xa3481d);
+            POISONPROTECTION = new potionpoisonprotection(0xb30000);
     public static final Potion
-            PLAGUE = new potionplague(0x0000ff);
+            PLAGUE = new potionplague(0x343b29);
 
 
     public static final PotionType
@@ -77,19 +75,29 @@ public class PotionRegister {
             ACID_TYPE_STRONG = createPotionType("strong", new PotionEffect(ACID,1,1)),
             ACID_TYPE_SUPERSTRONG = createPotionType("strongP", new PotionEffect(ACID, 1, 2)),
 
-            POISONPROTECTION_TYPE_STANDART = createPotionType(null, new PotionEffect(POISONPROTECTION,3600,0,false,false)),
-            POISONPROTECTION_TYPE_STRONG = createPotionType("strong", new PotionEffect(POISONPROTECTION,3600,1,false,false)),
+            POISONPROTECTION_TYPE_STANDART = createPotionType(null, new PotionEffect(POISONPROTECTION,3600,0)),
+            POISONPROTECTION_TYPE_STRONG = createPotionType("strong", new PotionEffect(POISONPROTECTION,3600,1)),
+            POISONPROTECTION_TYPE_LONG = createPotionType("long", new PotionEffect(POISONPROTECTION,3600,0)),
 
-            PLAGUE_TYPE_STANDART = createPotionType(null, new PotionEffect(PLAGUE,3600)),
+
+            PLAGUE_TYPE_STANDART = createPotionType(null, new PotionEffect(PLAGUE,1200,0,false,false)),
+
+            PLAGUE_TYPE_MIXED1 = createCompositePotionType("comb_plague",null,
+                    new PotionEffect(PLAGUE,1800),
+                    new PotionEffect(POISONPROTECTION,1800)),
+            PLAGUE_TYPE_MIXED2 = createCompositePotionType("comb_plague","strong",
+                    new PotionEffect(PLAGUE,1800),
+                    new PotionEffect(POISONPROTECTION,1800),
+                    new PotionEffect(HUMANITY,1800)),
 
             GOLDENAPLLE_TYPE_STANDART = createCompositePotionType("goldenapple_potion",null,
-                    new PotionEffect(ABSORPTION,2400),
+                    new PotionEffect(ABSORPTION,1200),
                     new PotionEffect(REGENERATION,100,1)),
             GOLDENAPLLE_TYPE_STRONG = createCompositePotionType("goldenapple_potion","strong",
-                    new PotionEffect(ABSORPTION,2400,3),
+                    new PotionEffect(ABSORPTION,1200,3),
                     new PotionEffect(REGENERATION,400,1),
-                    new PotionEffect(FIRE_RESISTANCE,6000),
-                    new PotionEffect(RESISTANCE,6000));
+                    new PotionEffect(FIRE_RESISTANCE,3000),
+                    new PotionEffect(RESISTANCE,3000));
 
 
 
@@ -135,7 +143,6 @@ public class PotionRegister {
         event.getRegistry().registerAll(
                 MINDPROTECTION,
                 MAGICPROTECTION,
-                //EFFECT_STORAGE,
                 ENDERPROTECTION,
                 HUMANITY,
                 WITHERPROTECTION,
@@ -182,8 +189,11 @@ public class PotionRegister {
 
                 POISONPROTECTION_TYPE_STANDART,
                 POISONPROTECTION_TYPE_STRONG,
+                POISONPROTECTION_TYPE_LONG,
 
                 PLAGUE_TYPE_STANDART,
+                PLAGUE_TYPE_MIXED1,
+                PLAGUE_TYPE_MIXED2,
 
                 GOLDENAPLLE_TYPE_STANDART,
                 GOLDENAPLLE_TYPE_STRONG

@@ -30,6 +30,7 @@ public class ItemRegister
     public static Item CURING_GRASS= new curinggrass();
     public static Item SUPERCURING_GRASS= new supercuringgrass();
 
+    public static Item GHAST_SEEDS = new ghast_seeds();
     public static Item SPARKLES = new base_fuel("sparkles",64, (short)100);
     public static Item BITCOIN = new bitcoin();
     public static Item BITCOIN5000 = new bitcoin5000("bitcoin5000",64);
@@ -100,6 +101,7 @@ public class ItemRegister
         setRegister(SOUL_CRYSTAL_s);
         setRegister(MAGIC_PROTECTOR);
         setRegister(WOODEN_RUNE);
+        setRegister(GHAST_SEEDS);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -123,6 +125,7 @@ public class ItemRegister
                 setRegister(SULFUR);
                 setRegister(ALUMINUM);
                 setRegister(xyAMULET);
+                OreDictionary.registerOre("nuggetAluminum",new ItemStack(ItemRegister.ALUMINUM));
                 OreDictionary.registerOre("nuggetAluminium",new ItemStack(ItemRegister.ALUMINUM));
                 OreDictionary.registerOre("dustSulfur",new ItemStack(ItemRegister.SULFUR));
             }
@@ -170,6 +173,7 @@ public class ItemRegister
         setRender(SOUL_CRYSTAL_s);
         setRender(MAGIC_PROTECTOR);
         setRender(WOODEN_RUNE);
+        setRender(GHAST_SEEDS);
 
         if(ammpdbm_mod.isLoadedBaubles)
             setRender(SAVIOUR);

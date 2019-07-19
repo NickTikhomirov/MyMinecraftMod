@@ -22,6 +22,7 @@ public class BlockRegister
     public static Block WATER_PORTAL = new basic_block("portal_water", Material.IRON,"pickaxe",1,5F, 30.0F);
     public static Block BLOCK_CHARCOAL = new basic_block("block_charcoal",Material.ROCK, "pickaxe",0,5F ,30F );
     public static Block CURING_CROPS = new curingCrops("curing_crops");
+    public static Block GHAST_POD = new block_ghastpod();
 
     public static Block OLD_ROSE = new magic_flower("rose");
     public static Block OLD_ROSE_b = new magic_flower("rose_b");
@@ -59,13 +60,14 @@ public class BlockRegister
         registerBlock(COBBLE_MOSS_old);
         registerBlock(ORE_RAINBOW);
         ForgeRegistries.BLOCKS.register(CURING_CROPS);
+        ForgeRegistries.BLOCKS.register(GHAST_POD);
 
         if(ammpdbm_mod.isLoadedProjectX) {
             if(ammpdbm_mod.isLoadedSulfurTorches) {
                 registerBlock(ORE_ALUMINUM);
                 registerBlock(ALBLOCK);
-                OreDictionary.registerOre("oreAluminum", new ItemStack(BlockRegister.ORE_ALUMINUM));
-                OreDictionary.registerOre("blockAluminum", new ItemStack(BlockRegister.ALBLOCK));
+                //OreDictionary.registerOre("oreAluminum", new ItemStack(BlockRegister.ORE_ALUMINUM));
+                //OreDictionary.registerOre("blockAluminum", new ItemStack(BlockRegister.ALBLOCK));
             }
         }
         //if(ammpdbm_mod.isLoadedTwilight)
