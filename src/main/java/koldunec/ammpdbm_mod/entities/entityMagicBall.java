@@ -96,7 +96,7 @@ public class entityMagicBall extends EntityThrowable {
                     result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this), (float) 8);
             } else if(result.entityHit instanceof EntityCreeper){
                 if(!world.isRemote)
-                    result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, new EntitySkeleton(world)), (float) 4);
+                    result.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, (EntitySkeleton) null), (float) 4);
 
             } else {
                 if(world.isRemote) return;

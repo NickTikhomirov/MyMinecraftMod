@@ -42,6 +42,9 @@ public class ItemRegister
     public static Item ROUND_STONE = new inertstone("round_stone",64);
     public static Item SOUL_CRYSTAL_s = new base_item("soul_crystal",64);
     public static Item WOODEN_RUNE = new base_item("wooden_rune",64);
+    public static Item SOUL_FRUIT = new base_item("soul_fruit",64);
+    public static Item NETHER_CRYSTAL = new base_item("nether_crystal",64);
+    public static Item SOUL = new base_item("small_soul",64);
 
     public static Item GOLDEN_POTATO= new potatogp();
     public static Item FLESH = new flesh();
@@ -49,6 +52,7 @@ public class ItemRegister
     public static Item FISH_C = new base_food("curedfish",64,3, 0.8F,false);
     public static Item POTATO_C = new base_food("curedpotato",64,3,1.2F,false);
     public static Item CHICKEN_C = new base_food("curedchicken",64,3,1.2F,false);
+    public static Item CHORUS_C = new base_food("curedfruit",64,4,2.4F,false);
     public static Item FISHY = new base_food("fishy",64,1,1,false);
     public static Item EFFECTSTORAGE = new effectFreezer();
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
@@ -61,6 +65,8 @@ public class ItemRegister
     public static Item xyAMULET = new xyAmulet();
     public static Item SAVIOUR = new saviour();
     public static Item MAGIC_PROTECTOR = new base_item("amulet0",16);
+    public static Item PAINT_TRANSMUTATOR = new paint_transmutator();
+    public static Item SOUL_SHEARS = new soul_shears();
 
     public static Item NETHER_DRINK = new nether_drink();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
@@ -102,6 +108,12 @@ public class ItemRegister
         setRegister(MAGIC_PROTECTOR);
         setRegister(WOODEN_RUNE);
         setRegister(GHAST_SEEDS);
+        setRegister(PAINT_TRANSMUTATOR);
+        setRegister(CHORUS_C);
+        setRegister(SOUL_FRUIT);
+        setRegister(SOUL_SHEARS);
+        setRegister(NETHER_CRYSTAL);
+        setRegister(SOUL);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -174,6 +186,12 @@ public class ItemRegister
         setRender(MAGIC_PROTECTOR);
         setRender(WOODEN_RUNE);
         setRender(GHAST_SEEDS);
+        setRender(PAINT_TRANSMUTATOR);
+        setRender(CHORUS_C);
+        setRender(SOUL_FRUIT);
+        setRender(SOUL_SHEARS);
+        setRender(NETHER_CRYSTAL);
+        setRender(SOUL);
 
         if(ammpdbm_mod.isLoadedBaubles)
             setRender(SAVIOUR);

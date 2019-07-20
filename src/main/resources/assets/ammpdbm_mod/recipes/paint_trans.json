@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ammpdbm_mod:round_stone"
+    },
+    {
+      "item": "ammpdbm_mod:rEssence"
+    },
+    {
+      "item": "ammpdbm_mod:rEssence"
+    },
+    {
+      "item": "minecraft:redstone"
+    }
+  ],
+  "result":
+    {
+      "item": "ammpdbm_mod:p_trans",
+      "data":  0,
+      "count": 1
+    }
+}

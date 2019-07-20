@@ -19,6 +19,8 @@ public class block_ghastpod extends BlockCocoa {
         super();
         this.setUnlocalizedName("block_ghastpod");
         this.setRegistryName("block_ghastpod");
+        this.setHardness(0.2F);
+        this.setResistance(15F);
     }
 
     @Override
@@ -78,17 +80,10 @@ public class block_ghastpod extends BlockCocoa {
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         int i = ((Integer)state.getValue(AGE)).intValue();
-        int j = 1;
 
         if (i >= 2)
-        {
-            j = 3;
-        }
-
-        for (int k = 0; k < j; ++k)
-        {
-            drops.add(new ItemStack(ItemRegister.GHAST_SEEDS));
-        }
+            drops.add(new ItemStack(ItemRegister.SOUL_FRUIT));
+        drops.add(new ItemStack(ItemRegister.GHAST_SEEDS));
     }
 
     @Override

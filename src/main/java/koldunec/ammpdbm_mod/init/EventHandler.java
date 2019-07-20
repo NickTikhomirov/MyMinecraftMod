@@ -7,8 +7,7 @@ import koldunec.ammpdbm_mod.broomitems.*;
 import koldunec.ammpdbm_mod.utils.dragonBreathFix;
 import koldunec.ammpdbm_mod.utils.tipped_crafting;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.*;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.entity.item.EntityItem;
@@ -42,6 +41,7 @@ import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
 import twilightforest.block.BlockTFLeaves;
 import twilightforest.block.BlockTFMagicLeaves;
 
@@ -94,10 +94,10 @@ public class EventHandler{
         if(result.equals(ItemRegister.RUNIC_STICK) ||
            result.equals(ItemRegister.ROUND_STONE) ||
            result.equals(ItemRegister.CURINGSEEDS) ||
-           result.equals(ItemRegister.WOODEN_RUNE))
+           result.equals(ItemRegister.WOODEN_RUNE) ||
+           result.equals(Items.GHAST_TEAR))
             for(int i=0;i<9;i++){
                 Item ii = e.craftMatrix.getStackInSlot(i).getItem();
-                if(ii.equals(Items.AIR)) continue;
                 if(ii.equals(ItemRegister.MAGIC_FLINTS))
                     e.craftMatrix.getStackInSlot(i).grow(1);
             }

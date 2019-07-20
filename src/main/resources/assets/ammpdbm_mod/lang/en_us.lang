@@ -19,12 +19,6 @@ item.stealer.name=Stealer
 item.flint_base.name=Inert Magic Flint
 item.fishy.name=Fishy
 item.runic_stick.name=Runic Rod
-item.rose.name=Rose Flower
-item.rose_b.name=Blue Flower
-item.curedeye.name=Safe Spider Eye
-item.curedchicken.name=Safe Chicken
-item.curedfish.name=Safe Pufferfish
-item.curedpotato.name=Safe Potato
 item.round_stone.name=Inert Stone
 item.magnetpick.name=Magnetic Pickaxe
 item.soul_crystal.name=Ghast Crystal
@@ -35,12 +29,23 @@ item.saviour.name=Ring of Keeping
 item.wooden_rune.name=Wooden Rune
 item.amulet0.name=Amulet of Magic Protection
 item.ghast_seeds.name=Soul Seeds
+item.p_trans.name=Paint Stone
+item.soul_fruit.name=Soul Fruit
+item.nether_crystal.name=Nether Crystal
+item.soul_shears.name=Soul Shears
+item.small_soul.name=Small Soul
 
 item.dye.green.name=Green Dye
 item.dye.black.name=Black Dye
 item.dye.blue.name=Blue Dye
 item.dye.brown.name=Brown Dye
 item.dye.white.name=White Dye
+
+item.curedeye.name=Safe Spider Eye
+item.curedchicken.name=Safe Chicken
+item.curedfish.name=Safe Pufferfish
+item.curedpotato.name=Safe Potato
+item.curedfruit.name=Safe Chorus Fruit
 
 item.magic_flint.weak.name=Weak Magic Flint
 item.magic_flint.void.name=Void Magic Flint
@@ -72,6 +77,7 @@ potion.effect.ammpdbm_mod:acid=Magic Acid
 potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid
 potion.effect.ammpdbm_mod:poisonprotection=Potion of Poison Protection
 potion.effect.ammpdbm_mod:plague=Bottled Plague
+potion.effect.comb_plague=Plague Mix
 
 
 
@@ -89,6 +95,8 @@ splash_potion.effect.ammpdbm_mod:witherprotection=Splash Potion of Wither Protec
 splash_potion.effect.ammpdbm_mod:acid=Magic Acid Bomb
 splash_potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid Bomb
 splash_potion.effect.ammpdbm_mod:poisonprotection=Splash Potion of Poison Protection
+splash_potion.effect.ammpdbm_mod:plague=Plague Bomb
+splash_potion.effect.comb_plague=Splash Plague Mix
 
 
 lingering_potion.effect.oceanpotion=Lingering Ocean Potion
@@ -104,6 +112,8 @@ lingering_potion.effect.ammpdbm_mod:witherprotection=Lingering Potion of Wither 
 lingering_potion.effect.ammpdbm_mod:acid=Magic Acid Bomb
 lingering_potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid Bomb
 lingering_potion.effect.ammpdbm_mod:poisonprotection=Lingering Potion of Poison Protection
+lingering_potion.effect.ammpdbm_mod:plague=Plague Bomb
+lingering_potion.effect.comb_plague=Lingering Plague Mix
 
 
 tipped_arrow.effect.oceanpotion=Ocean Arrow
@@ -118,6 +128,8 @@ tipped_arrow.effect.ammpdbm_mod:witherprotection=Arrow of Wither Protection
 tipped_arrow.effect.ammpdbm_mod:acid=Acid Arrow
 tipped_arrow.effect.ammpdbm_mod:strongp_acid=Acid Arrow
 tipped_arrow.effect.ammpdbm_mod:poisonprotection=Arrow of Poison Protection
+tipped_arrow.effect.ammpdbm_mod:plague=Plague Arrow
+tipped_arrow.effect.comb_plague=Plague Mix Arrow
 
 
 effect.ammpdbm_mod:mindprotection=Mind Protection

@@ -77,7 +77,7 @@ public class PotionRegister {
 
             POISONPROTECTION_TYPE_STANDART = createPotionType(null, new PotionEffect(POISONPROTECTION,3600,0)),
             POISONPROTECTION_TYPE_STRONG = createPotionType("strong", new PotionEffect(POISONPROTECTION,3600,1)),
-            POISONPROTECTION_TYPE_LONG = createPotionType("long", new PotionEffect(POISONPROTECTION,3600,0)),
+            POISONPROTECTION_TYPE_LONG = createPotionType("long", new PotionEffect(POISONPROTECTION,9600,0)),
 
 
             PLAGUE_TYPE_STANDART = createPotionType(null, new PotionEffect(PLAGUE,1200,0,false,false)),

@@ -75,6 +75,7 @@ public class CraftingRegister
         }
         GameRegistry.addSmelting(BlockRegister.ORE_BIT,new ItemStack(ItemRegister.BITCOIN5000),0.5F);
         GameRegistry.addSmelting(Items.GHAST_TEAR,new ItemStack(ItemRegister.SOUL_CRYSTAL_s),0.5F);
+        GameRegistry.addSmelting(ItemRegister.EFFECTSTORAGE,new ItemStack(ItemRegister.NETHER_CRYSTAL),1F);
         if(ammpdbm_mod.isLoadedSulfurTorches && ammpdbm_mod.isLoadedProjectX) {
             GameRegistry.addSmelting(Items.GUNPOWDER, new ItemStack(ItemRegister.SULFUR), 0.5F);
         }
@@ -84,7 +85,7 @@ public class CraftingRegister
         PotionHelper.addMix(PotionTypes.LONG_SWIFTNESS, Ingredient.fromStacks(new ItemStack(Items.DYE,1,3)), PotionRegister.HASTE_TYPE_LONG);
         PotionHelper.addMix(PotionRegister.HASTE_TYPE_STANDART, Items.REDSTONE, PotionRegister.HASTE_TYPE_LONG);
 
-        PotionHelper.addMix(PotionTypes.AWKWARD, ItemRegister.GOLDEN_POTATO, PotionRegister.MINDDEVOUR_TYPE_STANDARD);
+        PotionHelper.addMix(PotionTypes.THICK, ItemRegister.GOLDEN_POTATO, PotionRegister.MINDDEVOUR_TYPE_STANDARD);
 
         PotionHelper.addMix(PotionRegister.MINDDEVOUR_TYPE_STANDARD,ItemRegister.CURING_GRASS,PotionRegister.MINDPROTECTION_TYPE_STANDARD);
         PotionHelper.addMix(PotionRegister.MINDDEVOUR_TYPE_STANDARD,Items.FERMENTED_SPIDER_EYE,PotionRegister.MINDPROTECTION_TYPE_STANDARD);
@@ -111,7 +112,7 @@ public class CraftingRegister
         PotionHelper.addMix(PotionRegister.HUMANITY_TYPE_STRONG, Item.getItemFromBlock(Blocks.WEB), PotionRegister.ENDERPROTECTION_TYPE_STANDART);
         PotionHelper.addMix(PotionRegister.ENDERPROTECTION_TYPE_STANDART, Items.REDSTONE, PotionRegister.ENDERPROTECTION_TYPE_LONG);
         PotionHelper.addMix(PotionRegister.ENDERPROTECTION_TYPE_STANDART, Items.GLOWSTONE_DUST, PotionRegister.ENDERPROTECTION_TYPE_STRONG);
-        PotionHelper.addMix(PotionTypes.AWKWARD, Items.CHORUS_FRUIT, PotionRegister.ENDERPROTECTION_TYPE_SHORT);
+        PotionHelper.addMix(PotionTypes.AWKWARD, ItemRegister.CHORUS_C, PotionRegister.ENDERPROTECTION_TYPE_SHORT);
         PotionHelper.addMix(PotionRegister.ENDERPROTECTION_TYPE_SHORT, Items.REDSTONE, PotionRegister.ENDERPROTECTION_TYPE_STRONG);
 
         PotionHelper.addMix(PotionRegister.HUMANITY_TYPE_STANDART, Items.BONE, PotionRegister.WITHERPROTECTION_TYPE_STANDART);
@@ -124,9 +125,12 @@ public class CraftingRegister
         PotionHelper.addMix(PotionRegister.ACID_TYPE_STANDART, ItemRegister.ESSENCE_RAINBOW, PotionRegister.ACID_TYPE_STRONG);
         PotionHelper.addMix(PotionRegister.ACID_TYPE_STRONG, Ingredient.fromStacks(new ItemStack(Items.FISH, 1, ItemFishFood.FishType.PUFFERFISH.getMetadata())), PotionRegister.ACID_TYPE_SUPERSTRONG);
 
-        PotionHelper.addMix(PotionTypes.POISON,ItemRegister.CURING_GRASS,PotionRegister.POISONPROTECTION_TYPE_STANDART);
-        PotionHelper.addMix(PotionTypes.LONG_POISON,ItemRegister.CURING_GRASS,PotionRegister.POISONPROTECTION_TYPE_STRONG);
+        PotionHelper.addMix(PotionTypes.POISON,ItemRegister.EYE_C,PotionRegister.POISONPROTECTION_TYPE_STANDART);
+        PotionHelper.addMix(PotionTypes.STRONG_POISON,ItemRegister.EYE_C,PotionRegister.POISONPROTECTION_TYPE_STRONG);
         PotionHelper.addMix(PotionRegister.POISONPROTECTION_TYPE_STANDART,Items.REDSTONE,PotionRegister.POISONPROTECTION_TYPE_STRONG);
+        PotionHelper.addMix(PotionTypes.LONG_POISON,ItemRegister.EYE_C,PotionRegister.POISONPROTECTION_TYPE_LONG);
+        PotionHelper.addMix(PotionRegister.POISONPROTECTION_TYPE_STANDART,Items.GLOWSTONE_DUST,PotionRegister.POISONPROTECTION_TYPE_LONG);
+
 
         PotionHelper.addMix(PotionTypes.POISON,Item.getItemFromBlock(Blocks.BROWN_MUSHROOM),PotionRegister.PLAGUE_TYPE_STANDART);
         PotionHelper.addMix(PotionTypes.POISON,Item.getItemFromBlock(Blocks.RED_MUSHROOM),PotionRegister.PLAGUE_TYPE_STANDART);
@@ -135,6 +139,8 @@ public class CraftingRegister
         PotionHelper.addMix(PotionRegister.PLAGUE_TYPE_MIXED1,ItemRegister.FLESH,PotionRegister.PLAGUE_TYPE_MIXED2);
 
         BrewingRecipeRegistry.addRecipe(new ItemStack(Items.POTIONITEM), new ItemStack(Items.NETHER_STAR), new ItemStack(ItemRegister.NETHER_DRINK));
+
+        PotionHelper.addMix(PotionTypes.AWKWARD,ItemRegister.SOUL_FRUIT,PotionTypes.STRONG_REGENERATION);
 
         if(ammpdbm_mod.isLoadedTinkers){
             PotionHelper.addMix(PotionRegister.WITHERPROTECTION_TYPE_STANDART,Ingredient.fromStacks(new ItemStack(Item.getByNameOrId("tconstruct:materials"),1,17)),PotionRegister.WITHERPROTECTION_TYPE_STRONG);
