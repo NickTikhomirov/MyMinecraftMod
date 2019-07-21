@@ -1,0 +1,10 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "ammpdbm_mod:items/dust0"
+  },
+  "overrides": [
+    { "predicate": { "ore_searching": 0.0000000 }, "model": "ammpdbm_mod:item/dust0" },
+    { "predicate": { "ore_searching": 0.0078125 }, "model": "ammpdbm_mod:item/dust1" }
+  ]
+}

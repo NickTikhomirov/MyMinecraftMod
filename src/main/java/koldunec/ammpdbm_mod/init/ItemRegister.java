@@ -45,6 +45,7 @@ public class ItemRegister
     public static Item SOUL_FRUIT = new base_item("soul_fruit",64);
     public static Item NETHER_CRYSTAL = new base_item("nether_crystal",64);
     public static Item SOUL = new base_item("small_soul",64);
+    public static Item RED_POWDER = new oreProspector();
 
     public static Item GOLDEN_POTATO= new potatogp();
     public static Item FLESH = new flesh();
@@ -114,6 +115,7 @@ public class ItemRegister
         setRegister(SOUL_SHEARS);
         setRegister(NETHER_CRYSTAL);
         setRegister(SOUL);
+        setRegister(RED_POWDER);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -192,6 +194,7 @@ public class ItemRegister
         setRender(SOUL_SHEARS);
         setRender(NETHER_CRYSTAL);
         setRender(SOUL);
+        setRender(RED_POWDER);
 
         if(ammpdbm_mod.isLoadedBaubles)
             setRender(SAVIOUR);

@@ -2,14 +2,9 @@ package koldunec.ammpdbm_mod.potions;
 
 
 import koldunec.ammpdbm_mod.ammpdbm_mod;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
+
 
 public class potionmagicprotection extends potion_base {
 

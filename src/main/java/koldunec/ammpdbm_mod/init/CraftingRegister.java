@@ -17,6 +17,8 @@ import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.IRecipeFactory;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
+import static net.minecraftforge.common.crafting.CraftingHelper.*;
+
 public class CraftingRegister
 {
     public static void register()
@@ -149,6 +151,6 @@ public class CraftingRegister
 
     private static void registerRecipes(String name)
     {
-        CraftingHelper.register(new ResourceLocation("ammpdbm_mod", name), (IRecipeFactory) (context, json) -> CraftingHelper.getRecipe(json, context));
+        CraftingHelper.register(new ResourceLocation("ammpdbm_mod", name), (IRecipeFactory) (context, json) -> getRecipe(json, context));
     }
 }

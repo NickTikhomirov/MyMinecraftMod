@@ -1,16 +1,12 @@
 package koldunec.ammpdbm_mod.entities;
 
 import koldunec.ammpdbm_mod.init.ItemRegister;
-import koldunec.ammpdbm_mod.init.PotionRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.MultiPartEntityPart;
 import net.minecraft.entity.boss.EntityDragon;
-import net.minecraft.entity.boss.EntityWither;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityThrowable;
-import net.minecraft.init.Biomes;
-import net.minecraft.inventory.InventoryBasic;
 import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;

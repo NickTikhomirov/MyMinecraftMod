@@ -45,7 +45,7 @@ import net.minecraftforge.fml.common.Optional;
 
 
 @Optional.Interface(iface = "baubles.api.IBauble", modid = "baubles")
-public class xyAmulet extends base_item implements IBauble{
+public class  xyAmulet extends base_item implements IBauble{
     public xyAmulet(){
         super("xy_amulet",1);
     }

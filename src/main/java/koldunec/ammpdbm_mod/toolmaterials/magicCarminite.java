@@ -4,7 +4,6 @@ package koldunec.ammpdbm_mod.toolmaterials;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
-import twilightforest.item.TFItems;
 
 public class magicCarminite {
     public static Item.ToolMaterial magicCarminite =

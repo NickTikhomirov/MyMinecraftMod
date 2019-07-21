@@ -81,9 +81,9 @@ public class block_ghastpod extends BlockCocoa {
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
         int i = ((Integer)state.getValue(AGE)).intValue();
 
+        drops.add(new ItemStack(ItemRegister.GHAST_SEEDS));
         if (i >= 2)
             drops.add(new ItemStack(ItemRegister.SOUL_FRUIT));
-        drops.add(new ItemStack(ItemRegister.GHAST_SEEDS));
     }
 
     @Override

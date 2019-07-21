@@ -2,23 +2,9 @@ package koldunec.ammpdbm_mod.potions;
 
 
 import koldunec.ammpdbm_mod.ammpdbm_mod;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.monster.EntityEnderman;
-import net.minecraft.entity.monster.EntityEndermite;
-import net.minecraft.entity.monster.EntityShulker;
-import net.minecraft.entity.monster.EntitySilverfish;
-import net.minecraft.init.MobEffects;
-import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static net.minecraft.init.MobEffects.LEVITATION;
-import static net.minecraft.init.MobEffects.WEAKNESS;
 
 public class potionhumanity extends potion_base {
 

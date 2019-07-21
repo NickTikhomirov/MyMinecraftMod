@@ -12,8 +12,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 
-import static net.minecraft.init.MobEffects.LEVITATION;
-import static net.minecraft.init.MobEffects.WEAKNESS;
 
 public class potionwitherprotection extends potion_base {
 

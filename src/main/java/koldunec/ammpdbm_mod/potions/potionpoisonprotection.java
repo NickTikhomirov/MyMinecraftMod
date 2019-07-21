@@ -8,7 +8,6 @@ import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ResourceLocation;
 
-import java.util.Iterator;
 
 import static net.minecraft.init.MobEffects.*;
 

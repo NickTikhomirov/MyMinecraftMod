@@ -45,6 +45,7 @@ dependencies {
 
     // the 'provided' configuration is for optional dependencies that exist at compile-time but might not at runtime.
     //provided 'com.mod-buildcraft:buildcraft:6.0.8:dev'
+    provided 'forge:forgeSrc-1.12.2-14.23.5.2768'
     provided 'twilightforest:twilightforest-1.12.2-3.8.654-universal'
     provided 'baubles:Baubles-1.12-1.5.2'
     provided 'tconstruct:TConstruct-1.12.2-2.12.0.135'
