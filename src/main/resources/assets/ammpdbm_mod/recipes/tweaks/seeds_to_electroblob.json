@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ebwizardry:magic_crystal"
+    },
+    {
+      "item": "ammpdbm_mod:curingseeds"
+    }
+  ],
+  "result":
+    {
+      "item": "t3s4ebw:magic_seed",
+      "count": 1
+    }
+}

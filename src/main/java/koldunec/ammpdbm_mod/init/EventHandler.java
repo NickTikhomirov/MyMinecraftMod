@@ -104,7 +104,9 @@ public class EventHandler{
            result.equals(ItemRegister.ROUND_STONE) ||
            result.equals(ItemRegister.CURINGSEEDS) ||
            result.equals(ItemRegister.WOODEN_RUNE) ||
-           result.equals(Items.GHAST_TEAR))
+           result.equals(Items.GHAST_TEAR) ||
+           result.equals(Item.getItemFromBlock(Blocks.LOG)) ||
+           result.equals(Item.getItemFromBlock(Blocks.PLANKS)))
             for(int i=0;i<9;i++){
                 Item ii = e.craftMatrix.getStackInSlot(i).getItem();
                 if(ii.equals(ItemRegister.MAGIC_FLINTS))

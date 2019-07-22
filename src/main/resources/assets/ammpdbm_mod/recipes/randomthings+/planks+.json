@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "magicFlintWeak"
+    },
+    {
+      "item": "randomthings:spectreplank"
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:planks",
+      "data": 0
+    }
+}
