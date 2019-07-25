@@ -29,12 +29,13 @@ item.saviour.name=Ring of Keeping
 item.wooden_rune.name=Wooden Rune
 item.amulet0.name=Amulet of Magic Protection
 item.ghast_seeds.name=Soul Seeds
-item.p_trans.name=Paint Stone
+item.p_trans.name=Dye Transmutation Stone
 item.soul_fruit.name=Soul Fruit
 item.nether_crystal.name=Nether Crystal
 item.soul_shears.name=Soul Shears
 item.small_soul.name=Small Soul
 item.red_powder.name=Red Powder
+item.paint_operator.name=Color Operator
 
 item.dye.green.name=Green Dye
 item.dye.black.name=Black Dye

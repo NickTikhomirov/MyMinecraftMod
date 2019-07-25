@@ -1,4 +1,4 @@
-package koldunec.ammpdbm_mod.utils;
+package koldunec.ammpdbm_mod.recipes;
 
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import koldunec.ammpdbm_mod.init.PotionRegister;

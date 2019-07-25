@@ -68,6 +68,7 @@ public class ItemRegister
     public static Item MAGIC_PROTECTOR = new base_item("amulet0",16);
     public static Item PAINT_TRANSMUTATOR = new paint_transmutator();
     public static Item SOUL_SHEARS = new soul_shears();
+    public static Item PAINT_OPERATOR = new paint_operator();
 
     public static Item NETHER_DRINK = new nether_drink();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
@@ -116,6 +117,7 @@ public class ItemRegister
         setRegister(NETHER_CRYSTAL);
         setRegister(SOUL);
         setRegister(RED_POWDER);
+        setRegister(PAINT_OPERATOR);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -195,6 +197,7 @@ public class ItemRegister
         setRender(NETHER_CRYSTAL);
         setRender(SOUL);
         setRender(RED_POWDER);
+        setRender(PAINT_OPERATOR);
 
         if(ammpdbm_mod.isLoadedBaubles)
             setRender(SAVIOUR);

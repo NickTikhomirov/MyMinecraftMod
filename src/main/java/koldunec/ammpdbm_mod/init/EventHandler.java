@@ -7,8 +7,9 @@ import koldunec.ammpdbm_mod.broomitems.another_dye_please_dont_blame_me;
 import koldunec.ammpdbm_mod.broomitems.flints;
 import koldunec.ammpdbm_mod.broomitems.saviour;
 import koldunec.ammpdbm_mod.broomitems.xyAmulet;
-import koldunec.ammpdbm_mod.utils.dragonBreathFix;
-import koldunec.ammpdbm_mod.utils.tipped_crafting;
+import koldunec.ammpdbm_mod.recipes.dragonBreathFix;
+import koldunec.ammpdbm_mod.recipes.paint_operator;
+import koldunec.ammpdbm_mod.recipes.tipped_crafting;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -86,6 +87,10 @@ public class EventHandler{
         dragonBreathFix b = new dragonBreathFix();
         b.setRegistryName(ammpdbm_mod.MODID,"tippedarrow");
         event.getRegistry().register(b);
+
+        paint_operator c = new paint_operator();
+        c.setRegistryName(ammpdbm_mod.MODID,"paint_operator");
+        event.getRegistry().register(c);
     }
 
     @SubscribeEvent
@@ -190,14 +195,13 @@ public class EventHandler{
         }
 
         if(e.getState().getBlock().equals(BlockRegister.ORE_RAINBOW)){
-            //e.getDrops().add(new ItemStack(ItemRegister.ESSENCE_RAINBOW,ammpdbm_mod.random.nextInt(2)+1));
-            e.getDrops().add(new ItemStack(Items.DYE,1,1));
-            for(int ii=5; ii<15; ii++){
-                e.getDrops().add(new ItemStack(Items.DYE,1,ii));
-            }
-            for(int ii=0; ii<5; ii++){
-                e.getDrops().add(new ItemStack(ItemRegister.ANOTHER_DYE,1,ii));
-            }
+            e.getDrops().add(new ItemStack(Items.DYE,1,1));                 //red
+            e.getDrops().add(new ItemStack(Items.DYE,1,5));                 //purple
+            e.getDrops().add(new ItemStack(Items.DYE,1,11));                //yellow
+            e.getDrops().add(new ItemStack(Items.DYE,1,12));                //light_blue
+            e.getDrops().add(new ItemStack(Items.DYE,1,14));                //orange
+            e.getDrops().add(new ItemStack(ItemRegister.ANOTHER_DYE,1,1));  //green
+            e.getDrops().add(new ItemStack(ItemRegister.ANOTHER_DYE,1,3));  //blue
         }
 
         if(ammpdbm_mod.isLoadedTwilight){
