@@ -1,6 +1,7 @@
 package koldunec.ammpdbm_mod.world.generate;
 
 import koldunec.ammpdbm_mod.ammpdbm_mod;
+import koldunec.ammpdbm_mod.broomitems.stORE;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -26,7 +27,7 @@ public class GenerateOre implements IWorldGenerator {
                 break;
             case 0: //Обычний мир
                 //runGenerator(BlockRegister.ORE_BIT.getDefaultState(), 4, 8, 30, 100, Blocks.STONE, world, random, chunkX, chunkZ);
-                //runGenerator(BlockRegister.ORE_BIT.getDefaultState(), 4, 4, 10, 29, Blocks.STONE, world, random, chunkX, chunkZ);
+                runGenerator(BlockRegister.STORE.getDefaultState(), 3, 12, 15, 64, Blocks.STONE, world, random, chunkX, chunkZ);
                 //runGenerator(BlockRegister.ORE_SPARKLE.getDefaultState(), 7, 8, 30, 64, Blocks.STONE, world, random, chunkX, chunkZ);
                 //runGenerator(BlockRegister.ORE_EGG.getDefaultState(), 3, 5, 10, 20, Blocks.STONE, world, random, chunkX, chunkZ);
                 runGenerator(BlockRegister.ORE_RAINBOW.getDefaultState(), 4, 15, 49, 110, Blocks.DIRT, world, random, chunkX, chunkZ);
@@ -39,6 +40,7 @@ public class GenerateOre implements IWorldGenerator {
             default: //Мир из другого мода (если нужно)
                 runGenerator(BlockRegister.ORE_RAINBOW.getDefaultState(), 4, 16, 10, 70, Blocks.DIRT, world, random, chunkX, chunkZ);
                 runGenerator(Blocks.EMERALD_ORE.getDefaultState(),3,5,4,32, Blocks.STONE, world, random, chunkX, chunkZ);
+                runGenerator(BlockRegister.STORE.getDefaultState(), 3, 12, 15, 64, Blocks.STONE, world, random, chunkX, chunkZ);
                 break;
 
         /*

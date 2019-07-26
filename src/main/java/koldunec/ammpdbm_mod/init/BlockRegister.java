@@ -5,6 +5,7 @@ import koldunec.ammpdbm_mod.broomitems.*;
 import koldunec.ammpdbm_mod.broomitems.baseItems.basic_block;
 import koldunec.ammpdbm_mod.broomitems.baseItems.basic_planks;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curingCrops;
+import koldunec.ammpdbm_mod.tileentities.EntityStore;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -12,7 +13,9 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
@@ -26,6 +29,7 @@ public class BlockRegister
 
     public static Block OLD_ROSE = new magic_flower("rose");
     public static Block OLD_ROSE_b = new magic_flower("rose_b");
+    public static Block STORE = new stORE();
 
 
     public static Block BRICKS_Light = new basic_block("block_bricks_light",Material.ROCK, "pickaxe",0,2F ,30F);
@@ -59,6 +63,8 @@ public class BlockRegister
         registerBlock(PLANKS_uncommon);
         registerBlock(COBBLE_MOSS_old);
         registerBlock(ORE_RAINBOW);
+        GameRegistry.registerTileEntity(EntityStore.class, new ResourceLocation(ammpdbm_mod.MODID,"st_ore"));
+        registerBlock(STORE);
         ForgeRegistries.BLOCKS.register(CURING_CROPS);
         ForgeRegistries.BLOCKS.register(GHAST_POD);
 
@@ -91,6 +97,7 @@ public class BlockRegister
         setRender(PLANKS_uncommon);
         setRender(COBBLE_MOSS_old);
         setRender(ORE_RAINBOW);
+        setRender(STORE);
         if(ammpdbm_mod.isLoadedProjectX) {
             if(ammpdbm_mod.isLoadedSulfurTorches) {
                 setRender(ORE_ALUMINUM);

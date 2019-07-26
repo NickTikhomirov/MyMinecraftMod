@@ -5,6 +5,7 @@ import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.entities.entityBitcoin;
 import koldunec.ammpdbm_mod.entities.entityMagicBall;
 import koldunec.ammpdbm_mod.init.BlockRegister;
+import koldunec.ammpdbm_mod.init.GuiHandler;
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import koldunec.ammpdbm_mod.utils.SnowballRenderFactory;
 import koldunec.ammpdbm_mod.entities.entityStone;
@@ -28,7 +29,7 @@ public class ClientProxy extends CommonProxy{
 
     @Override
     public void init(FMLInitializationEvent event){
-        //NetworkRegistry.INSTANCE.registerGuiHandler(ammpdbm_mod.instance,new GuiHandler());
+        NetworkRegistry.INSTANCE.registerGuiHandler(ammpdbm_mod.instance,new GuiHandler());
         ItemRegister.registerRender();
         BlockRegister.registerRender();
         super.init(event);

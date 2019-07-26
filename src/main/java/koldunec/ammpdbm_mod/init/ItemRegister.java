@@ -47,6 +47,10 @@ public class ItemRegister
     public static Item SOUL = new base_item("small_soul",64);
     public static Item RED_POWDER = new oreProspector();
 
+    public static Item GOLDEN_DIAMOND = new base_item("dg0",64);
+    public static Item DIAMOND_GOLD = new base_item("dg1",64);
+    public static Item DIAMONDGOLDEN_GOLDEN_DIAMOND = new base_item("dg2",64);
+
     public static Item GOLDEN_POTATO= new potatogp();
     public static Item FLESH = new flesh();
     public static Item EYE_C = new base_food("curedeye",64,3,0.8F,false);
@@ -118,6 +122,9 @@ public class ItemRegister
         setRegister(SOUL);
         setRegister(RED_POWDER);
         setRegister(PAINT_OPERATOR);
+        setRegister(DIAMOND_GOLD);
+        setRegister(GOLDEN_DIAMOND);
+        setRegister(DIAMONDGOLDEN_GOLDEN_DIAMOND);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -198,6 +205,9 @@ public class ItemRegister
         setRender(SOUL);
         setRender(RED_POWDER);
         setRender(PAINT_OPERATOR);
+        setRender(DIAMOND_GOLD);
+        setRender(GOLDEN_DIAMOND);
+        setRender(DIAMONDGOLDEN_GOLDEN_DIAMOND);
 
         if(ammpdbm_mod.isLoadedBaubles)
             setRender(SAVIOUR);
