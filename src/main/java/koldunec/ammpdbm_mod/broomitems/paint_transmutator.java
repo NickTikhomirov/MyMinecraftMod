@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 public class paint_transmutator extends base_item {
     public paint_transmutator(){
         super("p_trans",1);
-        setMaxDamage(127);
+        setMaxDamage(255);
         //setContainerItem(this);
         setNoRepair();
     }

@@ -35,7 +35,8 @@ item.nether_crystal.name=Nether Crystal
 item.soul_shears.name=Soul Shears
 item.small_soul.name=Small Soul
 item.red_powder.name=Red Powder
-item.paint_operator.name=Color
+item.paint_operator.name=Color Operator
+item.cleaner.name=Sponge of Conceptualization
 
 item.dg0.name=Golden Diamond
 item.dg1.name=Diamond Gold

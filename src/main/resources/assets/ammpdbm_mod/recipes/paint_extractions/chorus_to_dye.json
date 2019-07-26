@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:chorus_fruit"
+    },
+    {
+      "item": "ammpdbm_mod:p_trans",
+      "data": 32767
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:dye",
+      "data": 5,
+      "count": 1
+    }
+}

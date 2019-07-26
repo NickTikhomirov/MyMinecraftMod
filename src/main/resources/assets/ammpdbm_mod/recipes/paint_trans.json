@@ -1,23 +1,24 @@
 {
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " r ",
+    "ROR",
+    " R "
+  ],
+  "key": {
+    "r": {
+      "item": "ammpdbm_mod:red_powder"
+    },
+    "O": {
       "item": "ammpdbm_mod:round_stone"
     },
-    {
+    "R": {
       "item": "ammpdbm_mod:rEssence"
-    },
-    {
-      "item": "ammpdbm_mod:rEssence"
-    },
-    {
-      "item": "minecraft:redstone"
     }
-  ],
-  "result":
-    {
-      "item": "ammpdbm_mod:p_trans",
-      "data":  0,
-      "count": 1
-    }
+  },
+  "result": {
+    "item": "ammpdbm_mod:p_trans",
+    "data":  0,
+    "count": 1
+  }
 }

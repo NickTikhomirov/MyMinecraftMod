@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "tconstruct:edible",
+      "data": 2
+    },
+    {
+      "item": "ammpdbm_mod:p_trans",
+      "data": 32767
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:dye",
+      "data": 5,
+      "count": 1
+    }
+}

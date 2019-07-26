@@ -3,6 +3,10 @@
   "ingredients": [
     {
       "item": "minecraft:brown_mushroom"
+    },
+    {
+      "item": "ammpdbm_mod:p_trans",
+      "data": 32767
     }
   ],
   "result":

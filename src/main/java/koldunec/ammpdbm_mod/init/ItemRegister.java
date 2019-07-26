@@ -73,6 +73,7 @@ public class ItemRegister
     public static Item PAINT_TRANSMUTATOR = new paint_transmutator();
     public static Item SOUL_SHEARS = new soul_shears();
     public static Item PAINT_OPERATOR = new paint_operator();
+    public static Item SPONGE_OF_CONCEPTUALIZATION = new cleaner();
 
     public static Item NETHER_DRINK = new nether_drink();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
@@ -125,6 +126,7 @@ public class ItemRegister
         setRegister(DIAMOND_GOLD);
         setRegister(GOLDEN_DIAMOND);
         setRegister(DIAMONDGOLDEN_GOLDEN_DIAMOND);
+        setRegister(SPONGE_OF_CONCEPTUALIZATION);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -208,6 +210,7 @@ public class ItemRegister
         setRender(DIAMOND_GOLD);
         setRender(GOLDEN_DIAMOND);
         setRender(DIAMONDGOLDEN_GOLDEN_DIAMOND);
+        setRender(SPONGE_OF_CONCEPTUALIZATION);
 
         if(ammpdbm_mod.isLoadedBaubles)
             setRender(SAVIOUR);
