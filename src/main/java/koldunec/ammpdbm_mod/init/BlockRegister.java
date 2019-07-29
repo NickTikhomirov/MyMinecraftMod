@@ -22,8 +22,8 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class BlockRegister
 {
-    public static Block WATER_PORTAL = new basic_block("portal_water", Material.IRON,"pickaxe",1,5F, 30.0F);
-    public static Block BLOCK_CHARCOAL = new basic_block("block_charcoal",Material.ROCK, "pickaxe",0,5F ,30F );
+    public static Block WATER_PORTAL = new basic_block("portal_water", Material.IRON,"pickaxe",1,5F, 30.0F,0);
+    public static Block BLOCK_CHARCOAL = new basic_block("block_charcoal",Material.ROCK, "pickaxe",0,5F ,30F,255);
     public static Block CURING_CROPS = new curingCrops("curing_crops");
     public static Block GHAST_POD = new block_ghastpod();
 
@@ -32,9 +32,11 @@ public class BlockRegister
     public static Block STORE = new stORE();
 
 
-    public static Block BRICKS_Light = new basic_block("block_bricks_light",Material.ROCK, "pickaxe",0,2F ,30F);
-    public static Block BRICKS_Dark = new basic_block("block_bricks_dark",Material.ROCK, "pickaxe",0,2F ,30F);
-    public static Block COBBLE_MOSS_old = new basic_block("block_oldmoss",Material.ROCK, "pickaxe",0,2F ,30F);
+    public static Block BRICKS_Light = new basic_block("block_bricks_light",Material.ROCK, "pickaxe",0,2F ,30F,255);
+    public static Block BRICKS_Dark = new basic_block("block_bricks_dark",Material.ROCK, "pickaxe",0,2F ,30F,255);
+    public static Block COBBLE_MOSS_old = new basic_block("block_oldmoss",Material.ROCK, "pickaxe",0,2F ,30F,255);
+    public static Block COBBLE_MOSS_red = new basic_block("block_redmoss",Material.ROCK,"pickaxe",0,2F,30F,255);
+    public static Block COBBLE_old = new basic_block("block_oldstone",Material.ROCK,"pickaxe",0,2F,30F,255);
     public static Block PLANKS_Light = new basic_planks("block_planks_light", 2F ,15F);
     public static Block PLANKS_uncommon = new basic_planks("block_planks_uncommon", 2F ,15F);
 
@@ -43,8 +45,8 @@ public class BlockRegister
     public static Block ORE_EGG = new eggore("ore_egg",64);
     public static Block ORE_RAINBOW = new rainbow_ore("ore_rainbow",1,2,3);
 
-    public static Block ORE_ALUMINUM = new bitore("ore_al",4,7,10);
-    public static Block  ALBLOCK = new basic_block("block_aluminum",Material.IRON,"pickaxe",1,1F,50F);
+    public static Block ORE_ALUMINUM = new bitore("ore_al",4,7,200);
+    public static Block  ALBLOCK = new basic_block("block_aluminum",Material.IRON,"pickaxe",1,1F,50F,10);
     //public static Block TOWER_FURNACE = new TowerFurnace(2F,30F);
 
 
@@ -65,6 +67,8 @@ public class BlockRegister
         registerBlock(ORE_RAINBOW);
         GameRegistry.registerTileEntity(EntityStore.class, new ResourceLocation(ammpdbm_mod.MODID,"st_ore"));
         registerBlock(STORE);
+        registerBlock(COBBLE_MOSS_red);
+        registerBlock(COBBLE_old);
         ForgeRegistries.BLOCKS.register(CURING_CROPS);
         ForgeRegistries.BLOCKS.register(GHAST_POD);
 
@@ -98,6 +102,8 @@ public class BlockRegister
         setRender(COBBLE_MOSS_old);
         setRender(ORE_RAINBOW);
         setRender(STORE);
+        setRender(COBBLE_MOSS_red);
+        setRender(COBBLE_old);
         if(ammpdbm_mod.isLoadedProjectX) {
             if(ammpdbm_mod.isLoadedSulfurTorches) {
                 setRender(ORE_ALUMINUM);

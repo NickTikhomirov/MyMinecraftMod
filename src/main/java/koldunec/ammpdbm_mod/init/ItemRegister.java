@@ -14,6 +14,7 @@ import koldunec.ammpdbm_mod.broomitems.throwables.bitcoin5000;
 import koldunec.ammpdbm_mod.broomitems.throwables.cursedRock;
 import koldunec.ammpdbm_mod.broomitems.throwables.inertstone;
 import koldunec.ammpdbm_mod.broomitems.saviour;
+import koldunec.ammpdbm_mod.broomitems.gd_apple;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -42,16 +43,17 @@ public class ItemRegister
     public static Item ROUND_STONE = new inertstone("round_stone",64);
     public static Item SOUL_CRYSTAL_s = new base_item("soul_crystal",64);
     public static Item WOODEN_RUNE = new base_item("wooden_rune",64);
-    public static Item SOUL_FRUIT = new base_item("soul_fruit",64);
+    public static Item SOUL_FRUIT = new soul_fruit();//new base_item("soul_fruit",64);
     public static Item NETHER_CRYSTAL = new base_item("nether_crystal",64);
     public static Item SOUL = new base_item("small_soul",64);
     public static Item RED_POWDER = new oreProspector();
+    public static Item NETHER_CUP = new base_item("nether_cup",64);
 
     public static Item GOLDEN_DIAMOND = new base_item("dg0",64);
     public static Item DIAMOND_GOLD = new base_item("dg1",64);
     public static Item DIAMONDGOLDEN_GOLDEN_DIAMOND = new base_item("dg2",64);
 
-    public static Item GOLDEN_POTATO= new potatogp();
+    public static Item GOLDEN_POTATO = new potatogp();
     public static Item FLESH = new flesh();
     public static Item EYE_C = new base_food("curedeye",64,3,0.8F,false);
     public static Item FISH_C = new base_food("curedfish",64,3, 0.8F,false);
@@ -59,6 +61,8 @@ public class ItemRegister
     public static Item CHICKEN_C = new base_food("curedchicken",64,3,1.2F,false);
     public static Item CHORUS_C = new base_food("curedfruit",64,4,2.4F,false);
     public static Item FISHY = new base_food("fishy",64,1,1,false);
+    public static Item GOLDENDIAMOND_APPLE = new gd_apple();
+    public static Item DIAMONDGOLDEN_APPLE = new dg_apple();
     public static Item EFFECTSTORAGE = new effectFreezer();
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
 
@@ -127,6 +131,8 @@ public class ItemRegister
         setRegister(GOLDEN_DIAMOND);
         setRegister(DIAMONDGOLDEN_GOLDEN_DIAMOND);
         setRegister(SPONGE_OF_CONCEPTUALIZATION);
+        setRegister(GOLDENDIAMOND_APPLE);
+        setRegister(DIAMONDGOLDEN_APPLE);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -211,6 +217,8 @@ public class ItemRegister
         setRender(GOLDEN_DIAMOND);
         setRender(DIAMONDGOLDEN_GOLDEN_DIAMOND);
         setRender(SPONGE_OF_CONCEPTUALIZATION);
+        setRender(GOLDENDIAMOND_APPLE);
+        setRender(DIAMONDGOLDEN_APPLE);
 
         if(ammpdbm_mod.isLoadedBaubles)
             setRender(SAVIOUR);

@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ammpdbm_mod:cleaner",
+      "data": 32767
+    },
+    [
+      {
+        "item": "twilightforest:tower_wood",
+        "data": 2
+      },
+      {
+        "item": "twilightforest:tower_wood",
+        "data": 3
+      },
+      {
+        "item": "twilightforest:tower_wood",
+        "data": 4
+      }
+    ]
+  ],
+  "result":
+    {
+      "item": "twilightforest:tower_wood",
+      "data": 0
+    }
+}

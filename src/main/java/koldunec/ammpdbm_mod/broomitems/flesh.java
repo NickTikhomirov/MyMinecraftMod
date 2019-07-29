@@ -18,6 +18,7 @@ public class flesh extends base_food {
 
     @Override
     public void onFoodEaten(ItemStack is, World w, EntityPlayer player){
+        if(player.world.isRemote) return;
         if(player.isPotionActive(PotionRegister.HUMANITY))
             player.removePotionEffect(PotionRegister.HUMANITY);
         if(w.provider.getDimension()==-1) {

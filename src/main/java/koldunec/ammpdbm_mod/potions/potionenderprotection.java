@@ -34,8 +34,10 @@ public class potionenderprotection extends potion_base {
             entityLivingBase.attackEntityFrom(DamageSource.MAGIC,2+amplifier);
         } else if(entityLivingBase instanceof EntityEndermite){
             entityLivingBase.attackEntityFrom(DamageSource.MAGIC,500);
-        } else
+        } else {
             entityLivingBase.removeActivePotionEffect(MobEffects.LEVITATION);
+            entityLivingBase.removeActivePotionEffect(MobEffects.GLOWING);
+        }
     }
 
     @Override

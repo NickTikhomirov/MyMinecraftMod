@@ -21,7 +21,7 @@ public class basic_planks extends Block
         this.setResistance(hardness_expl);
         this.blockSoundType = SoundType.WOOD;
         this.fullBlock = true;
-        this.lightOpacity = 0;
+        this.lightOpacity = 255;
     }
 
 

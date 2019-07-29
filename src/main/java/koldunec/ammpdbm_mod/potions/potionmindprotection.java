@@ -20,6 +20,7 @@ public class potionmindprotection extends potion_base {
 
     @Override
     public void performEffect(EntityLivingBase entityLivingBase, int amplifier) {
+        if(entityLivingBase.world.isRemote) return;
         Iterator<PotionEffect> ite = entityLivingBase.getActivePotionEffects().iterator();
         while(ite.hasNext()){
             PotionEffect g = ite.next();

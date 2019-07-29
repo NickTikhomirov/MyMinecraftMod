@@ -91,6 +91,7 @@ public class nether_drink extends ItemFood {
 
     @Override
     public void onFoodEaten(ItemStack is, World w, EntityPlayer player){
+        if(player.world.isRemote) return;
         ItemStack a = new ItemStack(Items.GHAST_TEAR,6 + (new RandomValueRange(0,7)).generateInt(ammpdbm_mod.random));
         ItemStack b = new ItemStack(Items.GLASS_BOTTLE,1);
         player.addPotionEffect(new PotionEffect(NAUSEA, 1200));

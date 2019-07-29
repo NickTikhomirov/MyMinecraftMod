@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " w ",
+    " O ",
+    "GGG"
+  ],
+  "key": {
+    "w": [
+      {
+        "item": "minecraft:water_bucket"
+      },
+      {
+        "item": "ammpdbm_mod:flints",
+        "data": 1
+      }
+    ],
+    "O": {
+      "item": "minecraft:sponge",
+      "data": 32767
+    },
+    "G": {
+      "item": "ammpdbm_mod:curinggrass"
+    }
+  },
+  "result": {
+    "item": "ammpdbm_mod:cleaner",
+    "data": 0,
+    "count": 1
+  }
+}

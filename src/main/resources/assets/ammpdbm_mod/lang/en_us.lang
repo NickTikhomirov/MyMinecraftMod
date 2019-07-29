@@ -37,10 +37,13 @@ item.small_soul.name=Small Soul
 item.red_powder.name=Red Powder
 item.paint_operator.name=Color Operator
 item.cleaner.name=Sponge of Conceptualization
+item.gd_apple.name=Goldendiamond Apple
+item.dg_apple.name=Diamondgolden Apple
+item.nether_cup.name=Nether Cup
 
 item.dg0.name=Golden Diamond
 item.dg1.name=Diamond Gold
-item.dg2.name=Diamond-golden Golden Diamond
+item.dg2.name=Diamondgolden Golden Diamond
 
 item.dye.green.name=Green Dye
 item.dye.black.name=Black Dye
@@ -67,6 +70,8 @@ tile.block_bricks_light.name=Light Bricks
 tile.block_planks_light.name=Gray Planks
 tile.block_planks_uncommon.name=Strange Planks
 tile.block_oldmoss.name=Old Moss Cobble
+tile.block_redmoss.name=Bloody Cobble
+tile.block_oldstone.name=Old Cobble
 tile.st_ore.name=StORE
 
 potion.effect.minddevourpotion=Potion of Mind Devouring
@@ -165,3 +170,6 @@ tile.ore_al.name=Aluminum Ore
 
 potion.potency.3=IV
 container.st_ore=StOre
+
+ammpdbm_mod.chat.msg0=Well Done!
+ammpdbm_mod.chat.xol0=The most important creature part is its eye.

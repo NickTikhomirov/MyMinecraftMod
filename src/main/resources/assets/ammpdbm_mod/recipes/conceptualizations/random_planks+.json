@@ -2,8 +2,8 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "type": "forge:ore_dict",
-      "ore": "magicFlintWeak"
+      "item": "ammpdbm_mod:cleaner",
+      "data": 32767
     },
     {
       "item": "randomthings:spectreplank"
