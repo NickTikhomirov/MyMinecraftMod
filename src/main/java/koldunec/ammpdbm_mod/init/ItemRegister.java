@@ -78,6 +78,7 @@ public class ItemRegister
     public static Item SOUL_SHEARS = new soul_shears();
     public static Item PAINT_OPERATOR = new paint_operator();
     public static Item SPONGE_OF_CONCEPTUALIZATION = new cleaner();
+    public static Item SCROLL = new scroll();
 
     public static Item NETHER_DRINK = new nether_drink();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
@@ -133,6 +134,7 @@ public class ItemRegister
         setRegister(SPONGE_OF_CONCEPTUALIZATION);
         setRegister(GOLDENDIAMOND_APPLE);
         setRegister(DIAMONDGOLDEN_APPLE);
+        setRegister(SCROLL);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));

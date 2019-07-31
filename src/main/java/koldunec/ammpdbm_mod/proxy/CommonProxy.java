@@ -4,9 +4,11 @@ package koldunec.ammpdbm_mod.proxy;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.entities.entityBitcoin;
 import koldunec.ammpdbm_mod.entities.entityMagicBall;
+import koldunec.ammpdbm_mod.events.LootTable_Event;
+import koldunec.ammpdbm_mod.events.TechEvents;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.init.CraftingRegister;
-import koldunec.ammpdbm_mod.init.EventHandler;
+import koldunec.ammpdbm_mod.events.EventHandler;
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import koldunec.ammpdbm_mod.entities.entityStone;
 import koldunec.ammpdbm_mod.world.generate.GenerateOre;
@@ -29,6 +31,9 @@ public class CommonProxy {
                 ItemRegister.register();
                 BlockRegister.register();
                 MinecraftForge.EVENT_BUS.register(new EventHandler());
+                MinecraftForge.EVENT_BUS.register(new TechEvents());
+                MinecraftForge.EVENT_BUS.register(new LootTable_Event());
+
         }
 
         public void init(FMLInitializationEvent event)

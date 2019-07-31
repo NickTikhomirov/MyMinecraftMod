@@ -51,6 +51,12 @@ item.dye.blue.name=Blue Dye
 item.dye.brown.name=Brown Dye
 item.dye.white.name=White Dye
 
+item.scroll.desert.name=Loot Scroll: Desert
+item.scroll.mine.name=Loot Scroll: Mineshaft
+item.scroll.dungeon.name=Loot Scroll: Dungeon
+item.scroll.jungle.name=Loot Scroll: Jungle
+
+
 item.curedeye.name=Safe Spider Eye
 item.curedchicken.name=Safe Chicken
 item.curedfish.name=Safe Pufferfish

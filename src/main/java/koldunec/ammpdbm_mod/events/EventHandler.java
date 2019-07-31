@@ -1,16 +1,12 @@
-package koldunec.ammpdbm_mod.init;
+package koldunec.ammpdbm_mod.events;
 
 
 
 import koldunec.ammpdbm_mod.ammpdbm_mod;
-import koldunec.ammpdbm_mod.broomitems.another_dye_please_dont_blame_me;
-import koldunec.ammpdbm_mod.broomitems.flints;
-import koldunec.ammpdbm_mod.broomitems.saviour;
-import koldunec.ammpdbm_mod.broomitems.xyAmulet;
-import koldunec.ammpdbm_mod.recipes.dragonBreathFix;
-import koldunec.ammpdbm_mod.recipes.paint_operator;
-import koldunec.ammpdbm_mod.recipes.tipped_crafting;
-import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import koldunec.ammpdbm_mod.broomitems.*;
+import koldunec.ammpdbm_mod.init.BlockRegister;
+import koldunec.ammpdbm_mod.init.ItemRegister;
+import koldunec.ammpdbm_mod.init.PotionRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
@@ -23,32 +19,15 @@ import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
-import net.minecraft.world.storage.loot.LootEntryItem;
-import net.minecraft.world.storage.loot.LootPool;
-import net.minecraft.world.storage.loot.LootTableList;
-import net.minecraft.world.storage.loot.RandomValueRange;
-import net.minecraft.world.storage.loot.conditions.LootCondition;
-import net.minecraft.world.storage.loot.functions.LootFunction;
-import net.minecraft.world.storage.loot.functions.SetCount;
-import net.minecraft.world.storage.loot.functions.SetNBT;
-import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.client.model.ModelLoader;
-import net.minecraftforge.event.LootTableLoadEvent;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -65,42 +44,6 @@ import static koldunec.ammpdbm_mod.init.PotionRegister.WITHERPROTECTION;
 
 @Mod.EventBusSubscriber
 public class EventHandler{
-
-    @SubscribeEvent
-    public static void ModelsFor(ModelRegistryEvent event){
-        final Item Dye = ItemRegister.ANOTHER_DYE;
-        for (another_dye_please_dont_blame_me.dyeTypes type : another_dye_please_dont_blame_me.dyeTypes.values()){
-            ModelLoader.setCustomModelResourceLocation(Dye, type.ordinal(), new ModelResourceLocation(Dye.getRegistryName() + "_" + type.toString().toLowerCase(), "inventory"));
-        }
-        final Item flint = ItemRegister.MAGIC_FLINTS;
-        for(flints.flintTypes type : flints.flintTypes.values()){
-            ModelLoader.setCustomModelResourceLocation(flint, type.ordinal(), new ModelResourceLocation(flint.getRegistryName() + "_" + type.toString().toLowerCase(), "inventory"));
-        }
-    }
-
-    @SubscribeEvent
-    public static void registerSupercuringCraft(RegistryEvent.Register<IRecipe> event){
-        tipped_crafting a = new tipped_crafting();
-        a.setRegistryName(ammpdbm_mod.MODID,"supercuregrass");
-        event.getRegistry().register(a);
-
-        dragonBreathFix b = new dragonBreathFix();
-        b.setRegistryName(ammpdbm_mod.MODID,"tippedarrow");
-        event.getRegistry().register(b);
-
-        paint_operator c = new paint_operator();
-        c.setRegistryName(ammpdbm_mod.MODID,"paint_operator");
-        event.getRegistry().register(c);
-    }
-
-    @SubscribeEvent
-    public static void fuel(FurnaceFuelBurnTimeEvent e) {
-        if (e.getItemStack().getItem() == Item.getItemFromBlock(BlockRegister.BLOCK_CHARCOAL))
-            e.setBurnTime(2000);
-        if (e.getItemStack().getItem() == Items.EGG)
-            e.setBurnTime(1);
-    }
-
     @SubscribeEvent
     public static void onItemCrafted(PlayerEvent.ItemCraftedEvent e){
         Item result = e.crafting.getItem();
@@ -378,56 +321,10 @@ public class EventHandler{
                     e.getEntityLiving().attackEntityFrom(DamageSource.GENERIC,10);
                 }
             }
-//            if(ammpdbm_mod.isLoadedTwilight) {
-//                ItemStack weapon = ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand();
-//                if (weapon.getItem() instanceof CarminiteAxe &&
-//                        victim instanceof EntityTFTowerTermite) {
-//                    ((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand().setItemDamage(
-//                            Math.max(weapon.getItemDamage() - 5, 0));
-//                    e.setAmount(e.getAmount()+4F);
-//                }
-//            }
         }
     }
 
 
-
-
-    @SubscribeEvent
-    public void onLootTablesLoaded(LootTableLoadEvent e) {
-        if(ammpdbm_mod.isLoadedTwilight) {
-            ResourceLocation r = new ResourceLocation("twilightforest","structures/hill_1/common");
-            if (e.getName().equals(r)) {
-                final LootPool pool2 = e.getTable().getPool("main");
-                pool2.addEntry(new LootEntryItem(ItemRegister.TRANSFORMATION_DUST, 1, 0, new LootFunction[] {new SetCount(new LootCondition[0], new RandomValueRange(1, 5))}, new LootCondition[0], "loottable:dusttras"));
-            }
-        }
-
-        if(e.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE_DISPENSER)) {
-            ItemStack a  = new ItemStack(Items.SPAWN_EGG);
-            ItemMonsterPlacer.applyEntityIdToItemStack(a,new ResourceLocation("minecraft","cave_spider"));
-            //e.getTable().getPool("main").removeEntry("minecraft:arrow");
-            e.getTable().getPool("main").setRolls(new RandomValueRange(2,2));
-            e.getTable().getPool("main").addEntry(new LootEntryItem(Items.TIPPED_ARROW, 1000, 0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(5, 10)), new SetNBT(new LootCondition[0], PotionUtils.addPotionToItemStack(new ItemStack(Items.TIPPED_ARROW), PotionRegister.MINDDEVOUR_TYPE_STANDARD).getTagCompound())}, new LootCondition[0], "loottable:tipped_surprise"));
-            e.getTable().getPool("main").addEntry(new LootEntryItem(Items.SPAWN_EGG, 1000, 0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(1, 3)), new SetNBT(new LootCondition[0],  a.getTagCompound())}, new LootCondition[0], "loottable:spider_surprise"));
-        }
-        if(LootTableList.CHESTS_IGLOO_CHEST.equals(e.getName())){
-            e.getTable().getPool("main").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,10,0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(3,7))}, new LootCondition[0],"loottable:supergrass"));
-        }
-        if(LootTableList.CHESTS_VILLAGE_BLACKSMITH.equals(e.getName())){
-            e.getTable().getPool("main").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,5,0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(3,7))}, new LootCondition[0],"loottable:supergrass"));
-        }
-        if(LootTableList.CHESTS_DESERT_PYRAMID.equals(e.getName())){
-            e.getTable().getPool("pool1").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,10,0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(1,3))}, new LootCondition[0],"loottable:supergrass"));
-        }
-        if(LootTableList.GAMEPLAY_FISHING_JUNK.equals(e.getName())){
-            e.getTable().getPool("main").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,5,0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(1,3))}, new LootCondition[0],"loottable:supergrass"));
-        }
-        //if (LootTableList.CHESTS_SPAWN_BONUS_CHEST.equals(e.getName()))
-        //{
-            //e.setTable(e.getLootTableManager().getLootTableFromLocation(new ResourceLocation("minecraft", "chests/jungle_temple_dispenser")));
-        //}
-    }
 
     @SubscribeEvent
     public void onTeleport(EnderTeleportEvent e) {
@@ -440,6 +337,16 @@ public class EventHandler{
 
     @SubscribeEvent
     public void onDeath(LivingDeathEvent e) {
+        if(!e.getEntity().isNonBoss()){
+            for(int i=0;i<2;i++)
+                e.getEntity().entityDropItem(
+                        new ItemStack(
+                                ItemRegister.SCROLL,
+                                1,
+                                ammpdbm_mod.random.nextInt(scroll.scrollTypes.values().length)),
+                        1F);
+        }
+
         if(e.getSource().getTrueSource() instanceof EntityPlayer){
             EntityPlayer player = (EntityPlayer) e.getSource().getTrueSource();
             if(player==null) return;

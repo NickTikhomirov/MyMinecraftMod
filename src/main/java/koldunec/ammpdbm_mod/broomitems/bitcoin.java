@@ -32,15 +32,5 @@ public class bitcoin extends base_fuel {
         super("bitcoin",64, (short)800);
     }
 
-    @Override
-    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if(worldIn.getBlockState(pos).getBlock().equals(BlockRegister.STORE) && player.isSneaking() && !worldIn.isRemote){
-            EntityStore p1 = (EntityStore) worldIn.getTileEntity(pos);
-            LootContext.Builder builder = new LootContext.Builder((WorldServer) worldIn).withPlayer(player);
-            worldIn.getLootTableManager().getLootTableFromLocation(
-                    LootTableList.CHESTS_DESERT_PYRAMID).fillInventory(p1, worldIn.rand, builder.build());
-            return EnumActionResult.SUCCESS;
-        }
-        return super.onItemUse(player, worldIn, pos, hand, facing, hitX, hitY, hitZ);
-    }
+
 }
