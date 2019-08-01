@@ -58,9 +58,12 @@ public class scroll extends Item {
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if(worldIn.getBlockState(pos).getBlock().equals(BlockRegister.STORE) && player.isSneaking() && !worldIn.isRemote){
+        if(worldIn.getBlockState(pos).getBlock().equals(BlockRegister.STORE)
+                && player.isSneaking()
+                && !worldIn.isRemote){
             ItemStack s = player.getHeldItemMainhand();
             EntityStore p1 = (EntityStore) worldIn.getTileEntity(pos);
+            if(p1==null || !p1.isEmpty()) return EnumActionResult.FAIL;
             LootContext.Builder builder = new LootContext.Builder((WorldServer) worldIn).withPlayer(player);
             ResourceLocation l = null;
             if(s.getMetadata()==0){

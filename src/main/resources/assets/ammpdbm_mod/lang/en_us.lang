@@ -79,6 +79,7 @@ tile.block_oldmoss.name=Old Moss Cobble
 tile.block_redmoss.name=Bloody Cobble
 tile.block_oldstone.name=Old Cobble
 tile.st_ore.name=StORE
+tile.llama_flower.name=Llama Flower
 
 potion.effect.minddevourpotion=Potion of Mind Devouring
 potion.effect.oceanpotion=Ocean Potion

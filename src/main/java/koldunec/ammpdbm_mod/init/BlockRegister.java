@@ -6,6 +6,7 @@ import koldunec.ammpdbm_mod.broomitems.baseItems.basic_block;
 import koldunec.ammpdbm_mod.broomitems.baseItems.basic_planks;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curingCrops;
 import koldunec.ammpdbm_mod.tileentities.EntityStore;
+import koldunec.ammpdbm_mod.tileentities.TileLlama;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -29,6 +30,7 @@ public class BlockRegister
 
     public static Block OLD_ROSE = new magic_flower("rose");
     public static Block OLD_ROSE_b = new magic_flower("rose_b");
+    public static Block LLAMA_SPAWNER = new LlamaFlower();
     public static Block STORE = new stORE();
 
 
@@ -66,9 +68,12 @@ public class BlockRegister
         registerBlock(COBBLE_MOSS_old);
         registerBlock(ORE_RAINBOW);
         GameRegistry.registerTileEntity(EntityStore.class, new ResourceLocation(ammpdbm_mod.MODID,"st_ore"));
+        GameRegistry.registerTileEntity(TileLlama.class,new ResourceLocation(ammpdbm_mod.MODID,"tilellama"));
         registerBlock(STORE);
         registerBlock(COBBLE_MOSS_red);
         registerBlock(COBBLE_old);
+        //registerBlock(LLAMA_SPAWNER);
+        registerBlockWithMeta(LLAMA_SPAWNER);
         ForgeRegistries.BLOCKS.register(CURING_CROPS);
         ForgeRegistries.BLOCKS.register(GHAST_POD);
 
@@ -104,6 +109,8 @@ public class BlockRegister
         setRender(STORE);
         setRender(COBBLE_MOSS_red);
         setRender(COBBLE_old);
+        setRender(LLAMA_SPAWNER,0);
+        setRender(LLAMA_SPAWNER,1);
         if(ammpdbm_mod.isLoadedProjectX) {
             if(ammpdbm_mod.isLoadedSulfurTorches) {
                 setRender(ORE_ALUMINUM);
@@ -122,9 +129,20 @@ public class BlockRegister
         ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
     }
 
+    private static void registerBlockWithMeta(Block block){
+        ForgeRegistries.BLOCKS.register(block);
+        ForgeRegistries.ITEMS.register(new ItemBlock(block).setRegistryName(block.getRegistryName()).setHasSubtypes(true));
+    }
+
     @SideOnly(Side.CLIENT)
     private static void setRender(Block block)
     {
         Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), 0, new ModelResourceLocation(block.getRegistryName(), "inventory"));
+    }
+
+    @SideOnly(Side.CLIENT)
+    private static void setRender(Block block, int meta)
+    {
+        Minecraft.getMinecraft().getRenderItem().getItemModelMesher().register(Item.getItemFromBlock(block), meta, new ModelResourceLocation(block.getRegistryName(), "inventory"));
     }
 }

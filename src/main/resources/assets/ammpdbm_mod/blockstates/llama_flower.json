@@ -1,0 +1,6 @@
+{
+  "variants": {
+      "variant=false": { "model": "ammpdbm_mod:llama_flower" },
+      "variant=true": { "model": "ammpdbm_mod:llama_flower" }
+  }
+}

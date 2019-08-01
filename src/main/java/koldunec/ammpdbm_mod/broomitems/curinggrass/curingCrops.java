@@ -1,5 +1,6 @@
 package koldunec.ammpdbm_mod.broomitems.curinggrass;
 
+import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.properties.IProperty;
@@ -9,6 +10,8 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -94,6 +97,23 @@ public class curingCrops extends BlockCrops {
     protected BlockStateContainer createBlockState()
     {
         return new BlockStateContainer(this, new IProperty[] {Age});
+    }
+
+    @Override
+    public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        if(getAge(state)==5 && !worldIn.isRemote && !playerIn.isSneaking()){
+            ItemStack a = new ItemStack(ItemRegister.CURING_GRASS,1+ammpdbm_mod.random.nextInt(2));
+            if(!playerIn.inventory.addItemStackToInventory(a))
+                playerIn.dropItem(a,false);
+            if(ammpdbm_mod.random.nextBoolean()){
+                ItemStack b = new ItemStack(ItemRegister.CURINGSEEDS,1);
+                if(!playerIn.inventory.addItemStackToInventory(b))
+                    playerIn.dropItem(b,false);
+            }
+            worldIn.setBlockState(pos,this.withAge(1));
+            return true;
+        }
+        return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
     }
 
     //@Override

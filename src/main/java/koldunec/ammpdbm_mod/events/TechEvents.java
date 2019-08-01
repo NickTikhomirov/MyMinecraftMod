@@ -37,6 +37,7 @@ public class TechEvents {
         for(scroll.scrollTypes type : scroll.scrollTypes.values()){
             ModelLoader.setCustomModelResourceLocation(Scroll,type.ordinal(), new ModelResourceLocation(Scroll.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
         }
+        //ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegister.LLAMA_SPAWNER),0, new ModelResourceLocation("llama_flower","inventory"));
     }
 
     @SubscribeEvent

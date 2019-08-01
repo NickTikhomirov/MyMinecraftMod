@@ -3,11 +3,11 @@
   "pattern": [
     "nEn",
     "BrB",
-    "BBB"
+    " B "
   ],
   "key": {
     "B": {
-      "item": "minecraft:gold_block"
+      "item": "ammpdbm_mod:dg0"
     },
     "n": {
       "item": "minecraft:gold_nugget"
