@@ -3,6 +3,7 @@ package koldunec.ammpdbm_mod.broomitems;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.tileentities.EntityStore;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -14,6 +15,9 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.storage.loot.LootContext;
 import net.minecraft.world.storage.loot.LootTable;
 import net.minecraft.world.storage.loot.LootTableList;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class scroll extends Item {
     public enum scrollTypes{
@@ -54,6 +58,12 @@ public class scroll extends Item {
                 items.add(new ItemStack(this, 1, type.ordinal()));
             }
         }
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        super.addInformation(stack, worldIn, tooltip, flagIn);
+        tooltip.add("Use this on the stORE block");
     }
 
     @Override

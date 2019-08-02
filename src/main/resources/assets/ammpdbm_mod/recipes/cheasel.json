@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " N",
+    "S "
+  ],
+  "key": {
+    "N": {
+      "item": "ammpdbm_mod:nether_crystal"
+    },
+    "S": {
+      "item": "ammpdbm_mod:runic_stick"
+    }
+  },
+  "result": {
+    "item": "ammpdbm_mod:cheasel",
+    "data": 0,
+    "count": 1
+  }
+}

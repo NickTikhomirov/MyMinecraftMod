@@ -1,49 +1,46 @@
 itemGroup.magicTab=Another Magic Mod Please Don't Blame Me
 
-item.broom.name=Broom
 item.bitcoin.name=One Bitcoin
 item.bitcoin5000.name=Bitcoin-5000
-item.dusttrans.name=Transformation Dust
-item.curinggrass.name=Curing Grass
-item.supercuringgrass.name=Curing Grass++
-item.netherdrink.name=...potion?
+item.broom.name=Broom
 item.rEssence.name=Rainbow Essence
 item.potatogp.name=Golden Poisoned Potato
 item.magic_ball.name=Cursed Rock
 item.sparkles.name=Sparkles
-item.effect_freezer.name=Potion Mix
-item.flesh.name=Flesh
 item.lasercore.name=Simple Laser
-item.curingseeds.name=Seeds of Curing Grass
 item.stealer.name=Stealer
-item.flint_base.name=Inert Magic Flint
 item.fishy.name=Fishy
 item.runic_stick.name=Runic Rod
 item.round_stone.name=Inert Stone
 item.magnetpick.name=Magnetic Pickaxe
-item.soul_crystal.name=Ghast Crystal
 item.xy_amulet.name=Xycronium Amulet
-item.carminite_axe.name=Carminite Axe
-item.carminite_pick.name=Carminite Pickaxe
 item.saviour.name=Ring of Keeping
 item.wooden_rune.name=Wooden Rune
 item.amulet0.name=Amulet of Magic Protection
-item.ghast_seeds.name=Soul Seeds
 item.p_trans.name=Dye Transmutation Stone
-item.soul_fruit.name=Soul Fruit
-item.nether_crystal.name=Nether Crystal
-item.soul_shears.name=Soul Shears
-item.small_soul.name=Small Soul
 item.red_powder.name=Red Powder
 item.paint_operator.name=Color Operator
 item.cleaner.name=Sponge of Conceptualization
-item.gd_apple.name=Goldendiamond Apple
-item.dg_apple.name=Diamondgolden Apple
+item.cheasel.name=Chisel of Conceptualization
+
+item.curinggrass.name=Curing Grass
+item.supercuringgrass.name=Curing Grass++
+item.curingseeds.name=Seeds of Curing Grass
+
+item.effect_freezer.name=Potion Mix
+item.nether_crystal.name=Nether Crystal
+item.ghast_seeds.name=Soul Seeds
+item.soul_crystal.name=Ghast Crystal
+item.soul_fruit.name=Soul Fruit
+item.small_soul.name=Small Soul
+item.soul_shears.name=Soul Shears
 item.nether_cup.name=Nether Cup
 
 item.dg0.name=Golden Diamond
 item.dg1.name=Diamond Gold
 item.dg2.name=Diamondgolden Golden Diamond
+item.gd_apple.name=Goldendiamond Apple
+item.dg_apple.name=Diamondgolden Apple
 
 item.dye.green.name=Green Dye
 item.dye.black.name=Black Dye
@@ -55,16 +52,28 @@ item.scroll.desert.name=Loot Scroll: Desert
 item.scroll.mine.name=Loot Scroll: Mineshaft
 item.scroll.dungeon.name=Loot Scroll: Dungeon
 item.scroll.jungle.name=Loot Scroll: Jungle
+item.scroll_isle.name=Scroll of Mushrooms
 
-
+item.flesh.name=Flesh
 item.curedeye.name=Safe Spider Eye
 item.curedchicken.name=Safe Chicken
 item.curedfish.name=Safe Pufferfish
 item.curedpotato.name=Safe Potato
 item.curedfruit.name=Safe Chorus Fruit
 
+item.flint_base.name=Inert Magic Flint
 item.magic_flint.weak.name=Weak Magic Flint
 item.magic_flint.void.name=Void Magic Flint
+
+item.dusttrans.name=Transformation Dust
+item.carminite_axe.name=Carminite Axe
+item.carminite_pick.name=Carminite Pickaxe
+
+
+
+#######################
+####### BLOCKS ########
+#######################
 
 tile.ore_bit.name=Bitcoin Ore
 tile.ore_rainbow.name=Dye Ore
@@ -80,6 +89,9 @@ tile.block_redmoss.name=Bloody Cobble
 tile.block_oldstone.name=Old Cobble
 tile.st_ore.name=StORE
 tile.llama_flower.name=Llama Flower
+
+
+item.netherdrink.name=...potion?
 
 potion.effect.minddevourpotion=Potion of Mind Devouring
 potion.effect.oceanpotion=Ocean Potion
@@ -179,4 +191,3 @@ potion.potency.3=IV
 container.st_ore=StOre
 
 ammpdbm_mod.chat.msg0=Well Done!
-ammpdbm_mod.chat.xol0=The most important creature part is its eye.

@@ -12,6 +12,8 @@ import koldunec.ammpdbm_mod.events.EventHandler;
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import koldunec.ammpdbm_mod.entities.entityStone;
 import koldunec.ammpdbm_mod.world.generate.GenerateOre;
+import koldunec.ammpdbm_mod.world.generate.llama_island;
+import koldunec.ammpdbm_mod.world.generate.nether_island;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -38,7 +40,10 @@ public class CommonProxy {
 
         public void init(FMLInitializationEvent event)
         {
-                GameRegistry.registerWorldGenerator(new GenerateOre(), 0); //Класс генератора и его ID (для каждого генератора нужен уникальный ID)
+                GameRegistry.registerWorldGenerator(new GenerateOre(), 0);
+                if(ammpdbm_mod.isLoadedProjectX && ammpdbm_mod.isLoadedSulfurTorches)
+                        GameRegistry.registerWorldGenerator(new nether_island(), 10);
+                GameRegistry.registerWorldGenerator(new llama_island(),10);
                 CraftingRegister.register();
 
         }

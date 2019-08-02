@@ -7,6 +7,7 @@ import koldunec.ammpdbm_mod.broomitems.*;
 import koldunec.ammpdbm_mod.broomitems.baseItems.base_food;
 import koldunec.ammpdbm_mod.broomitems.baseItems.base_fuel;
 import koldunec.ammpdbm_mod.broomitems.baseItems.base_item;
+import koldunec.ammpdbm_mod.broomitems.crafting_tools.cheasel;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curinggrass;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curingseeds;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.supercuringgrass;
@@ -78,7 +79,9 @@ public class ItemRegister
     public static Item SOUL_SHEARS = new soul_shears();
     public static Item PAINT_OPERATOR = new paint_operator();
     public static Item SPONGE_OF_CONCEPTUALIZATION = new cleaner();
+    public static Item CHISEl_OF_CONCEPTUALIZATION = new cheasel();
     public static Item SCROLL = new scroll();
+    public static Item SCROLL_ISLE = new scroll_of_isle();
 
     public static Item NETHER_DRINK = new nether_drink();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
@@ -135,6 +138,7 @@ public class ItemRegister
         setRegister(GOLDENDIAMOND_APPLE);
         setRegister(DIAMONDGOLDEN_APPLE);
         setRegister(SCROLL);
+        setRegister(CHISEl_OF_CONCEPTUALIZATION);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
@@ -171,6 +175,9 @@ public class ItemRegister
         }
         if(ammpdbm_mod.isLoadedBaubles){
             setRegister(SAVIOUR);
+        }
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("primitivemobs")){
+            setRegister(SCROLL_ISLE);
         }
 
         MinecraftForge.addGrassSeed(new ItemStack(CURING_GRASS),10);
@@ -221,6 +228,7 @@ public class ItemRegister
         setRender(SPONGE_OF_CONCEPTUALIZATION);
         setRender(GOLDENDIAMOND_APPLE);
         setRender(DIAMONDGOLDEN_APPLE);
+        setRender(CHISEl_OF_CONCEPTUALIZATION);
 
         if(ammpdbm_mod.isLoadedBaubles)
             setRender(SAVIOUR);
@@ -236,6 +244,10 @@ public class ItemRegister
                 setRender(SULFUR);
                 setRender(xyAMULET);
             }
+        }
+
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("primitivemobs")){
+            setRender(SCROLL_ISLE);
         }
     }
 
