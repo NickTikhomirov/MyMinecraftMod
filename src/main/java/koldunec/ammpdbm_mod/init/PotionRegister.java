@@ -97,7 +97,15 @@ public class PotionRegister {
                     new PotionEffect(ABSORPTION,1200,3),
                     new PotionEffect(REGENERATION,400,1),
                     new PotionEffect(FIRE_RESISTANCE,3000),
-                    new PotionEffect(RESISTANCE,3000));
+                    new PotionEffect(RESISTANCE,3000)),
+
+            DIAMONDGOLDENAPPLE_TYPE_STANDART = createCompositePotionType("dgapple_potion",null,
+                    new PotionEffect(HEALTH_BOOST,1800)),
+            GOLDENDIAMONAPPLE_TYPE_STANDART = createCompositePotionType("gdapple_potion",null,
+                    new PotionEffect(PotionRegister.HUMANITY,1200,1),
+                    new PotionEffect(PotionRegister.WITHERPROTECTION,1200,0),
+                    new PotionEffect(PotionRegister.POISONPROTECTION,1200,0))
+            ;
 
 
 
@@ -196,7 +204,10 @@ public class PotionRegister {
                 PLAGUE_TYPE_MIXED2,
 
                 GOLDENAPLLE_TYPE_STANDART,
-                GOLDENAPLLE_TYPE_STRONG
+                GOLDENAPLLE_TYPE_STRONG,
+
+                DIAMONDGOLDENAPPLE_TYPE_STANDART,
+                GOLDENDIAMONAPPLE_TYPE_STANDART
         );
     }
 }

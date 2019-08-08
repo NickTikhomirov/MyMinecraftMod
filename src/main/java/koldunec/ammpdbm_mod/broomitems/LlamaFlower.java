@@ -21,12 +21,15 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import thaumcraft.api.crafting.IInfusionStabiliserExt;
 
 import javax.annotation.Nullable;
 
-public class LlamaFlower extends Block {
+@Optional.Interface(modid = "thaumcraft", iface = "thaumcraft.api.crafting.IInfusionStabiliserExt")
+public class LlamaFlower extends Block implements IInfusionStabiliserExt {
 
     public static final IProperty<Boolean> POWER = PropertyBool.create("variant");
 
@@ -119,5 +122,17 @@ public class LlamaFlower extends Block {
     public BlockRenderLayer getBlockLayer()
     {
         return BlockRenderLayer.CUTOUT;
+    }
+
+
+
+    @Override
+    public float getStabilizationAmount(World world, BlockPos blockPos) {
+        return 200;
+    }
+
+    @Override
+    public boolean canStabaliseInfusion(World world, BlockPos blockPos) {
+        return true;
     }
 }

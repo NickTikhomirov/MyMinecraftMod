@@ -11,6 +11,7 @@ import koldunec.ammpdbm_mod.init.CraftingRegister;
 import koldunec.ammpdbm_mod.events.EventHandler;
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import koldunec.ammpdbm_mod.entities.entityStone;
+import koldunec.ammpdbm_mod.init.LootRegister;
 import koldunec.ammpdbm_mod.world.generate.GenerateOre;
 import koldunec.ammpdbm_mod.world.generate.llama_island;
 import koldunec.ammpdbm_mod.world.generate.nether_island;
@@ -40,6 +41,7 @@ public class CommonProxy {
 
         public void init(FMLInitializationEvent event)
         {
+                LootRegister.init();
                 GameRegistry.registerWorldGenerator(new GenerateOre(), 0);
                 if(ammpdbm_mod.isLoadedProjectX && ammpdbm_mod.isLoadedSulfurTorches)
                         GameRegistry.registerWorldGenerator(new nether_island(), 10);

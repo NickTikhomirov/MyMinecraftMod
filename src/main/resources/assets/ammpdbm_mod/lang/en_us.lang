@@ -89,80 +89,100 @@ tile.block_redmoss.name=Bloody Cobble
 tile.block_oldstone.name=Old Cobble
 tile.st_ore.name=StORE
 tile.llama_flower.name=Llama Flower
+tile.block_aluminum.name=Aluminum Block
+tile.ore_al.name=Aluminum Ore
 
 
-item.netherdrink.name=...potion?
-
+########################
+####### POTIONS ########
+########################
 potion.effect.minddevourpotion=Potion of Mind Devouring
+splash_potion.effect.minddevourpotion=Splash Potion of Mind Devouring
+
 potion.effect.oceanpotion=Ocean Potion
 potion.effect.oceanpotionl=Ocean Potion
-potion.effect.oceanpotioncombat=Combat Ocean Potion
-potion.effect.ammpdbm_mod:mindprotection=Potion of Mind Protection
-potion.effect.ammpdbm_mod:magicprotection=Potion of Magic Conversion
-potion.effect.minecraft:haste=Potion of Haste
-potion.effect.ammpdbm_mod:enderprotection=Potion of Ender Protection
-potion.effect.ammpdbm_mod:short_enderprotection=Short Potion of Ender Protection
-potion.effect.ammpdbm_mod:humanity=Elixir of Humanity
-potion.effect.goldenapple_potion=Bottled Golden Apple
-potion.effect.ammpdbm_mod:witherprotection=Potion of Wither Protection
-potion.effect.ammpdbm_mod:acid=Magic Acid
-potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid
-potion.effect.ammpdbm_mod:poisonprotection=Potion of Poison Protection
-potion.effect.ammpdbm_mod:plague=Bottled Plague
-potion.effect.comb_plague=Plague Mix
-
-
-
-splash_potion.effect.minddevourpotion=Splash Potion of Mind Devouring
 splash_potion.effect.oceanpotion=Splash Ocean Potion
 splash_potion.effect.oceanpotionl=Splash Ocean Potion
-splash_potion.effect.oceanpotioncombat=Splash Combat Ocean Potion
-splash_potion.effect.ammpdbm_mod:mindprotection=Splash Potion of Mind Protection
-splash_potion.effect.ammpdbm_mod:magicprotection=Splash Potion of Magic Conversion
-splash_potion.effect.minecraft:haste=Splash Potion of Haste
-splash_potion.effect.ammpdbm_mod:enderprotection=Splash Potion of Ender Protection
-splash_potion.effect.ammpdbm_mod:humanity=Splash Elixir of Humanity
-splash_potion.effect.goldenapple_potion=Splash Golden Apple
-splash_potion.effect.ammpdbm_mod:witherprotection=Splash Potion of Wither Protection
-splash_potion.effect.ammpdbm_mod:acid=Magic Acid Bomb
-splash_potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid Bomb
-splash_potion.effect.ammpdbm_mod:poisonprotection=Splash Potion of Poison Protection
-splash_potion.effect.ammpdbm_mod:plague=Plague Bomb
-splash_potion.effect.comb_plague=Splash Plague Mix
-
-
 lingering_potion.effect.oceanpotion=Lingering Ocean Potion
 lingering_potion.effect.oceanpotionl=Lingering Ocean Potion
-lingering_potion.effect.oceanpotioncombat=Lingering Combat Ocean Potion
-lingering_potion.effect.ammpdbm_mod:mindprotection=Lingering Potion of Mind Protection
-lingering_potion.effect.ammpdbm_mod:magicprotection=Lingering Potion of Magic Conversion
-lingering_potion.effect.minecraft:haste=Lingering Potion of Haste
-lingering_potion.effect.ammpdbm_mod:enderprotection=Lingering Potion of Ender Protection
-lingering_potion.effect.ammpdbm_mod:humanity=Lingering Elixir of Humanity
-lingering_potion.effect.goldenapple_potion=Lingering Golden Apple
-lingering_potion.effect.ammpdbm_mod:witherprotection=Lingering Potion of Wither Protection
-lingering_potion.effect.ammpdbm_mod:acid=Magic Acid Bomb
-lingering_potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid Bomb
-lingering_potion.effect.ammpdbm_mod:poisonprotection=Lingering Potion of Poison Protection
-lingering_potion.effect.ammpdbm_mod:plague=Plague Bomb
-lingering_potion.effect.comb_plague=Lingering Plague Mix
-
-
 tipped_arrow.effect.oceanpotion=Ocean Arrow
 tipped_arrow.effect.oceanpotionl=Ocean Arrow
+
+potion.effect.oceanpotioncombat=Combat Ocean Potion
+splash_potion.effect.oceanpotioncombat=Splash Combat Ocean Potion
+lingering_potion.effect.oceanpotioncombat=Lingering Combat Ocean Potion
 tipped_arrow.effect.oceanpotioncombat=Combat Ocean Arrow
+
+potion.effect.ammpdbm_mod:mindprotection=Potion of Mind Protection
+splash_potion.effect.ammpdbm_mod:mindprotection=Splash Potion of Mind Protection
+lingering_potion.effect.ammpdbm_mod:mindprotection=Lingering Potion of Mind Protection
 tipped_arrow.effect.ammpdbm_mod:mindprotection=Arrow of Mind Protection
+
+potion.effect.ammpdbm_mod:magicprotection=Potion of Magic Conversion
+splash_potion.effect.ammpdbm_mod:magicprotection=Splash Potion of Magic Conversion
+lingering_potion.effect.ammpdbm_mod:magicprotection=Lingering Potion of Magic Conversion
 tipped_arrow.effect.ammpdbm_mod:magicprotection=Arrow of Magic Conversion
+
+potion.effect.minecraft:haste=Potion of Haste
+splash_potion.effect.minecraft:haste=Splash Potion of Haste
+lingering_potion.effect.minecraft:haste=Lingering Potion of Haste
 tipped_arrow.effect.minecraft:haste=Arrow of Haste
-tipped_arrow.effect.ammpdbm_mod:humanity=Arrow of Humanity
-tipped_arrow.effect.goldenapple_potion=Arrow With Golden Apple
-tipped_arrow.effect.ammpdbm_mod:witherprotection=Arrow of Wither Protection
-tipped_arrow.effect.ammpdbm_mod:acid=Acid Arrow
-tipped_arrow.effect.ammpdbm_mod:strongp_acid=Acid Arrow
-tipped_arrow.effect.ammpdbm_mod:poisonprotection=Arrow of Poison Protection
+
+potion.effect.ammpdbm_mod:enderprotection=Potion of Ender Protection
+potion.effect.ammpdbm_mod:short_enderprotection=Short Potion of Ender Protection
+splash_potion.effect.ammpdbm_mod:enderprotection=Splash Potion of Ender Protection
+lingering_potion.effect.ammpdbm_mod:enderprotection=Lingering Potion of Ender Protection
+
+potion.effect.ammpdbm_mod:plague=Bottled Plague
+potion.effect.comb_plague=Plague Mix
+splash_potion.effect.ammpdbm_mod:plague=Plague Bomb
+splash_potion.effect.comb_plague=Splash Plague Mix
+lingering_potion.effect.ammpdbm_mod:plague=Plague Bomb
+lingering_potion.effect.comb_plague=Lingering Plague Mix
 tipped_arrow.effect.ammpdbm_mod:plague=Plague Arrow
 tipped_arrow.effect.comb_plague=Plague Mix Arrow
 
+potion.effect.ammpdbm_mod:humanity=Elixir of Humanity
+splash_potion.effect.ammpdbm_mod:humanity=Splash Elixir of Humanity
+lingering_potion.effect.ammpdbm_mod:humanity=Lingering Elixir of Humanity
+tipped_arrow.effect.ammpdbm_mod:humanity=Arrow of Humanity
+
+potion.effect.goldenapple_potion=Bottled Golden Apple
+potion.effect.dgapple_potion=Bottled Diamondgolden Apple
+potion.effect.gdapple_potion=Bottled Goldendiamond Apple
+splash_potion.effect.goldenapple_potion=Splash Golden Apple
+splash_potion.effect.dgapple_potion=Splash Diamondgolden Apple
+splash_potion.effect.gdapple_potion=Splash Goldendiamond Apple
+lingering_potion.effect.goldenapple_potion=Lingering Golden Apple
+lingering_potion.effect.dgapple_potion=Lingering Diamondgolden Apple
+lingering_potion.effect.gdapple_potion=Lingering Goldendiamond Apple
+tipped_arrow.effect.goldenapple_potion=Arrow With Golden Apple
+tipped_arrow.effect.dgapple_potion=Arrow With Diamondgolden Apple
+tipped_arrow.effect.gdapple_potion=Arrow With Goldendiamond Apple
+
+potion.effect.ammpdbm_mod:witherprotection=Potion of Wither Protection
+splash_potion.effect.ammpdbm_mod:witherprotection=Splash Potion of Wither Protection
+lingering_potion.effect.ammpdbm_mod:witherprotection=Lingering Potion of Wither Protection
+tipped_arrow.effect.ammpdbm_mod:witherprotection=Arrow of Wither Protection
+
+potion.effect.ammpdbm_mod:acid=Magic Acid
+potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid
+splash_potion.effect.ammpdbm_mod:acid=Magic Acid Bomb
+splash_potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid Bomb
+lingering_potion.effect.ammpdbm_mod:acid=Magic Acid Bomb
+lingering_potion.effect.ammpdbm_mod:strongp_acid=Very Strong Magic Acid Bomb
+tipped_arrow.effect.ammpdbm_mod:acid=Acid Arrow
+tipped_arrow.effect.ammpdbm_mod:strongp_acid=Acid Arrow
+
+potion.effect.ammpdbm_mod:poisonprotection=Potion of Poison Protection
+splash_potion.effect.ammpdbm_mod:poisonprotection=Splash Potion of Poison Protection
+lingering_potion.effect.ammpdbm_mod:poisonprotection=Lingering Potion of Poison Protection
+tipped_arrow.effect.ammpdbm_mod:poisonprotection=Arrow of Poison Protection
+
+
+########################
+####### EFFECTS ########
+########################
 
 effect.ammpdbm_mod:mindprotection=Mind Protection
 effect.ammpdbm_mod:magicprotection=Magic Conversion
@@ -174,6 +194,9 @@ effect.ammpdbm_mod:poisonprotection=Poison Protection
 effect.ammpdbm_mod:plague=Plague
 
 
+
+item.netherdrink.name=...potion?
+
 lingering_potion.effect.minddevourpotion=Probably honey, but I'm not sure
 tipped_arrow.effect.minddevourpotion=Surpise Arrow
 
@@ -184,8 +207,7 @@ tipped_arrow.effect.ammpdbm_mod:short_enderprotection=Useless Arrow
 
 item.aluminum.name=Aluminum
 item.sulfur.name=Sulfur
-tile.block_aluminum.name=Aluminum Block
-tile.ore_al.name=Aluminum Ore
+
 
 potion.potency.3=IV
 container.st_ore=StOre

@@ -122,6 +122,8 @@ public class CraftingRegister
 
         PotionHelper.addMix(PotionTypes.THICK, Ingredient.fromStacks(new ItemStack(Items.GOLDEN_APPLE,1,0)), PotionRegister.GOLDENAPLLE_TYPE_STANDART);
         PotionHelper.addMix(PotionTypes.THICK, Ingredient.fromStacks(new ItemStack(Items.GOLDEN_APPLE,1,1)), PotionRegister.GOLDENAPLLE_TYPE_STRONG);
+        PotionHelper.addMix(PotionTypes.THICK, ItemRegister.DIAMONDGOLDEN_APPLE, PotionRegister.DIAMONDGOLDENAPPLE_TYPE_STANDART);
+        PotionHelper.addMix(PotionTypes.THICK, ItemRegister.GOLDENDIAMOND_APPLE, PotionRegister.GOLDENDIAMONAPPLE_TYPE_STANDART);
 
         PotionHelper.addMix(PotionRegister.MINDDEVOUR_TYPE_STANDARD, Items.SPIDER_EYE, PotionRegister.ACID_TYPE_STANDART);
         PotionHelper.addMix(PotionRegister.ACID_TYPE_STANDART, ItemRegister.ESSENCE_RAINBOW, PotionRegister.ACID_TYPE_STRONG);

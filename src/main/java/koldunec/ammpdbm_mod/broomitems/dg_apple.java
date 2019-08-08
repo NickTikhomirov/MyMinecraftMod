@@ -15,8 +15,8 @@ public class dg_apple extends base_food {
 
     @Override
     protected void onFoodEaten(ItemStack stack, World worldIn, EntityPlayer player) {
-        if(worldIn.isRemote) return;
-       player.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST,1800,1));
+       if(worldIn.isRemote) return;
+       player.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST,3600,1));
        player.extinguish();
        super.onFoodEaten(stack, worldIn, player);
     }

@@ -61,6 +61,7 @@ public class soul_shears extends ItemShears {
         return false;
     }
 
+    /*
     @Override
     public boolean itemInteractionForEntity(ItemStack itemstack, EntityPlayer player, EntityLivingBase entity, EnumHand hand) {
         boolean res = super.itemInteractionForEntity(itemstack, player, entity, hand);
@@ -73,7 +74,10 @@ public class soul_shears extends ItemShears {
         }
         return res;
     }
+    */
 
+
+    /*
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World worldIn, IBlockState state, BlockPos pos, EntityLivingBase entityLiving) {
 
@@ -87,4 +91,5 @@ public class soul_shears extends ItemShears {
         }
         return res;
     }
+    */
 }

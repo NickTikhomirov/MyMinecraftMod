@@ -2,16 +2,15 @@ package koldunec.ammpdbm_mod.events;
 
 import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.init.ItemRegister;
+import koldunec.ammpdbm_mod.init.LootRegister;
 import koldunec.ammpdbm_mod.init.PotionRegister;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootEntryItem;
-import net.minecraft.world.storage.loot.LootPool;
-import net.minecraft.world.storage.loot.LootTableList;
-import net.minecraft.world.storage.loot.RandomValueRange;
+import net.minecraft.world.storage.loot.*;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraft.world.storage.loot.functions.SetCount;
@@ -25,6 +24,37 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 public class LootTable_Event {
     @SubscribeEvent
     public void onLootTablesLoaded(LootTableLoadEvent e) {
+        if(e.getName().equals(LootRegister.LLAMA_ISLAND)){
+            if(net.minecraftforge.fml.common.Loader.isModLoaded("randomthings")){
+                e.getTable().getPool("seeds").addEntry(
+                        new LootEntryItem(
+                                Item.getByNameOrId("randomthings:lotusseeds"),
+                                5,
+                                0,
+                                new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(5,6))},
+                                new LootCondition[0],
+                                "loottable:lotus"));
+            }
+            if(net.minecraftforge.fml.common.Loader.isModLoaded("growthcraft_hops")){
+                e.getTable().addPool(
+                        new LootPool(
+                                new LootEntry[]{
+                                        new LootEntryItem(
+                                            Item.getByNameOrId("growthcraft_hops:hop_seeds"),
+                                            5,
+                                            0,
+                                            new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(5,6))},
+                                            new LootCondition[0],
+                                            "loottable:lotus")
+                                },
+                                new LootCondition[0],
+                                new RandomValueRange(1,1),
+                                new RandomValueRange(0,0),
+                                "hops"
+                                ));
+            }
+        }
+
         if(ammpdbm_mod.isLoadedTwilight) {
             ResourceLocation r = new ResourceLocation("twilightforest","structures/hill_1/common");
             if (e.getName().equals(r)) {
