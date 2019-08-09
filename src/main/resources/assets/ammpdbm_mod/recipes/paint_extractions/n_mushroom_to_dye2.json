@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natura:nether_glowshroom",
+      "data": 1
+    },
+    {
+      "item": "ammpdbm_mod:p_trans",
+      "data": 32767
+    }
+  ],
+  "result":
+    {
+      "item": "ammpdbm_mod:dye",
+      "data": 3,
+      "count": 3
+    }
+}

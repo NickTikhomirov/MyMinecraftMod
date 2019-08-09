@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 public class cheasel extends base_item {
     public cheasel(){
         super("cheasel",1);
-        setMaxDamage(1024);
+        //setMaxDamage(1024);
     }
 
     @Override
@@ -17,9 +17,9 @@ public class cheasel extends base_item {
     @Override
     public ItemStack getContainerItem(ItemStack itemStack) {
         ItemStack res = itemStack.copy();
-        res.setItemDamage(res.getItemDamage()+1);
-        if(res.getItemDamage()>=res.getMaxDamage())
-            return ItemStack.EMPTY;
+        //res.setItemDamage(res.getItemDamage()+1);
+        //if(res.getItemDamage()>=res.getMaxDamage())
+        //    return ItemStack.EMPTY;
         return res;
     }
 }

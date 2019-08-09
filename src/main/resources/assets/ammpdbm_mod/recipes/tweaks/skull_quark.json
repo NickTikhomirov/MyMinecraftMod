@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "___",
+    "_C_",
+    "___"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:skull",
+      "data": 0
+    },
+    "_": {
+      "item": "quark:black_ash"
+    }
+  },
+  "result": {
+    "item": "minecraft:skull",
+    "data": 1
+  }
+}

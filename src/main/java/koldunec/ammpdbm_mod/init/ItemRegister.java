@@ -8,6 +8,7 @@ import koldunec.ammpdbm_mod.broomitems.baseItems.base_food;
 import koldunec.ammpdbm_mod.broomitems.baseItems.base_fuel;
 import koldunec.ammpdbm_mod.broomitems.baseItems.base_item;
 import koldunec.ammpdbm_mod.broomitems.crafting_tools.cheasel;
+import koldunec.ammpdbm_mod.broomitems.crafting_tools.cleaner;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curinggrass;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curingseeds;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.supercuringgrass;

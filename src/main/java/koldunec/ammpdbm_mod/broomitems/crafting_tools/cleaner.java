@@ -1,15 +1,13 @@
-package koldunec.ammpdbm_mod.broomitems;
+package koldunec.ammpdbm_mod.broomitems.crafting_tools;
 
-import com.google.common.collect.Sets;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemTool;
 
-import static koldunec.ammpdbm_mod.toolmaterials.magicFlint.magicFlint;
 
-public class cleaner extends ItemTool {
+public class cleaner extends Item {
     public cleaner(){
-        super(magicFlint, Sets.newHashSet());
+        //super(magicFlint, Sets.newHashSet());
         setContainerItem(this);
         setRegistryName("cleaner");
         setUnlocalizedName("cleaner");

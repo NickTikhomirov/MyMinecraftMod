@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natura:nether_glowshroom",
+      "data": 0
+    },
+    {
+      "item": "natura:nether_glowshroom",
+      "data": 0
+    },
+    {
+      "item": "natura:nether_glowshroom",
+      "data": 0
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:slime_ball",
+      "count": 1
+    }
+}

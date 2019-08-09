@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " _ ",
+    "_C_",
+    " _ "
+  ],
+  "key": {
+    "C": {
+      "item": "xreliquary:mob_ingredient",
+      "data": 0
+    },
+    "_": {
+      "item": "quark:black_ash"
+    }
+  },
+  "result": {
+    "item": "xreliquary:mob_ingredient",
+    "data": 1
+  }
+}

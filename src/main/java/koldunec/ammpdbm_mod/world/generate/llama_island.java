@@ -5,6 +5,7 @@ import koldunec.ammpdbm_mod.broomitems.scroll_of_isle;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.init.LootRegister;
 import koldunec.ammpdbm_mod.tileentities.EntityStore;
+import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -57,7 +58,7 @@ public class llama_island implements IWorldGenerator {
                 world.setBlockState(dataPos, BlockRegister.STORE.getDefaultState());
                 EntityStore es = (EntityStore) world.getTileEntity(dataPos);
                 LootContext.Builder builder = new LootContext.Builder((WorldServer) world);
-                world.getLootTableManager().getLootTableFromLocation(LootRegister.LLAMA_ISLAND).fillInventory(es,world.rand,builder.build());
+                world.getLootTableManager().getLootTableFromLocation(LootRegister.LLAMA_ISLAND).fillInventory(es, ammpdbm_mod.random,builder.build());
             }
         }
     }

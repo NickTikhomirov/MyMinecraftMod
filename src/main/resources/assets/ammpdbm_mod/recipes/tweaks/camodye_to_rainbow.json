@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "primitivemobs:camouflage_dye"
+    }
+  ],
+  "result":
+    {
+      "item": "ammpdbm_mod:rEssence",
+      "count": 1
+    }
+}

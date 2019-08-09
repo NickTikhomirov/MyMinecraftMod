@@ -1,0 +1,27 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ammpdbm_mod:cheasel",
+      "data": 32767
+    },
+    [
+      {
+        "item": "minecraft:stone",
+        "data": 1
+      },
+      {
+        "item": "minecraft:stone",
+        "data": 3
+      },
+      {
+        "item": "minecraft:stone",
+        "data": 5
+      }
+    ]
+  ],
+  "result":
+    {
+      "item": "minecraft:cobblestone"
+    }
+}

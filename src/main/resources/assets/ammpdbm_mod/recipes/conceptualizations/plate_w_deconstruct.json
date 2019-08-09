@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ammpdbm_mod:cheasel",
+      "data": 32767
+    },
+    {
+      "item": "minecraft:wooden_pressure_plate"
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:planks",
+      "data": 0,
+      "count": 2
+    }
+}

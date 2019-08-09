@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natura:nether_glowshroom",
+      "data": 2
+    },
+    {
+      "item": "natura:nether_glowshroom",
+      "data": 2
+    },
+    {
+      "item": "natura:nether_glowshroom",
+      "data": 2
+    }
+  ],
+  "result":
+    {
+      "item": "tconstruct:edible",
+      "data": 2,
+      "count": 1
+    }
+}

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ammpdbm_mod:cleaner",
+      "data": 32767
+    },
+    {
+        "item": "twilightforest:maze_wafer"
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:cookie"
+    }
+}
