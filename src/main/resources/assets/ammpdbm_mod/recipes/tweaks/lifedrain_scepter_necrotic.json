@@ -1,0 +1,16 @@
+{
+  "result": {
+    "item": "twilightforest:lifedrain_scepter"
+  },
+  "ingredients": [
+    {
+      "item": "twilightforest:lifedrain_scepter",
+      "data": 32767
+    },
+    {
+      "type": "forge:ore_dict",
+      "ore": "boneWithered"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless"
+}

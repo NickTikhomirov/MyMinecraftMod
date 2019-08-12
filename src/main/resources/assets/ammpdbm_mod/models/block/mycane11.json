@@ -1,0 +1,6 @@
+{
+  "parent": "block/tall_grass",
+  "textures": {
+    "cross": "ammpdbm_mod:crops/reeds_red"
+  }
+}

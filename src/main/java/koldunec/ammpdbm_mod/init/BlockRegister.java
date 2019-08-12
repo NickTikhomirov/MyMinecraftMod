@@ -5,6 +5,7 @@ import koldunec.ammpdbm_mod.broomitems.*;
 import koldunec.ammpdbm_mod.broomitems.baseItems.basic_block;
 import koldunec.ammpdbm_mod.broomitems.baseItems.basic_planks;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curingCrops;
+import koldunec.ammpdbm_mod.broomitems.gunpowder_reed.block_gunreed;
 import koldunec.ammpdbm_mod.tileentities.EntityStore;
 import koldunec.ammpdbm_mod.tileentities.TileLlama;
 import net.minecraft.block.Block;
@@ -32,7 +33,7 @@ public class BlockRegister
     public static Block OLD_ROSE_b = new magic_flower("rose_b");
     public static Block LLAMA_SPAWNER = new LlamaFlower();
     public static Block STORE = new stORE();
-
+    public static Block REED_GUNPOWDER = new block_gunreed();
 
     public static Block BRICKS_Light = new basic_block("block_bricks_light",Material.ROCK, "pickaxe",0,2F ,30F,255);
     public static Block BRICKS_Dark = new basic_block("block_bricks_dark",Material.ROCK, "pickaxe",0,2F ,30F,255);
@@ -76,6 +77,7 @@ public class BlockRegister
         registerBlockWithMeta(LLAMA_SPAWNER);
         ForgeRegistries.BLOCKS.register(CURING_CROPS);
         ForgeRegistries.BLOCKS.register(GHAST_POD);
+        ForgeRegistries.BLOCKS.register(REED_GUNPOWDER);
 
         if(ammpdbm_mod.isLoadedProjectX) {
             if(ammpdbm_mod.isLoadedSulfurTorches) {

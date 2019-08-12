@@ -6,12 +6,13 @@
       "data": 32767
     },
     {
-        "item": "twilightforest:maze_wafer"
+      "item": "natura:materials",
+      "data": 8
     }
   ],
   "result":
     {
-      "item": "minecraft:cookie",
-      "count": 2
+      "item": "ammpdbm_mod:dye",
+      "data": 3
     }
 }

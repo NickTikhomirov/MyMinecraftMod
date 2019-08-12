@@ -115,9 +115,4 @@ public class curingCrops extends BlockCrops {
         }
         return super.onBlockActivated(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
     }
-
-    //@Override
-    //protected boolean canSustainBush(IBlockState state) {
-    //    if(state.getBlock().equals(Blocks.));
-    //}
 }

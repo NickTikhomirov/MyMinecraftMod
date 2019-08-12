@@ -23,7 +23,9 @@ import java.util.Random;
                 "after:projectred-exploration;" +
                 "after:sulfurtorches;" +
                 "after:retroexchange;" +
-                "after:baubles"
+                "after:baubles;" +
+                "after:primitivemobs;" +
+                "after:thaumcraft"
 )
 public class ammpdbm_mod
 {
@@ -36,12 +38,14 @@ public class ammpdbm_mod
     public static CommonProxy proxy;
     public static CreativeTabs magicTab = new magicTab("magicTab");
     public static Random random = new Random();
-    public static Boolean isLoadedTwilight = false;
-    public static Boolean isLoadedTinkers = false;
-    public static Boolean isLoadedProjectX = false;
-    public static Boolean isLoadedProjectRed_exploration = false;
-    public static Boolean isLoadedSulfurTorches = false;
-    public static Boolean isLoadedBaubles = false;
+    public static boolean isLoadedTwilight = false;
+    public static boolean isLoadedTinkers = false;
+    public static boolean isLoadedProjectX = false;
+    public static boolean isLoadedProjectRed_exploration = false;
+    public static boolean isLoadedSulfurTorches = false;
+    public static boolean isLoadedBaubles = false;
+    public static boolean isLoadedPrimitive = false;
+    public static boolean isLoadedThaumcraft = false;
 
 
 
@@ -60,6 +64,10 @@ public class ammpdbm_mod
             isLoadedProjectRed_exploration = true;
         if(net.minecraftforge.fml.common.Loader.isModLoaded("baubles"))
             isLoadedBaubles = true;
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("primitivemobs"))
+            isLoadedPrimitive = true;
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("thaumcraft"))
+            isLoadedThaumcraft = true;
 
         proxy.preInit(event);
 

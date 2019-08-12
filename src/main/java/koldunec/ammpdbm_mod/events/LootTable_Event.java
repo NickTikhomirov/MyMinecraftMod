@@ -53,6 +53,28 @@ public class LootTable_Event {
                                 "hops"
                                 ));
             }
+            return;
+        }
+
+        if(ammpdbm_mod.isLoadedTinkers && ammpdbm_mod.isLoadedPrimitive){
+            if(e.getName().equals(new ResourceLocation("primitivemobs","entities/flame_spewer"))){
+                e.getTable().addPool(new LootPool(
+                        new LootEntry[]{
+                                new LootEntryItem(
+                                        Item.getByNameOrId("tconstruct:edible"),
+                                        1,0,
+                                        new LootFunction[]{
+                                                new SetMetadata(new LootCondition[0], new RandomValueRange(4,4)),
+                                                new SetCount(new LootCondition[0],new RandomValueRange(2,4))},
+                                        new LootCondition[0],
+                                        "loottable:slime")
+                        },
+                        new LootCondition[0],
+                        new RandomValueRange(1,1),
+                        new RandomValueRange(0,0),
+                        "slime"
+                ));
+            }
         }
 
         if(ammpdbm_mod.isLoadedTwilight) {
@@ -61,6 +83,7 @@ public class LootTable_Event {
                 final LootPool pool2 = e.getTable().getPool("main");
                 pool2.addEntry(new LootEntryItem(ItemRegister.TRANSFORMATION_DUST, 1, 0, new LootFunction[] {new SetCount(new LootCondition[0], new RandomValueRange(1, 5))}, new LootCondition[0], "loottable:dusttras"));
             }
+            return;
         }
 
         if(e.getName().equals(LootTableList.CHESTS_JUNGLE_TEMPLE_DISPENSER)) {
@@ -70,9 +93,11 @@ public class LootTable_Event {
             e.getTable().getPool("main").setRolls(new RandomValueRange(2,2));
             e.getTable().getPool("main").addEntry(new LootEntryItem(Items.TIPPED_ARROW, 1000, 0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(5, 10)), new SetNBT(new LootCondition[0], PotionUtils.addPotionToItemStack(new ItemStack(Items.TIPPED_ARROW), PotionRegister.MINDDEVOUR_TYPE_STANDARD).getTagCompound())}, new LootCondition[0], "loottable:tipped_surprise"));
             e.getTable().getPool("main").addEntry(new LootEntryItem(Items.SPAWN_EGG, 1000, 0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(1, 3)), new SetNBT(new LootCondition[0],  a.getTagCompound())}, new LootCondition[0], "loottable:spider_surprise"));
+            return;
         }
         if(LootTableList.CHESTS_IGLOO_CHEST.equals(e.getName())){
             e.getTable().getPool("main").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,5,0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(3,7))}, new LootCondition[0],"loottable:supergrass"));
+            return;
         }
         if(LootTableList.CHESTS_VILLAGE_BLACKSMITH.equals(e.getName())){
             e.getTable().getPool("main").addEntry(new LootEntryItem(
@@ -84,12 +109,15 @@ public class LootTable_Event {
                             new SetMetadata(new LootCondition[0],new RandomValueRange(1,1))
                     },
                     new LootCondition[0],"loottable:scroll"));
+            return;
         }
         if(LootTableList.CHESTS_DESERT_PYRAMID.equals(e.getName())){
             e.getTable().getPool("pool1").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,10,0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(1,3))}, new LootCondition[0],"loottable:supergrass"));
+            return;
         }
         if(LootTableList.GAMEPLAY_FISHING_JUNK.equals(e.getName())){
             e.getTable().getPool("main").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,5,0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(1,3))}, new LootCondition[0],"loottable:supergrass"));
+            return;
         }
         if(LootTableList.GAMEPLAY_FISHING_TREASURE.equals(e.getName())){
             e.getTable().getPool("main").addEntry(new LootEntryItem(
@@ -101,6 +129,7 @@ public class LootTable_Event {
                             new SetMetadata(new LootCondition[0],new RandomValueRange(3,3))
                     },
                     new LootCondition[0],"loottable:scroll"));
+            return;
         }
     }
 }

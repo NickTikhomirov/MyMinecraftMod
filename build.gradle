@@ -53,6 +53,8 @@ dependencies {
     provided 'quark:Quark-r1.5-168'
     provided 'charm:Charm-1.12.2-1.2.2'
     provided 'thaumcraft:Thaumcraft-1.12.2-6.1.BETA26-deobf'
+    provided 'primitivemobs:primitivemobs-1.2.3a'
+    provided 'multi:multimob-1.0.5'
 
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings

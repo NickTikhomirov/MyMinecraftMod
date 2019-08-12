@@ -3,10 +3,14 @@ package koldunec.ammpdbm_mod.events;
 
 
 import koldunec.ammpdbm_mod.ammpdbm_mod;
-import koldunec.ammpdbm_mod.broomitems.*;
+import koldunec.ammpdbm_mod.broomitems.saviour;
+import koldunec.ammpdbm_mod.broomitems.scroll;
+import koldunec.ammpdbm_mod.broomitems.xyAmulet;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import koldunec.ammpdbm_mod.init.PotionRegister;
+import net.daveyx0.primitivemobs.entity.monster.EntityBrainSlime;
+import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
@@ -174,6 +178,15 @@ public class EventHandler{
         Entity enemy = e.getSource().getTrueSource();
         DamageSource damage_type = e.getSource();
 
+        if(ammpdbm_mod.isLoadedPrimitive){
+            if(ammpdbm_mod.isLoadedProjectRed_exploration && e.getEntityLiving() instanceof EntityVoidEye){
+                if(e.getSource().getTrueSource() instanceof EntityPlayer){
+                    if(((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand().getItem().getUnlocalizedName().equals("projectred.exploration.athame"))
+                        e.setAmount(25F);
+                }
+            }
+        }
+
         if(victim.isPotionActive(PotionRegister.ENDERPROTECTION) &&
                 (enemy instanceof EntityEnderman ||
                  enemy instanceof EntityEndermite ||
@@ -337,6 +350,27 @@ public class EventHandler{
 
     @SubscribeEvent
     public void onDeath(LivingDeathEvent e) {
+        if(e.getEntity().getEntityWorld().isRemote) return;
+        if(ammpdbm_mod.isLoadedPrimitive){
+            if(e.getEntityLiving() instanceof EntityBrainSlime && ((EntitySlime)e.getEntityLiving()).getSlimeSize()<2){
+                if(ammpdbm_mod.isLoadedTinkers){
+                    ((EntityBrainSlime) e.getEntityLiving()).setDead();
+                    e.getEntityLiving().entityDropItem(
+                                    new ItemStack(Item.getByNameOrId("tconstruct:edible"),
+                                            ammpdbm_mod.random.nextInt(2)+2,
+                                            2)
+                            ,1F
+                    );
+                }
+                if(ammpdbm_mod.isLoadedThaumcraft && ammpdbm_mod.random.nextInt(3)==0){
+                    e.getEntityLiving().entityDropItem(
+                                    new ItemStack(Item.getByNameOrId("thaumcraft:brain"),
+                                            1)
+                    ,1F);
+                }
+            }
+        }
+
         if(!e.getEntity().isNonBoss()){
             for(int i=0;i<2;i++)
                 e.getEntity().entityDropItem(

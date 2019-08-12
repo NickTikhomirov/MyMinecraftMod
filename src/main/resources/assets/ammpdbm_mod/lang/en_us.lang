@@ -54,6 +54,10 @@ item.scroll.dungeon.name=Loot Scroll: Dungeon
 item.scroll.jungle.name=Loot Scroll: Jungle
 item.scroll_isle.name=Scroll of Mushrooms
 
+item.gunreed.gunpowder.name=Gunpowder Cane
+item.gunreed.redstone.name=Redstone Cane
+item.gunreed.nicolite.name=Electrotin Cane
+
 item.flesh.name=Flesh
 item.curedeye.name=Safe Spider Eye
 item.curedchicken.name=Safe Chicken

@@ -12,6 +12,7 @@ import koldunec.ammpdbm_mod.broomitems.crafting_tools.cleaner;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curinggrass;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.curingseeds;
 import koldunec.ammpdbm_mod.broomitems.curinggrass.supercuringgrass;
+import koldunec.ammpdbm_mod.broomitems.gunpowder_reed.reed_item;
 import koldunec.ammpdbm_mod.broomitems.throwables.bitcoin5000;
 import koldunec.ammpdbm_mod.broomitems.throwables.cursedRock;
 import koldunec.ammpdbm_mod.broomitems.throwables.inertstone;
@@ -32,6 +33,7 @@ public class ItemRegister
     public static Item CURINGSEEDS = new curingseeds();
     public static Item CURING_GRASS= new curinggrass();
     public static Item SUPERCURING_GRASS= new supercuringgrass();
+    public static Item POWDER_REED = new reed_item();
 
     public static Item GHAST_SEEDS = new ghast_seeds();
     public static Item SPARKLES = new base_fuel("sparkles",64, (short)100);
@@ -140,6 +142,7 @@ public class ItemRegister
         setRegister(DIAMONDGOLDEN_APPLE);
         setRegister(SCROLL);
         setRegister(CHISEl_OF_CONCEPTUALIZATION);
+        setRegister(POWDER_REED);
 
         OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));

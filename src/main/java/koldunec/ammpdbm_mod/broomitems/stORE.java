@@ -16,8 +16,10 @@ import net.minecraft.tileentity.TileEntityLockable;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.ILockableContainer;
 import net.minecraft.world.World;
+import net.minecraftforge.common.IPlantable;
 
 import javax.annotation.Nullable;
 
@@ -84,5 +86,11 @@ public class stORE extends Block {
             InventoryHelper.dropInventoryItems(worldIn, pos, (IInventory)tileentity);
         }
         super.breakBlock(worldIn, pos, state);
+    }
+
+    @Override
+    public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable) {
+        if(plantable instanceof Block && plantable.equals(Blocks.REEDS)) return true;
+        return super.canSustainPlant(state, world, pos, direction, plantable);
     }
 }
