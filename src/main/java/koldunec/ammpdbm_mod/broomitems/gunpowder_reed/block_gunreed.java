@@ -92,6 +92,11 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
         return this.getDefaultState().withProperty(AGE,age).withProperty(VARIANT,reedTypes.intToType(type));
     }
 
+
+
+
+
+
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         if(isReed(worldIn.getBlockState(pos.down()).getBlock()) || this.checkForDrop(worldIn, pos, state)){
@@ -280,5 +285,27 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
     @Override
     public boolean isOpaqueCube(IBlockState state) {
         return false;
+    }
+
+
+
+
+
+
+    @Override
+    public boolean canProvidePower(IBlockState state) {
+        return state.getValue(VARIANT).typeToInt()==1;
+    }
+
+    @Override
+    public int getStrongPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+        if(blockState.getValue(VARIANT).typeToInt()==1) return 15;
+        return super.getStrongPower(blockState, blockAccess, pos, side);
+    }
+
+    @Override
+    public int getWeakPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
+        if(blockState.getValue(VARIANT).typeToInt()==1) return 15;
+        return super.getWeakPower(blockState, blockAccess, pos, side);
     }
 }

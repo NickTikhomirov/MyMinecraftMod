@@ -2,6 +2,7 @@ package koldunec.ammpdbm_mod.events;
 
 
 
+import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.broomitems.saviour;
 import koldunec.ammpdbm_mod.broomitems.scroll;
@@ -12,6 +13,7 @@ import koldunec.ammpdbm_mod.init.PotionRegister;
 import net.daveyx0.primitivemobs.entity.monster.EntityBrainSlime;
 import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.item.EntityEnderCrystal;
@@ -27,19 +29,26 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProviderHell;
+import net.minecraft.world.biome.Biome;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent;
+import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import twilightforest.block.BlockTFLeaves;
 import twilightforest.block.BlockTFMagicLeaves;
 import twilightforest.block.BlockTFMagicLogSpecial;
 import twilightforest.item.ItemTFMinotaurAxe;
+
 
 import static java.lang.Math.round;
 import static koldunec.ammpdbm_mod.init.PotionRegister.ENDERPROTECTION;
@@ -48,6 +57,24 @@ import static koldunec.ammpdbm_mod.init.PotionRegister.WITHERPROTECTION;
 
 @Mod.EventBusSubscriber
 public class EventHandler{
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onEntityHello(EntityJoinWorldEvent e){
+        if(e.getEntity()!=null && e.getEntity() instanceof EntityLiving){
+            EntityLiving one = (EntityLiving)e.getEntity();
+            if(e.getWorld().provider instanceof WorldProviderHell){
+                if(one.getClass().equals(EntitySkeleton.class)){
+                    e.setCanceled(true);
+                }
+                if(ammpdbm_mod.isLoadedNatura){
+                    if(one.getClass().equals(EntityNitroCreeper.class)){
+                        e.setCanceled(true);
+                    }
+                }
+            }
+        }
+    }
+
     @SubscribeEvent
     public static void onItemCrafted(PlayerEvent.ItemCraftedEvent e){
         Item result = e.crafting.getItem();
@@ -75,8 +102,8 @@ public class EventHandler{
 
     @SubscribeEvent
     public static void blockBr(BlockEvent.HarvestDropsEvent e) {
-        EntityPlayer player = (EntityPlayer) e.getHarvester();
         if(e.getWorld().isRemote) return;
+        EntityPlayer player = (EntityPlayer) e.getHarvester();
         if(player!=null){
             ItemStack itemstack = player.getHeldItemMainhand();
             ItemStack itemleft = player.getHeldItemOffhand();
@@ -180,8 +207,8 @@ public class EventHandler{
 
         if(ammpdbm_mod.isLoadedPrimitive){
             if(ammpdbm_mod.isLoadedProjectRed_exploration && e.getEntityLiving() instanceof EntityVoidEye){
-                if(e.getSource().getTrueSource() instanceof EntityPlayer){
-                    if(((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand().getItem().getUnlocalizedName().equals("projectred.exploration.athame"))
+                if(enemy instanceof EntityPlayer && !((EntityPlayer)enemy).getHeldItemMainhand().isEmpty()){
+                    if(isAthame(((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand()))
                         e.setAmount(25F);
                 }
             }
@@ -467,6 +494,10 @@ public class EventHandler{
         }
     }
 
-    //@SubscribeEvent
-    //public void onEmptyClick(PlayerInteractEvent.LeftClickEmpty e) {}
+    public static boolean isAthame(ItemStack i){
+        ResourceLocation r = i.getItem().getRegistryName();
+        if(r==null) return false;
+        if(!r.getResourceDomain().toLowerCase().equals("projectred-exploration")) return false;
+        return r.getResourcePath().toLowerCase().equals("athame");
+    }
 }

@@ -27,6 +27,8 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.minecraftforge.oredict.OreDictionary;
+import slimeknights.tconstruct.library.tinkering.TinkersItem;
+import slimeknights.tconstruct.shared.TinkerCommons;
 
 public class ItemRegister
 {
@@ -144,39 +146,19 @@ public class ItemRegister
         setRegister(CHISEl_OF_CONCEPTUALIZATION);
         setRegister(POWDER_REED);
 
-        OreDictionary.registerOre("dyeBlack",new ItemStack(ANOTHER_DYE,1,0));
-        OreDictionary.registerOre("dyeGreen",new ItemStack(ANOTHER_DYE,1,1));
-        OreDictionary.registerOre("dyeBrown",new ItemStack(ANOTHER_DYE,1,2));
-        OreDictionary.registerOre("dyeBlue",new ItemStack(ANOTHER_DYE,1,3));
-        OreDictionary.registerOre("dyeWhite",new ItemStack(ANOTHER_DYE,1,4));
-
-        OreDictionary.registerOre("magicFlintWeak", new ItemStack(MAGIC_FLINTS, 1,0));
-        OreDictionary.registerOre("magicFlintWeak", new ItemStack(MAGIC_FLINTS, 1,1));
 
         if(ammpdbm_mod.isLoadedTwilight){
             setRegister(TRANSFORMATION_DUST);
             setRegister(CARMINITE_AXE);
             setRegister(CARMINITE_PICKAXE);
         }
-        if(ammpdbm_mod.isLoadedTinkers) {
-            OreDictionary.registerOre("bone", new ItemStack(Item.getByNameOrId("tconstruct:materals"),1,17));
-        }
-        if(ammpdbm_mod.isLoadedProjectX) {
-            if(ammpdbm_mod.isLoadedSulfurTorches) {
-                setRegister(SULFUR);
-                setRegister(ALUMINUM);
-                setRegister(xyAMULET);
-                OreDictionary.registerOre("nuggetAluminum",new ItemStack(ItemRegister.ALUMINUM));
-                OreDictionary.registerOre("nuggetAluminium",new ItemStack(ItemRegister.ALUMINUM));
-                OreDictionary.registerOre("dustSulfur",new ItemStack(ItemRegister.SULFUR));
-            }
 
-            OreDictionary.registerOre("dyeBlue", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 0));
-            OreDictionary.registerOre("dyeLime", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 1));
-            OreDictionary.registerOre("dyeRed", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 2));
-            OreDictionary.registerOre("dyeBlack", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 3));
-            OreDictionary.registerOre("dyeWhite", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 4));
+        if(ammpdbm_mod.isLoadedSulfurTorches) {
+            setRegister(SULFUR);
+            setRegister(ALUMINUM);
+            setRegister(xyAMULET);
         }
+
         if(ammpdbm_mod.isLoadedBaubles){
             setRegister(SAVIOUR);
         }
@@ -185,6 +167,7 @@ public class ItemRegister
         }
 
         MinecraftForge.addGrassSeed(new ItemStack(CURING_GRASS),10);
+        MinecraftForge.addGrassSeed(new ItemStack(ANOTHER_DYE,1,1),3);
     }
 
     @SideOnly(Side.CLIENT)

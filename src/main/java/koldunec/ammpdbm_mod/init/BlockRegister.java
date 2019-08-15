@@ -73,7 +73,6 @@ public class BlockRegister
         registerBlock(STORE);
         registerBlock(COBBLE_MOSS_red);
         registerBlock(COBBLE_old);
-        //registerBlock(LLAMA_SPAWNER);
         registerBlockWithMeta(LLAMA_SPAWNER);
         ForgeRegistries.BLOCKS.register(CURING_CROPS);
         ForgeRegistries.BLOCKS.register(GHAST_POD);
@@ -83,8 +82,6 @@ public class BlockRegister
             if(ammpdbm_mod.isLoadedSulfurTorches) {
                 registerBlock(ORE_ALUMINUM);
                 registerBlock(ALBLOCK);
-                //OreDictionary.registerOre("oreAluminum", new ItemStack(BlockRegister.ORE_ALUMINUM));
-                //OreDictionary.registerOre("blockAluminum", new ItemStack(BlockRegister.ALBLOCK));
             }
         }
         //if(ammpdbm_mod.isLoadedTwilight)

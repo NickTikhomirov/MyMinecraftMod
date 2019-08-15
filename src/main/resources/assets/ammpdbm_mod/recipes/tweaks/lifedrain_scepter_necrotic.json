@@ -9,7 +9,7 @@
     },
     {
       "type": "forge:ore_dict",
-      "ore": "boneWithered"
+      "ore": "bone"
     }
   ],
   "type": "minecraft:crafting_shapeless"

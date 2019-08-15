@@ -25,7 +25,8 @@ import java.util.Random;
                 "after:retroexchange;" +
                 "after:baubles;" +
                 "after:primitivemobs;" +
-                "after:thaumcraft"
+                "after:thaumcraft;" +
+                "after:natura"
 )
 public class ammpdbm_mod
 {
@@ -46,6 +47,7 @@ public class ammpdbm_mod
     public static boolean isLoadedBaubles = false;
     public static boolean isLoadedPrimitive = false;
     public static boolean isLoadedThaumcraft = false;
+    public static boolean isLoadedNatura = false;
 
 
 
@@ -68,6 +70,8 @@ public class ammpdbm_mod
             isLoadedPrimitive = true;
         if(net.minecraftforge.fml.common.Loader.isModLoaded("thaumcraft"))
             isLoadedThaumcraft = true;
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("natura"))
+            isLoadedNatura = true;
 
         proxy.preInit(event);
 

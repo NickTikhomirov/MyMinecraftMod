@@ -7,7 +7,7 @@ import net.minecraft.world.storage.loot.LootTableList;
 public class LootRegister {
     public static final ResourceLocation LLAMA_ISLAND = new ResourceLocation(ammpdbm_mod.MODID,"llama_island");
 
-    public static void init(){
+    public static void register(){
         LootTableList.register(LLAMA_ISLAND);
     }
 }

@@ -1,6 +1,7 @@
 package koldunec.ammpdbm_mod.world.generate;
 
 import koldunec.ammpdbm_mod.ammpdbm_mod;
+import koldunec.ammpdbm_mod.broomitems.scroll_of_isle;
 import koldunec.ammpdbm_mod.broomitems.stORE;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.tileentities.EntityStore;
@@ -26,12 +27,13 @@ public class nether_island implements IWorldGenerator {
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        if(ammpdbm_mod.random.nextInt(3)==0) return;
+        if(ammpdbm_mod.random.nextInt(100)!=0) return;
         if(world.provider instanceof WorldProviderHell){
             int x = (chunkX << 4) + 8;
             int z = (chunkZ << 4) + 8;
-            int y = ammpdbm_mod.random.nextInt(10)+140;
+            int y = ammpdbm_mod.random.nextInt(10)+65;
             BlockPos p = new BlockPos(x,y,z);
+            if(!scroll_of_isle.nice_zone(world,p,new BlockPos(15,15,15))) return;
             WorldServer w = (WorldServer) world;
             TemplateManager t = w.getStructureTemplateManager();
             Template template = t.get(w.getMinecraftServer(),new ResourceLocation(ammpdbm_mod.MODID+":i_1_n"));
@@ -40,8 +42,7 @@ public class nether_island implements IWorldGenerator {
             Map<BlockPos,String> dB = template.getDataBlocks(p,ps);
             for(Map.Entry<BlockPos,String> e: dB.entrySet()){
                 String[] tokens = e.getValue().split(" ");
-                if(tokens.length == 0)
-                    return;
+                if(tokens.length == 0) return;
                 BlockPos dataPos = e.getKey();
                 if(tokens[0].equals("store1")){
                     world.setBlockState(dataPos, BlockRegister.STORE.getDefaultState());
