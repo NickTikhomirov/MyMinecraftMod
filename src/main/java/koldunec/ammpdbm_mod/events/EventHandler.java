@@ -6,6 +6,7 @@ import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.broomitems.saviour;
 import koldunec.ammpdbm_mod.broomitems.scroll;
+import koldunec.ammpdbm_mod.broomitems.tools.reliquarist_sword;
 import koldunec.ammpdbm_mod.broomitems.xyAmulet;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.init.ItemRegister;
@@ -18,6 +19,7 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -33,17 +35,16 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderHell;
-import net.minecraft.world.biome.Biome;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.world.BlockEvent;
-import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+import teamroots.embers.entity.EntityAncientGolem;
 import twilightforest.block.BlockTFLeaves;
 import twilightforest.block.BlockTFMagicLeaves;
 import twilightforest.block.BlockTFMagicLogSpecial;
@@ -214,6 +215,19 @@ public class EventHandler{
             }
         }
 
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("embers")){
+            if(victim instanceof EntityAncientGolem){
+                if(enemy instanceof EntityPlayer){
+                    ItemStack hand = ((EntityPlayer) enemy).getHeldItemMainhand();
+                    if(!hand.isEmpty()){
+                        if(hand.getItem() instanceof reliquarist_sword){
+                            e.setAmount(25F);
+                        }
+                    }
+                }
+            }
+        }
+
         if(victim.isPotionActive(PotionRegister.ENDERPROTECTION) &&
                 (enemy instanceof EntityEnderman ||
                  enemy instanceof EntityEndermite ||
@@ -380,20 +394,25 @@ public class EventHandler{
         if(e.getEntity().getEntityWorld().isRemote) return;
         if(ammpdbm_mod.isLoadedPrimitive){
             if(e.getEntityLiving() instanceof EntityBrainSlime && ((EntitySlime)e.getEntityLiving()).getSlimeSize()<2){
-                if(ammpdbm_mod.isLoadedTinkers){
-                    ((EntityBrainSlime) e.getEntityLiving()).setDead();
-                    e.getEntityLiving().entityDropItem(
-                                    new ItemStack(Item.getByNameOrId("tconstruct:edible"),
-                                            ammpdbm_mod.random.nextInt(2)+2,
-                                            2)
-                            ,1F
-                    );
-                }
                 if(ammpdbm_mod.isLoadedThaumcraft && ammpdbm_mod.random.nextInt(3)==0){
                     e.getEntityLiving().entityDropItem(
                                     new ItemStack(Item.getByNameOrId("thaumcraft:brain"),
                                             1)
                     ,1F);
+                }
+                if(ammpdbm_mod.isLoadedTinkers){
+                    e.getEntityLiving().entityDropItem(
+                            new ItemStack(Item.getByNameOrId("tconstruct:edible"),
+                                    ammpdbm_mod.random.nextInt(2)+2,
+                                    2)
+                            ,1F
+                    );
+                    double x = e.getEntity().posX;
+                    double z = e.getEntity().posZ;
+                    EntityXPOrb a = new EntityXPOrb(e.getEntity().world,x,e.getEntity().posY,z,4);
+                    e.getEntityLiving().world.spawnEntity(a);
+
+                    e.getEntityLiving().setPosition(x,-1,z);
                 }
             }
         }

@@ -3,6 +3,7 @@ package koldunec.ammpdbm_mod.broomitems;
 import koldunec.ammpdbm_mod.ammpdbm_mod;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.tileentities.EntityStore;
+import koldunec.ammpdbm_mod.utils.Lootgen;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
@@ -73,19 +74,9 @@ public class scroll extends Item {
                 && !worldIn.isRemote){
             ItemStack s = player.getHeldItemMainhand();
             EntityStore p1 = (EntityStore) worldIn.getTileEntity(pos);
+            if(!s.getItem().equals(this)) return EnumActionResult.FAIL;
             if(p1==null || !p1.isEmpty()) return EnumActionResult.FAIL;
-            LootContext.Builder builder = new LootContext.Builder((WorldServer) worldIn).withPlayer(player);
-            ResourceLocation l = null;
-            if(s.getMetadata()==0){
-                l = LootTableList.CHESTS_DESERT_PYRAMID;
-            } else if(s.getMetadata()==1) {
-                l = LootTableList.CHESTS_ABANDONED_MINESHAFT;
-            } else if(s.getMetadata()==2) {
-                l = LootTableList.CHESTS_SIMPLE_DUNGEON;
-            } else if(s.getMetadata()==3){
-                l = LootTableList.CHESTS_JUNGLE_TEMPLE;
-            } else l = LootTableList.CHESTS_SPAWN_BONUS_CHEST;
-            worldIn.getLootTableManager().getLootTableFromLocation(l).fillInventory(p1, worldIn.rand, builder.build());
+            Lootgen.fill_store(player,p1,worldIn,Lootgen.get1(s.getMetadata()));
             s.shrink(1);
             return EnumActionResult.SUCCESS;
         }

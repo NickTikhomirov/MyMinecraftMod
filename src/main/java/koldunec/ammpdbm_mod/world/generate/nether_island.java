@@ -1,11 +1,9 @@
 package koldunec.ammpdbm_mod.world.generate;
 
 import koldunec.ammpdbm_mod.ammpdbm_mod;
-import koldunec.ammpdbm_mod.broomitems.scroll_of_isle;
-import koldunec.ammpdbm_mod.broomitems.stORE;
+import koldunec.ammpdbm_mod.broomitems.scroll2;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.tileentities.EntityStore;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -33,7 +31,7 @@ public class nether_island implements IWorldGenerator {
             int z = (chunkZ << 4) + 8;
             int y = ammpdbm_mod.random.nextInt(10)+65;
             BlockPos p = new BlockPos(x,y,z);
-            if(!scroll_of_isle.nice_zone(world,p,new BlockPos(15,15,15))) return;
+            if(!scroll2.nice_zone(world,p,new BlockPos(15,15,15))) return;
             WorldServer w = (WorldServer) world;
             TemplateManager t = w.getStructureTemplateManager();
             Template template = t.get(w.getMinecraftServer(),new ResourceLocation(ammpdbm_mod.MODID+":i_1_n"));

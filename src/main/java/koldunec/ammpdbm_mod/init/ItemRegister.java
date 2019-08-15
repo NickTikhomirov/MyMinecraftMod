@@ -18,6 +18,8 @@ import koldunec.ammpdbm_mod.broomitems.throwables.cursedRock;
 import koldunec.ammpdbm_mod.broomitems.throwables.inertstone;
 import koldunec.ammpdbm_mod.broomitems.saviour;
 import koldunec.ammpdbm_mod.broomitems.gd_apple;
+import koldunec.ammpdbm_mod.broomitems.tools.reliquarist_sword;
+import koldunec.ammpdbm_mod.toolmaterials.thaumicMix;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -26,9 +28,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
-import slimeknights.tconstruct.library.tinkering.TinkersItem;
-import slimeknights.tconstruct.shared.TinkerCommons;
 
 public class ItemRegister
 {
@@ -72,6 +71,7 @@ public class ItemRegister
     public static Item EFFECTSTORAGE = new effectFreezer();
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
 
+    public static Item RELIQUARISTS_SWORD = new reliquarist_sword(thaumicMix.thaumicMix);
     public static Item BROOM = new broom("broom");
     public static Item MAGNETPICK = new magnetpick();
     public static Item MAGICBALL = new cursedRock("magic_ball",24);
@@ -86,7 +86,7 @@ public class ItemRegister
     public static Item SPONGE_OF_CONCEPTUALIZATION = new cleaner();
     public static Item CHISEl_OF_CONCEPTUALIZATION = new cheasel();
     public static Item SCROLL = new scroll();
-    public static Item SCROLL_ISLE = new scroll_of_isle();
+    public static Item SCROLL_ISLE = new scroll2();
 
     public static Item NETHER_DRINK = new nether_drink();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
@@ -145,6 +145,8 @@ public class ItemRegister
         setRegister(SCROLL);
         setRegister(CHISEl_OF_CONCEPTUALIZATION);
         setRegister(POWDER_REED);
+        setRegister(RELIQUARISTS_SWORD);
+        setRegister(SCROLL_ISLE);
 
 
         if(ammpdbm_mod.isLoadedTwilight){
@@ -161,9 +163,6 @@ public class ItemRegister
 
         if(ammpdbm_mod.isLoadedBaubles){
             setRegister(SAVIOUR);
-        }
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("primitivemobs")){
-            setRegister(SCROLL_ISLE);
         }
 
         MinecraftForge.addGrassSeed(new ItemStack(CURING_GRASS),10);
@@ -216,6 +215,7 @@ public class ItemRegister
         setRender(GOLDENDIAMOND_APPLE);
         setRender(DIAMONDGOLDEN_APPLE);
         setRender(CHISEl_OF_CONCEPTUALIZATION);
+        setRender(RELIQUARISTS_SWORD);
 
         if(ammpdbm_mod.isLoadedBaubles)
             setRender(SAVIOUR);
@@ -233,9 +233,6 @@ public class ItemRegister
             }
         }
 
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("primitivemobs")){
-            setRender(SCROLL_ISLE);
-        }
     }
 
     private static void setRegister(Item item)

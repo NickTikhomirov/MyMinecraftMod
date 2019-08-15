@@ -5,6 +5,7 @@ import koldunec.ammpdbm_mod.broomitems.another_dye_please_dont_blame_me;
 import koldunec.ammpdbm_mod.broomitems.flints;
 import koldunec.ammpdbm_mod.broomitems.gunpowder_reed.block_gunreed;
 import koldunec.ammpdbm_mod.broomitems.scroll;
+import koldunec.ammpdbm_mod.broomitems.scroll2;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.init.ItemRegister;
 import koldunec.ammpdbm_mod.recipes.dragonBreathFix;
@@ -41,6 +42,10 @@ public class TechEvents {
         final Item Reed = ItemRegister.POWDER_REED;
         for(block_gunreed.reedTypes type: block_gunreed.reedTypes.values()){
             ModelLoader.setCustomModelResourceLocation(Reed,type.ordinal(),new ModelResourceLocation(Reed.getRegistryName()+"_"+type.toString().toLowerCase(),"inventory"));
+        }
+        final Item Scroll2 = ItemRegister.SCROLL_ISLE;
+        for(scroll2.scroll2Types type : scroll2.scroll2Types.values()){
+            ModelLoader.setCustomModelResourceLocation(Scroll2,type.ordinal(), new ModelResourceLocation(Scroll2.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
         }
         //ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegister.LLAMA_SPAWNER),0, new ModelResourceLocation("llama_flower","inventory"));
     }

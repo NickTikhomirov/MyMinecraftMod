@@ -22,6 +22,7 @@ item.red_powder.name=Red Powder
 item.paint_operator.name=Color Operator
 item.cleaner.name=Sponge of Conceptualization
 item.cheasel.name=Chisel of Conceptualization
+item.ambersword.name=Reliquarist's Sword
 
 item.curinggrass.name=Curing Grass
 item.supercuringgrass.name=Curing Grass++
@@ -52,7 +53,8 @@ item.scroll.desert.name=Loot Scroll: Desert
 item.scroll.mine.name=Loot Scroll: Mineshaft
 item.scroll.dungeon.name=Loot Scroll: Dungeon
 item.scroll.jungle.name=Loot Scroll: Jungle
-item.scroll_isle.name=Scroll of Mushrooms
+item.scroll2.mushroom.name=Scroll of Mushrooms
+item.scroll2.nether.name=Loot Scroll: Nether
 
 item.gunreed.gunpowder.name=Gunpowder Cane
 item.gunreed.redstone.name=Redstone Cane
@@ -217,3 +219,4 @@ potion.potency.3=IV
 container.st_ore=StOre
 
 ammpdbm_mod.chat.msg0=Well Done!
+ammpdbm_mod:flavor2=Amber hate Embers!

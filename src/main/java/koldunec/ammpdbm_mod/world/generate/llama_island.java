@@ -1,15 +1,13 @@
 package koldunec.ammpdbm_mod.world.generate;
 
 import koldunec.ammpdbm_mod.ammpdbm_mod;
-import koldunec.ammpdbm_mod.broomitems.scroll_of_isle;
+import koldunec.ammpdbm_mod.broomitems.scroll2;
 import koldunec.ammpdbm_mod.init.BlockRegister;
 import koldunec.ammpdbm_mod.init.LootRegister;
 import koldunec.ammpdbm_mod.tileentities.EntityStore;
-import net.minecraft.client.Minecraft;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldProviderHell;
 import net.minecraft.world.WorldServer;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
@@ -17,7 +15,6 @@ import net.minecraft.world.gen.structure.template.PlacementSettings;
 import net.minecraft.world.gen.structure.template.Template;
 import net.minecraft.world.gen.structure.template.TemplateManager;
 import net.minecraft.world.storage.loot.LootContext;
-import net.minecraft.world.storage.loot.LootTableList;
 import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Map;
@@ -30,7 +27,7 @@ public class llama_island implements IWorldGenerator {
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
         if(world.provider.getDimension()!=0) return;
         if(keeptrying==50) return;
-        if(ammpdbm_mod.random.nextInt(500)!=0 && keeptrying==0) return;
+        if(ammpdbm_mod.random.nextInt(850)!=0 && keeptrying==0) return;
 
         int x = (chunkX << 4) + 8;
         int z = (chunkZ << 4) + 8;
@@ -42,7 +39,7 @@ public class llama_island implements IWorldGenerator {
         Template template = t.get(w.getMinecraftServer(),new ResourceLocation(ammpdbm_mod.MODID+":best_island1"));
         PlacementSettings ps = new PlacementSettings();
 
-        if(!scroll_of_isle.nice_zone(world,p,new BlockPos(15,15,15))){
+        if(!scroll2.nice_zone(world,p,new BlockPos(15,15,15))){
             keeptrying++;
             return;
         }

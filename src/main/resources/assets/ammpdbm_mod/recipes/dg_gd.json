@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "ammpdbm_mod:dg0"
+    },
+    {
+      "item": "ammpdbm_mod:dg1"
+    }
+
+  ],
+  "result": {
+    "item": "ammpdbm_mod:dg2"
+  }
+}
