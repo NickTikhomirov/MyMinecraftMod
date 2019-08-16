@@ -1,3 +1,5 @@
+[![forthebadge](https://forthebadge.com/images/badges/designed-in-ms-paint.svg)](https://forthebadge.com)
+
 # Фичи мода (Ru Wiki)
 
 ## Генерация в мире:
