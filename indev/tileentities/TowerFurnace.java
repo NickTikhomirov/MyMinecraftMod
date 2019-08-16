@@ -1,7 +1,7 @@
-package koldunec.ammpdbm_mod.tileentities;
+package koldunec.vint.tileentities;
 
 
-import koldunec.ammpdbm_mod.init.BlockRegister;
+import koldunec.vint.init.BlockRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.ITileEntityProvider;
@@ -17,7 +17,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import koldunec.ammpdbm_mod.ammpdbm_mod;
+import koldunec.vint.ammpdbm_mod;
 
 import javax.annotation.Nullable;
 import java.util.Random;

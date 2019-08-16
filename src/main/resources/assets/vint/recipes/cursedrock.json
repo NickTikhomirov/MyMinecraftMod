@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:round_stone"
+    },
+    {
+      "item": "vint:round_stone"
+    },
+    {
+      "item": "vint:rEssence"
+    }
+  ],
+  "result":
+    {
+    "item": "vint:magic_ball",
+    "count": 2
+    }
+}

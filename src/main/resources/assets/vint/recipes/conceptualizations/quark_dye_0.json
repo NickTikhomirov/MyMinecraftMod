@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:cleaner",
+      "data": 32767
+    },
+    {
+      "item": "quark:root_dye",
+      "data": 0
+    }
+  ],
+  "result":
+    {
+      "item": "vint:dye",
+      "data": 3
+    }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:p_trans",
+      "data": 32767
+    },
+    {
+      "item": "projectx:xycronium_crystal",
+      "data": 2
+    }
+  ],
+  "result": {
+    "item": "projectx:xycronium_crystal",
+    "data": 3
+  }
+}

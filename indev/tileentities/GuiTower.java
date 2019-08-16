@@ -1,4 +1,4 @@
-package koldunec.ammpdbm_mod.tileentities;
+package koldunec.vint.tileentities;
 
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;

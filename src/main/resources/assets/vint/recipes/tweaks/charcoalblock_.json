@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:block_charcoal"
+    }
+  ],
+  "result": {
+    "item": "minecraft:coal",
+    "data": 1,
+    "count": 9
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:gunreed",
+      "data": 1
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:redstone",
+      "count": 2
+    }
+}

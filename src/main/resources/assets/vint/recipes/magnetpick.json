@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "fNf",
+    " S ",
+    " S "
+  ],
+  "key": {
+    "f": {
+      "item": "minecraft:flint"
+    },
+    "N": {
+      "type": "forge:ore_dict",
+      "ore": "magicFlintWeak"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "vint:magnetpick",
+    "count": 1
+  }
+}

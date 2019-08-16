@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "quark:black_ash"
+    },
+    {
+      "item": "vint:p_trans",
+      "data": 32767
+    }
+  ],
+  "result":
+    {
+      "item": "vint:dye",
+      "data": 0,
+      "count": 1
+    }
+}

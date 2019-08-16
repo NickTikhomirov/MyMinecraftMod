@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "dyeLime"
+    },
+    {
+      "item": "vint:p_trans",
+      "data": 32767
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:dye",
+      "data": 9,
+      "count": 1
+    }
+}

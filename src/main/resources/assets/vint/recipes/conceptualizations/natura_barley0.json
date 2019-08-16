@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:cleaner",
+      "data": 32767
+    },
+    {
+      "item": "natura:overworld_seeds",
+      "data": 0
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:wheat_seeds"
+    }
+}

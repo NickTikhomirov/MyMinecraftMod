@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:cleaner",
+      "data": 32767
+    },
+    {
+      "item": "minecraft:dirt",
+      "data": 1
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:dirt",
+      "data": 0
+    }
+}

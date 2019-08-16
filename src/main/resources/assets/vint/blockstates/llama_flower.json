@@ -1,0 +1,6 @@
+{
+  "variants": {
+      "variant=false": { "model": "vint:llama_flower" },
+      "variant=true": { "model": "vint:llama_flower" }
+  }
+}

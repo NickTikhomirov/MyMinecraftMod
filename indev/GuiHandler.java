@@ -1,7 +1,7 @@
-package koldunec.ammpdbm_mod.init;
+package koldunec.vint.init;
 
-import koldunec.ammpdbm_mod.tileentities.ContainerTower;
-import koldunec.ammpdbm_mod.tileentities.TileEntityTowerFurnace;
+import koldunec.vint.tileentities.ContainerTower;
+import koldunec.vint.tileentities.TileEntityTowerFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

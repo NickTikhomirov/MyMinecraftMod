@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "natura:nether_glowshroom",
+      "data": 32767
+    },
+    {
+      "item": "vint:curinggrass"
+    }
+  ],
+  "result":
+    {
+      "item": "randomthings:glowingmushroom"
+    }
+}

@@ -1,7 +1,7 @@
-package koldunec.ammpdbm_mod.tileentities;
+package koldunec.vint.tileentities;
 
-import koldunec.ammpdbm_mod.slots.Slot_TowerCatalyst;
-import koldunec.ammpdbm_mod.slots.Slot_TowerFuel_1;
+import koldunec.vint.slots.Slot_TowerCatalyst;
+import koldunec.vint.slots.Slot_TowerFuel_1;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.*;

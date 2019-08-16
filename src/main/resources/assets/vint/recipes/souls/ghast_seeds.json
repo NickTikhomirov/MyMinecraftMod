@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:curingseeds"
+    },
+    {
+      "item": "vint:small_soul"
+    },
+    {
+      "item": "vint:small_soul"
+    },
+    {
+      "item": "vint:small_soul"
+    }
+  ],
+  "result":
+    {
+      "item": "vint:ghast_seeds",
+      "count": 1
+    }
+}

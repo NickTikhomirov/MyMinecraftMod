@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "retroexchange:transmutation_shard"
+    },
+    "D": {
+      "item": "vint:flints",
+      "data": 1
+    }
+  },
+  "result": {
+    "item": "retroexchange:transmutation_stone"
+  }
+}

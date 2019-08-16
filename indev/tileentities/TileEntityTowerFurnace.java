@@ -1,6 +1,6 @@
-package koldunec.ammpdbm_mod.tileentities;
+package koldunec.vint.tileentities;
 
-import koldunec.ammpdbm_mod.init.ItemRegister;
+import koldunec.vint.init.ItemRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
@@ -36,7 +36,7 @@ public class TileEntityTowerFurnace extends TileEntity implements ITickable, ISi
 
     public String getGuiID()
     {
-        return "ammpdbm_mod:twilightreactor";
+        return "vint:twilightreactor";
     }
 
     @Override

@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "qA",
+    "qA",
+    " S"
+  ],
+  "key": {
+    "A": {
+      "item": "thaumcraft:amber_block"
+    },
+    "q": {
+      "item": "thaumcraft:nugget",
+      "data": 5
+    },
+    "S": {
+      "type": "forge:ore_dict",
+      "ore": "bone"
+    }
+  },
+  "result": {
+    "item": "vint:ambersword",
+    "data": 0,
+    "count": 1
+  }
+}

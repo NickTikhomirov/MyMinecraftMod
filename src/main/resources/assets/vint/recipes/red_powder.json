@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:dye",
+      "data": 1
+    },
+    {
+      "item": "minecraft:gunpowder"
+    }
+  ],
+  "result":
+    {
+    "item": "vint:red_powder",
+    "count": 1
+    }
+}

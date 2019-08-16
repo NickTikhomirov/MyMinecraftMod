@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:curinggrass"
+    },
+    {
+      "item": "minecraft:poisonous_potato"
+    }
+  ],
+  "result":
+    {
+    "item": "vint:curedpotato",
+    "count": 1
+    }
+}

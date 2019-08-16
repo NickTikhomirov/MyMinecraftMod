@@ -1,4 +1,4 @@
-package koldunec.ammpdbm_mod.tileentities;
+package koldunec.vint.tileentities;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;

@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:curinggrass"
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:dye",
+      "data": 12,
+      "count": 2
+    }
+}

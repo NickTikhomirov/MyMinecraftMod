@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:cleaner",
+      "data": 32767
+    },
+    {
+        "item": "twilightforest:maze_wafer"
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:cookie",
+      "count": 2
+    }
+}

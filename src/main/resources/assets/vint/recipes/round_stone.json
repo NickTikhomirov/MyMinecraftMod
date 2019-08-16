@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "type": "forge:ore_dict",
+      "ore": "magicFlintWeak"
+    },
+    {
+      "item": "minecraft:cobblestone"
+    },
+    {
+      "item": "minecraft:flint"
+    }
+  ],
+  "result":
+    {
+    "item": "vint:round_stone",
+    "count": 1
+    }
+}

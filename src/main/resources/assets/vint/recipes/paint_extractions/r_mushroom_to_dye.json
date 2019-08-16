@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "randomthings:glowingmushroom"
+    },
+    {
+      "item": "vint:p_trans",
+      "data": 32767
+    }
+  ],
+  "result":
+    {
+      "item": "vint:dye",
+      "data": 3,
+      "count": 3
+    }
+}

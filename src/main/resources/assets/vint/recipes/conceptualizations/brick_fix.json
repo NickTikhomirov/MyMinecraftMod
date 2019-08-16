@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:cleaner",
+      "data": 32767
+    },
+    [
+      {
+        "item": "minecraft:stonebrick",
+        "data": 1
+      },
+      {
+        "item": "minecraft:stonebrick",
+        "data": 2
+      }
+    ]
+  ],
+  "result":
+    {
+      "item": "minecraft:stonebrick",
+      "data": 0
+    }
+}

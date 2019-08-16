@@ -1,0 +1,80 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:cleaner",
+      "data": 32767
+    },
+    [
+      {
+        "item": "quark:glass_shards",
+        "data": 1
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 2
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 3
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 4
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 5
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 6
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 7
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 8
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 9
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 10
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 11
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 12
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 13
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 14
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 15
+      },
+      {
+        "item": "quark:glass_shards",
+        "data": 16
+      }
+    ]
+  ],
+  "result":
+  {
+    "item": "quark:glass_shards",
+    "data": 0
+  }
+}

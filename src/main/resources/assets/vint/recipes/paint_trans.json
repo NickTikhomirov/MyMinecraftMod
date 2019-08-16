@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " r ",
+    "ROR",
+    " R "
+  ],
+  "key": {
+    "r": {
+      "item": "vint:red_powder"
+    },
+    "O": {
+      "item": "vint:round_stone"
+    },
+    "R": {
+      "item": "vint:rEssence"
+    }
+  },
+  "result": {
+    "item": "vint:p_trans",
+    "data":  0,
+    "count": 1
+  }
+}

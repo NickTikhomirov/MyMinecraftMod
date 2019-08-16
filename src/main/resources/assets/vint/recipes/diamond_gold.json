@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "___",
+    "_C_",
+    "___"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:gold_block"
+    },
+    "_": {
+      "item": "minecraft:diamond"
+    }
+  },
+  "result": {
+    "item": "vint:dg1",
+    "count": 8
+  }
+}

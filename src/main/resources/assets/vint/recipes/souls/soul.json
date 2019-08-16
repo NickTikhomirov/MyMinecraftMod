@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "A",
+    "B"
+  ],
+  "key": {
+    "A": {
+      "item": "vint:soul_shears"
+    },
+    "B": {
+      "item": "vint:soul_fruit"
+    }
+  },
+  "result": {
+    "item": "vint:small_soul",
+    "count": 2
+  }
+}

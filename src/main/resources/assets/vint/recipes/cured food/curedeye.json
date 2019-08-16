@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:curinggrass"
+    },
+    {
+      "item": "minecraft:spider_eye"
+    }
+  ],
+  "result":
+    {
+    "item": "vint:curedeye",
+    "count": 1
+    }
+}

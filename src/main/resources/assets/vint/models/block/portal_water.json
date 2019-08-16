@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "up": "vint:blocks/portal_water_u",
+    "down": "vint:blocks/portal_water_d",
+    "north": "vint:blocks/portal_water_s",
+    "south": "vint:blocks/portal_water_s",
+    "west": "vint:blocks/portal_water_s",
+    "east": "vint:blocks/portal_water_s",
+    "particle": "vint:blocks/portal_water_s"
+  }
+}

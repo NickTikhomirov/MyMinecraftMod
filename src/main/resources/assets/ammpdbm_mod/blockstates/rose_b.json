@@ -1,9 +1,0 @@
-{
-  "forge_marker": 1,
-  "defaults": {
-    "model": "cross"
-  },
-  "variants": {
-    "normal": { "textures": { "cross": "ammpdbm_mod:blocks/rose_b" }}
-  }
-}

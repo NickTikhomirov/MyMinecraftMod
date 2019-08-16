@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SNS",
+    "NSN",
+    "SNS"
+  ],
+  "key": {
+    "N": {
+      "item": "minecraft:clay_ball"
+    },
+    "S": {
+      "item": "vint:small_soul"
+    }
+  },
+  "result": {
+    "item": "minecraft:soul_sand",
+    "count": 1
+  }
+}

@@ -11,9 +11,9 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 //Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 
 
-version = "0.0.6"
-group = "com.koldunec.ammpdbm" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
-archivesBaseName = "ammpdbm"
+version = "0.1.0"
+group = "com.koldunec.vint" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+archivesBaseName = "various_interactions"
 
 sourceCompatibility = targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 compileJava {
@@ -57,6 +57,7 @@ dependencies {
     provided 'multi:multimob-1.0.5'
     provided 'natura:natura-1.12.2-4.3.2.69'
     provided 'embers:EmbersRekindled-1.13-hotfix2'
+    provided 'hype:HypeWear-1.0'
 
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings

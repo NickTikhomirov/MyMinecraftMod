@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:coal",
+      "data": 32767
+    },
+    {
+      "item": "vint:p_trans",
+      "data": 32767
+    }
+  ],
+  "result":
+    {
+      "item": "vint:dye",
+      "data": 0,
+      "count": 4
+    }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "sulfurtorches:sulfur_goo"
+    },
+    {
+      "item": "sulfurtorches:sulfur_goo"
+    },
+    {
+      "item": "vint:sparkles"
+    },
+    {
+      "item": "vint:sparkles"
+    }
+  ],
+  "result": {
+    "item": "vint:sulfur",
+    "count": 4
+  }
+}

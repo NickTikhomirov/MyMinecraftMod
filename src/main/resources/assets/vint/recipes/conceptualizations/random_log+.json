@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:cleaner",
+      "data": 32767
+    },
+    {
+      "item": "randomthings:spectrelog"
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:log",
+      "data": 0
+    }
+}

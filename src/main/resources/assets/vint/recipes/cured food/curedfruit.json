@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:curinggrass"
+    },
+    {
+      "item": "minecraft:chorus_fruit"
+    }
+  ],
+  "result":
+    {
+    "item": "vint:curedfruit",
+    "count": 1
+    }
+}

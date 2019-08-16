@@ -1,8 +1,8 @@
-package koldunec.ammpdbm_mod.slots;
+package koldunec.vint.slots;
 
 
-import koldunec.ammpdbm_mod.ammpdbm_mod;
-import koldunec.ammpdbm_mod.init.ItemRegister;
+import koldunec.vint.ammpdbm_mod;
+import koldunec.vint.init.ItemRegister;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
