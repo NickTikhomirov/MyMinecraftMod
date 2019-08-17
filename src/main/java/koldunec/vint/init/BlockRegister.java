@@ -1,11 +1,11 @@
 package koldunec.vint.init;
 
 import koldunec.vint.vint;
-import koldunec.vint.broomitems.*;
-import koldunec.vint.broomitems.baseItems.basic_block;
-import koldunec.vint.broomitems.baseItems.basic_planks;
-import koldunec.vint.broomitems.curinggrass.curingCrops;
-import koldunec.vint.broomitems.gunpowder_reed.block_gunreed;
+import koldunec.vint.items.*;
+import koldunec.vint.items.baseItems.basic_block;
+import koldunec.vint.items.baseItems.basic_planks;
+import koldunec.vint.items.curinggrass.curingCrops;
+import koldunec.vint.items.gunpowder_reed.block_gunreed;
 import koldunec.vint.tileentities.EntityStore;
 import koldunec.vint.tileentities.TileLlama;
 import net.minecraft.block.Block;

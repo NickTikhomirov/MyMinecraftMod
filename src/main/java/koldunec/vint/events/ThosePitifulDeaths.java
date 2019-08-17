@@ -1,10 +1,10 @@
 package koldunec.vint.events;
 
 import koldunec.vint.vint;
-import koldunec.vint.broomitems.saviour;
-import koldunec.vint.broomitems.scroll;
-import koldunec.vint.broomitems.tools.reliquarist_sword;
-import koldunec.vint.broomitems.xyAmulet;
+import koldunec.vint.items.saviour;
+import koldunec.vint.items.scroll;
+import koldunec.vint.items.tools.reliquarist_sword;
+import koldunec.vint.items.xyAmulet;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.utils.MobLootUtils;
 import net.daveyx0.primitivemobs.entity.monster.EntityBrainSlime;

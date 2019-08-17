@@ -3,13 +3,15 @@ package koldunec.vint.events;
 
 
 import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
+import koldunec.vint.items.magic_shovel;
 import koldunec.vint.vint;
-import koldunec.vint.broomitems.tools.reliquarist_sword;
-import koldunec.vint.broomitems.xyAmulet;
+import koldunec.vint.items.tools.reliquarist_sword;
+import koldunec.vint.items.xyAmulet;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.init.PotionRegister;
 import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,6 +26,7 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -40,7 +43,9 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
+
 import teamroots.embers.entity.EntityAncientGolem;
+
 import twilightforest.block.BlockTFLeaves;
 import twilightforest.block.BlockTFMagicLeaves;
 import twilightforest.block.BlockTFMagicLogSpecial;
@@ -78,6 +83,23 @@ public class EventHandler{
         }
     }
 
+    //Note forge has two different events called playerevent (why?!)
+    //So it was kinda difficult to figure out why it doesnt work
+    @SubscribeEvent
+    public static void onDecide(net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed e){
+        if(vint.isLoadedBaubles){
+            //in theory entityliving is always a player so lets try not to check excessively
+            if(e.getEntityLiving()!=null){
+                EntityPlayer p = (EntityPlayer) e.getEntityLiving();
+                if(magic_shovel.isEquiped(p)){
+                    if(magic_shovel.isHarvestable(e.getState().getBlock())){
+                        e.setNewSpeed(e.getNewSpeed()+10F);
+                    }
+                }
+            }
+        }
+    }
+
     @SubscribeEvent
     public static void onItemCrafted(PlayerEvent.ItemCraftedEvent e){
         Item result = e.crafting.getItem();
@@ -94,6 +116,21 @@ public class EventHandler{
                 if(ii.equals(ItemRegister.MAGIC_FLINTS))
                     e.craftMatrix.getStackInSlot(i).grow(1);
             }
+    }
+
+    //blockBr is kinda unreadable for now so ill substract this
+    @SubscribeEvent
+    public static void magic_shovel_code(BlockEvent.BreakEvent e) {
+        if(vint.isLoadedBaubles){
+            if(e.getPlayer()!=null){
+                if(magic_shovel.isEquiped(e.getPlayer())){
+                    if(magic_shovel.isHarvestable(e.getState().getBlock())){
+                        magic_shovel.damageShovel(e.getPlayer(),1);
+                        magic_shovel.attemptToFix(e.getPlayer());
+                    }
+                }
+            }
+        }
     }
 
     //0 - black
@@ -376,6 +413,9 @@ public class EventHandler{
                     e.getEntityLiving().hurtResistantTime = 0;
                     e.getEntityLiving().attackEntityFrom(DamageSource.GENERIC,10);
                 }
+            }
+            if(((EntityPlayer)e.getSource().getTrueSource()).getHeldItem(EnumHand.MAIN_HAND).getItem().equals(ItemRegister.DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD)){
+                e.getSource().setMagicDamage();
             }
         }
     }

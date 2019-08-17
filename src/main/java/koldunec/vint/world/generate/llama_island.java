@@ -1,7 +1,7 @@
 package koldunec.vint.world.generate;
 
 import koldunec.vint.vint;
-import koldunec.vint.broomitems.scroll2;
+import koldunec.vint.items.scroll2;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.LootRegister;
 import koldunec.vint.tileentities.EntityStore;

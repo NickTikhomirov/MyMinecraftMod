@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "N",
+    "N",
+    "S"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stick"
+    },
+    "N": {
+      "item": "vint:dg2"
+    }
+  },
+  "result": {
+    "item": "vint:dggd_sword",
+    "count": 1
+  }
+}

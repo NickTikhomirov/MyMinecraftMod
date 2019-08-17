@@ -1,11 +1,11 @@
 package koldunec.vint.events;
 
 import koldunec.vint.vint;
-import koldunec.vint.broomitems.another_dye_please_dont_blame_me;
-import koldunec.vint.broomitems.flints;
-import koldunec.vint.broomitems.gunpowder_reed.block_gunreed;
-import koldunec.vint.broomitems.scroll;
-import koldunec.vint.broomitems.scroll2;
+import koldunec.vint.items.another_dye_please_dont_blame_me;
+import koldunec.vint.items.flints;
+import koldunec.vint.items.gunpowder_reed.block_gunreed;
+import koldunec.vint.items.scroll;
+import koldunec.vint.items.scroll2;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.recipes.dragonBreathFix;

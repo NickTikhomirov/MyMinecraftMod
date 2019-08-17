@@ -8,7 +8,8 @@
   "key": {
     "w": [
       {
-        "item": "minecraft:water_bucket"
+        "type": "forge:ore_dict",
+        "ore": "water"
       },
       {
         "item": "vint:flints",

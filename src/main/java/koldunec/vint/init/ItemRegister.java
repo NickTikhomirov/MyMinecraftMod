@@ -1,25 +1,24 @@
 package koldunec.vint.init;
 
 
-import koldunec.vint.broomitems.CarminitePick;
+import koldunec.vint.items.CarminitePick;
 import koldunec.vint.vint;
-import koldunec.vint.broomitems.*;
-import koldunec.vint.broomitems.baseItems.base_food;
-import koldunec.vint.broomitems.baseItems.base_fuel;
-import koldunec.vint.broomitems.baseItems.base_item;
-import koldunec.vint.broomitems.crafting_tools.cheasel;
-import koldunec.vint.broomitems.crafting_tools.cleaner;
-import koldunec.vint.broomitems.curinggrass.curinggrass;
-import koldunec.vint.broomitems.curinggrass.curingseeds;
-import koldunec.vint.broomitems.curinggrass.supercuringgrass;
-import koldunec.vint.broomitems.gunpowder_reed.reed_item;
-import koldunec.vint.broomitems.throwables.bitcoin5000;
-import koldunec.vint.broomitems.throwables.cursedRock;
-import koldunec.vint.broomitems.throwables.inertstone;
-import koldunec.vint.broomitems.saviour;
-import koldunec.vint.broomitems.gd_apple;
-import koldunec.vint.broomitems.tools.reliquarist_sword;
-import koldunec.vint.toolmaterials.thaumicMix;
+import koldunec.vint.items.*;
+import koldunec.vint.items.baseItems.base_food;
+import koldunec.vint.items.baseItems.base_fuel;
+import koldunec.vint.items.baseItems.base_item;
+import koldunec.vint.items.crafting_tools.cheasel;
+import koldunec.vint.items.crafting_tools.cleaner;
+import koldunec.vint.items.curinggrass.curinggrass;
+import koldunec.vint.items.curinggrass.curingseeds;
+import koldunec.vint.items.curinggrass.supercuringgrass;
+import koldunec.vint.items.gunpowder_reed.reed_item;
+import koldunec.vint.items.throwables.bitcoin5000;
+import koldunec.vint.items.throwables.cursedRock;
+import koldunec.vint.items.throwables.inertstone;
+import koldunec.vint.items.saviour;
+import koldunec.vint.items.gd_apple;
+import koldunec.vint.items.tools.reliquarist_sword;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -71,7 +70,8 @@ public class ItemRegister
     public static Item EFFECTSTORAGE = new effectFreezer();
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
 
-    public static Item RELIQUARISTS_SWORD = new reliquarist_sword(thaumicMix.thaumicMix);
+    public static Item RELIQUARISTS_SWORD = new reliquarist_sword(MaterialRegister.thaumicMix,"ambersword");
+    public static Item DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD = new reliquarist_sword(MaterialRegister.diamondgolden_golden_diamond, "dggd_sword");
     public static Item BROOM = new broom("broom");
     public static Item MAGNETPICK = new magnetpick();
     public static Item MAGICBALL = new cursedRock("magic_ball",24);
@@ -79,6 +79,7 @@ public class ItemRegister
     public static Item STEALER = new Stealer();
     public static Item xyAMULET = new xyAmulet();
     public static Item SAVIOUR = new saviour();
+    public static Item SHOVEL_AMULET = new magic_shovel();
     public static Item MAGIC_PROTECTOR = new base_item("amulet0",16);
     public static Item PAINT_TRANSMUTATOR = new paint_transmutator();
     public static Item SOUL_SHEARS = new soul_shears();
@@ -147,6 +148,8 @@ public class ItemRegister
         setRegister(POWDER_REED);
         setRegister(RELIQUARISTS_SWORD);
         setRegister(SCROLL_ISLE);
+        setRegister(SHOVEL_AMULET);
+        setRegister(DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD);
 
 
         if(vint.isLoadedTwilight){
@@ -216,6 +219,8 @@ public class ItemRegister
         setRender(DIAMONDGOLDEN_APPLE);
         setRender(CHISEl_OF_CONCEPTUALIZATION);
         setRender(RELIQUARISTS_SWORD);
+        setRender(SHOVEL_AMULET);
+        setRender(DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD);
 
         if(vint.isLoadedBaubles)
             setRender(SAVIOUR);

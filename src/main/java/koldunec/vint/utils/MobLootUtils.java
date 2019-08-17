@@ -1,7 +1,7 @@
 package koldunec.vint.utils;
 
 import koldunec.vint.vint;
-import koldunec.vint.broomitems.tools.reliquarist_sword;
+import koldunec.vint.items.tools.reliquarist_sword;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
