@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "mBm",
+    "mSm",
+    "mBm"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:bowl"
+    },
+    "S": {
+      "item": "twilightforest:cooked_meef"
+    },
+    "m": [
+      {
+        "item": "minecraft:brown_mushroom"
+      },
+      {
+        "item": "minecraft:red_mushroom"
+      }
+    ]
+  },
+  "result": {
+    "item": "vint:shell",
+    "count": 1
+  }
+}

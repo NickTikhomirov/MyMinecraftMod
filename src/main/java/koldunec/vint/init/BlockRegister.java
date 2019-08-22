@@ -48,6 +48,7 @@ public class BlockRegister
 
     public static Block ORE_ALUMINUM = new bitore("ore_al",4,7,200);
     public static Block  ALBLOCK = new basic_block("block_aluminum",Material.IRON,"pickaxe",1,1F,50F,10);
+    public static Block NETHER_CACTUS = new radio_cactus();
     //public static Block TOWER_FURNACE = new TowerFurnace(2F,30F);
 
 
@@ -71,6 +72,7 @@ public class BlockRegister
         registerBlock(STORE);
         registerBlock(COBBLE_MOSS_red);
         registerBlock(COBBLE_old);
+        registerBlock(NETHER_CACTUS);
         registerBlockWithMeta(LLAMA_SPAWNER);
         ForgeRegistries.BLOCKS.register(CURING_CROPS);
         ForgeRegistries.BLOCKS.register(GHAST_POD);
@@ -108,6 +110,7 @@ public class BlockRegister
         setRender(COBBLE_old);
         setRender(LLAMA_SPAWNER,0);
         setRender(LLAMA_SPAWNER,1);
+        setRender(NETHER_CACTUS);
         if(vint.isLoadedProjectX) {
             if(vint.isLoadedSulfurTorches) {
                 setRender(ORE_ALUMINUM);

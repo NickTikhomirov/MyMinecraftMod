@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:reeds"
+    },
+    {
+      "item": "minecraft:gunpowder"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "minecraft:redstone"
+    },
+    {
+      "item": "vint:red_powder"
+    },
+    {
+      "item": "vint:ressence"
+    },
+    {
+      "item": "vint:ressence"
+    },
+    {
+      "item": "vint:effect_freezer"
+    },
+    {
+      "item": "minecraft:dye",
+      "data": 15
+    }
+  ],
+  "result": {
+    "item": "vint:gunreed",
+    "data": 0
+  }
+}

@@ -11,10 +11,14 @@ import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.init.PotionRegister;
 import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.ai.EntityAILeapAtTarget;
+import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
+import net.minecraft.entity.ai.EntityAITarget;
+import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.entity.item.EntityItem;
@@ -26,7 +30,6 @@ import net.minecraft.init.MobEffects;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
@@ -64,20 +67,46 @@ public class EventHandler{
     public static void onEntityHello(EntityJoinWorldEvent e){
         if(e.getEntity()!=null && e.getEntity() instanceof EntityLiving){
             EntityLiving one = (EntityLiving)e.getEntity();
+            if(one.getClass().equals(EntityZombie.class) && vint.random.nextInt(10)==0){
+                one.tasks.addTask(1,new EntityAILeapAtTarget(one, 0.5F));
+                return;
+            }
             if(e.getWorld().provider instanceof WorldProviderHell){
                 if(one.getClass().equals(EntitySkeleton.class)){
                     e.setCanceled(true);
+                    return;
                 }
                 if(vint.isLoadedNatura){
                     if(one.getClass().equals(EntityNitroCreeper.class)){
                         e.setCanceled(true);
+                        return;
                     }
                 }
-                if(net.minecraftforge.fml.common.Loader.isModLoaded("hypewear")){
+                if(vint.isLoadedHype){
                     if(one.getClass().equals(EntityPigZombie.class) && vint.random.nextInt(10)==0){
                         one.setItemStackToSlot(EntityEquipmentSlot.CHEST,new ItemStack(Item.getByNameOrId("hypewear:aggc_chestplate"),1,0));
                         one.setItemStackToSlot(EntityEquipmentSlot.LEGS,new ItemStack(Item.getByNameOrId("hypewear:castle_leggings"),1,0));
+                        return;
                     }
+                }
+            }
+            if(one.getClass().equals(EntitySkeleton.class)){
+                if(vint.random.nextInt(10)!=0){
+                    one.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.BONE,1));
+                    one.tasks.addTask(1,new EntityAILeapAtTarget(one, 0.4F));
+                    for(EntityAITasks.EntityAITaskEntry a: one.targetTasks.taskEntries){
+                        if(a.action instanceof EntityAINearestAttackableTarget){
+                            one.targetTasks.taskEntries.remove(a);
+                            break;
+                        }
+                    }
+                    one.targetTasks.addTask(2,new EntityAINearestAttackableTarget((EntityCreature) one,EntityZombie.class,true));
+                    //one.targetTasks.addTask(2,new EntityAINearestAttackableTarget((EntityCreature) one,EntityCreeper.class,true));
+                    one.tasks.addTask(1,new EntityAILeapAtTarget(one, 0.5F));
+                    return;
+                }
+                if(vint.random.nextInt(10)==0){
+                    return;
                 }
             }
         }
@@ -370,7 +399,7 @@ public class EventHandler{
         }
         if(e.getSource().getTrueSource() instanceof EntityPlayer){
             if(((EntityPlayer)e.getSource().getTrueSource()).getHeldItem(EnumHand.MAIN_HAND).getItem().equals(ItemRegister.BROOM)){
-                if(victim instanceof EntityIronGolem){
+                if(victim.getClass().equals(EntityIronGolem.class)){
                     if(!victim.getEntityWorld().isRemote){
                         int px = e.getEntityLiving().getPosition().getX();
                         int py = e.getEntityLiving().getPosition().getY();
@@ -389,7 +418,7 @@ public class EventHandler{
                         e.getEntityLiving().setDead();
                     }
                 }
-                if(victim instanceof EntitySnowman){
+                if(victim.getClass().equals(EntitySnowman.class)){
                     if(!victim.getEntityWorld().isRemote){
                         EntityItem aa = new EntityItem(
                                 e.getEntity().world,

@@ -1,7 +1,7 @@
 [
 {
-  "modid": "ammpdbm_mod",
-  "name": "Another Magic Mod Please Don't Blame Me",
+  "modid": "vint",
+  "name": "Various Interactions",
   "description": "Another magic mod",
   "version": "${0.1}",
   "mcversion": "${mcversion}",

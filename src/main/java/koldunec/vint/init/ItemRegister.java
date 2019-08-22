@@ -69,6 +69,7 @@ public class ItemRegister
     public static Item DIAMONDGOLDEN_APPLE = new dg_apple();
     public static Item EFFECTSTORAGE = new effectFreezer();
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
+    public static Item SHELL = new shell();
 
     public static Item RELIQUARISTS_SWORD = new reliquarist_sword(MaterialRegister.thaumicMix,"ambersword");
     public static Item DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD = new reliquarist_sword(MaterialRegister.diamondgolden_golden_diamond, "dggd_sword");
@@ -156,6 +157,7 @@ public class ItemRegister
             setRegister(TRANSFORMATION_DUST);
             setRegister(CARMINITE_AXE);
             setRegister(CARMINITE_PICKAXE);
+            setRegister(SHELL);
         }
 
         if(vint.isLoadedSulfurTorches) {
@@ -229,6 +231,7 @@ public class ItemRegister
             setRender(TRANSFORMATION_DUST);
             setRender(CARMINITE_AXE);
             setRender(CARMINITE_PICKAXE);
+            setRender(SHELL);
         }
         if(vint.isLoadedProjectX){
             if(vint.isLoadedSulfurTorches) {

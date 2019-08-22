@@ -24,6 +24,7 @@ item.cleaner.name=Sponge of Conceptualization
 item.cheasel.name=Chisel of Conceptualization
 item.ambersword.name=Reliquarist's Sword
 item.shovel_plus_plus.name=Miner's Amulet
+item.shell.name=Wooden Shell with Meef Stroganoff
 
 item.curinggrass.name=Curing Grass
 item.supercuringgrass.name=Curing Grass++
@@ -57,6 +58,7 @@ item.scroll.dungeon.name=Loot Scroll: Dungeon
 item.scroll.jungle.name=Loot Scroll: Jungle
 item.scroll2.mushroom.name=Scroll of Mushrooms
 item.scroll2.nether.name=Loot Scroll: Nether
+item.scroll2.reroll.name=Scroll of Reroll
 
 item.gunreed.gunpowder.name=Gunpowder Cane
 item.gunreed.redstone.name=Redstone Cane
@@ -99,6 +101,7 @@ tile.st_ore.name=StORE
 tile.llama_flower.name=Llama Flower
 tile.block_aluminum.name=Aluminum Block
 tile.ore_al.name=Aluminum Ore
+tile.radio_cactus.name=Nether Cactus
 
 
 ########################
@@ -224,3 +227,4 @@ vint.chat.msg0=Well Done!
 vint:flavor2=Amber hate Embers!
 vint:flavor3=Very diamond
 vint:flavor4=Also very golden
+vint:flavor5=Very tough. Nobody but a minotaur is able to open this shell.

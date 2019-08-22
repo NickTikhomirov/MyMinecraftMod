@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "wrr",
+    "wr ",
     "rwr",
-    "rrw"
+    " rw"
   ],
   "key": {
     "r": {

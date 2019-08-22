@@ -22,6 +22,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thaumcraft.api.items.ItemsTC;
 import thaumcraft.common.entities.monster.EntityBrainyZombie;
 import thaumcraft.common.entities.monster.EntityFireBat;
+import twilightforest.entity.boss.EntityTFMinoshroom;
 
 import java.util.List;
 import java.util.Random;
@@ -81,6 +82,12 @@ public class ThosePitifulDeaths {
                         break;
                     case 4: list.add(MobLootUtils.formDrop(victim,new ItemStack(Items.BLAZE_POWDER,1)));
                 }
+            }
+        }
+
+        if(vint.isLoadedTwilight){
+            if(victim instanceof EntityTFMinoshroom){
+                list.add(new EntityItem(victim.getEntityWorld(),victim.posX,victim.posY,victim.posZ,new ItemStack(ItemRegister.SCROLL_ISLE,1,0)));
             }
         }
     }

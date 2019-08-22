@@ -58,6 +58,7 @@ dependencies {
     provided 'natura:natura-1.12.2-4.3.2.69'
     provided 'embers:EmbersRekindled-1.13-hotfix2'
     provided 'hype:HypeWear-1.0'
+    provided 'ebob:ElectroblobsWizardry-4.2.1-MC1.12.2'
 
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings

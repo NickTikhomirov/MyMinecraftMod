@@ -31,56 +31,6 @@ public class nether_drink extends ItemFood {
         return EnumAction.DRINK;
     }
 
-    /*
-    @Override
-    public ItemStack onItemUseFinish(ItemStack i, World w, EntityLivingBase e){
-        EntityPlayer entityplayer = e instanceof EntityPlayer ? (EntityPlayer)e : null;
-        if (entityplayer == null || !entityplayer.capabilities.isCreativeMode){
-            i.shrink(1);
-        }
-        if (entityplayer instanceof EntityPlayerMP){
-            CriteriaTriggers.CONSUME_ITEM.trigger((EntityPlayerMP)entityplayer, i);
-        }
-        if (!w.isRemote){
-            ItemStack a = new ItemStack(Items.GHAST_TEAR,6 + (new RandomValueRange(0,7)).generateInt(vint.random));
-            e.addPotionEffect(new PotionEffect(NAUSEA, 1200));
-            e.addPotionEffect(new PotionEffect(GLOWING, 9600));
-            e.addPotionEffect(new PotionEffect(LEVITATION, 600));
-            e.addPotionEffect(new PotionEffect(JUMP_BOOST,640,128));
-            if(!((EntityPlayer)e).inventory.addItemStackToInventory(a)){
-                EntityItem o = new EntityItem(
-                        w,
-                        e.posX,
-                        e.posY,
-                        e.posZ,
-                        a);
-                w.spawnEntity(o);
-            }
-        }
-
-        if (entityplayer != null){
-            entityplayer.addStat(StatList.getObjectUseStats(this));
-        }
-
-        if (entityplayer == null || !entityplayer.capabilities.isCreativeMode){
-            if (i.isEmpty()){
-                return new ItemStack(Items.GLASS_BOTTLE);
-            }
-
-            if (entityplayer != null){
-                entityplayer.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
-            }
-        }
-        return i;
-    }
-
-    @Override
-    public int getMaxItemUseDuration(ItemStack stack)
-    {
-        return 128;
-    }
-    */
-
     @Override
     public void onFoodEaten(ItemStack is, World w, EntityPlayer player){
         if(player.world.isRemote) return;
