@@ -90,8 +90,6 @@ public class MobLootUtils {
     }
 
 
-
-
     public static EntityItem formDrop(Entity e, ItemStack i){
         return new EntityItem(e.world,e.posX,e.posY,e.posZ,i);
     }

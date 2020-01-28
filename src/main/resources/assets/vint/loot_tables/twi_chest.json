@@ -1,0 +1,125 @@
+{
+    "pools": [
+        {
+            "name": "ink",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:dye",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 10, "max": 13}
+                        },
+                        {
+                            "function": "set_data", "data": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "tres",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "twilightforest:twilight_sapling",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 3, "max": 5 }
+                        },
+                        {
+                            "function": "set_data", "data": 9
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "scrib",
+            "rolls": 3,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:feather",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 4, "max": 5 }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:paper",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 9, "max": 10 }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "twilightforest:raven_feather",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 1, "max": 2 }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "twilightforest:magic_map_focus",
+                    "weight": 1
+                }
+            ]
+        },
+        {
+            "name": "kulz",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:book",
+                    "weight": 3,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 7, "max": 9 }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "twilightforest:firefly",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 4, "max": 5 }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "twilightforest:torchberries",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 3, "max": 5 }
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

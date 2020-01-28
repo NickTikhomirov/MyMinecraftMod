@@ -27,7 +27,8 @@ import java.util.Random;
                 "after:primitivemobs;" +
                 "after:thaumcraft;" +
                 "after:natura;" +
-                "after:hypewear"
+                "after:hypewear;" +
+                "after:scalinghealth"
 )
 public class vint
 {
@@ -50,6 +51,7 @@ public class vint
     public static boolean isLoadedThaumcraft = false;
     public static boolean isLoadedNatura = false;
     public static boolean isLoadedHype = false;
+    public static boolean isLoadedScalingH = false;
 
 
 
@@ -76,6 +78,8 @@ public class vint
             isLoadedNatura = true;
         if(net.minecraftforge.fml.common.Loader.isModLoaded("hypewear"))
             isLoadedHype = true;
+        if(net.minecraftforge.fml.common.Loader.isModLoaded("scalinghealth"))
+            isLoadedScalingH = true;
 
         proxy.preInit(event);
 

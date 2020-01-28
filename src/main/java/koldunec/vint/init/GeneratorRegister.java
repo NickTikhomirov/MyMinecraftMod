@@ -1,10 +1,7 @@
 package koldunec.vint.init;
 
 import koldunec.vint.vint;
-import koldunec.vint.world.generate.GenerateOre;
-import koldunec.vint.world.generate.cacti;
-import koldunec.vint.world.generate.llama_island;
-import koldunec.vint.world.generate.nether_island;
+import koldunec.vint.world.generate.*;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 public class GeneratorRegister {
@@ -14,5 +11,8 @@ public class GeneratorRegister {
             GameRegistry.registerWorldGenerator(new nether_island(), 10);
         GameRegistry.registerWorldGenerator(new llama_island(),10);
         GameRegistry.registerWorldGenerator(new cacti(),5);
+        if(vint.isLoadedTwilight){
+            GameRegistry.registerWorldGenerator(new twili_island(),10);
+        }
     }
 }

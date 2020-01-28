@@ -83,6 +83,19 @@ public class LootTable_Event {
                 final LootPool pool2 = e.getTable().getPool("main");
                 pool2.addEntry(new LootEntryItem(ItemRegister.TRANSFORMATION_DUST, 1, 0, new LootFunction[] {new SetCount(new LootCondition[0], new RandomValueRange(1, 5))}, new LootCondition[0], "loottable:dusttras"));
             }
+            ResourceLocation naga = new ResourceLocation("twilightforest", "entities/naga");
+            if(e.getName().equals(naga)){
+                e.getTable().addPool(
+                        new LootPool(
+                                new LootEntry[]{new LootEntryItem(Item.getByNameOrId("twilightforest:steeleaf_ingot"),1,1, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(4,6))}, new LootCondition[0], "leaves")},
+                                new LootCondition[0],
+                                new RandomValueRange(1,1),
+                                new RandomValueRange(0,0),
+                                "leaves"
+                        )
+                );
+            }
+
             return;
         }
 

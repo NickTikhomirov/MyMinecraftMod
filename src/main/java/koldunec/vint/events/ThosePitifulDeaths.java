@@ -1,5 +1,6 @@
 package koldunec.vint.events;
 
+import koldunec.vint.utils.RandomUtils;
 import koldunec.vint.vint;
 import koldunec.vint.items.saviour;
 import koldunec.vint.items.scroll;
@@ -8,6 +9,7 @@ import koldunec.vint.items.xyAmulet;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.utils.MobLootUtils;
 import net.daveyx0.primitivemobs.entity.monster.EntityBrainSlime;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.*;
@@ -131,6 +133,17 @@ public class ThosePitifulDeaths {
                         0F);
         }
 
+        if(vint.isLoadedScalingH){
+            if(e.getEntity() instanceof EntityPigZombie && RandomUtils.getTrueWithChance(7))
+                e.getEntity().entityDropItem(
+                        new ItemStack(
+                                Item.getByNameOrId("scalinghealth:difficultychanger"),
+                                1,
+                                0
+                        ),
+                        0F);
+        }
+
         if(e.getSource().getTrueSource() instanceof EntityPlayer){
             EntityPlayer player = (EntityPlayer) e.getSource().getTrueSource();
             if(player==null) return;
@@ -178,34 +191,26 @@ public class ThosePitifulDeaths {
                 }
                 if(e.getEntity() instanceof EntityGhast){
                     if(vint.random.nextInt(2)==0)
-                        e.getEntity().entityDropItem(
-                                new ItemStack(
-                                        Item.getByNameOrId("projectx:xycronium_crystal"),
-                                        1+ vint.random.nextInt(2),
-                                        4),
-                                1F);
+                        dropItem(e.getEntity(),
+                                "projectx:xycronium_crystal",
+                                vint.random.nextInt(2),
+                                4);
                     if(vint.random.nextInt(5)==0)
-                        e.getEntity().entityDropItem(
-                                new ItemStack(
-                                        Item.getByNameOrId("projectx:xycronium_crystal"),
-                                        2+ vint.random.nextInt(2),
-                                        2),
-                                1F);
+                        dropItem(e.getEntity(),
+                                "projectx:xycronium_crystal",
+                                2+ vint.random.nextInt(2),
+                                2);
                     if(vint.random.nextInt(5)==0)
-                        e.getEntity().entityDropItem(
-                                new ItemStack(
-                                        Item.getByNameOrId("projectx:xycronium_crystal"),
-                                        1+ vint.random.nextInt(2),
-                                        3),
-                                1F);
+                        dropItem(e.getEntity(),
+                                "projectx:xycronium_crystal",
+                                vint.random.nextInt(2),
+                                3);
                 }
                 if(e.getEntity() instanceof EntitySilverfish){
-                    e.getEntity().entityDropItem(
-                            new ItemStack(
-                                    Item.getByNameOrId("projectx:xycronium_crystal"),
-                                    1,
-                                    vint.random.nextInt(5)),
-                            1F);
+                    dropItem(e.getEntity(),
+                            "projectx:xycronium_crystal",
+                            2+ vint.random.nextInt(2),
+                            vint.random.nextInt(5));
                 }
             }
         }
@@ -217,5 +222,12 @@ public class ThosePitifulDeaths {
         }
     }
 
+    static void dropItem(Entity e, Item i, int amount, int meta){
+        e.entityDropItem(new ItemStack(i,amount,meta),0);
+    }
+
+    static void dropItem(Entity e, String s, int amount, int meta){
+        dropItem(e, Item.getByNameOrId(s),amount,meta);
+    }
 
 }

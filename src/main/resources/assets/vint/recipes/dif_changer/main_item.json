@@ -10,7 +10,8 @@
       "item": "scalinghealth:crystalshard"
     },
     "3": {
-      "item": "enderio:powder_infinity"
+      "item": "enderio:item_material",
+      "data": 20
     },
     "0": {
       "item": "vint:mix_nature_p"
