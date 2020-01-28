@@ -47,10 +47,14 @@ public class ItemRegister
     public static Item ROUND_STONE = new inertstone("round_stone",64);
     public static Item SOUL_CRYSTAL_s = new base_item("soul_crystal",64);
     public static Item WOODEN_RUNE = new base_item("wooden_rune",64);
-    public static Item SOUL_FRUIT = new soul_fruit();//new base_item("soul_fruit",64);
+    public static Item SOUL_FRUIT = new soul_fruit();
     public static Item NETHER_CRYSTAL = new base_item("nether_crystal",64);
     public static Item SOUL = new base_item("small_soul",64);
     public static Item RED_POWDER = new oreProspector();
+    public static Item MIX_WILDLIFE = new base_item("mix_wildlife",64);
+    public static Item MIX_NATURE= new base_item("mix_nature",64);
+    public static Item MIX_NATURE_P = new base_item("mix_nature_p",64);
+    public static Item MIX_SEA = new base_item("mix_sea",64);
     public static Item NETHER_CUP = new base_item("nether_cup",64);
 
     public static Item GOLDEN_DIAMOND = new base_item("dg0",64);
@@ -70,6 +74,7 @@ public class ItemRegister
     public static Item EFFECTSTORAGE = new effectFreezer();
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
     public static Item SHELL = new shell();
+    public static Item HALFDUST = new base_item("halfdust",64);
 
     public static Item RELIQUARISTS_SWORD = new reliquarist_sword(MaterialRegister.thaumicMix,"ambersword");
     public static Item DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD = new reliquarist_sword(MaterialRegister.diamondgolden_golden_diamond, "dggd_sword");
@@ -151,7 +156,12 @@ public class ItemRegister
         setRegister(SCROLL_ISLE);
         setRegister(SHOVEL_AMULET);
         setRegister(DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD);
+        setRegister(HALFDUST);
 
+        setRegister(MIX_WILDLIFE);
+        setRegister(MIX_NATURE);
+        setRegister(MIX_NATURE_P);
+        setRegister(MIX_SEA);
 
         if(vint.isLoadedTwilight){
             setRegister(TRANSFORMATION_DUST);
@@ -223,6 +233,12 @@ public class ItemRegister
         setRender(RELIQUARISTS_SWORD);
         setRender(SHOVEL_AMULET);
         setRender(DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD);
+        setRender(HALFDUST);
+
+        setRender(MIX_WILDLIFE);
+        setRender(MIX_NATURE);
+        setRender(MIX_NATURE_P);
+        setRender(MIX_SEA);
 
         if(vint.isLoadedBaubles)
             setRender(SAVIOUR);

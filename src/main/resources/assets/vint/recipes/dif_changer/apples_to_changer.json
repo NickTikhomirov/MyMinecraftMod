@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "vint:dg_apple"
+      },
+      {
+        "item": "vint:gd_apple"
+      }
+    ]
+  ],
+  "result":
+    {
+      "item": "scalinghealth:difficultychanger",
+      "data": 0
+    }
+}

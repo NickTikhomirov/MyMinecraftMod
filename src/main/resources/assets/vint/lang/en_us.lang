@@ -25,6 +25,7 @@ item.cheasel.name=Chisel of Conceptualization
 item.ambersword.name=Reliquarist's Sword
 item.shovel_plus_plus.name=Miner's Amulet
 item.shell.name=Wooden Shell with Meef Stroganoff
+item.halfdust.name=Half of Glowstone Dust
 
 item.curinggrass.name=Curing Grass
 item.supercuringgrass.name=Curing Grass++
@@ -79,6 +80,10 @@ item.dusttrans.name=Transformation Dust
 item.carminite_axe.name=Carminite Axe
 item.carminite_pick.name=Carminite Pickaxe
 
+item.mix_wildlife.name=Mix of Wildlife
+item.mix_nature.name=Mix of Nature
+item.mix_nature_p.name=Mix of Pure Nature
+item.mix_sea.name=Mix of Sea
 
 
 #######################

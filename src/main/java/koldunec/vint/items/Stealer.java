@@ -37,26 +37,31 @@ public class Stealer extends base_item {
                 b.setInventorySlotContents(i,c);
             }
             return true;
-        } else if(isSuitable(target)){
+        } else if(isSuitable(target)) {
             ItemStack c = target.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
             c = a.addItem(c);
-            target.setItemStackToSlot(EntityEquipmentSlot.HEAD,c);
+            target.setItemStackToSlot(EntityEquipmentSlot.HEAD, c);
             c = target.getItemStackFromSlot(EntityEquipmentSlot.CHEST);
             c = a.addItem(c);
-            target.setItemStackToSlot(EntityEquipmentSlot.CHEST,c);
+            target.setItemStackToSlot(EntityEquipmentSlot.CHEST, c);
             c = target.getItemStackFromSlot(EntityEquipmentSlot.LEGS);
             c = a.addItem(c);
-            target.setItemStackToSlot(EntityEquipmentSlot.LEGS,c);
+            target.setItemStackToSlot(EntityEquipmentSlot.LEGS, c);
             c = target.getItemStackFromSlot(EntityEquipmentSlot.FEET);
             c = a.addItem(c);
-            target.setItemStackToSlot(EntityEquipmentSlot.FEET,c);
-            if(!(target instanceof EntityPlayer)) {
-                c = target.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
+            target.setItemStackToSlot(EntityEquipmentSlot.FEET, c);
+            c = target.getItemStackFromSlot(EntityEquipmentSlot.MAINHAND);
+            c = a.addItem(c);
+            target.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, c);
+            c = target.getItemStackFromSlot(EntityEquipmentSlot.OFFHAND);
+            c = a.addItem(c);
+            target.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, c);
+            return true;
+        } else if(target instanceof EntityPlayer){
+            for(int i=0;i<4;i++){
+                ItemStack c = ((EntityPlayer) target).inventory.armorInventory.get(i);
                 c = a.addItem(c);
-                target.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, c);
-                c = target.getItemStackFromSlot(EntityEquipmentSlot.OFFHAND);
-                c = a.addItem(c);
-                target.setItemStackToSlot(EntityEquipmentSlot.OFFHAND, c);
+                ((EntityPlayer) target).inventory.armorInventory.set(i,c);
             }
             return true;
         } else
@@ -67,6 +72,6 @@ public class Stealer extends base_item {
 
 
     static boolean isSuitable(EntityLivingBase e){
-        return e instanceof EntityZombie || e instanceof AbstractIllager || e instanceof AbstractSkeleton || e instanceof EntityWitch || e instanceof EntityPlayer;
+        return e instanceof EntityZombie || e instanceof AbstractIllager || e instanceof AbstractSkeleton || e instanceof EntityWitch;
     }
 }

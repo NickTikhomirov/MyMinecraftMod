@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:emerald"
+    },
+    {
+      "item": "vint:mix_nature"
+    },
+    {
+      "item": "vint:mix_nature"
+    },
+    {
+      "item": "vint:mix_nature"
+    },
+    {
+      "item": "vint:mix_nature"
+    },
+    {
+      "item": "vint:mix_nature"
+    },
+    {
+      "item": "vint:mix_nature"
+    },
+    {
+      "item": "vint:mix_nature"
+    },
+    {
+      "item": "vint:mix_nature"
+    }
+  ],
+  "result":
+    {
+      "item": "vint:mix_nature_p"
+    }
+}

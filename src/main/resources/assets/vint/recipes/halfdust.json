@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "___",
+    "_ _",
+    "___"
+  ],
+  "key": {
+    "_": {
+      "item": "vint:radio_cactus"
+    }
+  },
+  "result": {
+    "item": "vint:halfdust"
+  }
+}

@@ -3,22 +3,18 @@ package koldunec.vint.events;
 
 
 import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
-import koldunec.vint.items.magic_shovel;
 import koldunec.vint.vint;
 import koldunec.vint.items.tools.reliquarist_sword;
 import koldunec.vint.items.xyAmulet;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.init.PotionRegister;
+import lumien.randomthings.potion.ModPotions;
 import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAILeapAtTarget;
-import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
-import net.minecraft.entity.ai.EntityAITarget;
-import net.minecraft.entity.ai.EntityAITasks;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.item.EntityEnderCrystal;
 import net.minecraft.entity.item.EntityItem;
@@ -32,6 +28,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
@@ -91,40 +88,18 @@ public class EventHandler{
                 }
             }
             if(one.getClass().equals(EntitySkeleton.class)){
-                if(vint.random.nextInt(10)!=0){
-                    one.setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(Items.BONE,1));
-                    one.tasks.addTask(1,new EntityAILeapAtTarget(one, 0.4F));
-                    for(EntityAITasks.EntityAITaskEntry a: one.targetTasks.taskEntries){
-                        if(a.action instanceof EntityAINearestAttackableTarget){
-                            one.targetTasks.taskEntries.remove(a);
-                            break;
+                if(vint.random.nextInt(50)==0){
+                    if(net.minecraftforge.fml.common.Loader.isModLoaded("randomthings")){
+                        ItemStack a = new ItemStack(Items.TIPPED_ARROW,1);
+                        PotionUtils.addPotionToItemStack(a, ModPotions.collapseTypeStrong);
+                        one.setItemStackToSlot(EntityEquipmentSlot.OFFHAND,a);
+                        if(vint.isLoadedHype) {
+                            one.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Item.getByNameOrId("hypewear:baritone_white_chestplate"), 1, 0));
+                            one.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Item.getByNameOrId("hypewear:baritone_white_leggings"), 1, 0));
                         }
                     }
-                    one.targetTasks.addTask(2,new EntityAINearestAttackableTarget((EntityCreature) one,EntityZombie.class,true));
-                    //one.targetTasks.addTask(2,new EntityAINearestAttackableTarget((EntityCreature) one,EntityCreeper.class,true));
-                    one.tasks.addTask(1,new EntityAILeapAtTarget(one, 0.5F));
-                    return;
                 }
-                if(vint.random.nextInt(10)==0){
-                    return;
-                }
-            }
-        }
-    }
-
-    //Note forge has two different events called playerevent (why?!)
-    //So it was kinda difficult to figure out why it doesnt work
-    @SubscribeEvent
-    public static void onDecide(net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed e){
-        if(vint.isLoadedBaubles){
-            //in theory entityliving is always a player so lets try not to check excessively
-            if(e.getEntityLiving()!=null){
-                EntityPlayer p = (EntityPlayer) e.getEntityLiving();
-                if(magic_shovel.isEquiped(p)){
-                    if(magic_shovel.isHarvestable(e.getState().getBlock())){
-                        e.setNewSpeed(e.getNewSpeed()+10F);
-                    }
-                }
+                return;
             }
         }
     }
@@ -145,21 +120,6 @@ public class EventHandler{
                 if(ii.equals(ItemRegister.MAGIC_FLINTS))
                     e.craftMatrix.getStackInSlot(i).grow(1);
             }
-    }
-
-    //blockBr is kinda unreadable for now so ill substract this
-    @SubscribeEvent
-    public static void magic_shovel_code(BlockEvent.BreakEvent e) {
-        if(vint.isLoadedBaubles){
-            if(e.getPlayer()!=null){
-                if(magic_shovel.isEquiped(e.getPlayer())){
-                    if(magic_shovel.isHarvestable(e.getState().getBlock())){
-                        magic_shovel.damageShovel(e.getPlayer(),1);
-                        magic_shovel.attemptToFix(e.getPlayer());
-                    }
-                }
-            }
-        }
     }
 
     //0 - black

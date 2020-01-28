@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:fish",
+      "data": 0
+    },
+    {
+      "item": "minecraft:fish",
+      "data": 1
+    },
+    {
+      "item": "minecraft:fish",
+      "data": 2
+    },
+    {
+      "item": "minecraft:fish",
+      "data": 3
+    }
+  ],
+  "result":
+    {
+      "item": "vint:mix_sea"
+    }
+}

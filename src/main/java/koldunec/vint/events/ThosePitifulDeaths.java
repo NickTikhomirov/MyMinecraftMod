@@ -85,7 +85,7 @@ public class ThosePitifulDeaths {
             }
         }
 
-        if(vint.isLoadedTwilight){
+        if(vint.isLoadedTwilight && vint.isLoadedPrimitive){
             if(victim instanceof EntityTFMinoshroom){
                 list.add(new EntityItem(victim.getEntityWorld(),victim.posX,victim.posY,victim.posZ,new ItemStack(ItemRegister.SCROLL_ISLE,1,0)));
             }
