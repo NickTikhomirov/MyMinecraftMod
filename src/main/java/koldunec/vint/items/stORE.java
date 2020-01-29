@@ -47,7 +47,7 @@ public class stORE extends Block {
         TileEntity te = worldIn.getTileEntity(pos);
         if(te==null || !(te instanceof  EntityStore))
             return true;
-        if(worldIn.isRemote)
+        //if(worldIn.isRemote)
             //return true;
         playerIn.openGui(vint.instance, 0,worldIn,pos.getX(),pos.getY(),pos.getZ());
         return true;

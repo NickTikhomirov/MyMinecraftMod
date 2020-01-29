@@ -1,6 +1,5 @@
 package koldunec.vint.world.generate;
 
-import koldunec.vint.vint;
 import koldunec.vint.init.BlockRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -15,65 +14,90 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
+
+// old stuff
+//runGenerator(BlockRegister.ORE_BIT.getDefaultState(), 4, 8, 20, 64, Blocks.STONE, world, random, chunkX, chunkZ);
+//runGenerator(BlockRegister.ORE_SPARKLE.getDefaultState(), 7, 8, 30, 64, Blocks.STONE, world, random, chunkX, chunkZ);
+//runGenerator(BlockRegister.ORE_EGG.getDefaultState(), 3, 5, 10, 20, Blocks.STONE, world, random, chunkX, chunkZ);
+//runGenerator(Blocks.EMERALD_ORE.getDefaultState(),3,5,4,32, Blocks.STONE, world, random, chunkX, chunkZ);
+//runGenerator(BlockRegister.ORE_ALUMINUM.getDefaultState(), 3, 12, 25, 50, Blocks.STONE, world, random, chunkX, chunkZ);
+
+
+
 public class GenerateOre implements IWorldGenerator {
+
+    // struct for keeping data at the same place
+    public static class Generatable{
+        IBlockState b;
+        int amount;
+        int chances;
+        int minY;
+        int maxY;
+        Block toReplace;
+        public Generatable(IBlockState a1, int a2, int a3, int a4, int a5, Block a6){
+            b = a1;
+            amount = a2;
+            chances = a3;
+            minY = a4;
+            maxY = a5;
+            toReplace = a6;
+        }
+    }
+
+    // array for generating in the overworld
+    public static final Generatable[] generatesOverw = new Generatable[]{
+            new Generatable(BlockRegister.STORE.getDefaultState(), 3, 12, 15, 64,Blocks.STONE),
+            new Generatable(BlockRegister.ORE_RAINBOW.getDefaultState(), 4, 15, 49, 110,Blocks.DIRT),
+            new Generatable(Blocks.EMERALD_BLOCK.getDefaultState(),3,5,4,32,Blocks.STONE)
+    };
+
+
+
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
 
-        switch(world.provider.getDimension()) { //Получение ID измерения
-
-            case -1: //Нэзер
+        // generator for end, nether, overworld and common world ores
+        switch(world.provider.getDimension()) {
+            case -1:
                 break;
-            case 0: //Обычний мир
-                runGenerator(BlockRegister.STORE.getDefaultState(), 3, 12, 15, 64, Blocks.STONE, world, random, chunkX, chunkZ);
-                //runGenerator(BlockRegister.ORE_SPARKLE.getDefaultState(), 7, 8, 30, 64, Blocks.STONE, world, random, chunkX, chunkZ);
-                //runGenerator(BlockRegister.ORE_EGG.getDefaultState(), 3, 5, 10, 20, Blocks.STONE, world, random, chunkX, chunkZ);
-                runGenerator(BlockRegister.ORE_RAINBOW.getDefaultState(), 4, 15, 49, 110, Blocks.DIRT, world, random, chunkX, chunkZ);
-                runGenerator(Blocks.EMERALD_ORE.getDefaultState(),3,5,4,32, Blocks.STONE, world, random, chunkX, chunkZ);
-                if(vint.isLoadedProjectX)
-                    runGenerator(BlockRegister.ORE_ALUMINUM.getDefaultState(), 3, 12, 25, 50, Blocks.STONE, world, random, chunkX, chunkZ);
+            case 1:
                 break;
-            case 1: //Край
+            case 0:
+            default:
+                for(Generatable item: generatesOverw)
+                    runGenerator(item,world,random,chunkX,chunkZ);
                 break;
-            default: //Мир из другого мода (если нужно)
-                runGenerator(BlockRegister.ORE_BIT.getDefaultState(), 4, 8, 20, 64, Blocks.STONE, world, random, chunkX, chunkZ);
-                runGenerator(BlockRegister.ORE_RAINBOW.getDefaultState(), 4, 16, 10, 70, Blocks.DIRT, world, random, chunkX, chunkZ);
-                runGenerator(Blocks.EMERALD_ORE.getDefaultState(),3,5,4,32, Blocks.STONE, world, random, chunkX, chunkZ);
-                runGenerator(BlockRegister.STORE.getDefaultState(), 3, 12, 15, 64, Blocks.STONE, world, random, chunkX, chunkZ);
-                break;
-
-        /*
-            BlocksInit.TEST_ORE.getDefaultState() - генерируемый блок
-            1 - максимальное количество блоков в месторождении, можно задать вариацию записью 1 + random.nextInt(4) для генерации от 1-го до 5-ти блоков в месторождении
-            8 - количество месторождений на чанк
-            0 - минимальная высота генерации
-            16 - максимальная высота генерации
-            BlockMatcher.forBlock(Blocks.STONE) - блок, который можно заменить на руду
-        */
-
         }
+    }
 
+    private void runGenerator(Generatable gen, World world, Random rand, int chunk_X, int chunk_Z){
+        runGenerator(
+                gen.b,
+                gen.amount,
+                gen.chances,
+                gen.minY,
+                gen.maxY,
+                gen.toReplace,
+                world,
+                rand,
+                chunk_X,
+                chunk_Z
+        );
     }
 
     private void runGenerator(IBlockState blockToGen, int blockAmount, int chancesToSpawn, int minHeight, int maxHeight, Block blockToReplace, World world, Random rand, int chunk_X, int chunk_Z){ //Объявление генератора
-
         if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight) //Проверка на правильность координаты Y
-
             throw new IllegalArgumentException("Illegal Height Arguments for WorldGenerator"); //Если неправильно ошибка в консоли
-
         WorldGenMinable generator = new WorldGenMinable(blockToGen, blockAmount, BlockMatcher.forBlock(blockToReplace)); //Новый экземпляр генератора
-
         int heightdiff = maxHeight - minHeight + 1;
-
         for (int i = 0; i < chancesToSpawn; i++){ //Запуск генератора в каждом чанке с заданным параметрами
 
             int x = chunk_X * 16 +rand.nextInt(16);
             int y = minHeight + rand.nextInt(heightdiff);
             int z = chunk_Z * 16 + rand.nextInt(16);
             generator.generate(world, rand, new BlockPos(x, y, z));
-
         }
-
     }
 
 }

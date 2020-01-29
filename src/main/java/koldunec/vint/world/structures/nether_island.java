@@ -1,4 +1,4 @@
-package koldunec.vint.world.generate;
+package koldunec.vint.world.structures;
 
 import koldunec.vint.vint;
 import koldunec.vint.items.scroll2;
@@ -20,6 +20,9 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Map;
 import java.util.Random;
+
+
+// todo: redo
 
 public class nether_island implements IWorldGenerator {
 
