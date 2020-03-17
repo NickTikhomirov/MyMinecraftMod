@@ -35,7 +35,7 @@ public class TwilightIsland implements ISkyIsle {
     public int getZ() { return 300; }
 
     @Override
-    public int getBound() { return 1; }
+    public int getBound() { return 200; }
 
     @Override
     public ResourceLocation getLocation() {

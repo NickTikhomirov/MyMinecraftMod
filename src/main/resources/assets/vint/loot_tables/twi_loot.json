@@ -17,12 +17,29 @@
             ]
         },
         {
+            "name": "root",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "twilightforest:liveroot",
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 13, "max": 15}
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "name": "lots",
             "rolls": 1,
             "entries": [
                 {
                     "type": "item",
                     "name": "minecraft:ghast_tear",
+                    "weight": 3,
                     "functions": [
                         {
                             "function": "set_count",
@@ -33,6 +50,7 @@
                 {
                     "type": "item",
                     "name": "minecraft:blaze_powder",
+                    "weight": 3,
                     "functions": [
                         {
                             "function": "set_count",
@@ -43,12 +61,100 @@
                 {
                     "type": "item",
                     "name": "twilightforest:naga_scale",
+                    "weight": 5,
                     "functions": [
                         {
                             "function": "set_count",
-                            "count": { "min": 4, "max": 4 }
+                            "count": { "min": 3, "max": 4 }
                         }
                     ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:ender_pearl",
+                    "weight": 2,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 1, "max": 2 }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "trivia",
+            "rolls": 2,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:cake",
+                    "weight": 20
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:experience_bottle",
+                    "weight": 10,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 2, "max": 3 }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:diamond_hoe",
+                    "weight": 1,
+                    "functions": [
+                        {
+                            "function": "enchant_with_levels",
+                            "treasure": true,
+                            "levels": { "min": 31, "max": 40 }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "tru_lut",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "item",
+                    "name": "minecraft:gold_ingot",
+                    "weight": 5,
+                    "functions": [
+                        {
+                            "function": "set_count",
+                            "count": { "min": 2, "max": 3 }
+                        }
+                    ]
+                },
+                {
+                    "type": "item",
+                    "name": "twilightforest:maze_map_focus",
+                    "weight": 5
+                },
+                {
+                    "type": "item",
+                    "name": "twilightforest:lifedrain_scepter",
+                    "weight": 3
+                },
+                {
+                    "type": "loot_table",
+                    "name": "vint:netherfarm",
+                    "weight": 2
+                },
+                {
+                    "type": "item",
+                    "name": "minecraft:end_stone",
+                    "weight": 2
+                },
+                {
+                    "type": "item",
+                    "name": "twilightforest:moonworm_queen",
+                    "weight": 1
                 }
             ]
         }
