@@ -45,10 +45,10 @@ public class stORE extends Block {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         TileEntity te = worldIn.getTileEntity(pos);
-        if(te==null || !(te instanceof  EntityStore))
+        if(!(te instanceof  EntityStore))
             return true;
-        //if(worldIn.isRemote)
-            //return true;
+        if(worldIn.isRemote)
+            return true;
         playerIn.openGui(vint.instance, 0,worldIn,pos.getX(),pos.getY(),pos.getZ());
         return true;
     }
@@ -65,14 +65,9 @@ public class stORE extends Block {
         TileEntity tileentity = worldIn.getTileEntity(pos);
 
         if (!(tileentity instanceof EntityStore))
-        {
             return null;
-        }
         else
-        {
-            ILockableContainer ilockablecontainer = (EntityStore)tileentity;
-            return ilockablecontainer;
-        }
+            return (EntityStore)tileentity;
     }
 
     @Override

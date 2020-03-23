@@ -29,7 +29,6 @@ public class ClientProxy extends CommonProxy{
 
     @Override
     public void init(FMLInitializationEvent event){
-        NetworkRegistry.INSTANCE.registerGuiHandler(vint.instance,new GuiHandler());
         ItemRegister.registerRender();
         BlockRegister.registerRender();
         super.init(event);

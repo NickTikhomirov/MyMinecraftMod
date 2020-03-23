@@ -17,7 +17,7 @@ public class GuiHandler implements IGuiHandler {
     @Nullable
     @Override
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        if(ID==GUI_STORE && world.getTileEntity(new BlockPos(x,y,z))!=null)
+        if(ID==GUI_STORE)
             return new container_store(player.inventory, (EntityStore)world.getTileEntity(new BlockPos(x,y,z)),player);
         return null;
     }
@@ -25,7 +25,7 @@ public class GuiHandler implements IGuiHandler {
     @Nullable
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
-        if(ID==GUI_STORE && world.getTileEntity(new BlockPos(x,y,z))!=null)
+        if(ID==GUI_STORE)
             return new store_gui(player.inventory, (EntityStore)world.getTileEntity(new BlockPos(x,y,z)));
         return null;
     }
