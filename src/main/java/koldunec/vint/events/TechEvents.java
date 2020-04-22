@@ -15,12 +15,16 @@ import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.furnace.FurnaceFuelBurnTimeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
+import java.util.HashMap;
+import java.util.Map;
 
 @Mod.EventBusSubscriber
 public class TechEvents {
@@ -51,19 +55,21 @@ public class TechEvents {
     }
 
     @SubscribeEvent
-    public static void registerSupercuringCraft(RegistryEvent.Register<IRecipe> event){
-        tipped_crafting a = new tipped_crafting();
-        a.setRegistryName(vint.MODID,"supercuregrass");
-        event.getRegistry().register(a);
+    public static void registerCraft(RegistryEvent.Register<IRecipe> event){
+        HashMap<String, IRecipe> thingsToRegister = new HashMap<>();
 
-        dragonBreathFix b = new dragonBreathFix();
-        b.setRegistryName(vint.MODID,"tippedarrow");
-        event.getRegistry().register(b);
+        thingsToRegister.put("supercuregrass", new tipped_crafting());
+        thingsToRegister.put("tippedarrow", new dragonBreathFix());
+        thingsToRegister.put("paint_operator", new paint_operator());
 
-        paint_operator c = new paint_operator();
-        c.setRegistryName(vint.MODID,"paint_operator");
-        event.getRegistry().register(c);
+        for(String name: thingsToRegister.keySet()){
+            IRecipe recipe = thingsToRegister.get(name);
+            recipe.setRegistryName(new ResourceLocation(vint.MODID + ":" + name));
+            event.getRegistry().register(recipe);
+        }
     }
+
+
 
     @SubscribeEvent
     public static void fuel(FurnaceFuelBurnTimeEvent e) {

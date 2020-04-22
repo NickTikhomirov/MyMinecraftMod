@@ -1,5 +1,6 @@
 package koldunec.vint;
 
+import koldunec.vint.helpers.IntegrationHelper;
 import koldunec.vint.proxy.CommonProxy;
 import koldunec.vint.utils.magicTab;
 import net.minecraft.creativetab.CreativeTabs;
@@ -41,6 +42,7 @@ public class vint
     public static CommonProxy proxy;
     public static CreativeTabs magicTab = new magicTab("magicTab");
     public static Random random = new Random();
+    public static IntegrationHelper integrationHelper = new IntegrationHelper();
     public static boolean isLoadedTwilight = false;
     public static boolean isLoadedTinkers = false;
     public static boolean isLoadedProjectX = false;
@@ -58,6 +60,7 @@ public class vint
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        integrationHelper.init();
         if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest"))
             isLoadedTwilight = true;
         if(net.minecraftforge.fml.common.Loader.isModLoaded("tconstruct"))
