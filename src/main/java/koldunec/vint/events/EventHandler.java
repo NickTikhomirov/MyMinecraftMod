@@ -3,6 +3,7 @@ package koldunec.vint.events;
 
 
 import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
+import koldunec.vint.helpers.VanillaHelper;
 import koldunec.vint.vint;
 import koldunec.vint.items.tools.reliquarist_sword;
 import koldunec.vint.items.xyAmulet;
@@ -11,6 +12,9 @@ import koldunec.vint.init.ItemRegister;
 import koldunec.vint.init.PotionRegister;
 import lumien.randomthings.potion.ModPotions;
 import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockRedSandstone;
+import net.minecraft.block.BlockSandStone;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -59,6 +63,24 @@ import static koldunec.vint.init.PotionRegister.WITHERPROTECTION;
 
 @Mod.EventBusSubscriber
 public class EventHandler{
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onLavaTouchPrismarine(BlockEvent.NeighborNotifyEvent e){
+        Block b = e.getState().getBlock();
+        World w = e.getWorld();
+        if(!b.equals(Blocks.FLOWING_LAVA))
+            return;
+        if(w.getBlockState(e.getPos().up()).getBlock().equals(Blocks.SOUL_SAND)) {
+            if(w.isRemote) {
+                VanillaHelper.triggerMixEffects(e.getWorld(),e.getPos());
+                return;
+            }
+            w.setBlockState(e.getPos(), ((BlockRedSandstone)Blocks.RED_SANDSTONE).getStateFromMeta(1), 1 + 2);
+            e.setCanceled(true);
+        }
+
+    }
+
 
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public static void onEntityHello(EntityJoinWorldEvent e){
@@ -131,6 +153,8 @@ public class EventHandler{
 
     @SubscribeEvent
     public static void blockBr(BlockEvent.HarvestDropsEvent e) {
+        if(true)
+            return;
         if(e.getWorld().isRemote) return;
         EntityPlayer player = (EntityPlayer) e.getHarvester();
         if(player!=null){
