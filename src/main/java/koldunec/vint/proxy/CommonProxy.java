@@ -1,8 +1,10 @@
 package koldunec.vint.proxy;
 
 
-
+import koldunec.vint.compatibility.OtherTweaker;
+import koldunec.vint.containers.ContainerChlesis;
 import koldunec.vint.init.*;
+import koldunec.vint.recipes.AlternativeCarving;
 import koldunec.vint.vint;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -28,9 +30,10 @@ public class CommonProxy {
                 LootRegister.register();
                 GeneratorRegister.register();
                 CraftingRegister.register();
+                OtherTweaker.composterInit();
+                ContainerChlesis.initMyCarving();
         }
 
         public void postInit(FMLPostInitializationEvent event) {
-
         }
 }
