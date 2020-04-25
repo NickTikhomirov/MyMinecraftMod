@@ -11,7 +11,7 @@ import team.chisel.common.inventory.InventoryChiselSelection;
 
 public class ContainerChlesis extends ContainerChisel {
 
-    private static ICarvingRegistry MyCarving;
+    public static ICarvingRegistry MyCarving;
     public static void initMyCarving(){
         MyCarving = new AlternativeCarving();
     }

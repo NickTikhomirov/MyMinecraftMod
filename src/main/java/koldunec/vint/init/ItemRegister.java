@@ -35,6 +35,8 @@ public class ItemRegister
     public static Item SUPERCURING_GRASS= new supercuringgrass();
     public static Item POWDER_REED = new reed_item();
 
+    public static Item VANILLA_POWDER = new base_item("vanilla_powder",64);
+
     public static Item GHAST_SEEDS = new ghast_seeds();
     public static Item SPARKLES = new base_fuel("sparkles",64, (short)100);
     public static Item BITCOIN = new bitcoin();
@@ -78,7 +80,7 @@ public class ItemRegister
 
     public static Item RELIQUARISTS_SWORD = new reliquarist_sword(MaterialRegister.thaumicMix,"ambersword");
     public static Item DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD = new reliquarist_sword(MaterialRegister.diamondgolden_golden_diamond, "dggd_sword");
-    public static Item BROOM = new broom("broom");
+    public static Item BROOM = new Broom("broom");
     public static Item MAGNETPICK = new magnetpick();
     public static Item MAGICBALL = new cursedRock("magic_ball",24);
     public static Item LASERCORE = new LaserCore();
@@ -103,8 +105,8 @@ public class ItemRegister
     public static Item ALUMINUM = new base_item("aluminum", 64);
     public static Item SULFUR = new base_item("sulfur", 64);
 
-    public static void register()
-    {
+    public static void register() {
+        setRegister(VANILLA_POWDER);
         setRegister(CURINGSEEDS);
         setRegister(CURING_GRASS);
         setRegister(SUPERCURING_GRASS);
@@ -129,7 +131,7 @@ public class ItemRegister
         setRegister(POTATO_C);
         setRegister(FISH_C);
         setRegister(ROUND_STONE);
-        setRegister(MAGNETPICK);
+        //setRegister(MAGNETPICK);
         setRegister(BITCOIN5000);
         setRegister(SOUL_CRYSTAL_s);
         setRegister(MAGIC_PROTECTOR);
@@ -142,7 +144,7 @@ public class ItemRegister
         setRegister(NETHER_CRYSTAL);
         setRegister(SOUL);
         setRegister(RED_POWDER);
-        setRegister(PAINT_OPERATOR);
+        //setRegister(PAINT_OPERATOR);
         setRegister(DIAMOND_GOLD);
         setRegister(GOLDEN_DIAMOND);
         setRegister(DIAMONDGOLDEN_GOLDEN_DIAMOND);
@@ -185,8 +187,8 @@ public class ItemRegister
     }
 
     @SideOnly(Side.CLIENT)
-    public static void registerRender()
-    {
+    public static void registerRender() {
+        setRender(VANILLA_POWDER);
         setRender(BROOM);
         setRender(BITCOIN);
         setRender(CURING_GRASS);
@@ -209,7 +211,7 @@ public class ItemRegister
         setRender(CHICKEN_C);
         setRender(FISH_C);
         setRender(ROUND_STONE);
-        setRender(MAGNETPICK);
+        //setRender(MAGNETPICK);
         setRender(BITCOIN5000);
         setRender(SOUL_CRYSTAL_s);
         setRender(MAGIC_PROTECTOR);
@@ -222,7 +224,7 @@ public class ItemRegister
         setRender(NETHER_CRYSTAL);
         setRender(SOUL);
         setRender(RED_POWDER);
-        setRender(PAINT_OPERATOR);
+        //setRender(PAINT_OPERATOR);
         setRender(DIAMOND_GOLD);
         setRender(GOLDEN_DIAMOND);
         setRender(DIAMONDGOLDEN_GOLDEN_DIAMOND);

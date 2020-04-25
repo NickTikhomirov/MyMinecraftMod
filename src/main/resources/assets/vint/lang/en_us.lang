@@ -80,6 +80,9 @@ item.dusttrans.name=Transformation Dust
 item.carminite_axe.name=Carminite Axe
 item.carminite_pick.name=Carminite Pickaxe
 
+item.vanilla_powder.name=Vanilla Powder
+
+
 item.mix_wildlife.name=Mix of Wildlife
 item.mix_nature.name=Mix of Nature
 item.mix_nature_p.name=Mix of Pure Nature

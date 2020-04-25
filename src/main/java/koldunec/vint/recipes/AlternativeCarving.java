@@ -1,29 +1,41 @@
 package koldunec.vint.recipes;
 
-import com.google.common.collect.HashMultimap;
-import com.google.common.collect.Multimap;
+
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
 import team.chisel.api.carving.ICarvingGroup;
 import team.chisel.api.carving.ICarvingRegistry;
 import team.chisel.api.carving.ICarvingVariation;
-import team.chisel.common.carving.GroupList;
 
 import javax.annotation.Nullable;
-import java.sql.Array;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
+
 
 public class AlternativeCarving implements ICarvingRegistry {
 
-    GroupList groups = new GroupList();
-    private final Multimap<String, ICarvingGroup> oreLookup = HashMultimap.create();
+    static public HashMap<Item, HashMap<Integer, String>> groups = new HashMap<>();
+
+    public static void add(ItemStack stack, String s){
+        HashMap<Integer,String> temp = groups.get(stack.getItem());
+        if(temp!=null) {
+            if(temp.get(stack.getMetadata())!=null)
+                return;
+            temp.put(stack.getMetadata(),s);
+            return;
+        }
+        temp = new HashMap<>();
+        temp.put(stack.getMetadata(),s);
+        groups.put(stack.getItem(), temp);
+    }
 
     public AlternativeCarving(){}
+
+
+    // Getters
 
     @Nullable
     @Override
@@ -43,6 +55,58 @@ public class AlternativeCarving implements ICarvingRegistry {
         return null;
     }
 
+    @Override
+    public List<ICarvingVariation> getGroupVariations(IBlockState iBlockState) {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public List<ItemStack> getItemsForChiseling(ItemStack itemStack) {
+        HashMap<Integer,String> group1 = groups.get(itemStack.getItem());
+        if(group1==null)
+            return Collections.emptyList();
+        String group2 = group1.get(itemStack.getMetadata());
+        if(group2==null)
+            return Collections.emptyList();
+        ArrayList<ItemStack> result = new ArrayList<>();
+        for(Map.Entry<Item, HashMap<Integer, String>> triair: groups.entrySet()){
+            for(Map.Entry<Integer,String> pair: triair.getValue().entrySet()){
+                if(pair.getValue().equals(group2))
+                    result.add(new ItemStack(triair.getKey(),1,pair.getKey()));
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public List<ItemStack> getItemsForChiseling(ICarvingGroup iCarvingGroup) {
+        return Collections.emptyList();
+    }
+
+    @Override
+    public List<String> getSortedGroupNames() {
+        return null;
+    }
+
+
+    // Adders
+
+    @Override
+    public void addVariation(String s, IBlockState iBlockState, int i) {    }
+
+    @Override
+    public void addVariation(String s, ICarvingVariation iCarvingVariation) {    }
+
+    @Override
+    public void addGroup(ICarvingGroup iCarvingGroup) {    }
+
+
+
+
+    /*
+        UNUSED FOR NOW
+    */
+
     @Nullable
     @Override
     public ICarvingVariation getVariation(IBlockState iBlockState) {
@@ -56,32 +120,11 @@ public class AlternativeCarving implements ICarvingRegistry {
     }
 
     @Override
-    public List<ICarvingVariation> getGroupVariations(IBlockState iBlockState) {
-        return Collections.emptyList();
-    }
+    public SoundEvent getVariationSound(IBlockState iBlockState) { return null; }
 
     @Nullable
     @Override
     public String getOreName(IBlockState iBlockState) {
-        return null;
-    }
-
-    @Override
-    public List<ItemStack> getItemsForChiseling(ItemStack itemStack) {
-        ArrayList<ItemStack> items = new ArrayList<>();
-        for(int i=0; i<15; ++i)
-           items.add(new ItemStack(Blocks.WOOL,1,i));
-        return items;
-        //return Collections.emptyList();
-    }
-
-    @Override
-    public List<ItemStack> getItemsForChiseling(ICarvingGroup iCarvingGroup) {
-        return Collections.emptyList();
-    }
-
-    @Override
-    public SoundEvent getVariationSound(IBlockState iBlockState) {
         return null;
     }
 
@@ -95,26 +138,6 @@ public class AlternativeCarving implements ICarvingRegistry {
         return null;
     }
 
-    @Override
-    public List<String> getSortedGroupNames() {
-        return null;
-    }
-
-    @Override
-    public void addVariation(String s, IBlockState iBlockState, int i) {
-
-    }
-
-    @Override
-    public void addVariation(String s, ICarvingVariation iCarvingVariation) {
-
-    }
-
-    @Override
-    public void addGroup(ICarvingGroup iCarvingGroup) {
-
-    }
-
     @Nullable
     @Override
     public ICarvingGroup removeGroup(String s) {
@@ -123,9 +146,7 @@ public class AlternativeCarving implements ICarvingRegistry {
 
     @Nullable
     @Override
-    public ICarvingVariation removeVariation(IBlockState iBlockState) {
-        return null;
-    }
+    public ICarvingVariation removeVariation(IBlockState iBlockState) { return null; }
 
     @Nullable
     @Override
@@ -146,17 +167,11 @@ public class AlternativeCarving implements ICarvingRegistry {
     }
 
     @Override
-    public void registerOre(String s, String s1) {
-
-    }
+    public void registerOre(String s, String s1) {    }
 
     @Override
-    public void setVariationSound(String s, SoundEvent soundEvent) {
-
-    }
+    public void setVariationSound(String s, SoundEvent soundEvent) {    }
 
     @Override
-    public void setOreName(ICarvingGroup iCarvingGroup, String s) {
-
-    }
+    public void setOreName(ICarvingGroup iCarvingGroup, String s) {    }
 }

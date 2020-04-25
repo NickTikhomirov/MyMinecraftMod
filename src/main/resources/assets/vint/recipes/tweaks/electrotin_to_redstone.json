@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "projectred-core:resource_item",
+      "data": 105
+    },
+    {
+      "item": "vint:vanilla_powder"
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:redstone"
+    }
+}

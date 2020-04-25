@@ -2,32 +2,26 @@ package koldunec.vint.events;
 
 
 
-import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
-import koldunec.vint.helpers.VanillaHelper;
+import koldunec.vint.helpers.SpawnCorrector;
+import koldunec.vint.items.Broom;
 import koldunec.vint.vint;
 import koldunec.vint.items.tools.reliquarist_sword;
-import koldunec.vint.items.xyAmulet;
-import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.init.PotionRegister;
 import lumien.randomthings.potion.ModPotions;
 import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockRedSandstone;
-import net.minecraft.block.BlockSandStone;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.ai.EntityAILeapAtTarget;
+import net.minecraft.entity.ai.EntityAIOpenDoor;
 import net.minecraft.entity.boss.EntityDragon;
 import net.minecraft.entity.item.EntityEnderCrystal;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
-import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -36,17 +30,16 @@ import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.SoundCategory;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderHell;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 import teamroots.embers.entity.EntityAncientGolem;
 
@@ -54,9 +47,8 @@ import twilightforest.block.BlockTFLeaves;
 import twilightforest.block.BlockTFMagicLeaves;
 import twilightforest.block.BlockTFMagicLogSpecial;
 import twilightforest.item.ItemTFMinotaurAxe;
+import twilightforest.item.ItemTFTransformPowder;
 
-
-import static java.lang.Math.round;
 import static koldunec.vint.init.PotionRegister.ENDERPROTECTION;
 import static koldunec.vint.init.PotionRegister.WITHERPROTECTION;
 
@@ -64,126 +56,71 @@ import static koldunec.vint.init.PotionRegister.WITHERPROTECTION;
 @Mod.EventBusSubscriber
 public class EventHandler{
 
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onLavaTouchPrismarine(BlockEvent.NeighborNotifyEvent e){
-        Block b = e.getState().getBlock();
-        World w = e.getWorld();
-        if(!b.equals(Blocks.FLOWING_LAVA))
-            return;
-        if(w.getBlockState(e.getPos().up()).getBlock().equals(Blocks.SOUL_SAND)) {
-            if(w.isRemote) {
-                VanillaHelper.triggerMixEffects(e.getWorld(),e.getPos());
-                return;
-            }
-            w.setBlockState(e.getPos(), ((BlockRedSandstone)Blocks.RED_SANDSTONE).getStateFromMeta(1), 1 + 2);
-            e.setCanceled(true);
-        }
-
-    }
-
-
-    @SubscribeEvent(priority = EventPriority.LOWEST)
-    public static void onEntityHello(EntityJoinWorldEvent e){
-        if(e.getEntity()!=null && e.getEntity() instanceof EntityLiving){
-            EntityLiving one = (EntityLiving)e.getEntity();
-            if(one.getClass().equals(EntityZombie.class) && vint.random.nextInt(10)==0){
-                one.tasks.addTask(1,new EntityAILeapAtTarget(one, 0.5F));
-                return;
-            }
-            if(e.getWorld().provider instanceof WorldProviderHell){
-                if(one.getClass().equals(EntitySkeleton.class)){
-                    e.setCanceled(true);
-                    return;
-                }
-                if(vint.isLoadedNatura){
-                    if(one.getClass().equals(EntityNitroCreeper.class)){
-                        e.setCanceled(true);
-                        return;
-                    }
-                }
-                if(vint.isLoadedHype){
-                    if(one.getClass().equals(EntityPigZombie.class) && vint.random.nextInt(10)==0){
-                        one.setItemStackToSlot(EntityEquipmentSlot.CHEST,new ItemStack(Item.getByNameOrId("hypewear:aggc_chestplate"),1,0));
-                        one.setItemStackToSlot(EntityEquipmentSlot.LEGS,new ItemStack(Item.getByNameOrId("hypewear:castle_leggings"),1,0));
-                        return;
-                    }
-                }
-            }
-            if(one.getClass().equals(EntitySkeleton.class)){
-                if(vint.random.nextInt(50)==0){
-                    if(net.minecraftforge.fml.common.Loader.isModLoaded("randomthings")){
-                        ItemStack a = new ItemStack(Items.TIPPED_ARROW,1);
-                        PotionUtils.addPotionToItemStack(a, ModPotions.collapseTypeStrong);
-                        one.setItemStackToSlot(EntityEquipmentSlot.OFFHAND,a);
-                        if(vint.isLoadedHype) {
-                            one.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Item.getByNameOrId("hypewear:baritone_white_chestplate"), 1, 0));
-                            one.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Item.getByNameOrId("hypewear:baritone_white_leggings"), 1, 0));
-                        }
-                    }
-                }
-                return;
-            }
-        }
-    }
-
     @SubscribeEvent
-    public static void onItemCrafted(PlayerEvent.ItemCraftedEvent e){
-        Item result = e.crafting.getItem();
-
-        if(result.equals(ItemRegister.RUNIC_STICK) ||
-           result.equals(ItemRegister.ROUND_STONE) ||
-           result.equals(ItemRegister.CURINGSEEDS) ||
-           result.equals(ItemRegister.WOODEN_RUNE) ||
-           result.equals(Items.GHAST_TEAR) ||
-           result.equals(Item.getItemFromBlock(Blocks.LOG)) ||
-           result.equals(Item.getItemFromBlock(Blocks.PLANKS)))
-            for(int i=0;i<9;i++){
-                Item ii = e.craftMatrix.getStackInSlot(i).getItem();
-                if(ii.equals(ItemRegister.MAGIC_FLINTS))
-                    e.craftMatrix.getStackInSlot(i).grow(1);
-            }
+    public static void onRightClick(PlayerInteractEvent.RightClickBlock e){
+        if(vint.integrationHelper.isLoadedTwilight){
+            if(vint.integrationHelper.isLoaded("quark"))
+                if(!e.getWorld().isRemote && e.getItemStack().getItem().getClass().equals(ItemTFTransformPowder.class)) {
+                    Block lantern = Blocks.SEA_LANTERN;
+                    Block old = Block.getBlockFromName("quark:elder_sea_lantern");
+                    Block unknown = e.getWorld().getBlockState(e.getPos()).getBlock();
+                    if (unknown.equals(lantern)){
+                        e.getWorld().setBlockState(e.getPos(), old.getDefaultState(),1|2);
+                        e.getItemStack().shrink(1);
+                    } else if(unknown.equals(old)){
+                        e.getWorld().setBlockState(e.getPos(), lantern.getDefaultState(),1|2);
+                        e.getItemStack().shrink(1);
+                    }
+                }
+        }
     }
 
-    //0 - black
-    //2 - green
-    //3 - brown
-    //4 - blue
-    //15 - white
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public static void onMonsterSpawn(EntityJoinWorldEvent e){
+        if(!(e.getEntity() instanceof EntityLiving))
+            return;
+        EntityLiving one = (EntityLiving)e.getEntity();
+        if(one.getClass().equals(EntityZombie.class) && vint.random.nextInt(5)==0){
+            one.tasks.addTask(3,new EntityAIOpenDoor(one, false));
+            return;
+        }
+        if(e.getWorld().provider instanceof WorldProviderHell) {
+            if(SpawnCorrector.HellCorrector(one))
+                e.setCanceled(true);
+            return;
+        }
+        if(one.getClass().equals(EntitySkeleton.class)){
+            if(vint.random.nextInt(20)==0){
+                if(vint.integrationHelper.isLoaded("randomthings")){
+                    ItemStack a = new ItemStack(Items.TIPPED_ARROW,1);
+                    PotionUtils.addPotionToItemStack(a, ModPotions.collapseTypeStrong);
+                    one.setItemStackToSlot(EntityEquipmentSlot.OFFHAND,a);
+                    if(vint.isLoadedHype) {
+                        one.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Item.getByNameOrId("hypewear:baritone_white_chestplate"), 1, 0));
+                        one.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Item.getByNameOrId("hypewear:baritone_white_leggings"), 1, 0));
+                    }
+                }
+            }
+        }
+
+    }
 
 
     @SubscribeEvent
     public static void blockBr(BlockEvent.HarvestDropsEvent e) {
-        if(true)
-            return;
         if(e.getWorld().isRemote) return;
-        EntityPlayer player = (EntityPlayer) e.getHarvester();
+        EntityPlayer player = e.getHarvester();
+
         if(player!=null){
-            ItemStack itemstack = player.getHeldItemMainhand();
-            ItemStack itemleft = player.getHeldItemOffhand();
-            if(!itemstack.isEmpty())
-                if(itemstack.getItem().equals(ItemRegister.BROOM)&(e.getState().getBlock().equals(Blocks.BOOKSHELF)|e.getState().getBlock().equals(Blocks.ENDER_CHEST))){
+            ItemStack toolMainHand = player.getHeldItemMainhand();
+            if(!toolMainHand.isEmpty())
+                if(toolMainHand.getItem() instanceof Broom && Broom.affected_blocks.contains(e.getState().getBlock())){
                     e.getDrops().clear();
                     e.getDrops().add(new ItemStack(e.getState().getBlock()));
-                } else if(itemstack.getItem().equals(ItemRegister.MAGNETPICK)){
-                    if(e.getState().getBlock().equals(Blocks.COBBLESTONE) ||
-                       e.getState().getBlock().equals(Blocks.STONEBRICK)){
-                        for(ItemStack a: e.getDrops()){
-                            if(a.getItem().equals(Item.getItemFromBlock(Blocks.COBBLESTONE)) ||
-                                a.getItem().equals(Item.getItemFromBlock(Blocks.STONEBRICK))){
-                                ItemStack b = a.copy();
-                                if(!player.inventory.addItemStackToInventory(a))
-                                    player.dropItem(a,false);
-                                e.getDrops().remove(a);
-                            }
-                        }
-                    } else if(e.getState().getBlock().equals(Blocks.LOG)){
-                        e.getDrops().clear();
-                        ItemStack pick = e.getHarvester().getHeldItemMainhand();
-                        pick.setItemDamage(Math.max(0,pick.getItemDamage()-20));
-                    }
-                } else if(vint.isLoadedTwilight &&
-                        (itemstack.getItem().equals(ItemRegister.CARMINITE_AXE)) ||
-                        itemstack.getItem() instanceof ItemTFMinotaurAxe){
+                } else if(vint.integrationHelper.isLoadedTwilight &&
+                        (toolMainHand.getItem().equals(ItemRegister.CARMINITE_AXE)) ||
+                        toolMainHand.getItem() instanceof ItemTFMinotaurAxe){
                     if(e.getState().getBlock() instanceof BlockTFMagicLogSpecial) {
                         e.getDrops().clear();
                         e.getDrops().add(
@@ -193,45 +130,10 @@ public class EventHandler{
                                         e.getState().getBlock().getMetaFromState(e.getState())));
                     }
                 }
-                if(xyAmulet.isEquiped(player) && !e.isSilkTouching()){
-                    if(e.getState().getBlock().equals(Blocks.REDSTONE_ORE)){
-                        if(vint.random.nextInt(20)==0){
-                            e.getDrops().add(new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),1,2));
-                        }
-                    } else if(e.getState().getBlock().equals(Blocks.COAL_ORE)){
-                        if(vint.random.nextInt(100)==0){
-                            e.getDrops().add(new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),1,3));
-                        }
-                    } else if(e.getState().getBlock().equals(Blocks.QUARTZ_ORE)){
-                        if(vint.random.nextInt(10)==0){
-                            e.getDrops().add(new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),1,4));
-                        }
-                    } else if(e.getState().getBlock().equals(BlockRegister.ORE_RAINBOW)){
-                        for(int i=0; i<5;i++){
-                            e.getDrops().add(
-                                    new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),
-                                    vint.random.nextInt(2)+1,
-                                    i));
-                        }
-                    } else if(e.getState().getBlock().equals(Blocks.DIAMOND_ORE)){
-                        e.getDrops().add(new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),1,4));
-                    } else if(e.getState().getBlock().equals(Blocks.EMERALD_ORE)){
-                        e.getDrops().add(new ItemStack(Item.getByNameOrId("projectx:xycronium_crystal"),2,1));
-                    }
-                }
+
         }
 
-        if(e.getState().getBlock().equals(BlockRegister.ORE_RAINBOW)){
-            e.getDrops().add(new ItemStack(Items.DYE,1,1));                 //red
-            e.getDrops().add(new ItemStack(Items.DYE,1,5));                 //purple
-            e.getDrops().add(new ItemStack(Items.DYE,1,11));                //yellow
-            e.getDrops().add(new ItemStack(Items.DYE,1,12));                //light_blue
-            e.getDrops().add(new ItemStack(Items.DYE,1,14));                //orange
-            e.getDrops().add(new ItemStack(ItemRegister.ANOTHER_DYE,1,1));  //green
-            e.getDrops().add(new ItemStack(ItemRegister.ANOTHER_DYE,1,3));  //blue
-        }
-
-        if(vint.isLoadedTwilight){
+        if(vint.integrationHelper.isLoadedTwilight){
             if(e.getState().getBlock() instanceof BlockTFMagicLeaves)
                 if((((BlockTFMagicLeaves)e.getState().getBlock()).func_176201_c(e.getState())&3)==1){
                     if(!e.getDrops().contains(new ItemStack(Item.getItemFromBlock(e.getState().getBlock())))) {
@@ -252,8 +154,7 @@ public class EventHandler{
 
 
     @SubscribeEvent
-    public static void damageDeconnstructor(LivingHurtEvent e){
-
+    public static void damageDeconstructor(LivingHurtEvent e){
         EntityLivingBase victim = e.getEntityLiving();
         Entity enemy = e.getSource().getTrueSource();
         DamageSource damage_type = e.getSource();
@@ -382,51 +283,6 @@ public class EventHandler{
             }
         }
         if(e.getSource().getTrueSource() instanceof EntityPlayer){
-            if(((EntityPlayer)e.getSource().getTrueSource()).getHeldItem(EnumHand.MAIN_HAND).getItem().equals(ItemRegister.BROOM)){
-                if(victim.getClass().equals(EntityIronGolem.class)){
-                    if(!victim.getEntityWorld().isRemote){
-                        int px = e.getEntityLiving().getPosition().getX();
-                        int py = e.getEntityLiving().getPosition().getY();
-                        int pz = e.getEntityLiving().getPosition().getZ();
-                        World pw = e.getEntityLiving().world;
-
-                        EntityItem aa = new EntityItem(pw,px,py,pz,
-                                (new ItemStack(Blocks.IRON_BLOCK,
-                                        round( 4 * (e.getEntityLiving().getHealth()+1) / e.getEntityLiving().getMaxHealth()))));
-                        EntityItem bb = new EntityItem(pw,px,py,pz,
-                                (new ItemStack(Blocks.PUMPKIN,1)));
-
-                        e.getEntityLiving().world.spawnEntity(aa);
-                        e.getEntityLiving().world.spawnEntity(bb);
-                        e.getEntity().world.playSound(px,py,pz, SoundEvents.ENTITY_ENDERMEN_SCREAM, SoundCategory.HOSTILE,1.0F,1.0F,true);
-                        e.getEntityLiving().setDead();
-                    }
-                }
-                if(victim.getClass().equals(EntitySnowman.class)){
-                    if(!victim.getEntityWorld().isRemote){
-                        EntityItem aa = new EntityItem(
-                                e.getEntity().world,
-                                e.getEntityLiving().getPosition().getX(),
-                                e.getEntityLiving().getPosition().getY(),
-                                e.getEntityLiving().getPosition().getZ(),
-                                (new ItemStack(Blocks.SNOW,2)));
-
-                        EntityItem bb = new EntityItem(
-                                e.getEntity().world,
-                                e.getEntityLiving().getPosition().getX(),
-                                e.getEntityLiving().getPosition().getY(),
-                                e.getEntityLiving().getPosition().getZ(),
-                                (new ItemStack(Blocks.PUMPKIN,1)));
-                        e.getEntityLiving().world.spawnEntity(aa);
-                        e.getEntityLiving().world.spawnEntity(bb);
-                        e.getEntityLiving().setDead();
-                    }
-                }
-                if(victim instanceof EntitySpider | victim instanceof EntitySilverfish){
-                    e.getEntityLiving().hurtResistantTime = 0;
-                    e.getEntityLiving().attackEntityFrom(DamageSource.GENERIC,10);
-                }
-            }
             if(((EntityPlayer)e.getSource().getTrueSource()).getHeldItem(EnumHand.MAIN_HAND).getItem().equals(ItemRegister.DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD)){
                 e.getSource().setMagicDamage();
             }

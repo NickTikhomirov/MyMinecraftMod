@@ -15,11 +15,13 @@ public class IntegrationHelper {
 
     public String idTwilight = "twilightforest";
     public String idTinker = "tconstruct";
+    public String idProjectRed = "projectred-exploration";
 
     public void init(){
         isLoadedTwilight = isLoaded(idTwilight);
         isLoadedTinkers = isLoaded(idTinker);
         isLoadedHype = isLoaded("hypewear");
+        isLoadedProjectRed_exploration = isLoaded(idProjectRed);
         //isLoadedBaubles;
     }
 

@@ -124,13 +124,14 @@ public class ThosePitifulDeaths {
         }
 
         if(!e.getEntity().isNonBoss()){
-            for(int i=0;i<2;i++)
+            int bound = 1 + vint.random.nextInt(2);
+            for(int i=0; i<bound; ++i)
                 e.getEntity().entityDropItem(
                         new ItemStack(
                                 ItemRegister.SCROLL,
                                 1,
                                 vint.random.nextInt(scroll.scrollTypes.values().length)),
-                        0F);
+                        0.5F);
         }
 
         if(vint.isLoadedScalingH){
@@ -143,83 +144,7 @@ public class ThosePitifulDeaths {
                         ),
                         0F);
         }
-
-        if(e.getSource().getTrueSource() instanceof EntityPlayer){
-            EntityPlayer player = (EntityPlayer) e.getSource().getTrueSource();
-            if(player==null) return;
-            if(xyAmulet.isEquiped(player)){
-                if(!e.getEntity().isNonBoss()) {
-                    for(int i=0; i<5;i++){
-                        e.getEntity().entityDropItem(
-                                new ItemStack(
-                                        Item.getByNameOrId("projectx:xycronium_crystal"),
-                                        vint.random.nextInt(5)+16,
-                                        i),
-                                1F);
-                    }
-                }
-                if(e.getEntity() instanceof EntityWitherSkeleton){
-                    if(vint.random.nextInt(5)==0)
-                        e.getEntity().entityDropItem(
-                                new ItemStack(
-                                        Item.getByNameOrId("projectx:xycronium_crystal"),
-                                        vint.random.nextInt(3)+1,
-                                        3),
-                                1F);
-                }
-                if(e.getEntity() instanceof EntityGuardian){
-                    e.getEntity().entityDropItem(
-                            new ItemStack(
-                                    Item.getByNameOrId("projectx:xycronium_crystal"),
-                                    vint.random.nextInt(2)+2,
-                                    0),
-                            1F);
-                }
-                if(e.getEntity() instanceof EntityElderGuardian){
-                    e.getEntity().entityDropItem(
-                            new ItemStack(
-                                    Item.getByNameOrId("projectx:xycronium_crystal"),
-                                    8,
-                                    0),
-                            1F);
-                    e.getEntity().entityDropItem(
-                            new ItemStack(
-                                    Item.getByNameOrId("projectx:xycronium_crystal"),
-                                    10+ vint.random.nextInt(2),
-                                    4),
-                            1F);
-                }
-                if(e.getEntity() instanceof EntityGhast){
-                    if(vint.random.nextInt(2)==0)
-                        dropItem(e.getEntity(),
-                                "projectx:xycronium_crystal",
-                                vint.random.nextInt(2),
-                                4);
-                    if(vint.random.nextInt(5)==0)
-                        dropItem(e.getEntity(),
-                                "projectx:xycronium_crystal",
-                                2+ vint.random.nextInt(2),
-                                2);
-                    if(vint.random.nextInt(5)==0)
-                        dropItem(e.getEntity(),
-                                "projectx:xycronium_crystal",
-                                vint.random.nextInt(2),
-                                3);
-                }
-                if(e.getEntity() instanceof EntitySilverfish){
-                    dropItem(e.getEntity(),
-                            "projectx:xycronium_crystal",
-                            2+ vint.random.nextInt(2),
-                            vint.random.nextInt(5));
-                }
-            }
-        }
-
-        if(e.getEntity() instanceof EntityPlayer){
-            EntityPlayer p = (EntityPlayer)e.getEntity();
-            if(saviour.isEquiped(p))
-                saviour.savePoorThing(p);
-        }
+        
     }
 
     static void dropItem(Entity e, Item i, int amount, int meta){

@@ -1,6 +1,7 @@
 package koldunec.vint.proxy;
 
 
+import koldunec.vint.compatibility.ChlesisSetter;
 import koldunec.vint.compatibility.OtherTweaker;
 import koldunec.vint.containers.ContainerChlesis;
 import koldunec.vint.init.*;
@@ -30,8 +31,11 @@ public class CommonProxy {
                 LootRegister.register();
                 GeneratorRegister.register();
                 CraftingRegister.register();
+
                 OtherTweaker.composterInit();
                 ContainerChlesis.initMyCarving();
+                ChlesisSetter.init();
+                OtherTweaker.chiselUpgrade();
         }
 
         public void postInit(FMLPostInitializationEvent event) {

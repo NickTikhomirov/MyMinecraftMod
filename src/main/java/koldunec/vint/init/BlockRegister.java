@@ -57,8 +57,8 @@ public class BlockRegister
         registerBlock(WATER_PORTAL);
         registerBlock(ORE_BIT);
         registerBlock(ORE_EGG);
-        registerBlock(ORE_SPARKLE);
-        registerBlock(BLOCK_CHARCOAL);
+        //registerBlock(ORE_SPARKLE);
+        //registerBlock(BLOCK_CHARCOAL);
         //registerBlock(OLD_ROSE);
         //registerBlock(OLD_ROSE);
         registerBlock(BRICKS_Light);
@@ -95,8 +95,8 @@ public class BlockRegister
         setRender(WATER_PORTAL);
         setRender(ORE_BIT);
         setRender(ORE_EGG);
-        setRender(ORE_SPARKLE);
-        setRender(BLOCK_CHARCOAL);
+        //setRender(ORE_SPARKLE);
+        //setRender(BLOCK_CHARCOAL);
         //setRender(OLD_ROSE);
         //setRender(OLD_ROSE_b);
         setRender(BRICKS_Dark);

@@ -30,7 +30,8 @@ import java.util.Random;
                 "after:thaumcraft;" +
                 "after:natura;" +
                 "after:hypewear;" +
-                "after:scalinghealth"
+                "after:scalinghealth;"+
+                "after:chisel"
 )
 public class vint
 {

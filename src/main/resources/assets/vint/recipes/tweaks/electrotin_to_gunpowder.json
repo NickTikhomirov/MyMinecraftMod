@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "projectred-core:resource_item",
+      "data": 105
+    },
+    {
+      "item": "projectred-core:resource_item",
+      "data": 105
+    },
+    {
+      "item": "vint:vanilla_powder"
+    },
+    {
+      "item": "minecraft:coal",
+      "data": 0
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:gunpowder",
+      "count": 3
+    }
+}
