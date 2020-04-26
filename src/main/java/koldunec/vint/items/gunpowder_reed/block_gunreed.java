@@ -51,7 +51,7 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
     }
     public static final PropertyInteger AGE = PropertyInteger.create("age", 0, 4);
     public static final IProperty<reedTypes> VARIANT = PropertyEnum.create("variant", reedTypes.class);
-    protected static final AxisAlignedBB REED_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
+    public static final AxisAlignedBB REED_AABB = new AxisAlignedBB(0.125D, 0.0D, 0.125D, 0.875D, 1.0D, 0.875D);
 
 
     public block_gunreed(){
@@ -108,7 +108,7 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
                     !worldIn.isAirBlock(pos.up(1));
             if(type==0){
                 if(!blocked){
-                    if(vint.random.nextBoolean()){
+                    if(true){
                         int j = state.getValue(AGE);
                         if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)){
                             if(j>=4){
@@ -120,7 +120,7 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
                     }
                 } else {
                     if(isReed(worldIn.getBlockState(pos.up(1)).getBlock())) return;
-                    if(vint.random.nextInt(3)==0){
+                    if(true){
                         if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
                             worldIn.setBlockState(pos.down(size - 1), this.getDefaultState().withProperty(VARIANT, reedTypes.REDSTONE).withProperty(AGE, 0));
                             net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
@@ -128,8 +128,8 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
                     }
                 }
             } else if(type==1 && vint.isLoadedProjectRed_exploration){
-                if(pos.getY()==256 || !isReed(worldIn.getBlockState(pos.up()).getBlock())){
-                    if(vint.random.nextBoolean()){
+                if(pos.getY()>254 || !isReed(worldIn.getBlockState(pos.up()).getBlock())){
+                    if(true){
                         if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
                             worldIn.setBlockState(pos.down(size - 1), this.getDefaultState().withProperty(VARIANT, reedTypes.NICOLITE).withProperty(AGE, 0));
                             net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
@@ -146,17 +146,9 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
 
             // Николит или Редстоун при отсутствии ProjectRed-Exploration
             } else {
-                if(pos.getY()==256 || !isReed(worldIn.getBlockState(pos.up()).getBlock())){
-                    if(vint.random.nextInt(4)==0){
-                        if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
-                            BlockPos bottom = pos.down(size-1);
-                            for(;worldIn.getBlockState(bottom).getBlock().equals(BlockRegister.REED_GUNPOWDER);bottom=bottom.up()){
-                                worldIn.setBlockState(bottom,Blocks.REEDS.getDefaultState());
-                            }
-                            net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
-                        }
-                    }
-                } else {
+                if(pos.getY()>254 || !isReed(worldIn.getBlockState(pos.up()).getBlock()))
+                    return;
+                else {
                     if(worldIn.getBlockState(pos.up()).getValue(VARIANT).typeToInt()<=type && vint.random.nextBoolean()){
                         if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
                             worldIn.setBlockState(pos.up(), this.getDefaultState().withProperty(VARIANT, reedTypes.intToType(getFinalVariant())).withProperty(AGE, 0));
@@ -218,7 +210,7 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
     }
 
     public static int getFinalVariant(){
-        return vint.isLoadedProjectRed_exploration?2:1;
+        return vint.integrationHelper.isLoadedProjectRed_exploration?2:1;
     }
 
 
@@ -253,10 +245,7 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
     }
 
     @Override
-    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face)
-    {
-        return BlockFaceShape.UNDEFINED;
-    }
+    public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) { return BlockFaceShape.UNDEFINED; }
 
     @SideOnly(Side.CLIENT)
     public BlockRenderLayer getBlockLayer()

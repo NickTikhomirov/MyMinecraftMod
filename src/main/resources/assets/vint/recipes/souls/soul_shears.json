@@ -6,7 +6,7 @@
   ],
   "key": {
     "G": {
-      "item": "vint:soul_crystal"
+      "item": "minecraft:flint"
     },
     "N": {
       "item": "vint:nether_crystal"
@@ -16,7 +16,6 @@
     }
   },
   "result": {
-    "item": "vint:soul_shears",
-    "count": 1
+    "item": "vint:soul_shears"
   }
 }

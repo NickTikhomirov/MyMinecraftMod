@@ -71,7 +71,6 @@ public class ChlesisSetter {
     }
 
 
-
     private static void initSandStone(){
         String s = "Sandstone";
         register(Blocks.SANDSTONE,0, s);
@@ -80,6 +79,7 @@ public class ChlesisSetter {
         register(Blocks.BRICK_BLOCK,0, s);
         register(BlockRegister.BRICKS_Dark,0,s);
         register(BlockRegister.BRICKS_Light,0,s);
+        register(Block.getBlockFromName("chisel:brownstone"),0,s);
         if(vint.integrationHelper.isLoaded("quark")){
             register(Block.getBlockFromName("quark:sandy_bricks"), 0, s);
         }

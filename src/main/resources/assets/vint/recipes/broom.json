@@ -1,9 +1,9 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " NH",
+    "HN ",
     "NSN",
-    "SN "
+    " NS"
   ],
   "key": {
     "H": {
@@ -13,7 +13,7 @@
       "item": "minecraft:gold_nugget"
     },
     "S": {
-      "item": "vint:runic_stick"
+      "item": "minecraft:stick"
     }
   },
   "result": {

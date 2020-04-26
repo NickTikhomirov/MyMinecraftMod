@@ -31,6 +31,8 @@ item.curinggrass.name=Curing Grass
 item.supercuringgrass.name=Curing Grass++
 item.curingseeds.name=Seeds of Curing Grass
 
+item.reed_borer_item.name=Boring Reed
+
 item.effect_freezer.name=Potion Mix
 item.nether_crystal.name=Nether Crystal
 item.ghast_seeds.name=Soul Seeds
@@ -110,6 +112,8 @@ tile.llama_flower.name=Llama Flower
 tile.block_aluminum.name=Aluminum Block
 tile.ore_al.name=Aluminum Ore
 tile.radio_cactus.name=Nether Cactus
+
+tile.shroomlight.name=Shroomlight
 
 
 ########################

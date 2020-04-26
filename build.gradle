@@ -61,6 +61,7 @@ dependencies {
     provided 'ebob:ElectroblobsWizardry-4.2.1-MC1.12.2'
     provided 'random:RandomThings-MC1.12.2-4.2.7.1'
     provided 'chisel:Chisel-MC1.12.2-0.2.1.35'
+    provided 'jei:jei_1.12.2-4.15.0.289'
 
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings

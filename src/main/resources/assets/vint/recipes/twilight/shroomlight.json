@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " k ",
+    "kSk",
+    " k "
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:slime"
+    },
+    "k": {
+      "item": "twilightforest:torchberries"
+    }
+  },
+  "result": {
+    "item": "vint:shroomlight"
+  }
+}

@@ -24,7 +24,6 @@ public class CarminiteAxe extends ItemAxe {
                state.getBlock() instanceof BlockTFTowerDevice ||
                state.getBlock() instanceof BlockTFDarkLeaves ||
                state.getBlock() instanceof BlockTFHedge){
-                    //|| (state.getBlock() instanceof BlockTFLog && state.getBlock().getMetaFromState(state)==3)){
                 return 48F;
             }
         }

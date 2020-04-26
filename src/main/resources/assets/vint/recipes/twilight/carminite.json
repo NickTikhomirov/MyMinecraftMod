@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "rbr",
+    "bSb",
+    "rbr"
+  ],
+  "key": {
+    "r": {
+      "item": "minecraft:redstone"
+    },
+    "S": {
+      "item": "vint:nether_crystal"
+    },
+    "b": {
+      "item": "twilightforest:borer_essence"
+    }
+  },
+  "result": {
+    "item": "twilightforest:carminite"
+  }
+}

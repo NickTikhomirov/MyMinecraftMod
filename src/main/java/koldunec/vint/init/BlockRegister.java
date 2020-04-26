@@ -1,5 +1,7 @@
 package koldunec.vint.init;
 
+import koldunec.vint.blocks.ShroomLight;
+import koldunec.vint.blocks.plants.BorerReed;
 import koldunec.vint.vint;
 import koldunec.vint.items.*;
 import koldunec.vint.items.baseItems.basic_block;
@@ -26,12 +28,14 @@ public class BlockRegister
     public static Block BLOCK_CHARCOAL = new basic_block("block_charcoal",Material.ROCK, "pickaxe",0,5F ,30F,255);
     public static Block CURING_CROPS = new curingCrops("curing_crops");
     public static Block GHAST_POD = new block_ghastpod();
+    public static Block SHROOMLIGHT = new ShroomLight();
 
     public static Block OLD_ROSE = new magic_flower("rose");
     public static Block OLD_ROSE_b = new magic_flower("rose_b");
     public static Block LLAMA_SPAWNER = new LlamaFlower();
     public static Block STORE = new stORE();
     public static Block REED_GUNPOWDER = new block_gunreed();
+    public static Block REED_BORER = new BorerReed();
 
     public static Block BRICKS_Light = new basic_block("block_bricks_light",Material.ROCK, "pickaxe",0,2F ,30F,255);
     public static Block BRICKS_Dark = new basic_block("block_bricks_dark",Material.ROCK, "pickaxe",0,2F ,30F,255);
@@ -47,7 +51,7 @@ public class BlockRegister
     public static Block ORE_RAINBOW = new rainbow_ore("ore_rainbow",1,2,3);
 
     public static Block ORE_ALUMINUM = new bitore("ore_al",4,7,200);
-    public static Block  ALBLOCK = new basic_block("block_aluminum",Material.IRON,"pickaxe",1,1F,50F,10);
+    public static Block ALBLOCK = new basic_block("block_aluminum",Material.IRON,"pickaxe",1,1F,50F,10);
     public static Block NETHER_CACTUS = new radio_cactus();
     //public static Block TOWER_FURNACE = new TowerFurnace(2F,30F);
 
@@ -77,6 +81,9 @@ public class BlockRegister
         ForgeRegistries.BLOCKS.register(CURING_CROPS);
         ForgeRegistries.BLOCKS.register(GHAST_POD);
         ForgeRegistries.BLOCKS.register(REED_GUNPOWDER);
+        if(vint.integrationHelper.isLoadedTwilight)
+            ForgeRegistries.BLOCKS.register(REED_BORER);
+        registerBlock(SHROOMLIGHT);
 
         if(vint.isLoadedProjectX) {
             if(vint.isLoadedSulfurTorches) {
@@ -117,6 +124,7 @@ public class BlockRegister
                 setRender(ALBLOCK);
             }
         }
+        setRender(SHROOMLIGHT);
 
         //if(vint.isLoadedTwilight)
             //setRender(TOWER_FURNACE);

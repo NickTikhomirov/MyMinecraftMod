@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:reed_borer_item"
+    }
+  ],
+  "result": {
+    "item": "twilightforest:borer_essence",
+    "count": 2
+  }
+}

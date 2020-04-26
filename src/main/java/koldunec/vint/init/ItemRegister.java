@@ -2,6 +2,7 @@ package koldunec.vint.init;
 
 
 import koldunec.vint.items.CarminitePick;
+import koldunec.vint.items.blockitems.ReedBorerItem;
 import koldunec.vint.vint;
 import koldunec.vint.items.*;
 import koldunec.vint.items.baseItems.base_food;
@@ -34,6 +35,7 @@ public class ItemRegister
     public static Item CURING_GRASS= new curinggrass();
     public static Item SUPERCURING_GRASS= new supercuringgrass();
     public static Item POWDER_REED = new reed_item();
+    public static Item BORER_REED = new ReedBorerItem();
 
     public static Item VANILLA_POWDER = new base_item("vanilla_powder",64);
 
@@ -53,10 +55,10 @@ public class ItemRegister
     public static Item NETHER_CRYSTAL = new base_item("nether_crystal",64);
     public static Item SOUL = new base_item("small_soul",64);
     public static Item RED_POWDER = new oreProspector();
-    public static Item MIX_WILDLIFE = new base_item("mix_wildlife",64);
-    public static Item MIX_NATURE= new base_item("mix_nature",64);
-    public static Item MIX_NATURE_P = new base_item("mix_nature_p",64);
-    public static Item MIX_SEA = new base_item("mix_sea",64);
+//    public static Item MIX_WILDLIFE = new base_item("mix_wildlife",64);
+//    public static Item MIX_NATURE= new base_item("mix_nature",64);
+//    public static Item MIX_NATURE_P = new base_item("mix_nature_p",64);
+//    public static Item MIX_SEA = new base_item("mix_sea",64);
     public static Item NETHER_CUP = new base_item("nether_cup",64);
 
     public static Item GOLDEN_DIAMOND = new base_item("dg0",64);
@@ -115,7 +117,7 @@ public class ItemRegister
         setRegister(ESSENCE_RAINBOW);
         setRegister(FLINTBASE);
         setRegister(MAGIC_FLINTS);
-        setRegister(RUNIC_STICK);
+        //setRegister(RUNIC_STICK);
         setRegister(GOLDEN_POTATO);
         setRegister(FLESH);
         setRegister(FISHY);
@@ -160,18 +162,19 @@ public class ItemRegister
         setRegister(DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD);
         setRegister(HALFDUST);
 
-        setRegister(MIX_WILDLIFE);
-        setRegister(MIX_NATURE);
-        setRegister(MIX_NATURE_P);
-        setRegister(MIX_SEA);
+        //setRegister(MIX_WILDLIFE);
+        //setRegister(MIX_NATURE);
+        //setRegister(MIX_NATURE_P);
+        //setRegister(MIX_SEA);
 
         if(vint.isLoadedTwilight){
             setRegister(TRANSFORMATION_DUST);
             setRegister(CARMINITE_AXE);
             setRegister(CARMINITE_PICKAXE);
             setRegister(SHELL);
+            setRegister(BORER_REED);
         }
-
+        /*
         if(vint.isLoadedSulfurTorches) {
             setRegister(SULFUR);
             setRegister(ALUMINUM);
@@ -181,6 +184,7 @@ public class ItemRegister
         if(vint.isLoadedBaubles){
             setRegister(SAVIOUR);
         }
+        */
 
         MinecraftForge.addGrassSeed(new ItemStack(CURING_GRASS),10);
         MinecraftForge.addGrassSeed(new ItemStack(ANOTHER_DYE,1,1),3);
@@ -204,7 +208,7 @@ public class ItemRegister
         setRender(STEALER);
         setRender(FISHY);
         setRender(FLINTBASE);
-        setRender(RUNIC_STICK);
+        //setRender(RUNIC_STICK);
         setRender(EYE_C);
         setRender(NETHER_DRINK);
         setRender(POTATO_C);
@@ -237,27 +241,30 @@ public class ItemRegister
         setRender(DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD);
         setRender(HALFDUST);
 
-        setRender(MIX_WILDLIFE);
-        setRender(MIX_NATURE);
-        setRender(MIX_NATURE_P);
-        setRender(MIX_SEA);
+        //setRender(MIX_WILDLIFE);
+        //setRender(MIX_NATURE);
+        //setRender(MIX_NATURE_P);
+        //setRender(MIX_SEA);
 
-        if(vint.isLoadedBaubles)
-            setRender(SAVIOUR);
-
-        if(vint.isLoadedTwilight) {
+        if(vint.integrationHelper.isLoadedTwilight) {
             setRender(TRANSFORMATION_DUST);
             setRender(CARMINITE_AXE);
             setRender(CARMINITE_PICKAXE);
             setRender(SHELL);
+            setRender(BORER_REED);
         }
-        if(vint.isLoadedProjectX){
+        /*
+        if(vint.integrationHelper.isLoadedBaubles)
+            setRender(SAVIOUR);
+
+        if(vint.integrationHelper.isLoadedProjectX){
             if(vint.isLoadedSulfurTorches) {
                 setRender(ALUMINUM);
                 setRender(SULFUR);
                 setRender(xyAMULET);
             }
         }
+        */
 
     }
 
