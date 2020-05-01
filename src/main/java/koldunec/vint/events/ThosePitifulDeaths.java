@@ -1,5 +1,6 @@
 package koldunec.vint.events;
 
+import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
 import koldunec.vint.utils.RandomUtils;
 import koldunec.vint.vint;
 import koldunec.vint.items.saviour;
@@ -87,10 +88,28 @@ public class ThosePitifulDeaths {
             }
         }
 
-        if(vint.isLoadedTwilight && vint.isLoadedPrimitive){
+        if(vint.integrationHelper.isLoadedTwilight && vint.integrationHelper.isLoadedPrimitive){
             if(victim instanceof EntityTFMinoshroom){
                 list.add(new EntityItem(victim.getEntityWorld(),victim.posX,victim.posY,victim.posZ,new ItemStack(ItemRegister.SCROLL_ISLE,1,0)));
             }
+        }
+
+        if(vint.integrationHelper.isLoadedNatura){
+            if(victim instanceof EntityNitroCreeper){
+                list.add(MobLootUtils.formDrop(victim,new ItemStack(Items.GUNPOWDER,5+vint.random.nextInt(3))));
+                if(vint.random.nextBoolean())
+                    list.add(MobLootUtils.formDrop(victim,new ItemStack(Item.getByNameOrId("natura:materials"),1+vint.random.nextInt(2),4)));
+                if(vint.random.nextInt(8)==0){
+                    list.add(MobLootUtils.formDrop(victim,new ItemStack(Item.getByNameOrId("natura:nether_sapling"),1,1)));
+                }
+            }
+        }
+
+        if(vint.integrationHelper.isLoaded("railcraft")){
+            if(victim.getEntityWorld().provider.doesWaterVaporize())
+                if(vint.random.nextInt(5)==0)
+                    list.add(MobLootUtils.formDrop(victim,new ItemStack(Item.getByNameOrId("railcraft:dust"),1,2)));
+
         }
     }
 

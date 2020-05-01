@@ -2,6 +2,7 @@ package koldunec.vint.init;
 
 import koldunec.vint.compatibility.ChlesisSetter;
 import koldunec.vint.compatibility.OtherTweaker;
+import koldunec.vint.compatibility.TinkerIntegration;
 import koldunec.vint.containers.ContainerChlesis;
 import koldunec.vint.helpers.IntegrationHelper;
 import koldunec.vint.vint;
@@ -16,11 +17,15 @@ public class CompatibilityRegister {
     public static void preInit(){
         oreRegisterItems();
         oreRegisterBlocks();
+        if(integrationHelper.isLoadedTinkers)
+            TinkerIntegration.preInit();
     }
 
     public static void init(){
         oreRegisterSideItems();
         OtherTweaker.trivia();
+        if(integrationHelper.isLoadedTinkers)
+            TinkerIntegration.init();
 
 
         if(integrationHelper.isLoadedChisel){

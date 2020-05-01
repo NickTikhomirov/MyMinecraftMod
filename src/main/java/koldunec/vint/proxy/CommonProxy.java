@@ -1,6 +1,7 @@
 package koldunec.vint.proxy;
 
 
+import koldunec.vint.helpers.ConfigHelper;
 import koldunec.vint.init.*;
 import koldunec.vint.vint;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -11,6 +12,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 public class CommonProxy {
 
         public void preInit(FMLPreInitializationEvent event) {
+                ConfigHelper.init();
                 EntityRegister.register();
                 ItemRegister.register();
                 BlockRegister.register();

@@ -4,8 +4,7 @@ import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
 import koldunec.vint.vint;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.monster.EntityPigZombie;
-import net.minecraft.entity.monster.EntitySkeleton;
+import net.minecraft.entity.monster.*;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,12 +12,21 @@ import net.minecraft.item.ItemStack;
 public class SpawnCorrector {
 
     public static boolean HellCorrector(Entity one){
+        if(one.getPosition().getY()>127){
+            if(one instanceof EntityEnderman)
+                return false;
+            if(one instanceof EntityMagmaCube)
+                return false;
+            if(one instanceof EntityBlaze)
+                return false;
+            return true;
+        } else {
+            if(one instanceof EntityEnderman)
+                return true;
+        }
+
         if(one.getClass().equals(EntitySkeleton.class))
             if(vint.random.nextBoolean())
-                return true;
-
-        if(vint.integrationHelper.isLoadedNatura)
-            if(one.getClass().equals(EntityNitroCreeper.class))
                 return true;
 
         if(vint.integrationHelper.isLoadedHype){

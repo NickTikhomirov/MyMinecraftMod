@@ -31,12 +31,17 @@ public class ChlesisSetter {
 
     private static void initBasalt(){
         String s = "Basalt";
-        if(vint.isLoadedProjectRed_exploration){
+        register(BlockRegister.BASALT_RAW,0,s);
+        register(BlockRegister.BASALT_PILLAR,0,s);
+        if(vint.isLoadedProjectRed_exploration)
             register(Block.getBlockFromName(vint.integrationHelper.idProjectRed+":stone"),3,s);  //Basalt
-        }
-        if(vint.integrationHelper.isLoaded("railcraft")){
+        if(vint.integrationHelper.isLoaded("railcraft"))
             register(Block.getBlockFromName("railcraft:generic"), 8, s);   //abyssal stone
-        }
+        if(vint.integrationHelper.isLoaded("netherex"))
+            register(Block.getBlockFromName("netherex:basalt"), 0, s);
+        if(vint.integrationHelper.isLoadedChisel)
+            register(Block.getBlockFromName("chisel:basalt2"),7,s);
+
     }
 
     private static void initDiorite(){
@@ -86,6 +91,10 @@ public class ChlesisSetter {
         if(vint.integrationHelper.isLoaded("railcraft")){
             register(Block.getBlockFromName("railcraft:brick_sandy"), 2, s);
             register(Block.getBlockFromName("railcraft:brick_red_sandy"), 2, s);
+        }
+        if(vint.integrationHelper.isLoadedTinkers){
+            register(Block.getBlockFromName("tconstruct:dried_clay"),0,s);
+            register(Block.getBlockFromName("tconstruct:dried_clay"),1,s);
         }
     }
 

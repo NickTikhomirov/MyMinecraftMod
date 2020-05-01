@@ -1,5 +1,7 @@
 package koldunec.vint.init;
 
+import koldunec.vint.blocks.BaseNylium;
+import koldunec.vint.blocks.BlockTriDirectional;
 import koldunec.vint.blocks.ShroomLight;
 import koldunec.vint.blocks.plants.BorerReed;
 import koldunec.vint.vint;
@@ -24,6 +26,12 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockRegister
 {
+    public static Block BASALT_RAW = new BlockTriDirectional("basalt_raw");
+    public static Block BASALT_PILLAR = new BlockTriDirectional("basalt_pillar");
+
+    public static Block RED_NYLIUM = new BaseNylium("red_nylium");
+    public static Block BLUE_NYLIUM = new BaseNylium("blue_nylium");
+
     public static Block WATER_PORTAL = new basic_block("portal_water", Material.IRON,"pickaxe",1,5F, 30.0F,0);
     public static Block BLOCK_CHARCOAL = new basic_block("block_charcoal",Material.ROCK, "pickaxe",0,5F ,30F,255);
     public static Block CURING_CROPS = new curingCrops("curing_crops");
@@ -58,6 +66,12 @@ public class BlockRegister
 
     public static void register()
     {
+        registerBlock(BASALT_PILLAR);
+        registerBlock(BASALT_RAW);
+        registerBlock(SHROOMLIGHT);
+        registerBlock(RED_NYLIUM);
+        registerBlock(BLUE_NYLIUM);
+
         registerBlock(WATER_PORTAL);
         registerBlock(ORE_BIT);
         registerBlock(ORE_EGG);
@@ -83,8 +97,9 @@ public class BlockRegister
         ForgeRegistries.BLOCKS.register(REED_GUNPOWDER);
         if(vint.integrationHelper.isLoadedTwilight)
             ForgeRegistries.BLOCKS.register(REED_BORER);
-        registerBlock(SHROOMLIGHT);
 
+
+        /*
         if(vint.isLoadedProjectX) {
             if(vint.isLoadedSulfurTorches) {
                 registerBlock(ORE_ALUMINUM);
@@ -93,12 +108,17 @@ public class BlockRegister
         }
         //if(vint.isLoadedTwilight)
             //registerBlock(TOWER_FURNACE);
-
+        */
     }
 
     @SideOnly(Side.CLIENT)
-    public static void registerRender()
-    {
+    public static void registerRender() {
+        setRender(BASALT_RAW);
+        setRender(BASALT_PILLAR);
+        setRender(SHROOMLIGHT);
+        setRender(RED_NYLIUM);
+        setRender(BLUE_NYLIUM);
+
         setRender(WATER_PORTAL);
         setRender(ORE_BIT);
         setRender(ORE_EGG);
@@ -118,13 +138,15 @@ public class BlockRegister
         setRender(LLAMA_SPAWNER,0);
         setRender(LLAMA_SPAWNER,1);
         setRender(NETHER_CACTUS);
+
+        /*
         if(vint.isLoadedProjectX) {
             if(vint.isLoadedSulfurTorches) {
                 setRender(ORE_ALUMINUM);
                 setRender(ALBLOCK);
             }
         }
-        setRender(SHROOMLIGHT);
+        */
 
         //if(vint.isLoadedTwilight)
             //setRender(TOWER_FURNACE);

@@ -1,5 +1,20 @@
 itemGroup.magicTab=Various Interactions
 
+material.carminite.name=Carminite
+material.mazestone.name=Mazestone
+material.nether_cactus.name=Nether Cactus
+
+modifier.lefthandrule.name=Left Hand Rule
+modifier.lefthandrule.desc=§oThe Main Rule of Mazes: You should avoid mazes§r\nWhile the tool in your left hand, it uses durability of right hand's tool
+modifier.boring.name=Boring
+modifier.boring.desc=§oThis trait is pretty interesting§r\nYour tool is now able to break dirt and wood as if it is shovel or axe (no AOE though)
+modifier.mazey.name=Mazey
+modifier.mazey.desc=§oEww, moo-ey§r\nIt'll maze off.
+modifier.sixfeets.name=Primal Rage
+modifier.sixfeets.desc=§oSponsored by Those Strange Mushrooms(TM)§r\nIf block has at least one coordinate with prime absolute value, the mining speed is increased
+
+
+
 item.bitcoin.name=One Bitcoin
 item.bitcoin5000.name=Bitcoin-5000
 item.broom.name=Broom
@@ -8,7 +23,7 @@ item.potatogp.name=Golden Poisoned Potato
 item.magic_ball.name=Cursed Rock
 item.sparkles.name=Sparkles
 item.lasercore.name=Simple Laser
-item.stealer.name=Stealer
+item.stealer.name=Chlesis
 item.fishy.name=Fishy
 item.runic_stick.name=Runic Rod
 item.round_stone.name=Inert Stone
@@ -114,6 +129,10 @@ tile.ore_al.name=Aluminum Ore
 tile.radio_cactus.name=Nether Cactus
 
 tile.shroomlight.name=Shroomlight
+tile.basalt_raw.name=Basalt
+tile.basalt_pillar.name=Polished Basalt
+tile.red_nylium.name=Crimson Nylium
+tile.blue_nylium.name=Warped Nylium
 
 
 ########################

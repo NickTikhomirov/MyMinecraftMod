@@ -26,7 +26,7 @@ public class stORE extends Block {
         setRegistryName("st_ore");
         setUnlocalizedName("st_ore");
         setCreativeTab(vint.magicTab);
-        setHarvestLevel("pickaxe",1);
+        setHarvestLevel("pickaxe",0);
         setHardness(1.5F);
         setResistance(30F);
     }

@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "vint:basalt_raw",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "vint:basalt_raw"
+    },
+    "axis=z": {
+      "model": "vint:basalt_raw",
+      "x": 90
+    }
+  }
+}

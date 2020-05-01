@@ -1,0 +1,8 @@
+{
+  "type": "multicolor",
+  "parameters": {
+    "dark": "490000",
+    "mid": "9a0000",
+    "bright": "ff0000"
+  }
+}

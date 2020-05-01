@@ -1,6 +1,7 @@
 package koldunec.vint.compatibility;
 
 import koldunec.vint.helpers.IntegrationHelper;
+import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.items.Broom;
 import koldunec.vint.items.gunpowder_reed.reed_item;
@@ -32,17 +33,30 @@ public class OtherTweaker {
             Composter.inputs.put("vint:curinggrass", 0.3F);
             Composter.inputs.put("vint:radio_cactus", 0.65F);
             Composter.inputs.put("minecraft:web", 1F);
+            if(integrationHelper.isLoadedNatura){
+                Composter.inputs.put("natura:overworld_seeds", 0.3F);
+                Composter.inputs.put("natura:overworld_sapling", 0.4F);
+                Composter.inputs.put("natura:overworld_sapling2", 0.4F);
+            }
         }
     }
 
     public static void chiselUpgrade(){
+        String carv = getGroupName(Block.getBlockFromName("chisel:basalt"),1);
+        chiselInsert(carv, BlockRegister.BASALT_RAW,0);
+        chiselInsert(carv, BlockRegister.BASALT_PILLAR,0);
+        if(vint.integrationHelper.isLoadedProjectRed_exploration)
+            for(int i=2; i<5; ++i)
+                chiselInsert(carv, vint.integrationHelper.idProjectRed+":stone",i);
+
+
         if(integrationHelper.isLoadedCharm){
-            String carv = getGroupName(Blocks.GLOWSTONE,0);
+            carv = getGroupName(Blocks.GLOWSTONE,0);
             chiselInsert(carv,"charm:smooth_glowstone",0);
         }
 
         if(integrationHelper.isLoadedQuark){
-            String carv = getGroupName(Blocks.SANDSTONE,0);
+            carv = getGroupName(Blocks.SANDSTONE,0);
             chiselInsert(carv,"quark:sandstone_new",0);
             chiselInsert(carv,"quark:sandstone_new",1);
 

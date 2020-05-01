@@ -15,10 +15,12 @@ public class IntegrationHelper {
     public boolean isLoadedQuark = false;
     public boolean isLoadedCharm = false;
     public boolean isLoadedChisel = false;
+    public boolean isLoadedFuture = false;
 
     public String idTwilight = "twilightforest";
     public String idTinker = "tconstruct";
     public String idProjectRed = "projectred-exploration";
+    public String idFuture = "minecraftfuture";
 
     public void init(){
         isLoadedTwilight = isLoaded(idTwilight);
@@ -35,6 +37,7 @@ public class IntegrationHelper {
         isLoadedQuark = isLoaded("quark");
         isLoadedCharm = isLoaded("charm");
         isLoadedChisel = isLoaded("chisel");
+        isLoadedFuture = isLoaded(idFuture);
     }
 
     public boolean isLoaded(String name){
