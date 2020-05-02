@@ -3,6 +3,7 @@ package koldunec.vint.helpers;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
 
 public class NeighbourChecker {
 
@@ -11,6 +12,19 @@ public class NeighbourChecker {
     }
 
     public static int checkHorizontal(World w, BlockPos bp, INeighbourPredicate checker){
+        int i = 0;
+        if(checker.check(w.getBlockState(bp.north())))
+            ++i;
+        if(checker.check(w.getBlockState(bp.south())))
+            ++i;
+        if(checker.check(w.getBlockState(bp.east())))
+            ++i;
+        if(checker.check(w.getBlockState(bp.west())))
+            ++i;
+        return i;
+    }
+
+    public static int checkHorizontal(Chunk w, BlockPos bp, INeighbourPredicate checker){
         int i = 0;
         if(checker.check(w.getBlockState(bp.north())))
             ++i;

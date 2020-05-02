@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "vint:hell/debris_top",
+    "side": "vint:hell/debris_side"
+  }
+}

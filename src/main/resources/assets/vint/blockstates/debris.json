@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "vint:debris",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "vint:debris"
+    },
+    "axis=z": {
+      "model": "vint:debris",
+      "x": 90
+    }
+  }
+}

@@ -28,7 +28,7 @@ public class BlockRegister
 {
     public static Block BASALT_RAW = new BlockTriDirectional("basalt_raw");
     public static Block BASALT_PILLAR = new BlockTriDirectional("basalt_pillar");
-
+    public static Block FRESH_DEBRIS = new BlockTriDirectional("debris");
     public static Block RED_NYLIUM = new BaseNylium("red_nylium");
     public static Block BLUE_NYLIUM = new BaseNylium("blue_nylium");
 
@@ -71,6 +71,7 @@ public class BlockRegister
         registerBlock(SHROOMLIGHT);
         registerBlock(RED_NYLIUM);
         registerBlock(BLUE_NYLIUM);
+        registerBlock(FRESH_DEBRIS);
 
         registerBlock(WATER_PORTAL);
         registerBlock(ORE_BIT);
@@ -118,6 +119,7 @@ public class BlockRegister
         setRender(SHROOMLIGHT);
         setRender(RED_NYLIUM);
         setRender(BLUE_NYLIUM);
+        setRender(FRESH_DEBRIS);
 
         setRender(WATER_PORTAL);
         setRender(ORE_BIT);

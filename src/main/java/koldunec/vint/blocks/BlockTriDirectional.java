@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 public class BlockTriDirectional extends BlockRotatedPillar {
 
     static Material initMat(String s){
-        if(s.equals("basalt_raw") || s.equals("basalt_pillar")) {
+        if(s.equals("basalt_raw") || s.equals("basalt_pillar") || s.equals("debris")) {
             return Material.ROCK;
         }
         return Material.WOOD;
@@ -28,7 +28,7 @@ public class BlockTriDirectional extends BlockRotatedPillar {
         setUnlocalizedName(name);
         setDefaultState(blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y));
         setCreativeTab(vint.magicTab);
-        if(name.equals("basalt_raw") || name.equals("basalt_pillar")) {
+        if(name.equals("basalt_raw") || name.equals("basalt_pillar") || name.equals("debris")) {
             setHarvestLevel("pickaxe",0);
             setSoundType(SoundType.STONE);
             setHardness(1.5F);

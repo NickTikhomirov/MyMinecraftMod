@@ -1,10 +1,13 @@
 package koldunec.vint.world.nether;
 
 import koldunec.vint.helpers.ConfigHelper;
+import koldunec.vint.helpers.IntegrationHelper;
 import koldunec.vint.helpers.TechHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.vint;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
@@ -14,17 +17,29 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import slimeknights.tconstruct.shared.TinkerCommons;
+import slimeknights.tconstruct.world.TinkerWorld;
+import slimeknights.tconstruct.world.worldgen.MagmaSlimeIslandGenerator;
+import slimeknights.tconstruct.world.worldgen.SlimeTreeGenerator;
 
 import java.util.Random;
 
 public class NetherGenerator implements IWorldGenerator {
 
     NoiseGeneratorPerlin mainGenerator = null;
+    NoiseGeneratorPerlin secondGenerator = null;
+    IntegrationHelper integrationHelper = vint.integrationHelper;
 
     public NoiseGeneratorPerlin getGen(Random r){
         if(mainGenerator==null)
             mainGenerator = new NoiseGeneratorPerlin(r,2);
         return mainGenerator;
+    }
+
+    public NoiseGeneratorPerlin getGen2(Random r){
+        if(secondGenerator==null)
+            secondGenerator = new NoiseGeneratorPerlin(r,2);
+        return secondGenerator;
     }
 
     public NoiseGeneratorPerlin getGen(){
@@ -38,37 +53,32 @@ public class NetherGenerator implements IWorldGenerator {
         if(world.provider.getDimension()!=-1)
             return;
         Chunk ch = chunkProvider.getLoadedChunk(chunkX,chunkZ);
-        /*
-        for(int y=0; y<5; ++y)
-            for(int x=0; x<16; ++x)
-                for(int z=0; z<16; ++z)
-                    fillNatura(ch, new BlockPos(x,y+128,z));
-                    */
-
         NoiseGeneratorPerlin perlovka = getGen(random);
-
+        NoiseGeneratorPerlin stolovka = getGen2(random);
         int x = chunkX*16;
         int z = chunkZ*16;
 
         for(int i=0; i<16; ++i)
             for(int j=0; j<16; ++j){
-                int h = (int)(2*perlovka.getValue((x+i)/60.0,(z+j)/60.0));
-                fillColumnNatura(ch,new BlockPos(i,133+h,j));
+                int h1 = (int)(2*perlovka.getValue((x+i)/60.0,(z+j)/60.0));
+                int h2 = (int)(14*perlovka.getValue((x+i)/60.0,(z+j)/60.0));
+                int m = Math.max(h1,h2-6);
+                if(h2>0)
+                    fillColumnNatura2(ch,new BlockPos(i,133+m,j));
+                else
+                    fillColumnNatura(ch,new BlockPos(i,133+h1,j));
         }
 
-        if(TechHelper.isPrime(chunkX%41)&&TechHelper.isPrime(chunkZ%41)) {
-
-        } else if(vint.random.nextInt(125)==0){
-            for(int y=1; y<150; ++y)
-                fillSlice(ch,y);
-        } else if(vint.random.nextInt(200)==0){
+        if(vint.random.nextInt(125)==0){
+            generateTower(ch,random);
+        }/* else if(vint.random.nextInt(200)==0){
             for(int i=0; i<16; ++i)
                 for(int j=0; j<16; ++j) {
                     double foo = -(i - 7.5)*(i - 7.5)/10F - (j - 7.5)*(j - 7.5)/10F + 6;
                     int h = (int)(foo+perlovka.getValue((x+i)/20F,(z+j)/20F));
                     fillColumnNatura2(ch,new BlockPos(i,133+h,j));
                 }
-        }
+        }*/
     }
 
     void fillColumnNatura(Chunk ch, BlockPos bp){
@@ -94,27 +104,86 @@ public class NetherGenerator implements IWorldGenerator {
         ch.setBlockState(bp,BlockRegister.BASALT_RAW.getDefaultState());
     }
 
-    void fillSlice(Chunk ch, int y){
+    void fillSlice(Chunk ch, int y, IBlockState state){
         Vec3i center = new Vec3i(7,y,7);
         int x=0;
         int z=0;
         for(x=0; x<7; ++x) {
-            fillBasalt(ch, new BlockPos(x, 0, z).add(center));
-            fillBasalt(ch, new BlockPos(-x, 0, z).add(center));
-            fillBasalt(ch, new BlockPos(z, 0, x).add(center));
-            fillBasalt(ch, new BlockPos(z, 0, -x).add(center));
+            ch.setBlockState(new BlockPos(x, 0, z).add(center), state);
+            ch.setBlockState(new BlockPos(-x, 0, z).add(center), state);
+            ch.setBlockState(new BlockPos(z, 0, x).add(center), state);
+            ch.setBlockState(new BlockPos(z, 0, -x).add(center), state);
         }
         for(x=1;x<7;++x)
             for(z=1; z<7; ++z)
                 if(x+z<9 && (x!=2 || z!=6) && (z!=2 || x!=6))
-                    fillPoint4(ch,center,x,z);
+                    fillPoint4(ch,center,x,z,state);
     }
 
-    void fillPoint4(Chunk ch, Vec3i offset, int x, int z){
-        fillBasalt(ch, new BlockPos(x,0,z).add(offset));
-        fillBasalt(ch, new BlockPos(-x,0,z).add(offset));
-        fillBasalt(ch, new BlockPos(x,0,-z).add(offset));
-        fillBasalt(ch, new BlockPos(-x,0,-z).add(offset));
+
+    void fillPoint4(Chunk ch, Vec3i offset, int x, int z, IBlockState state){
+        ch.setBlockState(new BlockPos(x,0,z).add(offset), state);
+        ch.setBlockState(new BlockPos(-x,0,z).add(offset), state);
+        ch.setBlockState(new BlockPos(x,0,-z).add(offset), state);
+        ch.setBlockState(new BlockPos(-x,0,-z).add(offset), state);
+    }
+
+
+    void fillCirle(Chunk ch, int y, IBlockState state, IBlockState state2){
+        Vec3i center = new Vec3i(7,y,7);
+        IBlockState temp = state2;
+        int x;
+        int z=0;
+        for(x=0; x<7; ++x) {
+            ch.setBlockState(new BlockPos(x, 0, z).add(center), temp);
+            ch.setBlockState(new BlockPos(-x, 0, z).add(center), temp);
+            ch.setBlockState(new BlockPos(z, 0, x).add(center), temp);
+            ch.setBlockState(new BlockPos(z, 0, -x).add(center), temp);
+            if(x==5)
+                temp = state;
+        }
+        for(x=1;x<7;++x)
+            for(z=1; z<7; ++z)
+                if((x+z==8 && (x!=2 || z!=6) && (z!=2 || x!=6))
+                || (x+z==7 && x*z<12))
+                    fillPoint4(ch,center,x,z,state);
+                else if(x+z<8)
+                    fillPoint4(ch,center,x,z,state2);
+    }
+
+
+    void generateTower(Chunk ch, Random random){
+        int top = 150;
+        if(integrationHelper.isLoadedTinkers && random.nextInt(1)==0)
+            top = 131;
+        for(int y=1; y<top; ++y)
+            fillSlice(ch,y, BlockRegister.FRESH_DEBRIS.getDefaultState());
+        if(top==131){
+            IBlockState temp = Block.getBlockFromName(vint.integrationHelper.idTinker+":slime_dirt").getStateFromMeta(3);
+            for(int y=top; y<149;++y) {
+                fillCirle(ch, y, BlockRegister.FRESH_DEBRIS.getDefaultState(), temp);
+                if(y==top+2)
+                    temp = Block.getBlockFromName(vint.integrationHelper.idTinker+":slime_grass").getStateFromMeta(14);
+                if(y==top+3)
+                    temp = Blocks.AIR.getDefaultState();
+            }
+            top = 150;
+            fillSlice(ch,149,BlockRegister.FRESH_DEBRIS.getDefaultState());
+            int x = random.nextBoolean()?6:8;
+            int z = random.nextBoolean()?6:8;
+            SlimeTreeGenerator gen = new SlimeTreeGenerator(
+                    5,
+                    4,
+                    TinkerCommons.blockSlimeCongealed.func_176203_a(4),
+                    TinkerWorld.slimeLeaves.func_176203_a(2),
+                    null);
+            gen.generateTree(random,ch.getWorld(),new BlockPos((ch.x<<4)+x, 135,(ch.z<<4)+z));
+        }
+        if(integrationHelper.isLoadedQuark){
+            if(random.nextInt(4)==0)
+                for(int y=top;y<154; ++y)
+                    fillSlice(ch,y,Block.getBlockFromName("quark:blaze_lantern").getDefaultState());
+        }
     }
 
 }
