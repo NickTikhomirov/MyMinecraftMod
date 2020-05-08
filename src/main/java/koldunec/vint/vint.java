@@ -23,7 +23,6 @@ import java.util.Random;
                 "after:projectx;" +
                 "after:projectred-exploration;" +
                 "after:sulfurtorches;" +
-                "after:retroexchange;" +
                 "after:baubles;" +
                 "after:primitivemobs;" +
                 "after:thaumcraft;" +

@@ -5,14 +5,12 @@ import koldunec.vint.blocks.BlockTriDirectional;
 import koldunec.vint.blocks.ShroomLight;
 import koldunec.vint.blocks.plants.BorerReed;
 import koldunec.vint.blocks.plants.GlowCactus;
-import koldunec.vint.vint;
+import koldunec.vint.blocks.stORE;
 import koldunec.vint.items.*;
 import koldunec.vint.items.baseItems.basic_block;
 import koldunec.vint.items.baseItems.basic_planks;
 import koldunec.vint.items.curinggrass.curingCrops;
 import koldunec.vint.items.gunpowder_reed.block_gunreed;
-import koldunec.vint.tileentities.EntityStore;
-import koldunec.vint.tileentities.TileLlama;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -29,9 +27,10 @@ public class BlockRegister {
     public static Block FRESH_DEBRIS = new BlockTriDirectional("debris");
     public static Block RED_NYLIUM = new BaseNylium("red_nylium");
     public static Block BLUE_NYLIUM = new BaseNylium("blue_nylium");
+    public static Block RED_NY_LOG = new BlockTriDirectional("red_nether_log");
+    public static Block BLUE_NY_LOG = new BlockTriDirectional("blue_nether_log");
 
     public static Block NETHER_CACTUS = new GlowCactus();
-
 
     public static Block WATER_PORTAL = new basic_block("portal_water", Material.IRON,"pickaxe",1,5F, 30.0F,0);
     public static Block CURING_CROPS = new curingCrops("curing_crops");
@@ -71,6 +70,9 @@ public class BlockRegister {
         registerBlock(BLUE_NYLIUM);
         registerBlock(FRESH_DEBRIS);
 
+        registerBlock(RED_NY_LOG);
+        registerBlock(BLUE_NY_LOG);
+
         registerBlock(WATER_PORTAL);
         registerBlock(ORE_BIT);
         registerBlock(ORE_EGG);
@@ -103,6 +105,9 @@ public class BlockRegister {
         setRender(RED_NYLIUM);
         setRender(BLUE_NYLIUM);
         setRender(FRESH_DEBRIS);
+
+        setRender(RED_NY_LOG);
+        setRender(BLUE_NY_LOG);
 
         setRender(WATER_PORTAL);
         setRender(ORE_BIT);

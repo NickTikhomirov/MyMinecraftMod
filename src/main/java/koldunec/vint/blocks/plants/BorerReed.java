@@ -156,7 +156,7 @@ public class BorerReed extends Block implements IPlantable {
         IBlockState s = w.getBlockState(bp);
         //minecraftforum says
         // isFullBlock is more about placement
-        // isFullCuve is more about visual (shadows etc)
+        // isFullCube is more about visual (shadows etc)
         // however it is not a strict law
         //this says a lot about our society
         if(!s.isFullBlock())

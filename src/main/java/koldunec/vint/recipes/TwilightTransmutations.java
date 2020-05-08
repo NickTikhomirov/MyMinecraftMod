@@ -1,8 +1,6 @@
 package koldunec.vint.recipes;
 
-import javafx.util.Pair;
 import koldunec.vint.init.IntegrationHelper;
-import koldunec.vint.vint;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

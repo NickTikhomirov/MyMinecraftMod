@@ -1,6 +1,5 @@
 package koldunec.vint.init;
 
-import koldunec.vint.vint;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.PotionTypes;
@@ -19,38 +18,33 @@ import static net.minecraftforge.common.crafting.CraftingHelper.*;
 
 public class CraftingRegister
 {
-    public static void register()
-    {
-        registerRecipes("broom");
-        registerRecipes("charcoalblock");
-        registerRecipes("charcoalblock_");
-        registerRecipes("potatogp");
-        registerRecipes("sparkles_to_rainbow");
-        registerRecipes("lasercore");
-        registerRecipes("flint_base");
-        registerRecipes("flint_weak");
-        registerRecipes("runic_stick");
-        registerRecipes("curedeye");
-        registerRecipes("curedchicken");
-        registerRecipes("curedpotato");
-        registerRecipes("curedfish");
-        registerRecipes("mushroom_to_dye");
-        registerRecipes("mushroom_to_dye2");
-        registerRecipes("round_stone");
+    public static void register() {
+        initCoreCrafting();
+        initSmelting();
+        initBrewing();
+    }
 
-        if(IntegrationHelper.isLoadedTwilight){
-            registerRecipes("trans_1");
-            registerRecipes("trans_1_");
-            registerRecipes("carminite_axe");
-            registerRecipes("carminite_pick");
+
+
+    private static void initCoreCrafting(){
+        registerRecipes("core/broom");
+        if (IntegrationHelper.isLoadedTwilight) {
+            registerRecipes("twilight/trans_1");
         }
 
-
-        GameRegistry.addSmelting(BlockRegister.ORE_BIT,new ItemStack(ItemRegister.BITCOIN5000),0.5F);
-        GameRegistry.addSmelting(Items.GHAST_TEAR,new ItemStack(ItemRegister.SOUL_CRYSTAL_s),0.5F);
-        GameRegistry.addSmelting(ItemRegister.EFFECTSTORAGE,new ItemStack(ItemRegister.NETHER_CRYSTAL),1F);
+    }
 
 
+    private static void initSmelting(){
+        GameRegistry.addSmelting(BlockRegister.ORE_BIT, new ItemStack(ItemRegister.BITCOIN5000), 0.5F);
+        GameRegistry.addSmelting(ItemRegister.POTION_MIX, new ItemStack(ItemRegister.NETHER_CRYSTAL), 1F);
+        if(IntegrationHelper.isLoadedChisel){
+            //GameRegistry.addSmelting(Item.getByNameOrId(""), new ItemStack(ItemRegister.CHLESIS), 10F);
+        }
+    }
+
+
+    private static void initBrewing(){
         PotionHelper.addMix(PotionTypes.SWIFTNESS, Ingredient.fromStacks(new ItemStack(Items.DYE,1,3)), PotionRegister.HASTE_TYPE_STANDART);
         PotionHelper.addMix(PotionTypes.LONG_SWIFTNESS, Ingredient.fromStacks(new ItemStack(Items.DYE,1,3)), PotionRegister.HASTE_TYPE_LONG);
         PotionHelper.addMix(PotionRegister.HASTE_TYPE_STANDART, Items.REDSTONE, PotionRegister.HASTE_TYPE_LONG);
@@ -118,6 +112,7 @@ public class CraftingRegister
             PotionHelper.addMix(PotionRegister.WITHERPROTECTION_TYPE_STANDART,Ingredient.fromStacks(new ItemStack(Item.getByNameOrId("tconstruct:materials"),1,17)),PotionRegister.WITHERPROTECTION_TYPE_STRONG);
         }
     }
+
 
     private static void registerRecipes(String name) {
         CraftingHelper.register(new ResourceLocation("vint", name), (IRecipeFactory) (context, json) -> getRecipe(json, context));

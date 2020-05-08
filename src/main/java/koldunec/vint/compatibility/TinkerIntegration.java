@@ -1,9 +1,6 @@
 package koldunec.vint.compatibility;
 
-import koldunec.vint.compatibility.traits.Boring;
-import koldunec.vint.compatibility.traits.LeftHandRule;
-import koldunec.vint.compatibility.traits.Mazey;
-import koldunec.vint.compatibility.traits.Sixfeets;
+import koldunec.vint.compatibility.traits.*;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
@@ -26,14 +23,30 @@ public class TinkerIntegration {
     public static Material IRONWOOD = new Material("ironwood", getColor(154F,0,0));
     public static Material MAZESTONE = new Material("mazestone", getColor(110F,122,109));
     public static Material NETHER_CACTUS = new Material("nether_cactus",getColor(210,210,0));
+    public static Material CRIMSON_LOG = new Material("crimson_log", getColor(123F,0F,0F));
+    public static Material WARPED_LOG = new Material("warped_log", getColor(22F,97F,91F));
     public static AbstractTrait LEFT_HAND_RULE = new LeftHandRule();
     public static AbstractTrait BORING = new Boring();
     public static AbstractTrait SIXFEETS = new Sixfeets();
     public static AbstractTrait MAZEY = new Mazey();
+    public static AbstractTrait REDPOWER = new RedPower();
 
 
     public static void preInit(){
+        RedPower.initPerks();
+
         TinkerRegistry.addMaterialStats(NETHER_CACTUS,
+                new HeadMaterialStats(256, 6F, 4F, 1),
+                new ExtraMaterialStats(65),
+                new HandleMaterialStats(0.99F,20)
+        );
+
+        TinkerRegistry.addMaterialStats(CRIMSON_LOG,
+                new HeadMaterialStats(256, 6F, 4F, 1),
+                new ExtraMaterialStats(65),
+                new HandleMaterialStats(0.99F,20)
+        );
+        TinkerRegistry.addMaterialStats(WARPED_LOG,
                 new HeadMaterialStats(256, 6F, 4F, 1),
                 new ExtraMaterialStats(65),
                 new HandleMaterialStats(0.99F,20)
@@ -53,6 +66,8 @@ public class TinkerIntegration {
             TinkerRegistry.integrate(CARMINITE).preInit();
             TinkerRegistry.integrate(MAZESTONE).preInit();
             TinkerRegistry.integrate(NETHER_CACTUS).preInit();
+            TinkerRegistry.integrate(CRIMSON_LOG).preInit();
+            TinkerRegistry.integrate(WARPED_LOG).preInit();
         }
     }
 
@@ -86,5 +101,14 @@ public class TinkerIntegration {
         NETHER_CACTUS.setRepresentativeItem(BlockRegister.NETHER_CACTUS);
         NETHER_CACTUS.setCraftable(true).setCastable(false);
         NETHER_CACTUS.addTrait(TinkerTraits.hellish).addTrait(TinkerTraits.prickly);
+
+        CRIMSON_LOG.addItem(BlockRegister.RED_NY_LOG, 144);
+        WARPED_LOG.addItem(BlockRegister.BLUE_NY_LOG, 144);
+        CRIMSON_LOG.setRepresentativeItem(BlockRegister.RED_NY_LOG);
+        WARPED_LOG.setRepresentativeItem(BlockRegister.BLUE_NY_LOG);
+        CRIMSON_LOG.setCraftable(true).setCastable(false);
+        WARPED_LOG.setCraftable(true).setCastable(false);
+        CRIMSON_LOG.addTrait(TinkerTraits.hellish).addTrait(REDPOWER);
+        WARPED_LOG.addTrait(TinkerTraits.hellish).addTrait(TinkerTraits.alien);
     }
 }

@@ -55,8 +55,7 @@ import static koldunec.vint.init.PotionRegister.WITHERPROTECTION;
 
 
 @Mod.EventBusSubscriber
-public class EventHandler{
-
+public class VintMainEventHandler{
     @SubscribeEvent
     public static void onRightClick(PlayerInteractEvent.RightClickBlock e){
         if(IntegrationHelper.isLoadedTwilight){

@@ -2,13 +2,11 @@ package koldunec.vint.events;
 
 import koldunec.vint.helpers.VanillaHelper;
 import koldunec.vint.init.IntegrationHelper;
-import koldunec.vint.vint;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.init.LootRegister;
 import koldunec.vint.init.PotionRegister;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemMonsterPlacer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.ResourceLocation;
@@ -64,7 +62,6 @@ public class LootTable_Event {
         if(name.equals(LootTableList.CHESTS_JUNGLE_TEMPLE_DISPENSER)) {
             ItemStack egg = VanillaHelper.getEggFor(new ResourceLocation("minecraft", "cave_spider"));
             LootPool pool = e.getTable().getPool("main");
-            //e.getTable().getPool("main").removeEntry("minecraft:arrow");
             pool.setRolls(new RandomValueRange(2,2));
             pool.addEntry(new LootEntryItem(Items.TIPPED_ARROW, 1000, 0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(5, 10)), new SetNBT(new LootCondition[0], PotionUtils.addPotionToItemStack(new ItemStack(Items.TIPPED_ARROW), PotionRegister.MINDDEVOUR_TYPE_STANDARD).getTagCompound())}, new LootCondition[0], "loottable:tipped_surprise"));
             pool.addEntry(new LootEntryItem(Items.SPAWN_EGG, 1000, 0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(1, 3)), new SetNBT(new LootCondition[0],  egg.getTagCompound())}, new LootCondition[0], "loottable:spider_surprise"));

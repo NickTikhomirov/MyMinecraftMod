@@ -26,10 +26,10 @@ import team.chisel.api.IChiselItem;
 import team.chisel.api.carving.ICarvingVariation;
 import team.chisel.api.carving.IChiselMode;
 
-public class Stealer extends base_item implements IChiselItem {
+public class Chlesis extends base_item implements IChiselItem {
 
-    public Stealer(){
-        super("stealer",1);
+    public Chlesis(){
+        super("chlesis",1);
     }
 
     @Override

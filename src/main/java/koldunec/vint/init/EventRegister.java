@@ -6,11 +6,9 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class EventRegister {
     public static void register(){
-        MinecraftForge.EVENT_BUS.register(new EventHandler());
+        MinecraftForge.EVENT_BUS.register(new VintMainEventHandler());
         MinecraftForge.EVENT_BUS.register(new TechEvents());
         MinecraftForge.EVENT_BUS.register(new LootTable_Event());
         MinecraftForge.EVENT_BUS.register(new ThosePitifulDeaths());
-        if(IntegrationHelper.isLoadedTinkers && IntegrationHelper.isLoadedTwilight)
-            MinecraftForge.EVENT_BUS.register(new TinkerEventHandler());
     }
 }

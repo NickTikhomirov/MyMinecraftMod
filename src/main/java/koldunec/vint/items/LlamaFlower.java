@@ -3,6 +3,7 @@ package koldunec.vint.items;
 import koldunec.vint.vint;
 import koldunec.vint.tileentities.TileLlama;
 import net.minecraft.block.Block;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
@@ -35,6 +36,7 @@ public class LlamaFlower extends Block implements IInfusionStabiliserExt {
 
     public LlamaFlower(){
         super(Material.PLANTS);
+        setSoundType(SoundType.PLANT);
         setUnlocalizedName("llama_flower");
         setRegistryName("llama_flower");
         setDefaultState(this.blockState.getBaseState().withProperty(POWER,false));
@@ -43,6 +45,25 @@ public class LlamaFlower extends Block implements IInfusionStabiliserExt {
         lightValue=15;
     }
 
+
+    @Override
+    public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
+        pos = pos.down();
+        IBlockState blockstate = worldIn.getBlockState(pos);
+        return blockstate.isFullBlock() && blockstate.getMaterial().equals(Material.GROUND);
+    }
+
+    @Override
+    public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
+        pos = pos.down();
+        IBlockState bs = worldIn.getBlockState(pos);
+        if(!bs.getMaterial().equals(Material.GROUND) || !bs.isFullBlock()) {
+            dropBlockAsItem(worldIn, pos, this.getDefaultState(), 0);
+            worldIn.setBlockToAir(pos.up());
+        }
+    }
+
+
     @Override
     protected BlockStateContainer createBlockState() {
         return new BlockStateContainer(this, new IProperty[]{POWER});
@@ -50,7 +71,6 @@ public class LlamaFlower extends Block implements IInfusionStabiliserExt {
 
     @Override
     public int getMetaFromState(IBlockState state) {
-        //return super.getMetaFromState(state);
         return state.getValue(POWER)?1:0;
     }
 
@@ -66,7 +86,6 @@ public class LlamaFlower extends Block implements IInfusionStabiliserExt {
 
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-        //super.getDrops(drops, world, pos, state, fortune);
         drops.add(new ItemStack(this,1,0));
     }
 

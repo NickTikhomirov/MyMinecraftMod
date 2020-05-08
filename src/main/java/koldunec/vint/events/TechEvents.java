@@ -52,6 +52,7 @@ public class TechEvents {
             ModelLoader.setCustomModelResourceLocation(Scroll2,type.ordinal(), new ModelResourceLocation(Scroll2.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
         }
         //ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegister.LLAMA_SPAWNER),0, new ModelResourceLocation("llama_flower","inventory"));
+        //ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegister.LLAMA_SPAWNER),1, new ModelResourceLocation("llama_flower","inventory"));
     }
 
     @SubscribeEvent
@@ -73,8 +74,6 @@ public class TechEvents {
 
     @SubscribeEvent
     public static void fuel(FurnaceFuelBurnTimeEvent e) {
-        if (e.getItemStack().getItem() == Item.getItemFromBlock(BlockRegister.BLOCK_CHARCOAL))
-            e.setBurnTime(2000);
         if (e.getItemStack().getItem() == Items.EGG)
             e.setBurnTime(1);
     }

@@ -67,7 +67,7 @@ public class ItemRegister{
     public static Item FISHY = new base_food("fishy",64,1,1,false);
     public static Item GOLDENDIAMOND_APPLE = new gd_apple();
     public static Item DIAMONDGOLDEN_APPLE = new dg_apple();
-    public static Item EFFECTSTORAGE = new effectFreezer();
+    public static Item POTION_MIX = new effectFreezer();
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
     public static Item SHELL = new shell();
     public static Item HALFDUST = new base_item("halfdust",64);
@@ -77,7 +77,7 @@ public class ItemRegister{
     public static Item BROOM = new Broom("broom");
     public static Item MAGICBALL = new cursedRock("magic_ball",24);
     public static Item LASERCORE = new LaserCore();
-    public static Item STEALER = new Stealer();
+    public static Item CHLESIS = new Chlesis();
     public static Item xyAMULET = new xyAmulet();
     public static Item SAVIOUR = new saviour();
     public static Item SHOVEL_AMULET = new magic_shovel();
@@ -111,11 +111,11 @@ public class ItemRegister{
         setRegister(FISHY);
         setRegister(ANOTHER_DYE);
         setRegister(NETHER_DRINK);
-        setRegister(EFFECTSTORAGE);
+        setRegister(POTION_MIX);
         setRegister(BROOM);
         setRegister(MAGICBALL);
         setRegister(LASERCORE);
-        setRegister(STEALER);
+        setRegister(CHLESIS);
         setRegister(EYE_C);
         setRegister(CHICKEN_C);
         setRegister(POTATO_C);
@@ -171,11 +171,11 @@ public class ItemRegister{
         setRender(GOLDEN_POTATO);
         setRender(SPARKLES);
         setRender(MAGICBALL);
-        setRender(EFFECTSTORAGE);
+        setRender(POTION_MIX);
         setRender(FLESH);
         setRender(LASERCORE);
         setRender(CURINGSEEDS);
-        setRender(STEALER);
+        setRender(CHLESIS);
         setRender(FISHY);
         setRender(FLINTBASE);
         setRender(EYE_C);

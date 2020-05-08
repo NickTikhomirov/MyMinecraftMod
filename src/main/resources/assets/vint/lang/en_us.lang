@@ -3,6 +3,8 @@ itemGroup.magicTab=Various Interactions
 material.carminite.name=Carminite
 material.mazestone.name=Mazestone
 material.nether_cactus.name=Nether Cactus
+material.crimson_log.name=Crimson
+material.warped_log.name=Warped
 
 modifier.lefthandrule.name=Left Hand Rule
 modifier.lefthandrule.desc=§oThe Main Rule of Mazes: You should avoid mazes§r\nWhile the tool in your left hand, it uses durability of right hand's tool
@@ -12,18 +14,20 @@ modifier.mazey.name=Mazey
 modifier.mazey.desc=§oEww, moo-ey§r\nIt'll maze off.
 modifier.sixfeets.name=Primal Rage
 modifier.sixfeets.desc=§oSponsored by Those Strange Mushrooms(TM)§r\nIf block has at least one coordinate with prime absolute value, the mining speed is increased
+modifier.redpower.name=Red Power
+modifier.redpower.desc=§oNobody asked for this reference§r\nYour tool deals great damage to endermen and some other ender-specific creatures.
 
 
 
 item.bitcoin.name=One Bitcoin
-item.bitcoin5000.name=Bitcoin-5000
+item.bitcoin5000.name=Bitcoin 5000
 item.broom.name=Broom
 item.rEssence.name=Rainbow Essence
 item.potatogp.name=Golden Poisoned Potato
 item.magic_ball.name=Cursed Rock
 item.sparkles.name=Sparkles
 item.lasercore.name=Simple Laser
-item.stealer.name=Chlesis
+item.chlesis.name=Chlesis
 item.fishy.name=Fishy
 item.runic_stick.name=Runic Rod
 item.round_stone.name=Inert Stone
@@ -34,9 +38,7 @@ item.wooden_rune.name=Wooden Rune
 item.amulet0.name=Amulet of Magic Protection
 item.p_trans.name=Dye Transmutation Stone
 item.red_powder.name=Red Powder
-item.paint_operator.name=Color Operator
 item.cleaner.name=Sponge of Conceptualization
-item.cheasel.name=Chisel of Conceptualization
 item.ambersword.name=Reliquarist's Sword
 item.shovel_plus_plus.name=Miner's Amulet
 item.shell.name=Wooden Shell with Meef Stroganoff
@@ -113,8 +115,6 @@ item.mix_sea.name=Mix of Sea
 tile.ore_bit.name=Bitcoin Ore
 tile.ore_rainbow.name=Dye Ore
 tile.ore_egg.name=Егор
-tile.sparkleore.name=Sparkling Stone
-tile.block_charcoal.name=Charcoal Block
 tile.block_bricks_dark.name=Strange Bricks
 tile.block_bricks_light.name=Light Bricks
 tile.block_planks_light.name=Gray Planks
@@ -133,7 +133,10 @@ tile.basalt_raw.name=Basalt
 tile.basalt_pillar.name=Polished Basalt
 tile.red_nylium.name=Crimson Nylium
 tile.blue_nylium.name=Warped Nylium
-tile.debris.name=Completely Fresh Debris
+tile.debris.name=Absolutely Modern Debris
+
+tile.red_nether_log.name=Crimson Nylium Log
+tile.blue_nether_log.name=Warped Nylium Log
 
 
 ########################
