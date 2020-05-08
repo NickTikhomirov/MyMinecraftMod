@@ -3,6 +3,7 @@ package koldunec.vint.events;
 
 
 import koldunec.vint.helpers.SpawnCorrector;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.items.Broom;
 import koldunec.vint.vint;
 import koldunec.vint.items.tools.reliquarist_sword;
@@ -58,8 +59,8 @@ public class EventHandler{
 
     @SubscribeEvent
     public static void onRightClick(PlayerInteractEvent.RightClickBlock e){
-        if(vint.integrationHelper.isLoadedTwilight){
-            if(vint.integrationHelper.isLoaded("quark"))
+        if(IntegrationHelper.isLoadedTwilight){
+            if(IntegrationHelper.isLoaded("quark"))
                 if(!e.getWorld().isRemote && e.getItemStack().getItem().getClass().equals(ItemTFTransformPowder.class)) {
                     Block lantern = Blocks.SEA_LANTERN;
                     Block old = Block.getBlockFromName("quark:elder_sea_lantern");
@@ -92,11 +93,11 @@ public class EventHandler{
         }
         if(one.getClass().equals(EntitySkeleton.class)){
             if(vint.random.nextInt(20)==0){
-                if(vint.integrationHelper.isLoaded("randomthings")){
+                if(IntegrationHelper.isLoaded("randomthings")){
                     ItemStack a = new ItemStack(Items.TIPPED_ARROW,1);
                     PotionUtils.addPotionToItemStack(a, ModPotions.collapseTypeStrong);
                     one.setItemStackToSlot(EntityEquipmentSlot.OFFHAND,a);
-                    if(vint.isLoadedHype) {
+                    if(IntegrationHelper.isLoadedHype) {
                         one.setItemStackToSlot(EntityEquipmentSlot.CHEST, new ItemStack(Item.getByNameOrId("hypewear:baritone_white_chestplate"), 1, 0));
                         one.setItemStackToSlot(EntityEquipmentSlot.LEGS, new ItemStack(Item.getByNameOrId("hypewear:baritone_white_leggings"), 1, 0));
                     }
@@ -118,7 +119,7 @@ public class EventHandler{
                 if(toolMainHand.getItem() instanceof Broom && Broom.affected_blocks.contains(e.getState().getBlock())){
                     e.getDrops().clear();
                     e.getDrops().add(new ItemStack(e.getState().getBlock()));
-                } else if(vint.integrationHelper.isLoadedTwilight &&
+                } else if(IntegrationHelper.isLoadedTwilight &&
                         (toolMainHand.getItem().equals(ItemRegister.CARMINITE_AXE)) ||
                         toolMainHand.getItem() instanceof ItemTFMinotaurAxe){
                     if(e.getState().getBlock() instanceof BlockTFMagicLogSpecial) {
@@ -133,7 +134,7 @@ public class EventHandler{
 
         }
 
-        if(vint.integrationHelper.isLoadedTwilight){
+        if(IntegrationHelper.isLoadedTwilight){
             if(e.getState().getBlock() instanceof BlockTFMagicLeaves)
                 if((((BlockTFMagicLeaves)e.getState().getBlock()).func_176201_c(e.getState())&3)==1){
                     if(!e.getDrops().contains(new ItemStack(Item.getItemFromBlock(e.getState().getBlock())))) {
@@ -159,8 +160,8 @@ public class EventHandler{
         Entity enemy = e.getSource().getTrueSource();
         DamageSource damage_type = e.getSource();
 
-        if(vint.isLoadedPrimitive){
-            if(vint.isLoadedProjectRed_exploration && e.getEntityLiving() instanceof EntityVoidEye){
+        if(IntegrationHelper.isLoadedPrimitive){
+            if(IntegrationHelper.isLoadedProjectRed_exploration && e.getEntityLiving() instanceof EntityVoidEye){
                 if(enemy instanceof EntityPlayer && !((EntityPlayer)enemy).getHeldItemMainhand().isEmpty()){
                     if(isAthame(((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand()))
                         e.setAmount(25F);
@@ -251,7 +252,7 @@ public class EventHandler{
                     e.getEntityLiving().attackEntityFrom(nn, e.getAmount()-2);
                 }
                 e.setAmount(0);
-            } else if(vint.isLoadedTwilight & victim instanceof EntityPlayer){
+            } else if(IntegrationHelper.isLoadedTwilight & victim instanceof EntityPlayer){
                 EntityPlayer player = (EntityPlayer) e.getEntity();
                 Item curer = ItemRegister.MAGIC_PROTECTOR;
                 if(player.getHeldItem(EnumHand.OFF_HAND).getItem().equals(curer)) {

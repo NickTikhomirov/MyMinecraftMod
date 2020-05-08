@@ -5,6 +5,7 @@ import baubles.api.BaublesApi;
 import baubles.api.IBauble;
 import baubles.api.cap.IBaublesItemHandler;
 import koldunec.vint.init.BlockRegister;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.items.baseItems.base_item;
 import koldunec.vint.vint;
@@ -42,7 +43,7 @@ public class magic_shovel extends base_item implements IBauble{
     //called in events section
     public static boolean isEquiped(EntityPlayer e){
         if(e.getEntityWorld().isRemote) return false;
-        if (vint.isLoadedBaubles) {
+        if (IntegrationHelper.isLoadedBaubles) {
             if(e.getHeldItemMainhand().getItem() instanceof ItemSpade) return false;
             if(BaublesApi.isBaubleEquipped(e, ItemRegister.SHOVEL_AMULET) != -1) return true;
         }

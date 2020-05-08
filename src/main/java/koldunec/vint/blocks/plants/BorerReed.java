@@ -1,6 +1,7 @@
 package koldunec.vint.blocks.plants;
 
 import koldunec.vint.helpers.NeighbourChecker;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.items.gunpowder_reed.block_gunreed;
 import koldunec.vint.vint;
@@ -51,7 +52,7 @@ public class BorerReed extends Block implements IPlantable {
 
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
-        if(!vint.integrationHelper.isLoadedTwilight)
+        if(!IntegrationHelper.isLoadedTwilight)
             return;
         if(!checkAndDrop(worldIn, pos))
             return;

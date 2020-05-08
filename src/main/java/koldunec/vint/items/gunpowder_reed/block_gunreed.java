@@ -1,5 +1,6 @@
 package koldunec.vint.items.gunpowder_reed;
 
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
@@ -127,7 +128,7 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
                         }
                     }
                 }
-            } else if(type==1 && vint.isLoadedProjectRed_exploration){
+            } else if(type==1 && IntegrationHelper.isLoadedProjectRed_exploration){
                 if(pos.getY()>254 || !isReed(worldIn.getBlockState(pos.up()).getBlock())){
                     if(true){
                         if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, true)) {
@@ -210,7 +211,7 @@ public class block_gunreed extends Block implements net.minecraftforge.common.IP
     }
 
     public static int getFinalVariant(){
-        return vint.integrationHelper.isLoadedProjectRed_exploration?2:1;
+        return IntegrationHelper.isLoadedProjectRed_exploration?2:1;
     }
 
 

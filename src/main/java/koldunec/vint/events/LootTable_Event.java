@@ -1,6 +1,7 @@
 package koldunec.vint.events;
 
 import koldunec.vint.helpers.VanillaHelper;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.init.LootRegister;
@@ -32,13 +33,13 @@ public class LootTable_Event {
             return;
         }
 
-        if(vint.integrationHelper.isLoadedTinkers && vint.isLoadedPrimitive){
+        if(IntegrationHelper.isLoadedTinkers && IntegrationHelper.isLoadedPrimitive){
             if(name.equals(new ResourceLocation("primitivemobs","entities/flame_spewer")))
                 LootInjections.flameSpewerInjection(e.getTable());
             return;
         }
 
-        if(vint.integrationHelper.isLoadedTwilight) {
+        if(IntegrationHelper.isLoadedTwilight) {
             ResourceLocation r = new ResourceLocation("twilightforest","structures/hill_1/common");
             if (name.equals(r)) {
                 final LootPool pool2 = e.getTable().getPool("main");

@@ -4,6 +4,7 @@ import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
 import baubles.api.IBauble;
 import baubles.api.cap.IBaublesItemHandler;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.items.baseItems.base_item;
 import koldunec.vint.init.ItemRegister;
@@ -42,13 +43,13 @@ public class saviour extends base_item implements IBauble{
         if(e.getEntityWorld().isRemote) return false;
         if(e.getEntityWorld().getGameRules().getBoolean("keepInventory"))
             return false;
-        if (vint.isLoadedBaubles)
+        if (IntegrationHelper.isLoadedBaubles)
             if (BaublesApi.isBaubleEquipped(e, ItemRegister.SAVIOUR) != -1) return true;
         return false;
     }
 
     public static void savePoorThing(EntityPlayer player){
-        if(!vint.isLoadedBaubles) return;
+        if(!IntegrationHelper.isLoadedBaubles) return;
         InventoryBasic endChest = player.getInventoryEnderChest();
         IBaublesItemHandler r = BaublesApi.getBaublesHandler(player);
         //armor

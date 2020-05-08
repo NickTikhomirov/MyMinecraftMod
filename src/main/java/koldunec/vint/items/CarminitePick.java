@@ -1,5 +1,6 @@
 package koldunec.vint.items;
 
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.init.MaterialRegister;
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +20,7 @@ public class CarminitePick extends ItemPickaxe {
 
     @Override
     public float getDestroySpeed(ItemStack stack, IBlockState state) {
-        if(vint.isLoadedTwilight){
+        if(IntegrationHelper.isLoadedTwilight){
             if(state.getBlock() instanceof BlockTFMazestone) {
                 return 144F;
             }
@@ -29,7 +30,7 @@ public class CarminitePick extends ItemPickaxe {
 
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
-        if(vint.isLoadedTwilight)
+        if(IntegrationHelper.isLoadedTwilight)
             if(repair.getItem().equals(TFItems.carminite)) return true;
         return false;
     }

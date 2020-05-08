@@ -1,3 +1,6 @@
 {
-  "parent": "vint:block/llama_flower"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "vint:block/llama_flower"
+  }
 }

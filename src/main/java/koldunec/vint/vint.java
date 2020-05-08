@@ -1,6 +1,5 @@
 package koldunec.vint;
 
-import koldunec.vint.helpers.IntegrationHelper;
 import koldunec.vint.proxy.CommonProxy;
 import koldunec.vint.utils.magicTab;
 import net.minecraft.creativetab.CreativeTabs;
@@ -33,8 +32,7 @@ import java.util.Random;
                 "after:scalinghealth;"+
                 "after:chisel"
 )
-public class vint
-{
+public class vint{
     @Mod.Instance("vint")
     public static vint instance;
     public static final String MODID = "vint";
@@ -44,51 +42,11 @@ public class vint
     public static CommonProxy proxy;
     public static CreativeTabs magicTab = new magicTab("magicTab");
     public static Random random = new Random();
-    public static IntegrationHelper integrationHelper = new IntegrationHelper();
-    public static boolean isLoadedTwilight = false;
-    public static boolean isLoadedTinkers = false;
-    public static boolean isLoadedProjectX = false;
-    public static boolean isLoadedProjectRed_exploration = false;
-    public static boolean isLoadedSulfurTorches = false;
-    public static boolean isLoadedBaubles = false;
-    public static boolean isLoadedPrimitive = false;
-    public static boolean isLoadedThaumcraft = false;
-    public static boolean isLoadedNatura = false;
-    public static boolean isLoadedHype = false;
-    public static boolean isLoadedScalingH = false;
-
 
 
     @EventHandler
-    public void preInit(FMLPreInitializationEvent event)
-    {
-        integrationHelper.init();
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("twilightforest"))
-            isLoadedTwilight = true;
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("tconstruct"))
-            isLoadedTinkers = true;
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("projectx"))
-            isLoadedProjectX = true;
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("sulfurtorches"))
-            isLoadedSulfurTorches = true;
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("projectred-exploration"))
-            isLoadedProjectRed_exploration = true;
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("baubles"))
-            isLoadedBaubles = true;
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("primitivemobs"))
-            isLoadedPrimitive = true;
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("thaumcraft"))
-            isLoadedThaumcraft = true;
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("natura"))
-            isLoadedNatura = true;
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("hypewear"))
-            isLoadedHype = true;
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("scalinghealth"))
-            isLoadedScalingH = true;
-
+    public void preInit(FMLPreInitializationEvent event) {
         proxy.preInit(event);
-
-
     }
 
     @EventHandler

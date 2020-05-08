@@ -1,5 +1,6 @@
 package koldunec.vint.world.generate;
 
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.items.scroll2;
 import koldunec.vint.vint;
 import koldunec.vint.world.structures.ISkyIsle;
@@ -32,7 +33,7 @@ public class SkyIsleGenerator implements IWorldGenerator {
     }
 
     public SkyIsleGenerator(){
-        if(vint.isLoadedTwilight)
+        if(IntegrationHelper.isLoadedTwilight)
             islesTwi = new ISkyIsle[]{
                 new TwilightIsland()
             };
@@ -75,7 +76,7 @@ public class SkyIsleGenerator implements IWorldGenerator {
     boolean worldNGen(WorldProvider wp){
         if(wp.getDimension()==0) return false;
         //if(wp.getDimension()==-1) return false;
-        if(vint.isLoadedTwilight) return !TwilightIsland.checkTwilight(wp);
+        if(IntegrationHelper.isLoadedTwilight) return !TwilightIsland.checkTwilight(wp);
         return true;
     }
 }

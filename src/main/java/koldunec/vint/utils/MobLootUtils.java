@@ -1,5 +1,6 @@
 package koldunec.vint.utils;
 
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.items.tools.reliquarist_sword;
 import net.minecraft.entity.Entity;
@@ -52,7 +53,7 @@ public class MobLootUtils {
                     list.add(formDrop(victim, new ItemStack(xe,1,4)));
                 }
             }
-        } else if(vint.isLoadedTwilight && victim instanceof EntityTFSlimeBeetle){
+        } else if(IntegrationHelper.isLoadedTwilight && victim instanceof EntityTFSlimeBeetle){
             if(reliquarist_sword.countReliqueDrop(weapon,5)){
                 list.add(formDrop(victim, new ItemStack(xe,1,4)));
             }

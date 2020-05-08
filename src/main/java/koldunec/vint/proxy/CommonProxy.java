@@ -10,10 +10,10 @@ import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 public class CommonProxy {
-
         public void preInit(FMLPreInitializationEvent event) {
                 ConfigHelper.init();
                 EntityRegister.register();
+                TileRegister.register();
                 ItemRegister.register();
                 BlockRegister.register();
                 CompatibilityRegister.preInit();

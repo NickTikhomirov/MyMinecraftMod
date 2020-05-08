@@ -1,4 +1,4 @@
-package koldunec.vint.items;
+package koldunec.vint.blocks.plants;
 
 import koldunec.vint.vint;
 import net.minecraft.block.BlockCactus;
@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
-public class radio_cactus extends BlockCactus {
-    public radio_cactus(){
+public class GlowCactus extends BlockCactus {
+    public GlowCactus(){
         super();
         setCreativeTab(vint.magicTab);
         lightValue=15;

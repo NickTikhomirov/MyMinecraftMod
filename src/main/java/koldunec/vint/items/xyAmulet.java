@@ -3,6 +3,7 @@ package koldunec.vint.items;
 import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
 import baubles.api.IBauble;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.items.baseItems.base_item;
 import koldunec.vint.init.ItemRegister;
@@ -61,9 +62,9 @@ public class  xyAmulet extends base_item implements IBauble{
     }
 
     public static boolean isEquiped(EntityPlayer e){
-        if(vint.isLoadedProjectX && vint.isLoadedSulfurTorches) {
+        if(IntegrationHelper.isLoadedProjectX && IntegrationHelper.isLoadedSulfurTorches) {
             if (e.getHeldItemOffhand().getItem().equals(ItemRegister.xyAMULET)) return true;
-            if (vint.isLoadedBaubles)
+            if (IntegrationHelper.isLoadedBaubles)
                 if (BaublesApi.isBaubleEquipped(e, ItemRegister.xyAMULET) != -1) return true;
         }
         return false;

@@ -2,6 +2,7 @@ package koldunec.vint.compatibility;
 
 
 import koldunec.vint.init.BlockRegister;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.recipes.AlternativeCarving;
 import koldunec.vint.vint;
 import net.minecraft.block.Block;
@@ -23,7 +24,7 @@ public class ChlesisSetter {
         register(Blocks.STONE,0, s);
         register(Blocks.STONE,5, s);
         register(Block.getBlockFromName("chisel:limestone2"),7,s);
-        if(vint.integrationHelper.isLoaded("quark")){
+        if(IntegrationHelper.isLoadedQuark){
             register(Block.getBlockFromName("quark:limestone"), 0, s);
             register(Block.getBlockFromName("quark:biome_cobblestone"), 2, s);
         }
@@ -33,13 +34,13 @@ public class ChlesisSetter {
         String s = "Basalt";
         register(BlockRegister.BASALT_RAW,0,s);
         register(BlockRegister.BASALT_PILLAR,0,s);
-        if(vint.isLoadedProjectRed_exploration)
-            register(Block.getBlockFromName(vint.integrationHelper.idProjectRed+":stone"),3,s);  //Basalt
-        if(vint.integrationHelper.isLoaded("railcraft"))
+        if(IntegrationHelper.isLoadedProjectRed_exploration)
+            register(Block.getBlockFromName(IntegrationHelper.idProjectRed+":stone"),3,s);  //Basalt
+        if(IntegrationHelper.isLoaded("railcraft"))
             register(Block.getBlockFromName("railcraft:generic"), 8, s);   //abyssal stone
-        if(vint.integrationHelper.isLoaded("netherex"))
+        if(IntegrationHelper.isLoaded("netherex"))
             register(Block.getBlockFromName("netherex:basalt"), 0, s);
-        if(vint.integrationHelper.isLoadedChisel)
+        if(IntegrationHelper.isLoadedChisel)
             register(Block.getBlockFromName("chisel:basalt2"),7,s);
 
     }
@@ -48,16 +49,16 @@ public class ChlesisSetter {
         String s = "Diorite";
         register(Blocks.STONE,3, s);
         register(Block.getBlockFromName("chisel:marble2"),7,s);
-        if(vint.isLoadedProjectRed_exploration){
-            register(Block.getBlockFromName(vint.integrationHelper.idProjectRed+":stone"),0,s);  //marble
+        if(IntegrationHelper.isLoadedProjectRed_exploration){
+            register(Block.getBlockFromName(IntegrationHelper.idProjectRed+":stone"),0,s);  //marble
         }
-        if(vint.integrationHelper.isLoaded("railcraft")){
+        if(IntegrationHelper.isLoaded("railcraft")){
             register(Block.getBlockFromName("railcraft:generic"), 9, s);   //quarried stone
         }
-        if(vint.integrationHelper.isLoaded("astralsorcery")){
+        if(IntegrationHelper.isLoaded("astralsorcery")){
             register(Block.getBlockFromName("astralsorcery:blockmarble"),0, s);
         }
-        if(vint.integrationHelper.isLoaded("quark")){
+        if(IntegrationHelper.isLoadedQuark){
             register(Block.getBlockFromName("quark:marble"), 0, s);
         }
     }
@@ -66,7 +67,7 @@ public class ChlesisSetter {
     private static void initGranite(){
         String s = "Granite";
         register(Blocks.STONE,1, s);
-        if(vint.integrationHelper.isLoaded("quark")){
+        if(IntegrationHelper.isLoadedQuark){
             register(Block.getBlockFromName("quark:slate"), 0, s);
             register(Block.getBlockFromName("quark:biome_cobblestone"), 0, s);
             register(Block.getBlockFromName("quark:biome_cobblestone"), 1, s);
@@ -85,14 +86,14 @@ public class ChlesisSetter {
         register(BlockRegister.BRICKS_Dark,0,s);
         register(BlockRegister.BRICKS_Light,0,s);
         register(Block.getBlockFromName("chisel:brownstone"),0,s);
-        if(vint.integrationHelper.isLoaded("quark")){
+        if(IntegrationHelper.isLoadedQuark){
             register(Block.getBlockFromName("quark:sandy_bricks"), 0, s);
         }
-        if(vint.integrationHelper.isLoaded("railcraft")){
+        if(IntegrationHelper.isLoaded("railcraft")){
             register(Block.getBlockFromName("railcraft:brick_sandy"), 2, s);
             register(Block.getBlockFromName("railcraft:brick_red_sandy"), 2, s);
         }
-        if(vint.integrationHelper.isLoadedTinkers){
+        if(IntegrationHelper.isLoadedTinkers){
             register(Block.getBlockFromName("tconstruct:dried_clay"),0,s);
             register(Block.getBlockFromName("tconstruct:dried_clay"),1,s);
         }

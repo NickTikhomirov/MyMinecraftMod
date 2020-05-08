@@ -4,7 +4,6 @@ import koldunec.vint.compatibility.ChlesisSetter;
 import koldunec.vint.compatibility.OtherTweaker;
 import koldunec.vint.compatibility.TinkerIntegration;
 import koldunec.vint.containers.ContainerChlesis;
-import koldunec.vint.helpers.IntegrationHelper;
 import koldunec.vint.vint;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -12,23 +11,22 @@ import net.minecraftforge.oredict.OreDictionary;
 
 public class CompatibilityRegister {
 
-    public static IntegrationHelper integrationHelper = vint.integrationHelper;
 
     public static void preInit(){
         oreRegisterItems();
         oreRegisterBlocks();
-        if(integrationHelper.isLoadedTinkers)
+        if(IntegrationHelper.isLoadedTinkers)
             TinkerIntegration.preInit();
     }
 
     public static void init(){
         oreRegisterSideItems();
         OtherTweaker.trivia();
-        if(integrationHelper.isLoadedTinkers)
+        if(IntegrationHelper.isLoadedTinkers)
             TinkerIntegration.init();
 
 
-        if(integrationHelper.isLoadedChisel){
+        if(IntegrationHelper.isLoadedChisel){
             ContainerChlesis.initMyCarving();
             ChlesisSetter.init();
             OtherTweaker.chiselUpgrade();
@@ -56,7 +54,7 @@ public class CompatibilityRegister {
     }
 
     public static void oreRegisterSideItems(){
-        if(integrationHelper.isLoadedProjectX){
+        if(IntegrationHelper.isLoadedProjectX){
             OreDictionary.registerOre("dyeBlue", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 0));
             OreDictionary.registerOre("dyeLime", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 1));
             OreDictionary.registerOre("dyeRed", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 2));

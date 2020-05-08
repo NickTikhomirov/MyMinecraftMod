@@ -1,5 +1,6 @@
 package koldunec.vint.items.tools;
 
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import net.minecraft.client.resources.I18n;
 import koldunec.vint.init.ItemRegister;
@@ -29,7 +30,7 @@ public class reliquarist_sword extends ItemSword {
 
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
-        if(vint.isLoadedThaumcraft)
+        if(IntegrationHelper.isLoadedThaumcraft)
             if(repair.getItem().getClass().equals(ItemAlumentum.class)) return true;
         return false;
     }
@@ -57,7 +58,7 @@ public class reliquarist_sword extends ItemSword {
             return;
         }
         if(stack.getItem().equals(ItemRegister.RELIQUARISTS_SWORD) &&
-                net.minecraftforge.fml.common.Loader.isModLoaded("embers"))
+                IntegrationHelper.isLoaded("embers"))
             tooltip.add(TextFormatting.GOLD+I18n.format("vint:flavor2"));
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }

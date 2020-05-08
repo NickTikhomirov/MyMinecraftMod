@@ -5,6 +5,7 @@ import koldunec.vint.compatibility.traits.LeftHandRule;
 import koldunec.vint.compatibility.traits.Mazey;
 import koldunec.vint.compatibility.traits.Sixfeets;
 import koldunec.vint.init.BlockRegister;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -38,7 +39,7 @@ public class TinkerIntegration {
                 new HandleMaterialStats(0.99F,20)
         );
 
-        if(vint.integrationHelper.isLoadedTwilight) {
+        if(IntegrationHelper.isLoadedTwilight) {
             TinkerRegistry.addMaterialStats(CARMINITE,
                     new HeadMaterialStats(200, 11F, 7.5F, 2),
                     new ExtraMaterialStats(150),
@@ -57,7 +58,7 @@ public class TinkerIntegration {
 
 
     public static void init(){
-        if(vint.integrationHelper.isLoadedTwilight) {
+        if(IntegrationHelper.isLoadedTwilight) {
             CARMINITE.addItem(new ItemStack(Item.getByNameOrId("twilightforest:carminite"), 1), 1, 144);
             CARMINITE.setRepresentativeItem(Item.getByNameOrId("twilightforest:carminite"));
             CARMINITE.setCraftable(true).setCastable(false);

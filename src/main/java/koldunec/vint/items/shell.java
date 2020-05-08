@@ -1,5 +1,6 @@
 package koldunec.vint.items;
 
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.items.baseItems.base_item;
 import koldunec.vint.vint;
@@ -33,7 +34,7 @@ public class shell extends base_item {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand handIn) {
         if(!player.getHeldItem(handIn).getItem().equals(ItemRegister.SHELL))
             new ActionResult<>(EnumActionResult.FAIL,player.getHeldItem(handIn));
-        if(!vint.isLoadedTwilight)
+        if(!IntegrationHelper.isLoadedTwilight)
             new ActionResult<>(EnumActionResult.FAIL,player.getHeldItem(handIn));
         player.setActiveHand(handIn);
         return new ActionResult<>(EnumActionResult.PASS,player.getHeldItem(handIn));

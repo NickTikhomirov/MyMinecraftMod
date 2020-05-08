@@ -3,7 +3,6 @@ package koldunec.vint.init;
 
 import koldunec.vint.items.CarminitePick;
 import koldunec.vint.items.blockitems.ReedBorerItem;
-import koldunec.vint.vint;
 import koldunec.vint.items.*;
 import koldunec.vint.items.baseItems.base_food;
 import koldunec.vint.items.baseItems.base_fuel;
@@ -29,8 +28,7 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-public class ItemRegister
-{
+public class ItemRegister{
     public static Item CURINGSEEDS = new curingseeds();
     public static Item CURING_GRASS= new curinggrass();
     public static Item SUPERCURING_GRASS= new supercuringgrass();
@@ -47,7 +45,6 @@ public class ItemRegister
     public static Item ESSENCE_RAINBOW= new base_item("rEssence", 64);
     public static Item FLINTBASE = new flint_base();
     public static Item MAGIC_FLINTS = new flints();
-    public static Item RUNIC_STICK = new base_item("runic_stick",64);
     public static Item ROUND_STONE = new inertstone("round_stone",64);
     public static Item SOUL_CRYSTAL_s = new base_item("soul_crystal",64);
     public static Item WOODEN_RUNE = new base_item("wooden_rune",64);
@@ -55,11 +52,6 @@ public class ItemRegister
     public static Item NETHER_CRYSTAL = new base_item("nether_crystal",64);
     public static Item SOUL = new base_item("small_soul",64);
     public static Item RED_POWDER = new oreProspector();
-//    public static Item MIX_WILDLIFE = new base_item("mix_wildlife",64);
-//    public static Item MIX_NATURE= new base_item("mix_nature",64);
-//    public static Item MIX_NATURE_P = new base_item("mix_nature_p",64);
-//    public static Item MIX_SEA = new base_item("mix_sea",64);
-    public static Item NETHER_CUP = new base_item("nether_cup",64);
 
     public static Item GOLDEN_DIAMOND = new base_item("dg0",64);
     public static Item DIAMOND_GOLD = new base_item("dg1",64);
@@ -83,7 +75,6 @@ public class ItemRegister
     public static Item RELIQUARISTS_SWORD = new reliquarist_sword(MaterialRegister.thaumicMix,"ambersword");
     public static Item DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD = new reliquarist_sword(MaterialRegister.diamondgolden_golden_diamond, "dggd_sword");
     public static Item BROOM = new Broom("broom");
-    public static Item MAGNETPICK = new magnetpick();
     public static Item MAGICBALL = new cursedRock("magic_ball",24);
     public static Item LASERCORE = new LaserCore();
     public static Item STEALER = new Stealer();
@@ -93,7 +84,6 @@ public class ItemRegister
     public static Item MAGIC_PROTECTOR = new base_item("amulet0",16);
     public static Item PAINT_TRANSMUTATOR = new paint_transmutator();
     public static Item SOUL_SHEARS = new soul_shears();
-    public static Item PAINT_OPERATOR = new paint_operator();
     public static Item SPONGE_OF_CONCEPTUALIZATION = new cleaner();
     public static Item CHISEl_OF_CONCEPTUALIZATION = new cheasel();
     public static Item SCROLL = new scroll();
@@ -105,7 +95,6 @@ public class ItemRegister
     public static Item CARMINITE_PICKAXE = new CarminitePick();
 
     public static Item ALUMINUM = new base_item("aluminum", 64);
-    public static Item SULFUR = new base_item("sulfur", 64);
 
     public static void register() {
         setRegister(VANILLA_POWDER);
@@ -117,7 +106,6 @@ public class ItemRegister
         setRegister(ESSENCE_RAINBOW);
         setRegister(FLINTBASE);
         setRegister(MAGIC_FLINTS);
-        //setRegister(RUNIC_STICK);
         setRegister(GOLDEN_POTATO);
         setRegister(FLESH);
         setRegister(FISHY);
@@ -133,7 +121,6 @@ public class ItemRegister
         setRegister(POTATO_C);
         setRegister(FISH_C);
         setRegister(ROUND_STONE);
-        //setRegister(MAGNETPICK);
         setRegister(BITCOIN5000);
         setRegister(SOUL_CRYSTAL_s);
         setRegister(MAGIC_PROTECTOR);
@@ -146,7 +133,6 @@ public class ItemRegister
         setRegister(NETHER_CRYSTAL);
         setRegister(SOUL);
         setRegister(RED_POWDER);
-        //setRegister(PAINT_OPERATOR);
         setRegister(DIAMOND_GOLD);
         setRegister(GOLDEN_DIAMOND);
         setRegister(DIAMONDGOLDEN_GOLDEN_DIAMOND);
@@ -162,29 +148,13 @@ public class ItemRegister
         setRegister(DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD);
         setRegister(HALFDUST);
 
-        //setRegister(MIX_WILDLIFE);
-        //setRegister(MIX_NATURE);
-        //setRegister(MIX_NATURE_P);
-        //setRegister(MIX_SEA);
-
-        if(vint.isLoadedTwilight){
+        if(IntegrationHelper.isLoadedTwilight){
             setRegister(TRANSFORMATION_DUST);
             setRegister(CARMINITE_AXE);
             setRegister(CARMINITE_PICKAXE);
             setRegister(SHELL);
             setRegister(BORER_REED);
         }
-        /*
-        if(vint.isLoadedSulfurTorches) {
-            setRegister(SULFUR);
-            setRegister(ALUMINUM);
-            setRegister(xyAMULET);
-        }
-
-        if(vint.isLoadedBaubles){
-            setRegister(SAVIOUR);
-        }
-        */
 
         MinecraftForge.addGrassSeed(new ItemStack(CURING_GRASS),10);
         MinecraftForge.addGrassSeed(new ItemStack(ANOTHER_DYE,1,1),3);
@@ -208,14 +178,12 @@ public class ItemRegister
         setRender(STEALER);
         setRender(FISHY);
         setRender(FLINTBASE);
-        //setRender(RUNIC_STICK);
         setRender(EYE_C);
         setRender(NETHER_DRINK);
         setRender(POTATO_C);
         setRender(CHICKEN_C);
         setRender(FISH_C);
         setRender(ROUND_STONE);
-        //setRender(MAGNETPICK);
         setRender(BITCOIN5000);
         setRender(SOUL_CRYSTAL_s);
         setRender(MAGIC_PROTECTOR);
@@ -228,7 +196,6 @@ public class ItemRegister
         setRender(NETHER_CRYSTAL);
         setRender(SOUL);
         setRender(RED_POWDER);
-        //setRender(PAINT_OPERATOR);
         setRender(DIAMOND_GOLD);
         setRender(GOLDEN_DIAMOND);
         setRender(DIAMONDGOLDEN_GOLDEN_DIAMOND);
@@ -241,30 +208,13 @@ public class ItemRegister
         setRender(DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD);
         setRender(HALFDUST);
 
-        //setRender(MIX_WILDLIFE);
-        //setRender(MIX_NATURE);
-        //setRender(MIX_NATURE_P);
-        //setRender(MIX_SEA);
-
-        if(vint.integrationHelper.isLoadedTwilight) {
+        if(IntegrationHelper.isLoadedTwilight) {
             setRender(TRANSFORMATION_DUST);
             setRender(CARMINITE_AXE);
             setRender(CARMINITE_PICKAXE);
             setRender(SHELL);
             setRender(BORER_REED);
         }
-        /*
-        if(vint.integrationHelper.isLoadedBaubles)
-            setRender(SAVIOUR);
-
-        if(vint.integrationHelper.isLoadedProjectX){
-            if(vint.isLoadedSulfurTorches) {
-                setRender(ALUMINUM);
-                setRender(SULFUR);
-                setRender(xyAMULET);
-            }
-        }
-        */
 
     }
 

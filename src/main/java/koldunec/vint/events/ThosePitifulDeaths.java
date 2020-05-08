@@ -1,6 +1,7 @@
 package koldunec.vint.events;
 
 import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.utils.RandomUtils;
 import koldunec.vint.vint;
 import koldunec.vint.items.saviour;
@@ -50,9 +51,9 @@ public class ThosePitifulDeaths {
             ItemStack weapon = guyKiller.getHeldItemMainhand();
             if(!weapon.isEmpty()){
                 if(weapon.getItem() instanceof reliquarist_sword){
-                    if(net.minecraftforge.fml.common.Loader.isModLoaded("xreliquary"))
+                    if(IntegrationHelper.isLoaded("xreliquary"))
                         MobLootUtils.dropXeno(victim,list,weapon);
-                    if(vint.isLoadedThaumcraft){
+                    if(IntegrationHelper.isLoadedThaumcraft){
                         if(victim instanceof EntityZombie && !(victim instanceof EntityPigZombie)){
                             if(victim instanceof EntityBrainyZombie || reliquarist_sword.countReliqueDrop(weapon,12)){
                                 if(rng.nextBoolean()){
@@ -61,7 +62,7 @@ public class ThosePitifulDeaths {
                             }
                         }
                     }
-                    if(net.minecraftforge.fml.common.Loader.isModLoaded("randomthings")){
+                    if(IntegrationHelper.isLoaded("randomthings")){
                         if(victim instanceof EntityGhast){
                             if(reliquarist_sword.countReliqueDrop(weapon,6)){
                                 list.add(MobLootUtils.formDrop(victim, new ItemStack(Item.getByNameOrId("randomthings:ingredient"),1,2)));
@@ -72,7 +73,7 @@ public class ThosePitifulDeaths {
             }
         }
 
-        if(vint.isLoadedThaumcraft){
+        if(IntegrationHelper.isLoadedThaumcraft){
             if(victim instanceof EntityFireBat){
                 switch(rng.nextInt(5)){
                     case 0: list.add(MobLootUtils.formDrop(victim,new ItemStack(Items.REDSTONE,1)));
@@ -88,13 +89,13 @@ public class ThosePitifulDeaths {
             }
         }
 
-        if(vint.integrationHelper.isLoadedTwilight && vint.integrationHelper.isLoadedPrimitive){
+        if(IntegrationHelper.isLoadedTwilight && IntegrationHelper.isLoadedPrimitive){
             if(victim instanceof EntityTFMinoshroom){
                 list.add(new EntityItem(victim.getEntityWorld(),victim.posX,victim.posY,victim.posZ,new ItemStack(ItemRegister.SCROLL_ISLE,1,0)));
             }
         }
 
-        if(vint.integrationHelper.isLoadedNatura){
+        if(IntegrationHelper.isLoadedNatura){
             if(victim instanceof EntityNitroCreeper){
                 list.add(MobLootUtils.formDrop(victim,new ItemStack(Items.GUNPOWDER,5+vint.random.nextInt(3))));
                 if(vint.random.nextBoolean())
@@ -105,7 +106,7 @@ public class ThosePitifulDeaths {
             }
         }
 
-        if(vint.integrationHelper.isLoaded("railcraft")){
+        if(IntegrationHelper.isLoaded("railcraft")){
             if(victim.getEntityWorld().provider.doesWaterVaporize())
                 if(vint.random.nextInt(5)==0)
                     list.add(MobLootUtils.formDrop(victim,new ItemStack(Item.getByNameOrId("railcraft:dust"),1,2)));
@@ -117,9 +118,9 @@ public class ThosePitifulDeaths {
     public void deathDrops(LivingDropsEvent e) {
         if(e.getEntity().getEntityWorld().isRemote) return;
         List<EntityItem> l = e.getDrops();
-        if(vint.isLoadedPrimitive){
+        if(IntegrationHelper.isLoadedPrimitive){
             if(e.getEntityLiving() instanceof EntityBrainSlime && ((EntitySlime)e.getEntityLiving()).getSlimeSize()<2){
-                if(vint.isLoadedTinkers){
+                if(IntegrationHelper.isLoadedTinkers){
                     if(l.size()==1) l.clear();
                     else {
                         for(int i=0;i<l.size();i++)
@@ -133,7 +134,7 @@ public class ThosePitifulDeaths {
                                 vint.random.nextInt(2)+2,
                                 2)));
                 }
-                if(vint.isLoadedThaumcraft && vint.random.nextInt(5)==0){
+                if(IntegrationHelper.isLoadedThaumcraft && vint.random.nextInt(5)==0){
                     e.getEntityLiving().entityDropItem(
                             new ItemStack(ItemsTC.brain,
                                     1)
@@ -153,7 +154,7 @@ public class ThosePitifulDeaths {
                         0.5F);
         }
 
-        if(vint.isLoadedScalingH){
+        if(IntegrationHelper.isLoadedScalingH){
             if(e.getEntity() instanceof EntityPigZombie && RandomUtils.getTrueWithChance(7))
                 e.getEntity().entityDropItem(
                         new ItemStack(

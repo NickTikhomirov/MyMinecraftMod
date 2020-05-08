@@ -38,47 +38,17 @@ public class CraftingRegister
         registerRecipes("mushroom_to_dye2");
         registerRecipes("round_stone");
 
-        if(vint.isLoadedTwilight){
+        if(IntegrationHelper.isLoadedTwilight){
             registerRecipes("trans_1");
             registerRecipes("trans_1_");
             registerRecipes("carminite_axe");
             registerRecipes("carminite_pick");
         }
 
-        if(vint.isLoadedBaubles){
-            registerRecipes("saviour");
-        }
 
-        if(vint.isLoadedProjectX){
-            registerRecipes("alblock");
-            registerRecipes("alblock_");
-            registerRecipes("juke");
-            registerRecipes("sparksToSulfur");
-            registerRecipes("sparksToSulfur2");
-            if(vint.isLoadedProjectRed_exploration){
-                registerRecipes("pr_s_r");
-                registerRecipes("pr_s_p");
-                registerRecipes("pr_p_r");
-                registerRecipes("pr_p_s");
-                registerRecipes("pr_r_s");
-                registerRecipes("pr_r_p");
-            }
-            if(vint.isLoadedSulfurTorches){
-                registerRecipes("altorch");
-                registerRecipes("sultorch");
-                registerRecipes("xy_amulet");
-            }
-        }
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("retroexchange")){
-            registerRecipes("retroexchange_");
-            registerRecipes("retroexchange__");
-        }
         GameRegistry.addSmelting(BlockRegister.ORE_BIT,new ItemStack(ItemRegister.BITCOIN5000),0.5F);
         GameRegistry.addSmelting(Items.GHAST_TEAR,new ItemStack(ItemRegister.SOUL_CRYSTAL_s),0.5F);
         GameRegistry.addSmelting(ItemRegister.EFFECTSTORAGE,new ItemStack(ItemRegister.NETHER_CRYSTAL),1F);
-        if(vint.isLoadedSulfurTorches && vint.isLoadedProjectX) {
-            GameRegistry.addSmelting(Items.GUNPOWDER, new ItemStack(ItemRegister.SULFUR), 0.5F);
-        }
 
 
         PotionHelper.addMix(PotionTypes.SWIFTNESS, Ingredient.fromStacks(new ItemStack(Items.DYE,1,3)), PotionRegister.HASTE_TYPE_STANDART);
@@ -144,13 +114,12 @@ public class CraftingRegister
 
         PotionHelper.addMix(PotionTypes.AWKWARD,ItemRegister.SOUL_FRUIT,PotionTypes.STRONG_REGENERATION);
 
-        if(vint.isLoadedTinkers){
+        if(IntegrationHelper.isLoadedTinkers){
             PotionHelper.addMix(PotionRegister.WITHERPROTECTION_TYPE_STANDART,Ingredient.fromStacks(new ItemStack(Item.getByNameOrId("tconstruct:materials"),1,17)),PotionRegister.WITHERPROTECTION_TYPE_STRONG);
         }
     }
 
-    private static void registerRecipes(String name)
-    {
+    private static void registerRecipes(String name) {
         CraftingHelper.register(new ResourceLocation("vint", name), (IRecipeFactory) (context, json) -> getRecipe(json, context));
     }
 }

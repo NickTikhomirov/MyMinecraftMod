@@ -1,9 +1,8 @@
 package koldunec.vint.helpers;
 
-import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.*;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
@@ -29,7 +28,7 @@ public class SpawnCorrector {
             if(vint.random.nextBoolean())
                 return true;
 
-        if(vint.integrationHelper.isLoadedHype){
+        if(IntegrationHelper.isLoadedHype){
             if(one.getClass().equals(EntityPigZombie.class) && vint.random.nextInt(8)==0){
                 one.setItemStackToSlot(EntityEquipmentSlot.CHEST,new ItemStack(Item.getByNameOrId("hypewear:aggc_chestplate"),1,0));
                 one.setItemStackToSlot(EntityEquipmentSlot.LEGS,new ItemStack(Item.getByNameOrId("hypewear:castle_leggings"),1,0));

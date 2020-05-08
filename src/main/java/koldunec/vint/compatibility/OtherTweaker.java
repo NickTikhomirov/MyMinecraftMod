@@ -1,6 +1,6 @@
 package koldunec.vint.compatibility;
 
-import koldunec.vint.helpers.IntegrationHelper;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.items.Broom;
@@ -17,15 +17,13 @@ import team.chisel.common.carving.Carving;
 
 
 public class OtherTweaker {
-    public static IntegrationHelper integrationHelper = vint.integrationHelper;
-
     public static void trivia(){
         BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegister.POWDER_REED,(reed_item)ItemRegister.POWDER_REED);
-        if(integrationHelper.isLoadedQuark){
+        if(IntegrationHelper.isLoadedQuark){
             Broom.affected_blocks.add(Block.getBlockFromName("quark:elder_sea_lantern"));
         }
 
-        if(integrationHelper.isLoadedCharm){
+        if(IntegrationHelper.isLoadedCharm){
             Composter.inputs.put("minecraft:rotten_flesh", 0.1F);
             Composter.inputs.put("minecraft:feather", 0.1F);
             Composter.inputs.put("vint:vanilla_powder",0.3F);
@@ -33,7 +31,7 @@ public class OtherTweaker {
             Composter.inputs.put("vint:curinggrass", 0.3F);
             Composter.inputs.put("vint:radio_cactus", 0.65F);
             Composter.inputs.put("minecraft:web", 1F);
-            if(integrationHelper.isLoadedNatura){
+            if(IntegrationHelper.isLoadedNatura){
                 Composter.inputs.put("natura:overworld_seeds", 0.3F);
                 Composter.inputs.put("natura:overworld_sapling", 0.4F);
                 Composter.inputs.put("natura:overworld_sapling2", 0.4F);
@@ -45,17 +43,17 @@ public class OtherTweaker {
         String carv = getGroupName(Block.getBlockFromName("chisel:basalt"),1);
         chiselInsert(carv, BlockRegister.BASALT_RAW,0);
         chiselInsert(carv, BlockRegister.BASALT_PILLAR,0);
-        if(vint.integrationHelper.isLoadedProjectRed_exploration)
+        if(IntegrationHelper.isLoadedProjectRed_exploration)
             for(int i=2; i<5; ++i)
-                chiselInsert(carv, vint.integrationHelper.idProjectRed+":stone",i);
+                chiselInsert(carv, IntegrationHelper.idProjectRed+":stone",i);
 
 
-        if(integrationHelper.isLoadedCharm){
+        if(IntegrationHelper.isLoadedCharm){
             carv = getGroupName(Blocks.GLOWSTONE,0);
             chiselInsert(carv,"charm:smooth_glowstone",0);
         }
 
-        if(integrationHelper.isLoadedQuark){
+        if(IntegrationHelper.isLoadedQuark){
             carv = getGroupName(Blocks.SANDSTONE,0);
             chiselInsert(carv,"quark:sandstone_new",0);
             chiselInsert(carv,"quark:sandstone_new",1);
@@ -72,7 +70,7 @@ public class OtherTweaker {
             chiselInsert(carv,"quark:custom_bookshelf",0);
         }
 
-        if(integrationHelper.isLoaded("railcraft"))
+        if(IntegrationHelper.isLoaded("railcraft"))
             Chisel_with_Railcraft.init();
     }
 

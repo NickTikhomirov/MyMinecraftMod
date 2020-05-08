@@ -1,5 +1,6 @@
 package koldunec.vint.items;
 
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.init.MaterialRegister;
 import koldunec.vint.vint;
 import net.minecraft.block.state.IBlockState;
@@ -19,7 +20,7 @@ public class CarminiteAxe extends ItemAxe {
 
     @Override
     public float getDestroySpeed(ItemStack stack, IBlockState state) {
-        if(vint.isLoadedTwilight){
+        if(IntegrationHelper.isLoadedTwilight){
             if(state.getBlock() instanceof BlockTFTowerWood ||
                state.getBlock() instanceof BlockTFTowerDevice ||
                state.getBlock() instanceof BlockTFDarkLeaves ||
@@ -32,7 +33,7 @@ public class CarminiteAxe extends ItemAxe {
 
     @Override
     public boolean getIsRepairable(ItemStack toRepair, ItemStack repair) {
-        if(vint.isLoadedTwilight)
+        if(IntegrationHelper.isLoadedTwilight)
             if(repair.getItem().equals(TFItems.carminite)) return true;
         return false;
     }

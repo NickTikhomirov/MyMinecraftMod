@@ -1,15 +1,13 @@
 package koldunec.vint.world.nether;
 
 import koldunec.vint.helpers.ConfigHelper;
-import koldunec.vint.helpers.IntegrationHelper;
-import koldunec.vint.helpers.TechHelper;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.vint;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
@@ -19,16 +17,14 @@ import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraftforge.fml.common.IWorldGenerator;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.world.TinkerWorld;
-import slimeknights.tconstruct.world.worldgen.MagmaSlimeIslandGenerator;
 import slimeknights.tconstruct.world.worldgen.SlimeTreeGenerator;
 
 import java.util.Random;
 
 public class NetherGenerator implements IWorldGenerator {
 
-    NoiseGeneratorPerlin mainGenerator = null;
-    NoiseGeneratorPerlin secondGenerator = null;
-    IntegrationHelper integrationHelper = vint.integrationHelper;
+    private NoiseGeneratorPerlin mainGenerator = null;
+    private NoiseGeneratorPerlin secondGenerator = null;
 
     public NoiseGeneratorPerlin getGen(Random r){
         if(mainGenerator==null)
@@ -54,7 +50,6 @@ public class NetherGenerator implements IWorldGenerator {
             return;
         Chunk ch = chunkProvider.getLoadedChunk(chunkX,chunkZ);
         NoiseGeneratorPerlin perlovka = getGen(random);
-        NoiseGeneratorPerlin stolovka = getGen2(random);
         int x = chunkX*16;
         int z = chunkZ*16;
 
@@ -69,16 +64,8 @@ public class NetherGenerator implements IWorldGenerator {
                     fillColumnNatura(ch,new BlockPos(i,133+h1,j));
         }
 
-        if(vint.random.nextInt(125)==0){
+        if(vint.random.nextInt(125)==0)
             generateTower(ch,random);
-        }/* else if(vint.random.nextInt(200)==0){
-            for(int i=0; i<16; ++i)
-                for(int j=0; j<16; ++j) {
-                    double foo = -(i - 7.5)*(i - 7.5)/10F - (j - 7.5)*(j - 7.5)/10F + 6;
-                    int h = (int)(foo+perlovka.getValue((x+i)/20F,(z+j)/20F));
-                    fillColumnNatura2(ch,new BlockPos(i,133+h,j));
-                }
-        }*/
     }
 
     void fillColumnNatura(Chunk ch, BlockPos bp){
@@ -154,16 +141,16 @@ public class NetherGenerator implements IWorldGenerator {
 
     void generateTower(Chunk ch, Random random){
         int top = 150;
-        if(integrationHelper.isLoadedTinkers && random.nextInt(1)==0)
+        if(IntegrationHelper.isLoadedTinkers && random.nextInt(1)==0)
             top = 131;
         for(int y=1; y<top; ++y)
             fillSlice(ch,y, BlockRegister.FRESH_DEBRIS.getDefaultState());
         if(top==131){
-            IBlockState temp = Block.getBlockFromName(vint.integrationHelper.idTinker+":slime_dirt").getStateFromMeta(3);
+            IBlockState temp = Block.getBlockFromName(IntegrationHelper.idTinker+":slime_dirt").getStateFromMeta(3);
             for(int y=top; y<149;++y) {
                 fillCirle(ch, y, BlockRegister.FRESH_DEBRIS.getDefaultState(), temp);
                 if(y==top+2)
-                    temp = Block.getBlockFromName(vint.integrationHelper.idTinker+":slime_grass").getStateFromMeta(14);
+                    temp = Block.getBlockFromName(IntegrationHelper.idTinker+":slime_grass").getStateFromMeta(14);
                 if(y==top+3)
                     temp = Blocks.AIR.getDefaultState();
             }
@@ -179,7 +166,7 @@ public class NetherGenerator implements IWorldGenerator {
                     null);
             gen.generateTree(random,ch.getWorld(),new BlockPos((ch.x<<4)+x, 135,(ch.z<<4)+z));
         }
-        if(integrationHelper.isLoadedQuark){
+        if(IntegrationHelper.isLoadedQuark){
             if(random.nextInt(4)==0)
                 for(int y=top;y<154; ++y)
                     fillSlice(ch,y,Block.getBlockFromName("quark:blaze_lantern").getDefaultState());

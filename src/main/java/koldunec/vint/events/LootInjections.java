@@ -1,6 +1,6 @@
 package koldunec.vint.events;
 
-import koldunec.vint.helpers.IntegrationHelper;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import net.minecraft.item.Item;
 import net.minecraft.world.storage.loot.*;
@@ -8,15 +8,12 @@ import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraft.world.storage.loot.functions.SetCount;
 import net.minecraft.world.storage.loot.functions.SetMetadata;
-import net.minecraftforge.event.LootTableLoadEvent;
 
 public class LootInjections {
 
-    static IntegrationHelper integrationHelper = vint.integrationHelper;
-
 
     public static void llamaIsleIntegrations(LootTable table){
-        if(integrationHelper.isLoaded("randomthings"))
+        if(IntegrationHelper.isLoaded("randomthings"))
             addDefault(
                     table.getPool("seeds"),
                     "randomthings:lotusseeds",
@@ -25,7 +22,7 @@ public class LootInjections {
                     "loottable:lotus"
             );
 
-        if(integrationHelper.isLoaded("growthcraft_hops")){
+        if(IntegrationHelper.isLoaded("growthcraft_hops")){
             table.addPool(
                     new LootPool(
                             new LootEntry[]{
