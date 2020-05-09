@@ -79,7 +79,9 @@ public class BorerReed extends Block implements IPlantable {
         if (block == this) {
             return true;
         }
-        return isFullWood(worldIn,pos.down());
+        if(!isFullWood(worldIn,pos.down()))
+            return false;
+        return super.canPlaceBlockAt(worldIn, pos);
     }
 
     @Override

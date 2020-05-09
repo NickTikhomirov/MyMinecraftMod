@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "vint:blue_nether_log_strip",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "vint:blue_nether_log_strip"
+    },
+    "axis=z": {
+      "model": "vint:blue_nether_log_strip",
+      "x": 90
+    }
+  }
+}

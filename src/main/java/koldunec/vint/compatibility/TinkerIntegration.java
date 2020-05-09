@@ -5,11 +5,16 @@ import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.*;
+import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
+import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerTraits;
 import slimeknights.tconstruct.tools.traits.TraitSlimey;
 import twilightforest.compat.TConstruct;
@@ -25,11 +30,13 @@ public class TinkerIntegration {
     public static Material NETHER_CACTUS = new Material("nether_cactus",getColor(210,210,0));
     public static Material CRIMSON_LOG = new Material("crimson_log", getColor(123F,0F,0F));
     public static Material WARPED_LOG = new Material("warped_log", getColor(22F,97F,91F));
+    public static Material BAMBOO = new Material("bamboo", getColor(130,168,89));
     public static AbstractTrait LEFT_HAND_RULE = new LeftHandRule();
     public static AbstractTrait BORING = new Boring();
     public static AbstractTrait SIXFEETS = new Sixfeets();
     public static AbstractTrait MAZEY = new Mazey();
     public static AbstractTrait REDPOWER = new RedPower();
+    public static AbstractTrait SLIMECUTTER = new SlimeCutter();
 
 
     public static void preInit(){
@@ -69,6 +76,15 @@ public class TinkerIntegration {
             TinkerRegistry.integrate(CRIMSON_LOG).preInit();
             TinkerRegistry.integrate(WARPED_LOG).preInit();
         }
+
+        if(IntegrationHelper.isLoadedFuture){
+            TinkerRegistry.addMaterialStats(BAMBOO,
+                    new HandleMaterialStats(1.2F, 50),
+                    new ArrowShaftMaterialStats(1.3F,50)
+            );
+
+            TinkerRegistry.integrate(BAMBOO).preInit();
+        }
     }
 
 
@@ -91,10 +107,20 @@ public class TinkerIntegration {
             MAZESTONE.addTrait(TinkerTraits.heavy, MaterialTypes.HEAD).addTrait(TinkerTraits.heavy, MaterialTypes.EXTRA);
 
             TConstruct.nagascale.addTrait(TConstruct.synergy).addTrait(TinkerTraits.fractured);
+
+
+
             /*TConstruct.knightmetal
                     .addTrait(TConstruct.twilit,MaterialTypes.HANDLE)
                     .addTrait(TConstruct.valiant,MaterialTypes.HANDLE)
                     .addTrait(TinkerTraits.dense,MaterialTypes.HANDLE);*/
+        }
+
+        if(IntegrationHelper.isLoadedFuture){
+            BAMBOO.addItem(Item.getByNameOrId(IntegrationHelper.idFuture+":bamboo"),1,144);
+            BAMBOO.setRepresentativeItem(Item.getByNameOrId(IntegrationHelper.idFuture+":bamboo"));
+            BAMBOO.setCraftable(true).setCastable(false);
+            BAMBOO.addTrait(TinkerTraits.prickly).addTrait(TinkerTraits.ecological).addTrait(SLIMECUTTER);
         }
 
         NETHER_CACTUS.addItem(BlockRegister.NETHER_CACTUS, 144);
@@ -110,5 +136,17 @@ public class TinkerIntegration {
         WARPED_LOG.setCraftable(true).setCastable(false);
         CRIMSON_LOG.addTrait(TinkerTraits.hellish).addTrait(REDPOWER);
         WARPED_LOG.addTrait(TinkerTraits.hellish).addTrait(TinkerTraits.alien);
+    }
+
+
+    public static void postInit(){
+        if(IntegrationHelper.isLoadedTwilight){
+            SIXFEETS.addRecipeMatch(new RecipeMatch.ItemCombination(
+                    1,
+                    new ItemStack(Blocks.RED_MUSHROOM),
+                    new ItemStack(Blocks.BROWN_MUSHROOM),
+                    new ItemStack(Item.getByNameOrId(IntegrationHelper.idTwilight+":raw_meef"))
+            ));
+        }
     }
 }

@@ -1,0 +1,17 @@
+{
+  "modifier": "sixfeets",
+  "text": [
+    {
+      "text": "These mino-guys are very good at primal things. Moreover, they are strong in numbers."
+    }
+  ],
+  "effects": [
+    "If you mine a block that has any coordinate with primal absolute value, your speed is increased",
+    "Moo-oo",
+    "Single use"
+  ],
+  "demoTool": [
+    "tconstruct:pickaxe",
+    "tconstruct:shovel"
+  ]
+}

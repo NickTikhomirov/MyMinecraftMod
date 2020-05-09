@@ -4,15 +4,16 @@ package koldunec.vint.compatibility.traits;
 import koldunec.vint.helpers.TechHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.event.entity.player.PlayerEvent;
-import slimeknights.tconstruct.library.traits.AbstractTrait;
+import slimeknights.tconstruct.library.modifiers.ModifierAspect;
+import slimeknights.tconstruct.library.modifiers.ModifierTrait;
 
 
-public class Sixfeets extends AbstractTrait {
+public class Sixfeets extends ModifierTrait {
 
     public Sixfeets() {
-        super("sixfeets",TextFormatting.YELLOW);
+        super("sixfeets", TechHelper.getColor(255, 255,0));
+        addAspects(ModifierAspect.harvestOnly);
     }
 
     @Override

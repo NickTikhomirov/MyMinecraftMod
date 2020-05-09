@@ -1,6 +1,9 @@
 package koldunec.vint.proxy;
 
 
+import koldunec.vint.compatibility.TinkerBook.BambooDocumenter;
+import koldunec.vint.compatibility.TinkerBook.ModifierAppender;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.entities.entityBitcoin;
 import koldunec.vint.entities.entityMagicBall;
@@ -14,6 +17,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.network.NetworkRegistry;
+import slimeknights.tconstruct.library.book.TinkerBook;
 
 
 public class ClientProxy extends CommonProxy{
@@ -23,7 +27,6 @@ public class ClientProxy extends CommonProxy{
         RenderingRegistry.registerEntityRenderingHandler(entityMagicBall.class, new SnowballRenderFactory(ItemRegister.MAGICBALL));
         RenderingRegistry.registerEntityRenderingHandler(entityStone.class, new SnowballRenderFactory(ItemRegister.ROUND_STONE));
         RenderingRegistry.registerEntityRenderingHandler(entityBitcoin.class, new SnowballRenderFactory(ItemRegister.BITCOIN5000));
-
         super.preInit(event);
     }
 
@@ -35,8 +38,12 @@ public class ClientProxy extends CommonProxy{
     }
 
     @Override
-    public void postInit(FMLPostInitializationEvent event)
-    {
+    public void postInit(FMLPostInitializationEvent event) {
         super.postInit(event);
+        if(IntegrationHelper.isLoadedTinkers) {
+            TinkerBook.INSTANCE.addTransformer(new ModifierAppender());
+            if(IntegrationHelper.isLoadedFuture)
+                TinkerBook.INSTANCE.addTransformer(new BambooDocumenter());
+        }
     }
 }

@@ -2,6 +2,7 @@ package koldunec.vint.events;
 
 
 
+import koldunec.vint.compatibility.TinkerIntegration;
 import koldunec.vint.helpers.SpawnCorrector;
 import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.items.Broom;
@@ -35,13 +36,14 @@ import net.minecraft.world.WorldProviderHell;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import slimeknights.tconstruct.library.tinkering.Category;
+import slimeknights.tconstruct.library.utils.ToolHelper;
 import teamroots.embers.entity.EntityAncientGolem;
 
 import twilightforest.block.BlockTFLeaves;
@@ -56,6 +58,24 @@ import static koldunec.vint.init.PotionRegister.WITHERPROTECTION;
 
 @Mod.EventBusSubscriber
 public class VintMainEventHandler{
+
+    @SubscribeEvent
+    public static void onClickEntity(PlayerInteractEvent.EntityInteract e){
+        if(IntegrationHelper.isLoadedTinkers && IntegrationHelper.isLoadedNatura && !e.isCanceled()){
+            EntityPlayer player = e.getEntityPlayer();
+            ItemStack weapon = player.getHeldItemMainhand();
+            if(ToolHelper.hasCategory(weapon, Category.TOOL)){
+                if(ToolHelper.getTraits(weapon).contains(TinkerIntegration.SIXFEETS)){
+                    if(e.getTarget() instanceof EntityCreeper) {
+                        player.swingArm(EnumHand.MAIN_HAND);
+                        ((EntityCreeper) e.getTarget()).ignite();
+                    }
+                }
+            }
+        }
+    }
+
+
     @SubscribeEvent
     public static void onRightClick(PlayerInteractEvent.RightClickBlock e){
         if(IntegrationHelper.isLoadedTwilight){

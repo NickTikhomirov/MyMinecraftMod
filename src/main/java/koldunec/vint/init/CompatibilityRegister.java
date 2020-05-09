@@ -34,7 +34,8 @@ public class CompatibilityRegister {
     }
 
     public static void postInit(){
-
+        if(IntegrationHelper.isLoadedTinkers)
+            TinkerIntegration.postInit();
     }
 
 

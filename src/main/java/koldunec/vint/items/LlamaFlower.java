@@ -50,14 +50,15 @@ public class LlamaFlower extends Block implements IInfusionStabiliserExt {
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
         pos = pos.down();
         IBlockState blockstate = worldIn.getBlockState(pos);
-        return blockstate.isFullBlock() && blockstate.getMaterial().equals(Material.GROUND);
+        Material basemat = blockstate.getMaterial();
+        return blockstate.isFullBlock() && (basemat.equals(Material.GROUND) || basemat.equals(Material.GRASS));
     }
 
     @Override
     public void neighborChanged(IBlockState state, World worldIn, BlockPos pos, Block blockIn, BlockPos fromPos) {
         pos = pos.down();
         IBlockState bs = worldIn.getBlockState(pos);
-        if(!bs.getMaterial().equals(Material.GROUND) || !bs.isFullBlock()) {
+        if(!(bs.getMaterial().equals(Material.GROUND) || bs.getMaterial().equals(Material.GRASS)) || !bs.isFullBlock()) {
             dropBlockAsItem(worldIn, pos, this.getDefaultState(), 0);
             worldIn.setBlockToAir(pos.up());
         }

@@ -1,11 +1,8 @@
 package koldunec.vint.init;
 
-import koldunec.vint.blocks.BaseNylium;
-import koldunec.vint.blocks.BlockTriDirectional;
-import koldunec.vint.blocks.ShroomLight;
+import koldunec.vint.blocks.*;
 import koldunec.vint.blocks.plants.BorerReed;
 import koldunec.vint.blocks.plants.GlowCactus;
-import koldunec.vint.blocks.stORE;
 import koldunec.vint.items.*;
 import koldunec.vint.items.baseItems.basic_block;
 import koldunec.vint.items.baseItems.basic_planks;
@@ -25,10 +22,17 @@ public class BlockRegister {
     public static Block BASALT_RAW = new BlockTriDirectional("basalt_raw");
     public static Block BASALT_PILLAR = new BlockTriDirectional("basalt_pillar");
     public static Block FRESH_DEBRIS = new BlockTriDirectional("debris");
+
     public static Block RED_NYLIUM = new BaseNylium("red_nylium");
     public static Block BLUE_NYLIUM = new BaseNylium("blue_nylium");
+
     public static Block RED_NY_LOG = new BlockTriDirectional("red_nether_log");
+    public static Block RED_NY_LOG_STRIP = new BlockTriDirectional("red_nether_log_strip");
     public static Block BLUE_NY_LOG = new BlockTriDirectional("blue_nether_log");
+    public static Block BLUE_NY_LOG_STRIP = new BlockTriDirectional("blue_nether_log_strip");
+
+    public static Block RED_NETHER_MUSH = new NetherShroom("red_nether_shroom");
+    public static Block BLUE_NETHER_MUSH = new NetherShroom("blue_nether_shroom");
 
     public static Block NETHER_CACTUS = new GlowCactus();
 
@@ -37,8 +41,6 @@ public class BlockRegister {
     public static Block GHAST_POD = new block_ghastpod();
     public static Block SHROOMLIGHT = new ShroomLight();
 
-    public static Block OLD_ROSE = new magic_flower("rose");
-    public static Block OLD_ROSE_b = new magic_flower("rose_b");
     public static Block LLAMA_SPAWNER = new LlamaFlower();
     public static Block STORE = new stORE();
     public static Block REED_GUNPOWDER = new block_gunreed();
@@ -69,6 +71,10 @@ public class BlockRegister {
         registerBlock(RED_NYLIUM);
         registerBlock(BLUE_NYLIUM);
         registerBlock(FRESH_DEBRIS);
+        registerBlock(RED_NY_LOG_STRIP);
+        registerBlock(BLUE_NY_LOG_STRIP);
+        registerBlock(RED_NETHER_MUSH);
+        registerBlock(BLUE_NETHER_MUSH);
 
         registerBlock(RED_NY_LOG);
         registerBlock(BLUE_NY_LOG);
@@ -108,6 +114,11 @@ public class BlockRegister {
 
         setRender(RED_NY_LOG);
         setRender(BLUE_NY_LOG);
+
+        setRender(RED_NY_LOG_STRIP);
+        setRender(BLUE_NY_LOG_STRIP);
+        setRender(RED_NETHER_MUSH);
+        setRender(BLUE_NETHER_MUSH);
 
         setRender(WATER_PORTAL);
         setRender(ORE_BIT);

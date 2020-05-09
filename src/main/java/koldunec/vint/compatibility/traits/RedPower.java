@@ -3,7 +3,6 @@ package koldunec.vint.compatibility.traits;
 import koldunec.vint.init.IntegrationHelper;
 import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.item.EntityEnderEye;
 import net.minecraft.entity.monster.EntityEnderman;
 import net.minecraft.entity.monster.EntityShulker;
 import net.minecraft.item.ItemStack;
