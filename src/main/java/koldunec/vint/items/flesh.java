@@ -1,7 +1,7 @@
 package koldunec.vint.items;
 
 import koldunec.vint.items.baseItems.base_food;
-import koldunec.vint.init.PotionRegister;
+import koldunec.vint.potions.PotionRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;

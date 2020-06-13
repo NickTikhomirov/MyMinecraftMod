@@ -1,7 +1,6 @@
-package koldunec.vint.init;
+package koldunec.vint.potions;
 
 import koldunec.vint.vint;
-import koldunec.vint.potions.*;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionType;

@@ -1,7 +1,6 @@
 package koldunec.vint.potions;
 
 import koldunec.vint.vint;
-import koldunec.vint.init.PotionRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;

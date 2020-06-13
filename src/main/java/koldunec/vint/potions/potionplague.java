@@ -2,7 +2,6 @@ package koldunec.vint.potions;
 
 
 import koldunec.vint.vint;
-import koldunec.vint.init.PotionRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,8 +12,8 @@ import net.minecraft.util.math.AxisAlignedBB;
 
 import java.util.List;
 
-import static koldunec.vint.init.PotionRegister.HUMANITY;
-import static koldunec.vint.init.PotionRegister.PLAGUE;
+import static koldunec.vint.potions.PotionRegister.HUMANITY;
+import static koldunec.vint.potions.PotionRegister.PLAGUE;
 
 public class potionplague extends potion_base {
 

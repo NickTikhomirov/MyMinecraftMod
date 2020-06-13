@@ -11,7 +11,7 @@ import koldunec.vint.items.Broom;
 import koldunec.vint.vint;
 import koldunec.vint.items.tools.reliquarist_sword;
 import koldunec.vint.init.ItemRegister;
-import koldunec.vint.init.PotionRegister;
+import koldunec.vint.potions.PotionRegister;
 import lumien.randomthings.potion.ModPotions;
 import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
 import net.minecraft.block.Block;
@@ -55,8 +55,8 @@ import twilightforest.item.ItemTFMinotaurAxe;
 import twilightforest.item.ItemTFTransformPowder;
 import twilightforest.item.TFItems;
 
-import static koldunec.vint.init.PotionRegister.ENDERPROTECTION;
-import static koldunec.vint.init.PotionRegister.WITHERPROTECTION;
+import static koldunec.vint.potions.PotionRegister.ENDERPROTECTION;
+import static koldunec.vint.potions.PotionRegister.WITHERPROTECTION;
 
 
 @Mod.EventBusSubscriber

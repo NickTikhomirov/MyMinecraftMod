@@ -15,7 +15,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
-import static koldunec.vint.init.PotionRegister.ENDERPROTECTION;
+import static koldunec.vint.potions.PotionRegister.ENDERPROTECTION;
 
 public class entityBitcoin extends EntityThrowable {
 
