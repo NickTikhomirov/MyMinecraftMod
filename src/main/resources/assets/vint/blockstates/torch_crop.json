@@ -1,0 +1,28 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "cross"
+  },
+  "variants": {
+    "age1=0": [{
+      "model": "twilightforest:util/cross_2_layer",
+      "textures": { "cross":"vint:crops/torchplant_1_0", "cross2":"vint:crops/torchplant_1_1" },
+      "uvlock": true
+    }],
+    "age1=1": [{
+      "model": "twilightforest:util/cross_2_layer",
+      "textures": { "cross":"vint:crops/torchplant_2_0", "cross2":"vint:crops/torchplant_2_1" },
+      "uvlock": true
+    }],
+    "age1=2": [{
+      "model": "twilightforest:util/cross_2_layer",
+      "textures": { "cross":"vint:crops/torchplant_3_0", "cross2":"vint:crops/torchplant_3_1" },
+      "uvlock": true
+    }],
+    "age1=3": [{
+      "model": "twilightforest:util/cross_2_layer",
+      "textures": { "cross":"vint:crops/torchplant_3_0", "cross2":"vint:crops/torchplant_4_1" },
+      "uvlock": true
+    }]
+  }
+}

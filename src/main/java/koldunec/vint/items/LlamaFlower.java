@@ -12,6 +12,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.BlockRenderLayer;
@@ -51,6 +52,8 @@ public class LlamaFlower extends Block implements IInfusionStabiliserExt {
         pos = pos.down();
         IBlockState blockstate = worldIn.getBlockState(pos);
         Material basemat = blockstate.getMaterial();
+        if(blockstate.equals(Blocks.GRASS_PATH.getDefaultState()))
+            return true;
         return blockstate.isFullBlock() && (basemat.equals(Material.GROUND) || basemat.equals(Material.GRASS));
     }
 

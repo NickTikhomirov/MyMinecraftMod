@@ -55,17 +55,12 @@ public class block_ghastpod extends BlockCocoa {
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand)
     {
-        if (!this.canBlockStay(worldIn, pos, state))
-        {
+        if (!this.canBlockStay(worldIn, pos, state)){
             worldIn.setBlockState(pos, Blocks.AIR.getDefaultState(), 3);
             dropBlockAsItem(worldIn, pos, state, 0);
-        }
-        else
-        {
-            int i = ((Integer)state.getValue(AGE)).intValue();
-
-            if (canGrow(worldIn,pos,state, worldIn.isRemote) && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(5) == 0))
-            {
+        } else {
+            int i = state.getValue(AGE).intValue();
+            if (canGrow(worldIn,pos,state, worldIn.isRemote) && net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(5) == 0)) {
                 worldIn.setBlockState(pos, state.withProperty(AGE, Integer.valueOf(i + 1)), 2);
                 net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
             }
@@ -79,8 +74,7 @@ public class block_ghastpod extends BlockCocoa {
 
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-        int i = ((Integer)state.getValue(AGE)).intValue();
-
+        int i = state.getValue(AGE).intValue();
         drops.add(new ItemStack(ItemRegister.GHAST_SEEDS));
         if (i >= 2)
             drops.add(new ItemStack(ItemRegister.SOUL_FRUIT));

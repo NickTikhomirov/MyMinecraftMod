@@ -1,4 +1,4 @@
-package koldunec.vint.items;
+package koldunec.vint.blocks;
 
 import koldunec.vint.vint;
 import net.minecraft.block.BlockOre;

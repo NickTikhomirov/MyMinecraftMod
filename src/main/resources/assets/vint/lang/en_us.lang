@@ -6,6 +6,9 @@ material.nether_cactus.name=Nether Cactus
 material.crimson_log.name=Crimson
 material.warped_log.name=Warped
 material.bamboo.name=Bamboo
+material.ironwood.name=Ironwood
+
+fluid.ironwood=Molten Ironwood
 
 modifier.lefthandrule.name=Left Hand Rule
 modifier.lefthandrule.desc=§oThe Main Rule of Mazes: You should avoid mazes§r\nWhile the tool in your left hand, it uses durability of right hand's tool
@@ -13,8 +16,8 @@ modifier.boring.name=Boring
 modifier.boring.desc=§oThis trait is pretty interesting§r\nYour tool is now able to break dirt and wood as if it is shovel or axe (no AOE though)
 modifier.mazey.name=Mazey
 modifier.mazey.desc=§oEww, moo-ey§r\nIt'll maze off.
-modifier.sixfeets.name=Primal Rage
-modifier.sixfeets.desc=§oSponsored by Those Strange Mushrooms(TM)§r\nIf block has at least one coordinate with prime absolute value, the mining speed is increased
+modifier.primal.name=Primal Rage
+modifier.primal.desc=§oSponsored by Those Strange Mushrooms(TM)§r\nIf block has at least one coordinate with prime absolute value, the mining speed is increased
 modifier.redpower.name=Red Power
 modifier.redpower.desc=§oNobody asked for this reference§r\nYour tool deals great damage to endermen and some other ender-specific creatures.
 modifier.slimecutter.name=Bane of Slimes
@@ -42,7 +45,6 @@ item.p_trans.name=Dye Transmutation Stone
 item.red_powder.name=Red Powder
 item.cleaner.name=Sponge of Conceptualization
 item.ambersword.name=Reliquarist's Sword
-item.shovel_plus_plus.name=Miner's Amulet
 item.shell.name=Wooden Shell with Meef Stroganoff
 item.halfdust.name=Half of Glowstone Dust
 
@@ -55,7 +57,6 @@ item.reed_borer_item.name=Boring Reed
 item.effect_freezer.name=Potion Mix
 item.nether_crystal.name=Nether Crystal
 item.ghast_seeds.name=Soul Seeds
-item.soul_crystal.name=Ghast Crystal
 item.soul_fruit.name=Soul Fruit
 item.small_soul.name=Small Soul
 item.soul_shears.name=Soul Shears
@@ -104,12 +105,6 @@ item.carminite_pick.name=Carminite Pickaxe
 item.vanilla_powder.name=Vanilla Powder
 
 
-item.mix_wildlife.name=Mix of Wildlife
-item.mix_nature.name=Mix of Nature
-item.mix_nature_p.name=Mix of Pure Nature
-item.mix_sea.name=Mix of Sea
-
-
 #######################
 ####### BLOCKS ########
 #######################
@@ -144,6 +139,12 @@ tile.blue_nether_log_strip.name=Warped Stripped Log
 
 tile.red_nether_shroom.name=Crimson Fungus
 tile.blue_nether_shroom.name=Warped Fungus
+
+tile.torch_crop.name=Torchberry Bush
+
+
+
+
 
 ########################
 ####### POTIONS ########

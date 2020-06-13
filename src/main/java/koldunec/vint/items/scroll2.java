@@ -3,6 +3,7 @@ package koldunec.vint.items;
 import electroblob.wizardry.constants.Tier;
 import electroblob.wizardry.registry.WizardryItems;
 import electroblob.wizardry.spell.Spell;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.items.baseItems.base_item;
 import koldunec.vint.init.BlockRegister;
@@ -104,7 +105,8 @@ public class scroll2 extends base_item {
     }
 
     public static boolean player_has_books(EntityPlayer player){
-        if(!net.minecraftforge.fml.common.Loader.isModLoaded("ebwizardry")) return false;
+        if(!IntegrationHelper.isLoaded("ebwizardry"))
+            return false;
         NonNullList<ItemStack> i = player.inventory.mainInventory;
         if(i.get(0).getItem()!=i.get(8).getItem() || i.get(0).getItem()!= WizardryItems.spell_book) return false;
         return i.get(0).getMetadata()==i.get(8).getMetadata();

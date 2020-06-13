@@ -23,7 +23,6 @@ import net.minecraftforge.common.EnumPlantType;
 import java.util.Random;
 
 public class curingCrops extends BlockCrops {
-
     public static final PropertyInteger Age = PropertyInteger.create("age1", 0, 5);
 
     public curingCrops(String cropName) {
@@ -32,7 +31,6 @@ public class curingCrops extends BlockCrops {
     }
 
     private static final AxisAlignedBB[] CROPS_AABB = new AxisAlignedBB[] {
-
             new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.125D, 1.0D),
             new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.1875D, 1.0D),
             new AxisAlignedBB(0.0D, 0.0D, 0.0D, 1.0D, 0.25D, 1.0D),

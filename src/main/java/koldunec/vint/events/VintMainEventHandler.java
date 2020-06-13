@@ -2,8 +2,10 @@ package koldunec.vint.events;
 
 
 
+import koldunec.vint.blocks.plants.TorchBerry;
 import koldunec.vint.compatibility.TinkerIntegration;
 import koldunec.vint.helpers.SpawnCorrector;
+import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.items.Broom;
 import koldunec.vint.vint;
@@ -13,6 +15,7 @@ import koldunec.vint.init.PotionRegister;
 import lumien.randomthings.potion.ModPotions;
 import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
 import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -24,14 +27,13 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.*;
 import net.minecraft.world.WorldProviderHell;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
@@ -51,6 +53,7 @@ import twilightforest.block.BlockTFMagicLeaves;
 import twilightforest.block.BlockTFMagicLogSpecial;
 import twilightforest.item.ItemTFMinotaurAxe;
 import twilightforest.item.ItemTFTransformPowder;
+import twilightforest.item.TFItems;
 
 import static koldunec.vint.init.PotionRegister.ENDERPROTECTION;
 import static koldunec.vint.init.PotionRegister.WITHERPROTECTION;
@@ -65,7 +68,7 @@ public class VintMainEventHandler{
             EntityPlayer player = e.getEntityPlayer();
             ItemStack weapon = player.getHeldItemMainhand();
             if(ToolHelper.hasCategory(weapon, Category.TOOL)){
-                if(ToolHelper.getTraits(weapon).contains(TinkerIntegration.SIXFEETS)){
+                if(ToolHelper.getTraits(weapon).contains(TinkerIntegration.PRIMAL)){
                     if(e.getTarget() instanceof EntityCreeper) {
                         player.swingArm(EnumHand.MAIN_HAND);
                         ((EntityCreeper) e.getTarget()).ignite();
@@ -78,20 +81,33 @@ public class VintMainEventHandler{
 
     @SubscribeEvent
     public static void onRightClick(PlayerInteractEvent.RightClickBlock e){
+        IBlockState targetstate = e.getWorld().getBlockState(e.getPos());
+        Block target = targetstate.getBlock();
         if(IntegrationHelper.isLoadedTwilight){
+            //lantern transformation
             if(IntegrationHelper.isLoaded("quark"))
                 if(!e.getWorld().isRemote && e.getItemStack().getItem().getClass().equals(ItemTFTransformPowder.class)) {
                     Block lantern = Blocks.SEA_LANTERN;
                     Block old = Block.getBlockFromName("quark:elder_sea_lantern");
-                    Block unknown = e.getWorld().getBlockState(e.getPos()).getBlock();
-                    if (unknown.equals(lantern)){
+                    if (target.equals(lantern)){
                         e.getWorld().setBlockState(e.getPos(), old.getDefaultState(),1|2);
                         e.getItemStack().shrink(1);
-                    } else if(unknown.equals(old)){
+                    } else if(target.equals(old)){
                         e.getWorld().setBlockState(e.getPos(), lantern.getDefaultState(),1|2);
                         e.getItemStack().shrink(1);
                     }
                 }
+            //torchberry plant
+            if(e.getItemStack().getItem().equals(TFItems.torchberries))
+                if(TorchBerry.checkSoil(targetstate)>0)
+                    if(e.getFace().equals(EnumFacing.DOWN) && e.getWorld().getBlockState(e.getPos().down()).getBlock().equals(Blocks.AIR)){
+                        if(!e.getWorld().isRemote) {
+                            e.getItemStack().shrink(1);
+                            e.getWorld().setBlockState(e.getPos().down(), BlockRegister.TORCH_CROPS.getDefaultState(), 1 | 2);
+                        } else {
+                            e.getWorld().playSound(e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS,  1F,1F,false);
+                        }
+                    }
         }
     }
 

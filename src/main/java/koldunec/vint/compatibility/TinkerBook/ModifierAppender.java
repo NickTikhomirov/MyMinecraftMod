@@ -21,9 +21,9 @@ public class ModifierAppender extends SectionTransformer {
         pd.source = new FileRepository("vint:book");
         pd.parent = section;
         pd.type = "modifier";
-        pd.data = "modifiers/sixfeets.json";
+        pd.data = "modifiers/primal.json";
         section.pages.add(pd);
         pd.load();
-        listing.addEntry(TinkerIntegration.SIXFEETS.getLocalizedName(), pd);
+        listing.addEntry(TinkerIntegration.PRIMAL.getLocalizedName(), pd);
     }
 }

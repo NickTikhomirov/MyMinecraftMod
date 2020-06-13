@@ -3,29 +3,28 @@ package koldunec.vint.compatibility;
 import koldunec.vint.compatibility.traits.*;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.IntegrationHelper;
-import koldunec.vint.vint;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.fluids.Fluid;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.minecraftforge.fml.common.event.FMLInterModComms;
 import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.*;
-import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-import slimeknights.tconstruct.tools.TinkerModifiers;
 import slimeknights.tconstruct.tools.TinkerTraits;
-import slimeknights.tconstruct.tools.traits.TraitSlimey;
 import twilightforest.compat.TConstruct;
-import twilightforest.entity.EntityTFMazeSlime;
+import twilightforest.item.TFItems;
 
 
 import static koldunec.vint.helpers.TechHelper.getColor;
 
 public class TinkerIntegration {
     public static Material CARMINITE = new Material("carminite", getColor(154F,0,0));
-    public static Material IRONWOOD = new Material("ironwood", getColor(154F,0,0));
+    public static Material IRONWOOD = new Material("ironwood", getColor(133F,137F,52F));
     public static Material MAZESTONE = new Material("mazestone", getColor(110F,122,109));
     public static Material NETHER_CACTUS = new Material("nether_cactus",getColor(210,210,0));
     public static Material CRIMSON_LOG = new Material("crimson_log", getColor(123F,0F,0F));
@@ -33,13 +32,14 @@ public class TinkerIntegration {
     public static Material BAMBOO = new Material("bamboo", getColor(130,168,89));
     public static AbstractTrait LEFT_HAND_RULE = new LeftHandRule();
     public static AbstractTrait BORING = new Boring();
-    public static AbstractTrait SIXFEETS = new Sixfeets();
+    public static AbstractTrait PRIMAL = new Primal();
     public static AbstractTrait MAZEY = new Mazey();
     public static AbstractTrait REDPOWER = new RedPower();
     public static AbstractTrait SLIMECUTTER = new SlimeCutter();
-
+    public static Fluid IRONWOOD_JIJA = null;
 
     public static void preInit(){
+        preInitJija();
         RedPower.initPerks();
 
         TinkerRegistry.addMaterialStats(NETHER_CACTUS,
@@ -70,12 +70,21 @@ public class TinkerIntegration {
                     new ExtraMaterialStats(340)
             );
 
+            TinkerRegistry.addMaterialStats(IRONWOOD,
+                    new HeadMaterialStats(204, 6F, 4F, 2),
+                    new ExtraMaterialStats(50),
+                    new HandleMaterialStats(0.85F, 60),
+                    new BowMaterialStats(0.5F, 1.5F,7)
+            );
+
+
             TinkerRegistry.integrate(CARMINITE).preInit();
             TinkerRegistry.integrate(MAZESTONE).preInit();
-            TinkerRegistry.integrate(NETHER_CACTUS).preInit();
-            TinkerRegistry.integrate(CRIMSON_LOG).preInit();
-            TinkerRegistry.integrate(WARPED_LOG).preInit();
+            TinkerRegistry.integrate(IRONWOOD,IRONWOOD_JIJA,"Ironwood").preInit();
         }
+        TinkerRegistry.integrate(NETHER_CACTUS).preInit();
+        TinkerRegistry.integrate(CRIMSON_LOG).preInit();
+        TinkerRegistry.integrate(WARPED_LOG).preInit();
 
         if(IntegrationHelper.isLoadedFuture){
             TinkerRegistry.addMaterialStats(BAMBOO,
@@ -89,22 +98,34 @@ public class TinkerIntegration {
 
 
     public static void init(){
+        String HEAD = MaterialTypes.HEAD;
+        String EXTRA = MaterialTypes.EXTRA;
+        String HANDLE = MaterialTypes.HANDLE;
+        String SHAFT = MaterialTypes.SHAFT;
+        String BOW = MaterialTypes.BOW;
+
         if(IntegrationHelper.isLoadedTwilight) {
             CARMINITE.addItem(new ItemStack(Item.getByNameOrId("twilightforest:carminite"), 1), 1, 144);
             CARMINITE.setRepresentativeItem(Item.getByNameOrId("twilightforest:carminite"));
             CARMINITE.setCraftable(true).setCastable(false);
             CARMINITE.addTrait(TConstruct.twilit);
-            CARMINITE.addTrait(TConstruct.twilit, MaterialTypes.HEAD).addTrait(BORING, MaterialTypes.HEAD);
-            CARMINITE.addTrait(TConstruct.twilit, MaterialTypes.HANDLE).addTrait(TinkerTraits.lightweight, MaterialTypes.HANDLE).addTrait(TinkerTraits.unnatural, MaterialTypes.HANDLE);
+            CARMINITE.addTrait(TConstruct.twilit, HEAD).addTrait(BORING, HEAD);
+            CARMINITE.addTrait(TConstruct.twilit, HANDLE).addTrait(TinkerTraits.lightweight, HANDLE).addTrait(TinkerTraits.unnatural, HANDLE);
 
             MAZESTONE.addItem(Item.getByNameOrId("twilightforest:maze_stone"));
             MAZESTONE.setRepresentativeItem(Block.getBlockFromName("twilightforest:maze_stone"));
             MAZESTONE.setCraftable(true).setCastable(false);
-            MAZESTONE.addTrait(LEFT_HAND_RULE, MaterialTypes.HEAD);
-            MAZESTONE.addTrait(TinkerTraits.duritos, MaterialTypes.EXTRA);
-            MAZESTONE.addTrait(MAZEY, MaterialTypes.HEAD).addTrait(MAZEY, MaterialTypes.EXTRA);
-            MAZESTONE.addTrait(TConstruct.twilit, MaterialTypes.HEAD).addTrait(TConstruct.twilit, MaterialTypes.EXTRA);
-            MAZESTONE.addTrait(TinkerTraits.heavy, MaterialTypes.HEAD).addTrait(TinkerTraits.heavy, MaterialTypes.EXTRA);
+            MAZESTONE.addTrait(LEFT_HAND_RULE, HEAD);
+            MAZESTONE.addTrait(TinkerTraits.duritos, EXTRA);
+            MAZESTONE.addTrait(MAZEY, HEAD).addTrait(MAZEY, EXTRA);
+            MAZESTONE.addTrait(TConstruct.twilit, HEAD).addTrait(TConstruct.twilit, EXTRA);
+            MAZESTONE.addTrait(TinkerTraits.heavy, HEAD).addTrait(TinkerTraits.heavy, EXTRA);
+
+            IRONWOOD.addItem(TFItems.ironwood_ingot,1, 144);
+            IRONWOOD.setRepresentativeItem(TFItems.ironwood_ingot);
+            IRONWOOD.addTrait(TConstruct.twilit).addTrait(TinkerTraits.ecological).addTrait(TinkerTraits.magnetic);
+            IRONWOOD.addTrait(TConstruct.twilit, HEAD).addTrait(TinkerTraits.ecological, HEAD).addTrait(TinkerTraits.magnetic2, HEAD);
+            IRONWOOD.setCastable(true).setCraftable(false);
 
             TConstruct.nagascale.addTrait(TConstruct.synergy).addTrait(TinkerTraits.fractured);
 
@@ -120,7 +141,8 @@ public class TinkerIntegration {
             BAMBOO.addItem(Item.getByNameOrId(IntegrationHelper.idFuture+":bamboo"),1,144);
             BAMBOO.setRepresentativeItem(Item.getByNameOrId(IntegrationHelper.idFuture+":bamboo"));
             BAMBOO.setCraftable(true).setCastable(false);
-            BAMBOO.addTrait(TinkerTraits.prickly).addTrait(TinkerTraits.ecological).addTrait(SLIMECUTTER);
+            BAMBOO.addTrait(TinkerTraits.ecological, HANDLE).addTrait(SLIMECUTTER, HANDLE);
+            BAMBOO.addTrait(TinkerTraits.fractured, SHAFT);
         }
 
         NETHER_CACTUS.addItem(BlockRegister.NETHER_CACTUS, 144);
@@ -141,12 +163,25 @@ public class TinkerIntegration {
 
     public static void postInit(){
         if(IntegrationHelper.isLoadedTwilight){
-            SIXFEETS.addRecipeMatch(new RecipeMatch.ItemCombination(
+            PRIMAL.addRecipeMatch(new RecipeMatch.ItemCombination(
                     1,
                     new ItemStack(Blocks.RED_MUSHROOM),
                     new ItemStack(Blocks.BROWN_MUSHROOM),
                     new ItemStack(Item.getByNameOrId(IntegrationHelper.idTwilight+":raw_meef"))
             ));
         }
+    }
+
+
+    private static void preInitJija(){
+        IRONWOOD_JIJA = new Tinkerfluid("ironwood", IRONWOOD.materialTextColor);
+        IRONWOOD_JIJA.setTemperature(1000).setLuminosity(15);
+        FluidRegistry.registerFluid(IRONWOOD_JIJA);
+        FluidRegistry.addBucketForFluid(IRONWOOD_JIJA);
+        NBTTagCompound tag = new NBTTagCompound();
+        tag.setString("fluid", IRONWOOD_JIJA.getName()); // name of the fluid
+        tag.setString("ore", "Ironwood"); // ore-suffix: ingotFoo, blockFoo, oreFoo,...
+        tag.setBoolean("toolforge", true);
+        FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
     }
 }
