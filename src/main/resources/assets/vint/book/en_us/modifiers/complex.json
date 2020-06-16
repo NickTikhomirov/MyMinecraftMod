@@ -1,0 +1,16 @@
+{
+  "modifier": "complex",
+  "text": [
+    {
+      "text": "Find your cauldron with gold at the end of harpy's tail"
+    }
+  ],
+  "effects": [
+    "Deals more damage to all primitive mobs",
+    "Single use"
+  ],
+  "demoTool": [
+    "tconstruct:rapier",
+    "tconstruct:hammer"
+  ]
+}

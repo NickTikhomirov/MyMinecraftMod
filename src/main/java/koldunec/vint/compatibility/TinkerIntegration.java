@@ -1,8 +1,11 @@
 package koldunec.vint.compatibility;
 
+import koldunec.vint.compatibility.TinkerBook.ModifierAppender;
 import koldunec.vint.compatibility.traits.*;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.init.ItemRegister;
+import net.daveyx0.primitivemobs.core.PrimitiveMobsItems;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -30,17 +33,23 @@ public class TinkerIntegration {
     public static Material CRIMSON_LOG = new Material("crimson_log", getColor(123F,0F,0F));
     public static Material WARPED_LOG = new Material("warped_log", getColor(22F,97F,91F));
     public static Material BAMBOO = new Material("bamboo", getColor(130,168,89));
+    public static Material HONEY_CRYSTAL = new Material("honey_crystal",getColor(255F,195F,15F));
+
     public static AbstractTrait LEFT_HAND_RULE = new LeftHandRule();
     public static AbstractTrait BORING = new Boring();
     public static AbstractTrait PRIMAL = new Primal();
     public static AbstractTrait MAZEY = new Mazey();
     public static AbstractTrait REDPOWER = new RedPower();
     public static AbstractTrait SLIMECUTTER = new SlimeCutter();
+    public static AbstractTrait COMPLEX = new Complex();
+
     public static Fluid IRONWOOD_JIJA = null;
 
     public static void preInit(){
         preInitJija();
         RedPower.initPerks();
+        if(IntegrationHelper.isLoadedPrimitive)
+            ModifierAppender.APPENDANTS.add(COMPLEX);
 
         TinkerRegistry.addMaterialStats(NETHER_CACTUS,
                 new HeadMaterialStats(256, 6F, 4F, 1),
@@ -60,6 +69,8 @@ public class TinkerIntegration {
         );
 
         if(IntegrationHelper.isLoadedTwilight) {
+            ModifierAppender.APPENDANTS.add(PRIMAL);
+
             TinkerRegistry.addMaterialStats(CARMINITE,
                     new HeadMaterialStats(200, 11F, 7.5F, 2),
                     new ExtraMaterialStats(150),
@@ -91,8 +102,14 @@ public class TinkerIntegration {
                     new HandleMaterialStats(1.2F, 50),
                     new ArrowShaftMaterialStats(1.3F,50)
             );
+            TinkerRegistry.addMaterialStats(HONEY_CRYSTAL,
+                    new HeadMaterialStats(800,5F,2F,0),
+                    new ExtraMaterialStats(400),
+                    new HandleMaterialStats(0.7F, 50)
+            );
 
             TinkerRegistry.integrate(BAMBOO).preInit();
+            TinkerRegistry.integrate(HONEY_CRYSTAL).preInit();
         }
     }
 
@@ -143,6 +160,11 @@ public class TinkerIntegration {
             BAMBOO.setCraftable(true).setCastable(false);
             BAMBOO.addTrait(TinkerTraits.ecological, HANDLE).addTrait(SLIMECUTTER, HANDLE);
             BAMBOO.addTrait(TinkerTraits.fractured, SHAFT);
+
+            HONEY_CRYSTAL.addItem(ItemRegister.HONEY_CRYSTAL,1,144);
+            HONEY_CRYSTAL.setRepresentativeItem(ItemRegister.HONEY_CRYSTAL);
+            HONEY_CRYSTAL.setCraftable(true).setCastable(false);
+            HONEY_CRYSTAL.addTrait(TinkerTraits.tasty);
         }
 
         NETHER_CACTUS.addItem(BlockRegister.NETHER_CACTUS, 144);
@@ -170,6 +192,8 @@ public class TinkerIntegration {
                     new ItemStack(Item.getByNameOrId(IntegrationHelper.idTwilight+":raw_meef"))
             ));
         }
+        if(IntegrationHelper.isLoadedPrimitive)
+            COMPLEX.addRecipeMatch(new RecipeMatch.Item(new ItemStack(PrimitiveMobsItems.CAMOUFLAGE_DYE),3));
     }
 
 

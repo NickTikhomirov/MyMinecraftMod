@@ -2,11 +2,14 @@ itemGroup.magicTab=Various Interactions
 
 material.carminite.name=Carminite
 material.mazestone.name=Mazestone
+material.ironwood.name=Ironwood
+
 material.nether_cactus.name=Nether Cactus
 material.crimson_log.name=Crimson
 material.warped_log.name=Warped
+
 material.bamboo.name=Bamboo
-material.ironwood.name=Ironwood
+material.honey_crystal.name=Honey
 
 fluid.ironwood=Molten Ironwood
 
@@ -22,6 +25,8 @@ modifier.redpower.name=Red Power
 modifier.redpower.desc=§oNobody asked for this reference§r\nYour tool deals great damage to endermen and some other ender-specific creatures.
 modifier.slimecutter.name=Bane of Slimes
 modifier.slimecutter.desc=§oIn remembrance of Great War of Pandas and Slimes. (pandas won yay)§r\nDeals more damage to slimes. No conflicts with other tribal killer traits
+modifier.complex.name=Complex
+modifier.complex.desc=§oEvery complex thing requires a bit of imagination§r\nDeals more damage to primitive mobs.
 
 
 item.bitcoin.name=One Bitcoin
@@ -104,6 +109,10 @@ item.carminite_pick.name=Carminite Pickaxe
 
 item.vanilla_powder.name=Vanilla Powder
 item.moss.name=Moss
+
+item.honey_crystal.name=Honey Crystal
+item.bamboo_bread.name=Bamboo Bread
+item.honey_berry.name=Honey Berry
 
 #######################
 ####### BLOCKS ########

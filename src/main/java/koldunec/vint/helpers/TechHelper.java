@@ -1,5 +1,9 @@
 package koldunec.vint.helpers;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.fml.common.registry.EntityRegistry;
+
 import java.awt.*;
 
 public class TechHelper {
@@ -19,5 +23,9 @@ public class TechHelper {
             if(arg%3==0)
                 return false;
         return true;
+    }
+
+    public static ResourceLocation getRegistryName(Entity e){
+        return EntityRegistry.getEntry(e.getClass()).getRegistryName();
     }
 }

@@ -42,7 +42,7 @@ public class ItemRegister{
     public static Item BITCOIN5000 = put(new bitcoin5000("bitcoin5000",64));
 
     public static Item ESSENCE_RAINBOW= put(new base_item("rEssence", 64));
-    public static Item FLINTBASE = new flint_base();
+    public static Item FLINTBASE = put(new flint_base());
     public static Item MAGIC_FLINTS = new flints();
     public static Item ROUND_STONE = new inertstone("round_stone",64);
     public static Item WOODEN_RUNE = put(new base_item("wooden_rune",64));
@@ -67,7 +67,7 @@ public class ItemRegister{
     public static Item DIAMONDGOLDEN_APPLE = put(new dg_apple());
     public static Item POTION_MIX = put(new effectFreezer());
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
-    public static Item HALFDUST = new base_item("halfdust",64);
+    public static Item HALFDUST = put(new base_item("halfdust",64));
 
     public static Item RELIQUARISTS_SWORD = new reliquarist_sword(MaterialRegister.thaumicMix,"ambersword");
     public static Item DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD = put(new reliquarist_sword(MaterialRegister.diamondgolden_golden_diamond, "dggd_sword"));
@@ -83,7 +83,11 @@ public class ItemRegister{
     public static Item SPONGE_OF_CONCEPTUALIZATION = put(new cleaner());
     public static Item CHISEl_OF_CONCEPTUALIZATION = put(new cheasel());
     public static Item SCROLL = new scroll();
-    public static Item NETHER_DRINK = new nether_drink();
+    public static Item NETHER_DRINK = put(new nether_drink());
+
+    public static Item HONEY_CRYSTAL = new base_item("honey_crystal",64);
+    public static Item BAMBOO_BREAD = new base_food("bamboo_bread",64,1,1.5F,false);
+    public static Item HONEY_BERRY = new base_food("honey_berry",64, 4,4F,false);
 
     //twilight items
     public static Item BORER_REED = new ReedBorerItem();
@@ -99,14 +103,11 @@ public class ItemRegister{
         for(Item i: DEFAULT_INIT)
             setRegister(i);
 
-        setRegister(FLINTBASE);
-        setRegister(NETHER_DRINK);
         setRegister(LASERCORE);
         setRegister(CHLESIS);
         setRegister(ROUND_STONE);
         setRegister(RELIQUARISTS_SWORD);
         setRegister(SCROLL_ISLE);
-        setRegister(HALFDUST);
 
         setRegister(ANOTHER_DYE);
         setRegister(MAGIC_FLINTS);
@@ -120,6 +121,13 @@ public class ItemRegister{
             setRegister(SHELL);
             setRegister(BORER_REED);
         }
+        if(IntegrationHelper.isLoadedFuture){
+            setRegister(BAMBOO_BREAD);
+            if(IntegrationHelper.isLoadedTinkers)
+                setRegister(HONEY_CRYSTAL);
+            if(IntegrationHelper.isLoadedNatura)
+                setRegister(HONEY_BERRY);
+        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -129,11 +137,8 @@ public class ItemRegister{
 
         setRender(LASERCORE);
         setRender(CHLESIS);
-        setRender(FLINTBASE);
-        setRender(NETHER_DRINK);
         setRender(ROUND_STONE);
         setRender(RELIQUARISTS_SWORD);
-        setRender(HALFDUST);
 
         if(IntegrationHelper.isLoadedTwilight) {
             setRender(TRANSFORMATION_DUST);
@@ -142,7 +147,13 @@ public class ItemRegister{
             setRender(SHELL);
             setRender(BORER_REED);
         }
-
+        if(IntegrationHelper.isLoadedFuture){
+            setRender(BAMBOO_BREAD);
+            if(IntegrationHelper.isLoadedTinkers)
+                setRender(HONEY_CRYSTAL);
+            if(IntegrationHelper.isLoadedNatura)
+                setRender(HONEY_BERRY);
+        }
     }
 
     private static Item put(Item i){
