@@ -38,6 +38,11 @@ public class IntegrationHelper {
         isLoadedCharm = isLoaded("charm");
         isLoadedChisel = isLoaded("chisel");
         isLoadedFuture = isLoaded(idFuture);
+        if(!isLoadedFuture)
+            if(isLoaded("futuremc")){
+                idFuture = "futuremc";
+                isLoadedFuture = true;
+            }
     }
 
     public static boolean isLoaded(String name){

@@ -34,8 +34,8 @@ public class OasisGenerator implements IWorldGenerator {
             return;
         if(world.provider.getDimension()!=-1)
             return;
-        int x = chunkX<<4+8;
-        int z = chunkZ<<4+8;
+        int x = (chunkX<<4)+8;
+        int z = (chunkZ<<4)+8;
         Block air = world.getBlockState(new BlockPos(x,145,z)).getBlock();
         if(!air.equals(Blocks.AIR))
             return;
@@ -43,14 +43,14 @@ public class OasisGenerator implements IWorldGenerator {
         x -=8;
         z -=8;
         Chunk ch = chunkProvider.getLoadedChunk(chunkX,chunkZ);
-        if(random.nextInt(200)==0){
+        //if(random.nextInt(200)==0){
             for(int i=0;i<16;++i)
                 for(int j=0;j<16;++j) {
-                    double h = perlovka.getValue((x+i)/10F,(z+j)/10F);
-                    if(h>0.2)
+                    double h = 100*perlovka.getValue((x+i)/20F,(z+j)/20F);
+                    if(h>100)
                         placeSoul(ch,new BlockPos(i,ch.getHeightValue(i,j)-1,j),random, h);
                 }
-        }
+        //}
     }
 
 

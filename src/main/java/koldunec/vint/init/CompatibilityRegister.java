@@ -74,5 +74,8 @@ public class CompatibilityRegister {
             OreDictionary.registerOre("ingotIronwood", TFItems.ironwood_ingot);
             OreDictionary.registerOre("blockIronwood", new ItemStack(TFBlocks.block_storage, 1, 0));
         }
+        if(IntegrationHelper.isLoadedFuture && IntegrationHelper.isLoaded("culinaryconstruct")){
+            OreDictionary.registerOre("bread",ItemRegister.BAMBOO_BREAD);
+        }
     }
 }

@@ -13,6 +13,7 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -30,6 +31,7 @@ public class BlockRegister {
 
     public static Block RED_NYLIUM = put(new BaseNylium("red_nylium"));
     public static Block BLUE_NYLIUM = put(new BaseNylium("blue_nylium"));
+    public static Block WARPED_WART = put(BaseNylium.BuildWarpedWart());
 
     public static Block RED_NY_LOG = put(new BlockTriDirectional("red_nether_log"));
     public static Block RED_NY_LOG_STRIP = put(new BlockTriDirectional("red_nether_log_strip"));

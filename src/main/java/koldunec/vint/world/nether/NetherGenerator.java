@@ -56,8 +56,8 @@ public class NetherGenerator implements IWorldGenerator {
         for(int i=0; i<16; ++i)
             for(int j=0; j<16; ++j){
                 int h1 = (int)(2*perlovka.getValue((x+i)/60.0,(z+j)/60.0));
-                int h2 = (int)(14*perlovka.getValue((x+i)/60.0,(z+j)/60.0));
-                int m = Math.max(h1,h2-6);
+                int h2 = (int)(10*perlovka.getValue((x+i)/120.0,(z+j)/120.0));
+                int m = Math.max(h1,h2-4);
                 if(h2>0)
                     fillColumnNatura2(ch,new BlockPos(i,133+m,j));
                 else
@@ -141,7 +141,7 @@ public class NetherGenerator implements IWorldGenerator {
 
     void generateTower(Chunk ch, Random random){
         int top = 150;
-        if(IntegrationHelper.isLoadedTinkers && random.nextInt(1)==0)
+        if(IntegrationHelper.isLoadedTinkers && random.nextInt(10)==0)
             top = 131;
         for(int y=1; y<top; ++y)
             fillSlice(ch,y, BlockRegister.FRESH_DEBRIS.getDefaultState());
