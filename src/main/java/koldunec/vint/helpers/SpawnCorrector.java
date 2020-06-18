@@ -12,11 +12,18 @@ public class SpawnCorrector {
 
     public static boolean HellCorrector(Entity one){
         if(one.getPosition().getY()>127){
+            if(one instanceof EntityCreeper)
+                return true;
             if(one instanceof EntityEnderman)
                 return false;
             if(one instanceof EntityMagmaCube)
                 return false;
             if(one instanceof EntityBlaze)
+                return false;
+            String domain = TechHelper.getRegistryName(one).getResourceDomain();
+            if(domain.equals("primitivemobs"))
+                return false;
+            if(domain.equals("quark"))
                 return false;
             return true;
         } else {

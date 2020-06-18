@@ -1,5 +1,6 @@
 package koldunec.vint.blocks;
 
+import koldunec.vint.init.BlockRegister;
 import koldunec.vint.items.baseItems.basic_block;
 import koldunec.vint.vint;
 import net.minecraft.block.Block;
@@ -35,6 +36,8 @@ public class BaseNylium extends Block implements IGrowable {
         if(plantable instanceof Block)
             if(((Block)plantable).getRegistryName().getResourceDomain().equals("natura"))
                 return true;
+        if(plantable.equals(BlockRegister.NETHER_CACTUS) && this.equals(BlockRegister.GOLD_NYLIUM))
+            return true;
         return super.canSustainPlant(state, world, pos, direction, plantable);
     }
 
@@ -51,18 +54,5 @@ public class BaseNylium extends Block implements IGrowable {
     @Override
     public void grow(World worldIn, Random rand, BlockPos pos, IBlockState state) {
 
-    }
-
-
-    public static Block BuildWarpedWart(){
-        IBlockState mainstate = Blocks.NETHER_WART.getDefaultState();
-        Block result = new Block(mainstate.getMaterial());
-        result.setRegistryName("warped_wart");
-        result.setUnlocalizedName("warped_wart");
-        result.setCreativeTab(vint.magicTab);
-        result.setHardness(0.5F);
-        result.setResistance(10F);
-        result.setLightOpacity(255);
-        return result;
     }
 }

@@ -9,11 +9,11 @@ import koldunec.vint.items.baseItems.basic_block;
 import koldunec.vint.items.baseItems.basic_planks;
 import koldunec.vint.items.curinggrass.curingCrops;
 import koldunec.vint.items.gunpowder_reed.block_gunreed;
+import koldunec.vint.utils.ObjectBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -31,7 +31,8 @@ public class BlockRegister {
 
     public static Block RED_NYLIUM = put(new BaseNylium("red_nylium"));
     public static Block BLUE_NYLIUM = put(new BaseNylium("blue_nylium"));
-    public static Block WARPED_WART = put(BaseNylium.BuildWarpedWart());
+    public static Block GOLD_NYLIUM = put(new BaseNylium("gold_nylium"));
+    public static Block WARPED_WART = put(ObjectBuilder.BuildWarpedWart());
 
     public static Block RED_NY_LOG = put(new BlockTriDirectional("red_nether_log"));
     public static Block RED_NY_LOG_STRIP = put(new BlockTriDirectional("red_nether_log_strip"));
@@ -40,6 +41,9 @@ public class BlockRegister {
 
     public static Block RED_NETHER_MUSH = put(new NetherShroom("red_nether_shroom"));
     public static Block BLUE_NETHER_MUSH = put(new NetherShroom("blue_nether_shroom"));
+
+    public static Block RED_PLANKS = put(ObjectBuilder.SimpleBlock.BuildDefaultPlanks("red_planks",false));
+    public static Block BLUE_PLANKS = put(ObjectBuilder.SimpleBlock.BuildDefaultPlanks("blue_planks",false));
 
     public static Block NETHER_CACTUS = put(new GlowCactus());
 
@@ -59,8 +63,8 @@ public class BlockRegister {
     public static Block COBBLE_MOSS_old = new basic_block("block_oldmoss",Material.ROCK, "pickaxe",0,2F ,30F,255);
     public static Block COBBLE_MOSS_red = new basic_block("block_redmoss",Material.ROCK,"pickaxe",0,2F,30F,255);
     public static Block COBBLE_old = new basic_block("block_oldstone",Material.ROCK,"pickaxe",0,2F,30F,255);
-    public static Block PLANKS_Light = new basic_planks("block_planks_light", 2F ,15F);
-    public static Block PLANKS_uncommon = new basic_planks("block_planks_uncommon", 2F ,15F);
+    public static Block PLANKS_Light = put(ObjectBuilder.SimpleBlock.BuildDefaultPlanks("block_planks_light", true));
+    public static Block PLANKS_uncommon = put(ObjectBuilder.SimpleBlock.BuildDefaultPlanks("block_planks_uncommon", true));
 
     public static Block ORE_BIT = put(new bitore("ore_bit",2,5,6));
     public static Block ORE_EGG = put(new eggore("ore_egg",64));
@@ -80,8 +84,6 @@ public class BlockRegister {
         registerBlock(WATER_PORTAL);
         registerBlock(BRICKS_Light);
         registerBlock(BRICKS_Dark);
-        registerBlock(PLANKS_Light);
-        registerBlock(PLANKS_uncommon);
         registerBlock(COBBLE_MOSS_old);
 
         registerBlock(COBBLE_MOSS_red);
@@ -106,8 +108,6 @@ public class BlockRegister {
         setRender(WATER_PORTAL);
         setRender(BRICKS_Dark);
         setRender(BRICKS_Light);
-        setRender(PLANKS_Light);
-        setRender(PLANKS_uncommon);
         setRender(COBBLE_MOSS_old);
         setRender(COBBLE_MOSS_red);
         setRender(COBBLE_old);

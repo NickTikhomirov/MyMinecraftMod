@@ -3,6 +3,7 @@ package koldunec.vint.world.nether;
 import koldunec.vint.helpers.ConfigHelper;
 import koldunec.vint.helpers.NeighbourChecker;
 import koldunec.vint.init.BlockRegister;
+import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.vint;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -43,14 +44,13 @@ public class OasisGenerator implements IWorldGenerator {
         x -=8;
         z -=8;
         Chunk ch = chunkProvider.getLoadedChunk(chunkX,chunkZ);
-        //if(random.nextInt(200)==0){
-            for(int i=0;i<16;++i)
-                for(int j=0;j<16;++j) {
-                    double h = 100*perlovka.getValue((x+i)/20F,(z+j)/20F);
-                    if(h>100)
-                        placeSoul(ch,new BlockPos(i,ch.getHeightValue(i,j)-1,j),random, h);
-                }
-        //}
+        for(int i=0;i<16;++i)
+            for(int j=0;j<16;++j) {
+                double h = 1*perlovka.getValue((x+i)/50F,(z+j)/50F);
+                if(h>2)
+                    placeSoul(ch,new BlockPos(i,ch.getHeightValue(i,j)-1,j),random, h);
+            }
+
     }
 
 
@@ -71,6 +71,17 @@ public class OasisGenerator implements IWorldGenerator {
                     bp = bp.up();
                     ch.setBlockState(bp,BlockRegister.NETHER_CACTUS.getDefaultState());
             }
+        } else if(IntegrationHelper.isLoadedFuture && r.nextInt(100)==0){
+            Block wrose;
+            if(IntegrationHelper.idFuture.equals("futuremc"))
+                wrose = Block.getBlockFromName("futuremc:wither_rose");
+            else
+                wrose = Block.getBlockFromName(IntegrationHelper.idFuture+":flowerblack");
+            if(wrose==null)
+                return;
+            ch.setBlockState(bp, wrose.getDefaultState());
+
+
         }
     }
 

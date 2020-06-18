@@ -18,6 +18,7 @@ public class GeneratorRegister {
         GameRegistry.registerWorldGenerator(new OasisGenerator(),2);
         GameRegistry.registerWorldGenerator(new NetherTreeGenerator(),3);
         GameRegistry.registerWorldGenerator(new NetherLightGenerator(), 4);
+        GameRegistry.registerWorldGenerator(new Mushroomer(), 4);
         GameRegistry.registerWorldGenerator(new NaturaDecoratorBerries(),9);
 
     }

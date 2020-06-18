@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "up": "vint:hell/gold_nylium",
+    "down": "vint:hell/natura_dirt",
+    "north": "vint:hell/gold_nylium_side",
+    "south": "vint:hell/gold_nylium_side",
+    "west":  "vint:hell/gold_nylium_side",
+    "east":  "vint:hell/gold_nylium_side",
+    "particle": "vint:hell/gold_nylium"
+  }
+}

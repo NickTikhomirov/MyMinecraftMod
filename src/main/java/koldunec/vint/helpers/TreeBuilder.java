@@ -2,7 +2,9 @@ package koldunec.vint.helpers;
 
 import koldunec.vint.blocks.BlockTriDirectional;
 import koldunec.vint.init.BlockRegister;
+import koldunec.vint.init.IntegrationHelper;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.EnumFaceDirection;
 import net.minecraft.init.Blocks;
@@ -32,18 +34,22 @@ public class TreeBuilder {
 
     public static void BuildProperTree(World w, BlockPos firstBlock){
         IBlockState ground = w.getBlockState(firstBlock.down());
-        if(ground.getBlock().equals(BlockRegister.RED_NYLIUM))
-            BuildNetherTree(w,firstBlock,BlockRegister.RED_NY_LOG, Blocks.NETHER_WART_BLOCK.getDefaultState());
+        if(ground.getBlock().equals(BlockRegister.RED_NYLIUM)) {
+            if(!IntegrationHelper.isLoadedCharm || w.rand.nextInt(100)!=0)
+                BuildNetherTree(w, firstBlock, BlockRegister.RED_NY_LOG, Blocks.NETHER_WART_BLOCK.getDefaultState());
+            else
+                BuildNetherTree(w, firstBlock, Blocks.BONE_BLOCK, Block.getBlockFromName("charm:rotten_flesh_block").getDefaultState());
+        }
         if(ground.getBlock().equals(BlockRegister.BLUE_NYLIUM))
             BuildNetherTree(w,firstBlock,BlockRegister.BLUE_NY_LOG, BlockRegister.WARPED_WART.getDefaultState());
     }
 
     public static void BuildNetherTree(World w, BlockPos firstBlock, Block log, IBlockState leaves){
-        IBlockState logstate = log.getDefaultState();
+        IBlockState logstate = log.getDefaultState().withProperty(BlockRotatedPillar.AXIS, EnumFacing.UP.getAxis());
         w.setBlockState(firstBlock,logstate);
         BlockPos offset = firstBlock.up();
         for(EnumFacing e: EnumFacing.HORIZONTALS)
-            w.setBlockState(firstBlock.offset(e),logstate.withProperty(BlockTriDirectional.AXIS,e.getAxis()));
+            w.setBlockState(firstBlock.offset(e),logstate.withProperty(BlockRotatedPillar.AXIS,e.getAxis()));
         for(int stage=0; stage<4; ++stage){
             int stagemax = STAGE_PARAMS.get(stage);
             for(int i=1; i<=stagemax; ++i){
