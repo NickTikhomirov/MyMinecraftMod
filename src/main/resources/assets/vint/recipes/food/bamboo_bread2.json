@@ -2,21 +2,20 @@
   "conditions": [
     {
       "type":"is_loaded",
-      "id":"projectred-core"
+      "id":"futuremc"
     }
   ],
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "projectred-core:resource_item",
-      "data": 105
+      "item": "futuremc:bamboo"
     },
     {
-      "item": "vint:vanilla_powder"
+      "item": "futuremc:bamboo"
     }
   ],
   "result":
     {
-      "item": "minecraft:redstone"
+      "item": "vint:bamboo_bread"
     }
 }

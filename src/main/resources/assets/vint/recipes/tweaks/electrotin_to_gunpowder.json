@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"projectred-core"
+    }
+  ],
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {

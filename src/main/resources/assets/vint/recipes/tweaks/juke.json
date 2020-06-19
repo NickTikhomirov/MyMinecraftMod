@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"projectx"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "CCC",
@@ -34,8 +40,8 @@
     ],
     "O":
       {
-        "type": "forge:ore_dict",
-        "ore": "crystalXycronium"
+        "type":"forge:ore_dict",
+        "ore":"crystalXycronium"
       }
   },
   "result": {

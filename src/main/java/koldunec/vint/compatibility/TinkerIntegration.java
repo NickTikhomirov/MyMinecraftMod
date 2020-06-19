@@ -136,7 +136,7 @@ public class TinkerIntegration {
             MAZESTONE.addTrait(TinkerTraits.duritos, EXTRA);
             MAZESTONE.addTrait(MAZEY, HEAD).addTrait(MAZEY, EXTRA);
             MAZESTONE.addTrait(TConstruct.twilit, HEAD).addTrait(TConstruct.twilit, EXTRA);
-            MAZESTONE.addTrait(TinkerTraits.heavy, HEAD).addTrait(TinkerTraits.heavy, EXTRA);
+            MAZESTONE.addTrait(TinkerTraits.heavy, EXTRA);
 
             IRONWOOD.addItem(TFItems.ironwood_ingot,1, 144);
             IRONWOOD.setRepresentativeItem(TFItems.ironwood_ingot);

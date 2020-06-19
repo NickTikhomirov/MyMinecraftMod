@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"twilightforest"
+    }
+  ],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "mBm",

@@ -1,0 +1,59 @@
+{
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"minecraftfuture"
+    },
+    {
+      "type":"is_loaded",
+      "id":"natura"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    [
+      {
+        "item": "natura:edibles",
+        "data": 2
+      },
+      {
+        "item": "natura:edibles",
+        "data": 3
+      },
+      {
+        "item": "natura:edibles",
+        "data": 4
+      },
+      {
+        "item": "natura:edibles",
+        "data": 5
+      }
+    ],
+    [
+      {
+        "item": "natura:edibles",
+        "data": 2
+      },
+      {
+        "item": "natura:edibles",
+        "data": 3
+      },
+      {
+        "item": "natura:edibles",
+        "data": 4
+      },
+      {
+        "item": "natura:edibles",
+        "data": 5
+      }
+    ],
+    {
+      "item": "minecraftfuture:honey_bottle"
+    }
+  ],
+  "result":
+    {
+      "item": "vint:honey_berry",
+      "count": 2
+    }
+}

@@ -1,4 +1,10 @@
 {
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"twilightforest"
+    }
+  ],
   "result": {
     "item": "twilightforest:lifedrain_scepter"
   },
