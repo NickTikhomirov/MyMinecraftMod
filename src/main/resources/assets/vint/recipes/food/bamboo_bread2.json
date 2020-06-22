@@ -1,19 +1,19 @@
 {
+  "type": "minecraft:crafting_shaped",
   "conditions": [
     {
       "type":"is_loaded",
       "id":"futuremc"
     }
   ],
-  "type": "minecraft:crafting_shapeless",
-  "ingredients": [
-    {
-      "item": "futuremc:bamboo"
-    },
-    {
+  "pattern": [
+    "bb"
+  ],
+  "key": {
+    "b": {
       "item": "futuremc:bamboo"
     }
-  ],
+  },
   "result":
     {
       "item": "vint:bamboo_bread"

@@ -3,8 +3,8 @@ package koldunec.vint.init;
 import koldunec.vint.compatibility.ChlesisSetter;
 import koldunec.vint.compatibility.OtherTweaker;
 import koldunec.vint.compatibility.TinkerIntegration;
-import koldunec.vint.containers.ContainerChlesis;
-import koldunec.vint.vint;
+import koldunec.vint.tileentities.containers.ContainerChlesis;
+import koldunec.vint.utils.GemHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -13,22 +13,24 @@ import twilightforest.block.TFBlocks;
 import twilightforest.item.TFItems;
 
 public class CompatibilityRegister {
-
+    public static Item FUTURE_BAMBOO;
 
     public static void preInit(){
         oreRegisterItems();
         oreRegisterBlocks();
         grassRegisterItems();
+        GemHelper.preInit();
         if(IntegrationHelper.isLoadedTinkers)
             TinkerIntegration.preInit();
     }
 
     public static void init(){
+        if(IntegrationHelper.isLoadedFuture)
+            FUTURE_BAMBOO = Item.getByNameOrId(IntegrationHelper.idFuture+":bamboo");
         oreRegisterSideItems();
         OtherTweaker.trivia();
         if(IntegrationHelper.isLoadedTinkers)
             TinkerIntegration.init();
-
 
         if(IntegrationHelper.isLoadedChisel){
             ContainerChlesis.initMyCarving();
@@ -38,8 +40,10 @@ public class CompatibilityRegister {
     }
 
     public static void postInit(){
+        GemHelper.postInit();
         if(IntegrationHelper.isLoadedTinkers)
             TinkerIntegration.postInit();
+
     }
 
 

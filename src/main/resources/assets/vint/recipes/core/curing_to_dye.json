@@ -3,12 +3,15 @@
   "ingredients": [
     {
       "item": "vint:curinggrass"
+    },
+    {
+      "item": "vint:curinggrass"
     }
   ],
   "result":
     {
       "item": "minecraft:dye",
       "data": 12,
-      "count": 2
+      "count": 3
     }
 }

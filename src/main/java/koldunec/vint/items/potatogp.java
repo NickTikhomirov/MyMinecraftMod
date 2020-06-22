@@ -1,6 +1,6 @@
 package koldunec.vint.items;
 
-import koldunec.vint.items.baseItems.base_food;
+import koldunec.vint.objectbuilders.SimpleItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -8,10 +8,10 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 
-public class potatogp extends base_food {
+public class potatogp extends SimpleItems.SimpleFood  {
 
     public potatogp() {
-        super("potatogp",64,1,1,false);
+        super("potatogp",1,1);
     }
 
 

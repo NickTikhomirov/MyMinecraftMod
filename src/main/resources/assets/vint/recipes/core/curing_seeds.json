@@ -2,16 +2,12 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "type": "forge:ore_dict",
-      "ore": "magicFlintWeak"
-    },
-    {
       "item": "vint:curinggrass"
     }
   ],
   "result":
     {
       "item": "vint:curingseeds",
-      "count": 3
+      "count": 2
     }
 }

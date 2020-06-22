@@ -1,6 +1,6 @@
 package koldunec.vint.items;
 
-import koldunec.vint.items.baseItems.base_food;
+import koldunec.vint.objectbuilders.SimpleItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.ItemStack;
@@ -11,9 +11,9 @@ import java.util.Random;
 
 import static net.minecraft.init.MobEffects.*;
 
-public class effectFreezer extends base_food {
+public class effectFreezer extends SimpleItems.SimpleFood  {
     public effectFreezer(){
-        super("effect_freezer",64,2,1F,false);
+        super("effect_freezer",2,1F);
         setAlwaysEdible();
     }
 

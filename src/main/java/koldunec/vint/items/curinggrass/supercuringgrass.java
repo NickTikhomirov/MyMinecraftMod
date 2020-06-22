@@ -1,6 +1,6 @@
 package koldunec.vint.items.curinggrass;
 
-import koldunec.vint.items.baseItems.base_food;
+import koldunec.vint.objectbuilders.SimpleItems;
 import koldunec.vint.potions.PotionRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,10 +14,10 @@ import net.minecraft.world.World;
 import static net.minecraft.init.MobEffects.*;
 
 
-public class supercuringgrass extends base_food {
+public class supercuringgrass extends SimpleItems.SimpleFood  {
 
     public supercuringgrass() {
-        super("supercuringgrass",64,1,1,false);
+        super("supercuringgrass",1,1);
     }
 
 

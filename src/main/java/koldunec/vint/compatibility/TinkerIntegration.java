@@ -1,8 +1,10 @@
 package koldunec.vint.compatibility;
 
+import koldunec.vint.compatibility.TinkerBook.MaterialDocumenter;
 import koldunec.vint.compatibility.TinkerBook.ModifierAppender;
 import koldunec.vint.compatibility.traits.*;
 import koldunec.vint.init.BlockRegister;
+import koldunec.vint.init.CompatibilityRegister;
 import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
 import net.daveyx0.primitivemobs.core.PrimitiveMobsItems;
@@ -29,18 +31,25 @@ public class TinkerIntegration {
     public static Material CARMINITE = new Material("carminite", getColor(154F,0,0));
     public static Material IRONWOOD = new Material("ironwood", getColor(133F,137F,52F));
     public static Material MAZESTONE = new Material("mazestone", getColor(110F,122,109));
-    public static Material NETHER_CACTUS = new Material("nether_cactus",getColor(210,210,0));
-    public static Material CRIMSON_LOG = new Material("crimson_log", getColor(123F,0F,0F));
-    public static Material WARPED_LOG = new Material("warped_log", getColor(22F,97F,91F));
+
     public static Material BAMBOO = new Material("bamboo", getColor(130,168,89));
     public static Material HONEY_CRYSTAL = new Material("honey_crystal",getColor(255F,195F,15F));
 
+    public static Material CRIMSON_LOG = new Material("crimson_log", getColor(123F,0F,0F));
+    public static Material WARPED_LOG = new Material("warped_log", getColor(22F,97F,91F));
+    public static Material NETHER_CACTUS = new Material("nether_cactus",getColor(210,210,0));
+    public static Material DEBRIS = new Material("debris", getColor(126,96,89));
+
     public static AbstractTrait LEFT_HAND_RULE = new LeftHandRule();
     public static AbstractTrait BORING = new Boring();
-    public static AbstractTrait PRIMAL = new Primal();
     public static AbstractTrait MAZEY = new Mazey();
     public static AbstractTrait REDPOWER = new RedPower();
     public static AbstractTrait SLIMECUTTER = new SlimeCutter();
+    public static AbstractTrait CAPITATOR = new Capitator();
+    public static AbstractTrait BLACKENING = new Blackening();
+
+    public static AbstractTrait FUNDAMENTAL = new Fundamental();
+    public static AbstractTrait PRIMAL = new Primal();
     public static AbstractTrait COMPLEX = new Complex();
 
     public static Fluid IRONWOOD_JIJA = null;
@@ -48,6 +57,8 @@ public class TinkerIntegration {
     public static void preInit(){
         preInitJija();
         RedPower.initPerks();
+        ModifierAppender.APPENDANTS.add(FUNDAMENTAL);
+        MaterialDocumenter.APPENDANTS.add(DEBRIS);
         if(IntegrationHelper.isLoadedPrimitive)
             ModifierAppender.APPENDANTS.add(COMPLEX);
 
@@ -67,6 +78,9 @@ public class TinkerIntegration {
                 new ExtraMaterialStats(65),
                 new HandleMaterialStats(0.99F,20)
         );
+
+        TinkerRegistry.addMaterialStats(DEBRIS,
+                new ExtraMaterialStats(128));
 
         if(IntegrationHelper.isLoadedTwilight) {
             ModifierAppender.APPENDANTS.add(PRIMAL);
@@ -96,6 +110,7 @@ public class TinkerIntegration {
         TinkerRegistry.integrate(NETHER_CACTUS).preInit();
         TinkerRegistry.integrate(CRIMSON_LOG).preInit();
         TinkerRegistry.integrate(WARPED_LOG).preInit();
+        TinkerRegistry.integrate(DEBRIS).preInit();
 
         if(IntegrationHelper.isLoadedFuture){
             TinkerRegistry.addMaterialStats(BAMBOO,
@@ -110,6 +125,7 @@ public class TinkerIntegration {
 
             TinkerRegistry.integrate(BAMBOO).preInit();
             TinkerRegistry.integrate(HONEY_CRYSTAL).preInit();
+            MaterialDocumenter.APPENDANTS.add(BAMBOO);
         }
     }
 
@@ -145,20 +161,13 @@ public class TinkerIntegration {
             IRONWOOD.setCastable(true).setCraftable(false);
 
             TConstruct.nagascale.addTrait(TConstruct.synergy).addTrait(TinkerTraits.fractured);
-
-
-
-            /*TConstruct.knightmetal
-                    .addTrait(TConstruct.twilit,MaterialTypes.HANDLE)
-                    .addTrait(TConstruct.valiant,MaterialTypes.HANDLE)
-                    .addTrait(TinkerTraits.dense,MaterialTypes.HANDLE);*/
         }
 
         if(IntegrationHelper.isLoadedFuture){
-            BAMBOO.addItem(Item.getByNameOrId(IntegrationHelper.idFuture+":bamboo"),1,144);
-            BAMBOO.setRepresentativeItem(Item.getByNameOrId(IntegrationHelper.idFuture+":bamboo"));
+            BAMBOO.addItem(CompatibilityRegister.FUTURE_BAMBOO,1,144);
+            BAMBOO.setRepresentativeItem(CompatibilityRegister.FUTURE_BAMBOO);
             BAMBOO.setCraftable(true).setCastable(false);
-            BAMBOO.addTrait(TinkerTraits.ecological, HANDLE).addTrait(SLIMECUTTER, HANDLE);
+            BAMBOO.addTrait(TinkerTraits.ecological, HANDLE).addTrait(SLIMECUTTER, HANDLE).addTrait(CAPITATOR, HANDLE);
             BAMBOO.addTrait(TinkerTraits.fractured, SHAFT);
 
             HONEY_CRYSTAL.addItem(ItemRegister.HONEY_CRYSTAL,1,144);
@@ -166,6 +175,11 @@ public class TinkerIntegration {
             HONEY_CRYSTAL.setCraftable(true).setCastable(false);
             HONEY_CRYSTAL.addTrait(TinkerTraits.tasty);
         }
+
+        DEBRIS.addItem(BlockRegister.FRESH_DEBRIS,144);
+        DEBRIS.setRepresentativeItem(BlockRegister.FRESH_DEBRIS);
+        DEBRIS.setCraftable(true).setCastable(false);
+        DEBRIS.addTrait(BLACKENING).addTrait(TinkerTraits.aridiculous);
 
         NETHER_CACTUS.addItem(BlockRegister.NETHER_CACTUS, 144);
         NETHER_CACTUS.setRepresentativeItem(BlockRegister.NETHER_CACTUS);
@@ -184,6 +198,7 @@ public class TinkerIntegration {
 
 
     public static void postInit(){
+        ((Capitator)CAPITATOR).appendCactus();
         if(IntegrationHelper.isLoadedTwilight){
             PRIMAL.addRecipeMatch(new RecipeMatch.ItemCombination(
                     1,
@@ -193,7 +208,8 @@ public class TinkerIntegration {
             ));
         }
         if(IntegrationHelper.isLoadedPrimitive)
-            COMPLEX.addRecipeMatch(new RecipeMatch.Item(new ItemStack(PrimitiveMobsItems.CAMOUFLAGE_DYE),3));
+            COMPLEX.addRecipeMatch(new RecipeMatch.Item(new ItemStack(PrimitiveMobsItems.CAMOUFLAGE_DYE),1));
+        FUNDAMENTAL.addRecipeMatch(new RecipeMatch.Item(new ItemStack(ItemRegister.WOODEN_RUNE),1));
     }
 
 

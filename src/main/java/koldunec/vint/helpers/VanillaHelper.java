@@ -1,6 +1,11 @@
 package koldunec.vint.helpers;
 
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.ItemMonsterPlacer;
@@ -31,5 +36,22 @@ public class VanillaHelper {
         {
             worldIn.spawnParticle(EnumParticleTypes.SMOKE_LARGE, d0 + Math.random(), d1 + 1.2D, d2 + Math.random(), 0.0D, 0.0D, 0.0D);
         }
+    }
+
+    public static void GivePlayer(EntityPlayer ep, ItemStack i){
+        World w = ep.getEntityWorld();
+        BlockPos bp = ep.getPosition();
+        w.spawnEntity(new EntityItem(w,ep.posX,ep.posY,ep.posZ, i.copy()));
+    }
+
+    public static void VisualBreak(BlockPos pos, World world){
+        IBlockState state = world.getBlockState(pos);
+        if(state.getBlock().equals(Blocks.AIR))
+            return;
+        world.playEvent(2001, pos, Block.getStateId(state));
+    }
+
+    public static EntityItem formDrop(Entity e, ItemStack i){
+        return new EntityItem(e.world,e.posX,e.posY,e.posZ,i);
     }
 }

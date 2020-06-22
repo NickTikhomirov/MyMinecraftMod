@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:blue_nether_log_strip"
+    }
+  ],
+  "result":
+  {
+    "item": "vint:blue_planks",
+    "count": 4
+  }
+}

@@ -9,7 +9,7 @@ import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import koldunec.vint.init.MaterialRegister;
+import koldunec.vint.init.others.MaterialRegister;
 
 
 public class magnetpick extends ItemPickaxe {

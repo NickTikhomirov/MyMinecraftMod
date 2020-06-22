@@ -1,0 +1,17 @@
+{
+  "modifier": "fundamental",
+  "text": [
+    {
+      "text": "Reliable basis is the only thing you need on the island that floats through the infinity of the Void."
+    }
+  ],
+  "effects": [
+    "Teleports all mined cobblestone to you",
+    "Designed for skyblock survivals",
+    "Single use"
+  ],
+  "demoTool": [
+    "tconstruct:pickaxe",
+    "tconstruct:hammer"
+  ]
+}

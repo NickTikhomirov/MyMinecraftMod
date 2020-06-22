@@ -28,11 +28,19 @@ import static java.lang.Math.round;
 
 
 public class Broom extends Item {
+    public static HashSet<Block> affected_blocks = new HashSet<Block>(){{
+        add(Blocks.WEB);
+        add(Blocks.ENCHANTING_TABLE);
+        add(Blocks.BOOKSHELF);
+        add(Blocks.ENDER_CHEST);
+        add(Blocks.SEA_LANTERN);
+    }};
 
-    public Broom(String name) {
+
+    public Broom() {
         super();
-        this.setRegistryName(name);
-        this.setUnlocalizedName(name);
+        this.setRegistryName("broom");
+        this.setUnlocalizedName("broom");
         this.setCreativeTab(vint.magicTab);
         this.maxStackSize = 1;
     }
@@ -55,15 +63,8 @@ public class Broom extends Item {
     }
 
     @Override
-    public boolean canHarvestBlock(IBlockState state)
-    {
-        if(
-                state.getBlock().equals(Blocks.ENCHANTING_TABLE)
-              ||state.getBlock().equals(Blocks.WEB)
-              ||state.getBlock().equals(Blocks.BOOKSHELF)
-              ||state.getBlock().equals(Blocks.ENDER_CHEST)
-              ||state.getBlock().equals(Blocks.SEA_LANTERN)
-        )
+    public boolean canHarvestBlock(IBlockState state){
+        if(affected_blocks.contains(state.getBlock()))
             return true;
         return super.canHarvestBlock(state);
     }
@@ -140,15 +141,5 @@ public class Broom extends Item {
         }
         return false;
     }
-
-    public static HashSet<Block> affected_blocks = new HashSet<Block>(){{
-        add(Blocks.WEB);
-        add(Blocks.ENCHANTING_TABLE);
-        add(Blocks.BOOKSHELF);
-        add(Blocks.ENDER_CHEST);
-        add(Blocks.SEA_LANTERN);
-    }};
-
-
 
 }

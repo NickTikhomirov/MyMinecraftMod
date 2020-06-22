@@ -1,15 +1,15 @@
 package koldunec.vint.items;
 
-import koldunec.vint.items.baseItems.base_food;
+import koldunec.vint.objectbuilders.SimpleItems;
 import koldunec.vint.potions.PotionRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class gd_apple extends base_food {
+public class gd_apple extends SimpleItems.SimpleFood  {
      public gd_apple(){
-         super("gd_apple",64,4,4,false);
+         super("gd_apple",4,4);
          setAlwaysEdible();
      }
 

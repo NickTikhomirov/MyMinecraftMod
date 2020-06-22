@@ -14,25 +14,17 @@ import static net.minecraft.init.MobEffects.*;
 @Mod.EventBusSubscriber(modid = vint.MODID)
 public class PotionRegister {
 
-    public static final Potion
-            MINDPROTECTION = new potionmindprotection(0xFFE4E1);
-    public static final Potion
-            MAGICPROTECTION = new potionmagicprotection(0xFFFF00);
-    public static final Potion
-            ENDERPROTECTION = new potionenderprotection(0x6e5160);
-    public static final Potion
-            HUMANITY = new potionhumanity(0xffc8a8);
-    public static final Potion
-            WITHERPROTECTION = new potionwitherprotection(0xe34234);
-    public static final Potion
-            ACID = new potionacid(0x02ab9d);
-    public static final Potion
-            POISONPROTECTION = new potionpoisonprotection(0xb30000);
-    public static final Potion
-            PLAGUE = new potionplague(0x343b29);
+    public static Potion MINDPROTECTION = new potionmindprotection(0xFFE4E1);
+    public static Potion MAGICPROTECTION = new potionmagicprotection(0xFFFF00);
+    public static Potion ENDERPROTECTION = new potionenderprotection(0x6e5160);
+    public static Potion HUMANITY = new potionhumanity(0xffc8a8);
+    public static Potion WITHERPROTECTION = new potionwitherprotection(0xe34234);
+    public static Potion ACID = new potionacid(0x02ab9d);
+    public static Potion POISONPROTECTION = new potionpoisonprotection(0xb30000);
+    public static Potion PLAGUE = new potionplague(0x343b29);
 
 
-    public static final PotionType
+    public static PotionType
             HASTE_TYPE_STANDART = createPotionType(null,new PotionEffect(HASTE,3600,1)),
             HASTE_TYPE_LONG = createPotionType("long",new PotionEffect(HASTE,9600,1)),
 

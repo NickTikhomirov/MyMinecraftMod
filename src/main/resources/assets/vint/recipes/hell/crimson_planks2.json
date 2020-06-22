@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:red_nether_log_strip"
+    }
+  ],
+  "result":
+  {
+    "item": "vint:red_planks",
+    "count": 4
+  }
+}

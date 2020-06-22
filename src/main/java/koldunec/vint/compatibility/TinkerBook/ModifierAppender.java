@@ -5,6 +5,7 @@ import slimeknights.mantle.client.book.data.PageData;
 import slimeknights.mantle.client.book.data.SectionData;
 import slimeknights.mantle.client.book.repository.FileRepository;
 import slimeknights.tconstruct.library.book.content.ContentListing;
+import slimeknights.tconstruct.library.book.content.ContentPageIconList;
 import slimeknights.tconstruct.library.book.sectiontransformer.SectionTransformer;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
@@ -20,7 +21,10 @@ public class ModifierAppender extends SectionTransformer {
 
     @Override
     public void transform(BookData book, SectionData section) {
-        ContentListing listing = (ContentListing)section.pages.get(0).content;
+        int i = 0;
+        for(; section.pages.get(i).content instanceof ContentListing; ++i){}  // search for end
+        --i;
+        ContentListing listing = (ContentListing)section.pages.get(i).content;
         for(AbstractTrait app: APPENDANTS) {
             PageData pd = new PageData();
             pd.source = new FileRepository("vint:book");

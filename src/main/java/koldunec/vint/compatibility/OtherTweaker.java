@@ -5,7 +5,6 @@ import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.items.Broom;
 import koldunec.vint.items.gunpowder_reed.reed_item;
-import koldunec.vint.vint;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.init.Blocks;
@@ -24,12 +23,15 @@ public class OtherTweaker {
         }
 
         if(IntegrationHelper.isLoadedCharm){
-            Composter.inputs.put("minecraft:rotten_flesh", 0.1F);
-            Composter.inputs.put("minecraft:feather", 0.1F);
+            Composter.inputs.put("minecraft:rotten_flesh", 0.2F);
+            Composter.inputs.put("minecraft:feather", 0.2F);
+            Composter.inputs.put("minecraft:spider_eye",0.2F);
             Composter.inputs.put("vint:vanilla_powder",0.3F);
             Composter.inputs.put("minecraft:nether_wart", 0.5F);
             Composter.inputs.put("vint:curinggrass", 0.3F);
+            Composter.inputs.put("natura:overworld_seeds", 0.3F);
             Composter.inputs.put("vint:radio_cactus", 0.65F);
+            Composter.inputs.put("natura:materials[0]", 0.65F);     // barley
             Composter.inputs.put("minecraft:web", 1F);
             if(IntegrationHelper.isLoadedNatura){
                 Composter.inputs.put("natura:overworld_seeds", 0.3F);

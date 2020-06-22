@@ -7,6 +7,7 @@ material.ironwood.name=Ironwood
 material.nether_cactus.name=Nether Cactus
 material.crimson_log.name=Crimson
 material.warped_log.name=Warped
+material.debris.name=Debris
 
 material.bamboo.name=Bamboo
 material.honey_crystal.name=Honey
@@ -19,14 +20,23 @@ modifier.boring.name=Boring
 modifier.boring.desc=§oThis trait is pretty interesting§r\nYour tool is now able to break dirt and wood as if it is shovel or axe (no AOE though)
 modifier.mazey.name=Mazey
 modifier.mazey.desc=§oEww, moo-ey§r\nIt'll maze off.
-modifier.primal.name=Primal Rage
-modifier.primal.desc=§oSponsored by Those Strange Mushrooms(TM)§r\nIf block has at least one coordinate with prime absolute value, the mining speed is increased
 modifier.redpower.name=Red Power
 modifier.redpower.desc=§oNobody asked for this reference§r\nYour tool deals great damage to endermen and some other ender-specific creatures.
 modifier.slimecutter.name=Bane of Slimes
 modifier.slimecutter.desc=§oIn remembrance of Great War of Pandas and Slimes. (pandas won yay)§r\nDeals more damage to slimes. No conflicts with other tribal killer traits
+modifier.capitator.name=Farmer Frenzy
+modifier.capitator.desc=§oStop cactis' killing cactis §r\nYour tool is able to gather cactis safely.
+modifier.blackening.name=Blackening
+modifier.blackening.desc=§oColor Matters§r\nTransforms stone into blackstone.
+
+modifier.primal.name=Primal Rage
+modifier.primal.desc=§oSponsored by Those Strange Mushrooms(TM)§r\nIf block has at least one coordinate with prime absolute value, the mining speed is increased
 modifier.complex.name=Complex
 modifier.complex.desc=§oEvery complex thing requires a bit of imagination§r\nDeals more damage to primitive mobs.
+modifier.fundamental.name=Fundamental
+modifier.fundamental.desc=§oCobblestonks§r\nNow your cobblestone will not be burned.
+
+
 
 
 item.bitcoin.name=One Bitcoin
@@ -109,6 +119,7 @@ item.carminite_pick.name=Carminite Pickaxe
 
 item.vanilla_powder.name=Vanilla Powder
 item.moss.name=Moss
+item.bamboo_hoe.name=Bamboo Hoe
 
 item.honey_crystal.name=Honey Crystal
 item.bamboo_bread.name=Bamboo Bread
@@ -137,6 +148,11 @@ tile.radio_cactus.name=Nether Cactus
 tile.shroomlight.name=Shroomlight
 tile.basalt_raw.name=Basalt
 tile.basalt_pillar.name=Polished Basalt
+tile.blackstone.name=Blackstone
+tile.blackcobble.name=Blackstone Cobble
+tile.blackstone_bricks.name=Blackstone Bricks
+tile.blackstone_polished.name=Polished Blackstone
+tile.blackstone_chiseled.name=Chiseled Blackstone
 tile.red_nylium.name=Crimson Nylium
 tile.blue_nylium.name=Warped Nylium
 tile.gold_nylium.name=Gold Nylium
@@ -155,7 +171,7 @@ tile.blue_nether_shroom.name=Warped Fungus
 
 tile.torch_crop.name=Torchberry Bush
 
-
+tile.gem_ore.name=Gem Ore
 
 
 

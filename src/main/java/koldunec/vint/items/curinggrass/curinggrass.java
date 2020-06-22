@@ -1,6 +1,6 @@
 package koldunec.vint.items.curinggrass;
 
-import koldunec.vint.items.baseItems.base_food;
+import koldunec.vint.objectbuilders.SimpleItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
@@ -12,10 +12,10 @@ import net.minecraft.world.World;
 import static net.minecraft.init.MobEffects.HUNGER;
 
 
-public class curinggrass extends base_food {
+public class curinggrass extends SimpleItems.SimpleFood  {
 
     public curinggrass() {
-        super("curinggrass",64,1,1,false);
+        super("curinggrass",1,1);
     }
 
 

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:moss"
+    },
+    {
+      "item": "vint:moss"
+    },
+    {
+      "item": "vint:moss"
+    },
+    {
+      "item": "vint:moss"
+    }
+  ],
+  "result":
+    {
+      "item": "tconstruct:materials",
+      "data": 18
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"minecraftfuture"
+    }
+  ],
+  "pattern": [
+    "bb",
+    " b",
+    " b"
+  ],
+  "key": {
+    "b": {
+      "item": "minecraftfuture:bamboo"
+    }
+  },
+  "result": {
+    "item": "vint:bamboo_hoe"
+  }
+}

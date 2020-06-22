@@ -1,6 +1,6 @@
 package koldunec.vint.tileentities;
 
-import koldunec.vint.containers.container_store;
+import koldunec.vint.tileentities.containers.container_store;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;

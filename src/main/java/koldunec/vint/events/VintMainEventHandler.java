@@ -51,7 +51,6 @@ import teamroots.embers.entity.EntityAncientGolem;
 import twilightforest.block.BlockTFLeaves;
 import twilightforest.block.BlockTFMagicLeaves;
 import twilightforest.block.BlockTFMagicLogSpecial;
-import twilightforest.item.ItemTFMinotaurAxe;
 import twilightforest.item.ItemTFTransformPowder;
 import twilightforest.item.TFItems;
 
@@ -155,8 +154,7 @@ public class VintMainEventHandler{
                     e.getDrops().clear();
                     e.getDrops().add(new ItemStack(e.getState().getBlock()));
                 } else if(IntegrationHelper.isLoadedTwilight &&
-                        (toolMainHand.getItem().equals(ItemRegister.CARMINITE_AXE)) ||
-                        toolMainHand.getItem() instanceof ItemTFMinotaurAxe){
+                        (toolMainHand.getItem().equals(ItemRegister.CARMINITE_AXE))){
                     if(e.getState().getBlock() instanceof BlockTFMagicLogSpecial) {
                         e.getDrops().clear();
                         e.getDrops().add(
@@ -204,7 +202,7 @@ public class VintMainEventHandler{
             }
         }
 
-        if(net.minecraftforge.fml.common.Loader.isModLoaded("embers")){
+        if(IntegrationHelper.isLoaded("embers")){
             if(victim instanceof EntityAncientGolem){
                 if(enemy instanceof EntityPlayer){
                     ItemStack hand = ((EntityPlayer) enemy).getHeldItemMainhand();

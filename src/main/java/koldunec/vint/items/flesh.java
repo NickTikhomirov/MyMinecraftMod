@@ -1,6 +1,6 @@
 package koldunec.vint.items;
 
-import koldunec.vint.items.baseItems.base_food;
+import koldunec.vint.objectbuilders.SimpleItems;
 import koldunec.vint.potions.PotionRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -10,9 +10,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 
 
-public class flesh extends base_food {
+public class flesh extends SimpleItems.SimpleFood  {
     public flesh(){
-        super("flesh",64,4,0.8F,true);
+        super("flesh",4,0.8F);
     }
 
     @Override

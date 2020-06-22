@@ -6,10 +6,9 @@ import koldunec.vint.blocks.plants.GlowCactus;
 import koldunec.vint.blocks.plants.TorchBerry;
 import koldunec.vint.items.*;
 import koldunec.vint.items.baseItems.basic_block;
-import koldunec.vint.items.baseItems.basic_planks;
 import koldunec.vint.items.curinggrass.curingCrops;
 import koldunec.vint.items.gunpowder_reed.block_gunreed;
-import koldunec.vint.utils.ObjectBuilder;
+import koldunec.vint.objectbuilders.ObjectBuilder;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.Minecraft;
@@ -25,19 +24,24 @@ import java.util.HashSet;
 public class BlockRegister {
     public static HashSet<Block> DEFAULT_INIT = new HashSet<>();
 
-    public static Block BASALT_RAW = put(new BlockTriDirectional("basalt_raw"));
-    public static Block BASALT_PILLAR = put(new BlockTriDirectional("basalt_pillar"));
-    public static Block FRESH_DEBRIS = put(new BlockTriDirectional("debris"));
+    public static Block BASALT_RAW = put(BlockTriDirectional.BuildStone("basalt_raw"));
+    public static Block BASALT_PILLAR = put(BlockTriDirectional.BuildStone("basalt_pillar"));
+    public static Block FRESH_DEBRIS = put(BlockTriDirectional.BuildStone("debris"));
+    public static Block BLACKSTONE = put(ObjectBuilder.BuildRock("blackstone"));
+    public static Block BLACKCOBBLE = put(ObjectBuilder.BuildRock("blackcobble"));
+    public static Block BLACKSTONE_BRICKS = put(ObjectBuilder.BuildRock("blackstone_bricks"));
+    public static Block BLACKSTONE_POLISHED = put(ObjectBuilder.BuildRock("blackstone_polished"));
+    public static Block BLACKSTONE_CHISELED = put(ObjectBuilder.BuildRock("blackstone_chiseled"));
 
     public static Block RED_NYLIUM = put(new BaseNylium("red_nylium"));
     public static Block BLUE_NYLIUM = put(new BaseNylium("blue_nylium"));
     public static Block GOLD_NYLIUM = put(new BaseNylium("gold_nylium"));
     public static Block WARPED_WART = put(ObjectBuilder.BuildWarpedWart());
 
-    public static Block RED_NY_LOG = put(new BlockTriDirectional("red_nether_log"));
-    public static Block RED_NY_LOG_STRIP = put(new BlockTriDirectional("red_nether_log_strip"));
-    public static Block BLUE_NY_LOG = put(new BlockTriDirectional("blue_nether_log"));
-    public static Block BLUE_NY_LOG_STRIP = put(new BlockTriDirectional("blue_nether_log_strip"));
+    public static Block RED_NY_LOG = put(BlockTriDirectional.BuildLog("red_nether_log"));
+    public static Block RED_NY_LOG_STRIP = put(BlockTriDirectional.BuildLog("red_nether_log_strip"));
+    public static Block BLUE_NY_LOG = put(BlockTriDirectional.BuildLog("blue_nether_log"));
+    public static Block BLUE_NY_LOG_STRIP = put(BlockTriDirectional.BuildLog("blue_nether_log_strip"));
 
     public static Block RED_NETHER_MUSH = put(new NetherShroom("red_nether_shroom"));
     public static Block BLUE_NETHER_MUSH = put(new NetherShroom("blue_nether_shroom"));
@@ -51,7 +55,7 @@ public class BlockRegister {
     public static Block CURING_CROPS = new curingCrops("curing_crops");
     public static Block TORCH_CROPS = new TorchBerry();
     public static Block GHAST_POD = new block_ghastpod();
-    public static Block SHROOMLIGHT = put(new ShroomLight());
+    public static Block SHROOMLIGHT = put(ObjectBuilder.BuildShroomLight());
 
     public static Block LLAMA_SPAWNER = new LlamaFlower();
     public static Block STORE = put(new stORE());

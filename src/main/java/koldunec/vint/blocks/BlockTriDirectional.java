@@ -1,6 +1,7 @@
 package koldunec.vint.blocks;
 
 import koldunec.vint.vint;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -14,31 +15,29 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockTriDirectional extends BlockRotatedPillar {
-
-    static Material initMat(String s){
-        if(s.equals("basalt_raw") || s.equals("basalt_pillar") || s.equals("debris")) {
-            return Material.ROCK;
-        }
-        return Material.WOOD;
-    }
-
-    public BlockTriDirectional(String name) {
-        super(initMat(name));
+    public BlockTriDirectional(String name, Material mat, SoundType soundType) {
+        super(mat);
+        setSoundType(soundType);
         setRegistryName(name);
         setUnlocalizedName(name);
         setDefaultState(blockState.getBaseState().withProperty(AXIS, EnumFacing.Axis.Y));
         setCreativeTab(vint.magicTab);
-        if(name.equals("basalt_raw") || name.equals("basalt_pillar") || name.equals("debris")) {
-            setHarvestLevel("pickaxe",0);
-            setSoundType(SoundType.STONE);
-            setHardness(1.5F);
-            setResistance(6F);
-            return;
-        }
-        setHarvestLevel("axe",0);
-        setHardness(2F);
-        setResistance(2F);
-        setSoundType(SoundType.WOOD);
+    }
+
+    public static Block BuildStone(String name){
+        BlockTriDirectional result = new BlockTriDirectional(name, Material.ROCK,SoundType.STONE);
+        result.setHarvestLevel("pickaxe",0);
+        result.setHardness(1.5F);
+        result.setResistance(6F);
+        return result;
+    }
+
+    public static Block BuildLog(String name){
+        BlockTriDirectional result = new BlockTriDirectional(name, Material.WOOD,SoundType.WOOD);
+        result.setHarvestLevel("axe",0);
+        result.setHardness(2F);
+        result.setResistance(2F);
+        return result;
     }
 
 

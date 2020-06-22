@@ -1,6 +1,6 @@
 {
   "type": "block",
   "parameters": {
-    "texture": "minecraftfuture:blocks/bamboo_stalk"
+    "texture": "vint:other/bamboo"
   }
 }

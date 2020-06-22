@@ -1,8 +1,11 @@
 package koldunec.vint.proxy;
 
 
+import koldunec.vint.client.GuiHandler;
 import koldunec.vint.helpers.ConfigHelper;
 import koldunec.vint.init.*;
+import koldunec.vint.init.others.LootRegister;
+import koldunec.vint.init.others.TileRegister;
 import koldunec.vint.vint;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

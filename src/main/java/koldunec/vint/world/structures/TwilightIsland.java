@@ -2,7 +2,7 @@ package koldunec.vint.world.structures;
 
 
 import koldunec.vint.init.BlockRegister;
-import koldunec.vint.init.LootRegister;
+import koldunec.vint.init.others.LootRegister;
 import koldunec.vint.tileentities.EntityStore;
 import koldunec.vint.vint;
 import net.minecraft.block.BlockChest;

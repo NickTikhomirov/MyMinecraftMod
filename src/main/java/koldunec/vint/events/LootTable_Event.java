@@ -3,7 +3,7 @@ package koldunec.vint.events;
 import koldunec.vint.helpers.VanillaHelper;
 import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
-import koldunec.vint.init.LootRegister;
+import koldunec.vint.init.others.LootRegister;
 import koldunec.vint.potions.PotionRegister;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

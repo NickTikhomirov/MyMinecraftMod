@@ -1,10 +1,10 @@
 package koldunec.vint.init;
 
-
-import koldunec.vint.items.CarminitePick;
+import koldunec.vint.init.others.MaterialRegister;
+import koldunec.vint.items.tools.CarminitePick;
+import koldunec.vint.items.baseItems.base_fuel;
 import koldunec.vint.items.blockitems.ReedBorerItem;
 import koldunec.vint.items.*;
-import koldunec.vint.items.baseItems.base_food;
 import koldunec.vint.items.baseItems.base_item;
 import koldunec.vint.items.crafting_tools.cheasel;
 import koldunec.vint.items.crafting_tools.cleaner;
@@ -17,7 +17,11 @@ import koldunec.vint.items.throwables.cursedRock;
 import koldunec.vint.items.throwables.inertstone;
 import koldunec.vint.items.saviour;
 import koldunec.vint.items.gd_apple;
+import koldunec.vint.items.tools.CarminiteAxe;
+import koldunec.vint.items.tools.PaintStone;
 import koldunec.vint.items.tools.reliquarist_sword;
+import koldunec.vint.objectbuilders.ObjectBuilder;
+import koldunec.vint.objectbuilders.SimpleItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -37,8 +41,10 @@ public class ItemRegister{
 
     public static Item VANILLA_POWDER = put(new base_item("vanilla_powder",64));
 
+    public static Item BAMBOO_HOE = put(ObjectBuilder.BuildBambooHoe());
+
     public static Item GHAST_SEEDS = put(new ghast_seeds());
-    public static Item BITCOIN = put(new bitcoin());
+    public static Item BITCOIN = put(new base_fuel("bitcoin",64, (short)800));
     public static Item BITCOIN5000 = put(new bitcoin5000("bitcoin5000",64));
 
     public static Item ESSENCE_RAINBOW= put(new base_item("rEssence", 64));
@@ -50,6 +56,7 @@ public class ItemRegister{
     public static Item NETHER_CRYSTAL = put(new base_item("nether_crystal",64));
     public static Item SOUL = put(new base_item("small_soul",64));
     public static Item RED_POWDER = put(new oreProspector());
+    public static Item MOSS = put(new Moss());
 
     public static Item GOLDEN_DIAMOND = put(new base_item("dg0",64));
     public static Item DIAMOND_GOLD = put(new base_item("dg1",64));
@@ -57,12 +64,12 @@ public class ItemRegister{
 
     public static Item GOLDEN_POTATO = put(new potatogp());
     public static Item FLESH = put(new flesh());
-    public static Item EYE_C = put(new base_food("curedeye",64,3,0.8F,false));
-    public static Item FISH_C = put(new base_food("curedfish",64,3, 0.8F,false));
-    public static Item POTATO_C = put(new base_food("curedpotato",64,3,1.2F,false));
-    public static Item CHICKEN_C = put(new base_food("curedchicken",64,3,1.2F,false));
-    public static Item CHORUS_C = put(new base_food("curedfruit",64,4,2.4F,false));
-    public static Item FISHY = put(new base_food("fishy",64,1,1,false));
+    public static Item EYE_C = put(new SimpleItems.SimpleFood("curedeye",3,0.8F));
+    public static Item FISH_C = put(new SimpleItems.SimpleFood("curedfish",3, 0.8F));
+    public static Item POTATO_C = put(new SimpleItems.SimpleFood("curedpotato",3,1.2F));
+    public static Item CHICKEN_C = put(new SimpleItems.SimpleFood("curedchicken",3,1.2F));
+    public static Item CHORUS_C = put(new SimpleItems.SimpleFood("curedfruit",4,2.4F));
+    public static Item FISHY = put(new SimpleItems.SimpleFood("fishy",1,1));
     public static Item GOLDENDIAMOND_APPLE = put(new gd_apple());
     public static Item DIAMONDGOLDEN_APPLE = put(new dg_apple());
     public static Item POTION_MIX = put(new effectFreezer());
@@ -71,23 +78,23 @@ public class ItemRegister{
 
     public static Item RELIQUARISTS_SWORD = new reliquarist_sword(MaterialRegister.thaumicMix,"ambersword");
     public static Item DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD = put(new reliquarist_sword(MaterialRegister.diamondgolden_golden_diamond, "dggd_sword"));
-    public static Item BROOM = put(new Broom("broom"));
+    public static Item BROOM = put(new Broom());
     public static Item MAGICBALL = put(new cursedRock("magic_ball",24));
     public static Item LASERCORE = new LaserCore();
     public static Item CHLESIS = new Chlesis();
     public static Item xyAMULET = new xyAmulet();
     public static Item SAVIOUR = new saviour();
     public static Item MAGIC_PROTECTOR = put(new base_item("amulet0",16));
-    public static Item PAINT_TRANSMUTATOR = put(new paint_transmutator());
+    public static Item PAINT_TRANSMUTATOR = put(new PaintStone());
     public static Item SOUL_SHEARS = put(new soul_shears());
     public static Item SPONGE_OF_CONCEPTUALIZATION = put(new cleaner());
     public static Item CHISEl_OF_CONCEPTUALIZATION = put(new cheasel());
     public static Item SCROLL = new scroll();
     public static Item NETHER_DRINK = put(new nether_drink());
 
-    public static Item HONEY_CRYSTAL = new base_item("honey_crystal",64);
-    public static Item BAMBOO_BREAD = new base_food("bamboo_bread",64,1,1.5F,false);
-    public static Item HONEY_BERRY = new base_food("honey_berry",64, 4,4F,false);
+    public static Item HONEY_CRYSTAL = put(new base_item("honey_crystal",64));
+    public static Item BAMBOO_BREAD = put(new SimpleItems.SimpleFood("bamboo_bread",1,1.5F));
+    public static Item HONEY_BERRY = put(new SimpleItems.SimpleFood("honey_berry", 4,4F));
 
     //twilight items
     public static Item BORER_REED = new ReedBorerItem();
@@ -121,13 +128,6 @@ public class ItemRegister{
             setRegister(SHELL);
             setRegister(BORER_REED);
         }
-        if(IntegrationHelper.isLoadedFuture){
-            setRegister(BAMBOO_BREAD);
-            if(IntegrationHelper.isLoadedTinkers)
-                setRegister(HONEY_CRYSTAL);
-            if(IntegrationHelper.isLoadedNatura)
-                setRegister(HONEY_BERRY);
-        }
     }
 
     @SideOnly(Side.CLIENT)
@@ -146,13 +146,6 @@ public class ItemRegister{
             setRender(CARMINITE_PICKAXE);
             setRender(SHELL);
             setRender(BORER_REED);
-        }
-        if(IntegrationHelper.isLoadedFuture){
-            setRender(BAMBOO_BREAD);
-            if(IntegrationHelper.isLoadedTinkers)
-                setRender(HONEY_CRYSTAL);
-            if(IntegrationHelper.isLoadedNatura)
-                setRender(HONEY_BERRY);
         }
     }
 

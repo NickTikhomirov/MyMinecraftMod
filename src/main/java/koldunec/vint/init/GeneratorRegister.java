@@ -1,13 +1,8 @@
 package koldunec.vint.init;
 
-import koldunec.vint.vint;
 import koldunec.vint.world.generate.*;
 import koldunec.vint.world.nether.*;
-import net.minecraft.world.gen.NoiseGeneratorPerlin;
 import net.minecraftforge.fml.common.registry.GameRegistry;
-
-//if(vint.isLoadedProjectX && vint.isLoadedSulfurTorches)
-//    GameRegistry.registerWorldGenerator(new nether_island(), 10);
 
 public class GeneratorRegister {
 

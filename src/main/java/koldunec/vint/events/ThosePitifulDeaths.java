@@ -1,21 +1,17 @@
 package koldunec.vint.events;
 
 import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
+import koldunec.vint.helpers.VanillaHelper;
 import koldunec.vint.init.IntegrationHelper;
 import koldunec.vint.utils.RandomUtils;
 import koldunec.vint.vint;
-import koldunec.vint.items.saviour;
 import koldunec.vint.items.scroll;
-import koldunec.vint.items.tools.reliquarist_sword;
-import koldunec.vint.items.xyAmulet;
 import koldunec.vint.init.ItemRegister;
-import koldunec.vint.utils.MobLootUtils;
 import net.daveyx0.primitivemobs.entity.monster.EntityBrainSlime;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -24,7 +20,6 @@ import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import thaumcraft.api.items.ItemsTC;
-import thaumcraft.common.entities.monster.EntityBrainyZombie;
 import thaumcraft.common.entities.monster.EntityFireBat;
 import twilightforest.entity.boss.EntityTFMinoshroom;
 
@@ -45,46 +40,18 @@ public class ThosePitifulDeaths {
         if(way.getTrueSource() instanceof EntityLivingBase)
             killer = (EntityLivingBase)way.getTrueSource();
 
-        //everything about player killers
-        if(killer instanceof EntityPlayer){
-            EntityPlayer guyKiller = (EntityPlayer) killer;
-            ItemStack weapon = guyKiller.getHeldItemMainhand();
-            if(!weapon.isEmpty()){
-                if(weapon.getItem() instanceof reliquarist_sword){
-                    if(IntegrationHelper.isLoaded("xreliquary"))
-                        MobLootUtils.dropXeno(victim,list,weapon);
-                    if(IntegrationHelper.isLoadedThaumcraft){
-                        if(victim instanceof EntityZombie && !(victim instanceof EntityPigZombie)){
-                            if(victim instanceof EntityBrainyZombie || reliquarist_sword.countReliqueDrop(weapon,12)){
-                                if(rng.nextBoolean()){
-                                    list.add(MobLootUtils.formDrop(victim, new ItemStack(ItemsTC.brain,1)));
-                                }
-                            }
-                        }
-                    }
-                    if(IntegrationHelper.isLoaded("randomthings")){
-                        if(victim instanceof EntityGhast){
-                            if(reliquarist_sword.countReliqueDrop(weapon,6)){
-                                list.add(MobLootUtils.formDrop(victim, new ItemStack(Item.getByNameOrId("randomthings:ingredient"),1,2)));
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
         if(IntegrationHelper.isLoadedThaumcraft){
             if(victim instanceof EntityFireBat){
                 switch(rng.nextInt(5)){
-                    case 0: list.add(MobLootUtils.formDrop(victim,new ItemStack(Items.REDSTONE,1)));
+                    case 0: list.add(VanillaHelper.formDrop(victim,new ItemStack(Items.REDSTONE,1)));
                     case 1:
-                        list.add(MobLootUtils.formDrop(victim,new ItemStack(Items.REDSTONE,1)));
+                        list.add(VanillaHelper.formDrop(victim,new ItemStack(Items.REDSTONE,1)));
                         break;
-                    case 2: list.add(MobLootUtils.formDrop(victim,new ItemStack(Items.GLOWSTONE_DUST,1)));
+                    case 2: list.add(VanillaHelper.formDrop(victim,new ItemStack(Items.GLOWSTONE_DUST,1)));
                     case 3:
-                        list.add(MobLootUtils.formDrop(victim,new ItemStack(Items.GLOWSTONE_DUST,1)));
+                        list.add(VanillaHelper.formDrop(victim,new ItemStack(Items.GLOWSTONE_DUST,1)));
                         break;
-                    case 4: list.add(MobLootUtils.formDrop(victim,new ItemStack(Items.BLAZE_POWDER,1)));
+                    case 4: list.add(VanillaHelper.formDrop(victim,new ItemStack(Items.BLAZE_POWDER,1)));
                 }
             }
         }
@@ -97,11 +64,11 @@ public class ThosePitifulDeaths {
 
         if(IntegrationHelper.isLoadedNatura){
             if(victim instanceof EntityNitroCreeper){
-                list.add(MobLootUtils.formDrop(victim,new ItemStack(Items.GUNPOWDER,5+vint.random.nextInt(3))));
+                list.add(VanillaHelper.formDrop(victim,new ItemStack(Items.GUNPOWDER,5+vint.random.nextInt(3))));
                 if(vint.random.nextBoolean())
-                    list.add(MobLootUtils.formDrop(victim,new ItemStack(Item.getByNameOrId("natura:materials"),1+vint.random.nextInt(2),4)));
+                    list.add(VanillaHelper.formDrop(victim,new ItemStack(Item.getByNameOrId("natura:materials"),1+vint.random.nextInt(2),4)));
                 if(vint.random.nextInt(8)==0){
-                    list.add(MobLootUtils.formDrop(victim,new ItemStack(Item.getByNameOrId("natura:nether_sapling"),1,1)));
+                    list.add(VanillaHelper.formDrop(victim,new ItemStack(Item.getByNameOrId("natura:nether_sapling"),1,1)));
                 }
             }
         }
@@ -109,7 +76,7 @@ public class ThosePitifulDeaths {
         if(IntegrationHelper.isLoaded("railcraft")){
             if(victim.getEntityWorld().provider.doesWaterVaporize())
                 if(vint.random.nextInt(5)==0)
-                    list.add(MobLootUtils.formDrop(victim,new ItemStack(Item.getByNameOrId("railcraft:dust"),1,2)));
+                    list.add(VanillaHelper.formDrop(victim,new ItemStack(Item.getByNameOrId("railcraft:dust"),1,2)));
 
         }
     }
@@ -118,6 +85,13 @@ public class ThosePitifulDeaths {
     public void deathDrops(LivingDropsEvent e) {
         if(e.getEntity().getEntityWorld().isRemote) return;
         List<EntityItem> l = e.getDrops();
+
+        //moss
+        if(e.getEntityLiving().isEntityUndead())
+            if(vint.random.nextInt(100)==0)
+                dropItem(e.getEntityLiving(),ItemRegister.MOSS,1,0);
+
+        // primitives: brainslime tweaks
         if(IntegrationHelper.isLoadedPrimitive){
             if(e.getEntityLiving() instanceof EntityBrainSlime && ((EntitySlime)e.getEntityLiving()).getSlimeSize()<2){
                 if(IntegrationHelper.isLoadedTinkers){
@@ -129,7 +103,7 @@ public class ThosePitifulDeaths {
                                 break;
                             }
                     }
-                    l.add(MobLootUtils.formDrop(e.getEntity(),
+                    l.add(VanillaHelper.formDrop(e.getEntity(),
                             new ItemStack(Item.getByNameOrId("tconstruct:edible"),
                                 vint.random.nextInt(2)+2,
                                 2)));
@@ -143,6 +117,7 @@ public class ThosePitifulDeaths {
             }
         }
 
+        // scrolls
         if(!e.getEntity().isNonBoss()){
             int bound = 1 + vint.random.nextInt(2);
             for(int i=0; i<bound; ++i)
@@ -154,6 +129,8 @@ public class ThosePitifulDeaths {
                         0.5F);
         }
 
+
+        // difficulty changers drop
         if(IntegrationHelper.isLoadedScalingH){
             if(e.getEntity() instanceof EntityPigZombie && RandomUtils.getTrueWithChance(7))
                 e.getEntity().entityDropItem(

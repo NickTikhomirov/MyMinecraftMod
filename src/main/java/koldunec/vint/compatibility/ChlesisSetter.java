@@ -34,6 +34,11 @@ public class ChlesisSetter {
         String s = "Basalt";
         register(BlockRegister.BASALT_RAW,0,s);
         register(BlockRegister.BASALT_PILLAR,0,s);
+        register(BlockRegister.BLACKSTONE,0,s);
+        register(BlockRegister.BLACKCOBBLE,0,s);
+        register(BlockRegister.BLACKSTONE_BRICKS,0,s);
+        register(BlockRegister.BLACKSTONE_CHISELED,0,s);
+        register(BlockRegister.BLACKSTONE_POLISHED,0,s);
         if(IntegrationHelper.isLoadedProjectRed_exploration)
             register(Block.getBlockFromName(IntegrationHelper.idProjectRed+":stone"),3,s);  //Basalt
         if(IntegrationHelper.isLoaded("railcraft"))
