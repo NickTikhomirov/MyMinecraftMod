@@ -31,14 +31,13 @@ public class MaterialDocumenter extends SectionTransformer {
         --i;
         ContentPageIconList overview = (ContentPageIconList)section.pages.get(i).content;
         for(Material material: APPENDANTS){
-            PageData page = addPage(section, material.getIdentifier(), ContentMaterial.ID, new ContentMaterial(material));
+            PageData page = addPage(section, material.getIdentifier(), ContentMaterial.ID, new HeadlessMaterialData(material));
             SizedBookElement icon;
             if(material.getRepresentativeItem() != null)
                 icon = new ElementItem(0, 0, 1f, material.getRepresentativeItem());
             else
                 icon = new ElementImage(ImageData.MISSING);
             overview.addLink(icon, material.getLocalizedNameColored(), page);
-
         }
     }
 }

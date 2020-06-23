@@ -7,7 +7,7 @@ material.ironwood.name=Ironwood
 material.nether_cactus.name=Nether Cactus
 material.crimson_log.name=Crimson
 material.warped_log.name=Warped
-material.debris.name=Debris
+material.debris.name=Modern Debris
 
 material.bamboo.name=Bamboo
 material.honey_crystal.name=Honey
@@ -23,18 +23,18 @@ modifier.mazey.desc=§oEww, moo-ey§r\nIt'll maze off.
 modifier.redpower.name=Red Power
 modifier.redpower.desc=§oNobody asked for this reference§r\nYour tool deals great damage to endermen and some other ender-specific creatures.
 modifier.slimecutter.name=Bane of Slimes
-modifier.slimecutter.desc=§oIn remembrance of Great War of Pandas and Slimes. (pandas won yay)§r\nDeals more damage to slimes. No conflicts with other tribal killer traits
+modifier.slimecutter.desc=§oIn remembrance of the Great War of Pandas and Slimes. (pandas won yay)§r\nDeals more damage to slimes.
 modifier.capitator.name=Farmer Frenzy
-modifier.capitator.desc=§oStop cactis' killing cactis §r\nYour tool is able to gather cactis safely.
+modifier.capitator.desc=§oStop cactis' from killing cactis§r\nYour tool is able to gather reeds and cacti safely.
 modifier.blackening.name=Blackening
-modifier.blackening.desc=§oColor Matters§r\nTransforms stone into blackstone.
+modifier.blackening.desc=§oColor Matters§r\nMined stone turns into blackstone.
 
 modifier.primal.name=Primal Rage
-modifier.primal.desc=§oSponsored by Those Strange Mushrooms(TM)§r\nIf block has at least one coordinate with prime absolute value, the mining speed is increased
+modifier.primal.desc=§oSponsored by Those Strange Mushrooms(TM)§r\nIf block has at least one coordinate with prime absolute value, the mining speed is increased.
 modifier.complex.name=Complex
 modifier.complex.desc=§oEvery complex thing requires a bit of imagination§r\nDeals more damage to primitive mobs.
 modifier.fundamental.name=Fundamental
-modifier.fundamental.desc=§oCobblestonks§r\nNow your cobblestone will not be burned.
+modifier.fundamental.desc=§oCobblestonks§r\nYour mined cobblestone will not be burned in lava.
 
 
 
