@@ -28,6 +28,8 @@ modifier.capitator.name=Farmer Frenzy
 modifier.capitator.desc=§oStop cactis' from killing cactis§r\nYour tool is able to gather reeds and cacti safely.
 modifier.blackening.name=Blackening
 modifier.blackening.desc=§oColor Matters§r\nMined stone turns into blackstone.
+modifier.bzzz.name=Hivemind
+modifier.bzzz.desc=§oPart of the team, part of the hive§r\nYou can heal other players with your tool's hit (FORGET ABOUT PVP).
 
 modifier.primal.name=Primal Rage
 modifier.primal.desc=§oSponsored by Those Strange Mushrooms(TM)§r\nIf block has at least one coordinate with prime absolute value, the mining speed is increased.

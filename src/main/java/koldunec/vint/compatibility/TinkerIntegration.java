@@ -47,6 +47,7 @@ public class TinkerIntegration {
     public static AbstractTrait SLIMECUTTER = new SlimeCutter();
     public static AbstractTrait CAPITATOR = new Capitator();
     public static AbstractTrait BLACKENING = new Blackening();
+    public static AbstractTrait BZZZ = new Bzzz();
 
     public static AbstractTrait FUNDAMENTAL = new Fundamental();
     public static AbstractTrait PRIMAL = new Primal();
@@ -141,8 +142,8 @@ public class TinkerIntegration {
             CARMINITE.addItem(new ItemStack(Item.getByNameOrId("twilightforest:carminite"), 1), 1, 144);
             CARMINITE.setRepresentativeItem(Item.getByNameOrId("twilightforest:carminite"));
             CARMINITE.setCraftable(true).setCastable(false);
-            CARMINITE.addTrait(TConstruct.twilit);
-            CARMINITE.addTrait(TConstruct.twilit, HEAD).addTrait(BORING, HEAD);
+            CARMINITE.addTrait(TConstruct.twilit).addTrait(BZZZ);
+            CARMINITE.addTrait(TConstruct.twilit, HEAD).addTrait(BORING, HEAD).addTrait(BZZZ, HEAD);
             CARMINITE.addTrait(TConstruct.twilit, HANDLE).addTrait(TinkerTraits.lightweight, HANDLE).addTrait(TinkerTraits.unnatural, HANDLE);
 
             MAZESTONE.addItem(Item.getByNameOrId("twilightforest:maze_stone"));
@@ -173,7 +174,7 @@ public class TinkerIntegration {
             HONEY_CRYSTAL.addItem(ItemRegister.HONEY_CRYSTAL,1,144);
             HONEY_CRYSTAL.setRepresentativeItem(ItemRegister.HONEY_CRYSTAL);
             HONEY_CRYSTAL.setCraftable(true).setCastable(false);
-            HONEY_CRYSTAL.addTrait(TinkerTraits.tasty);
+            HONEY_CRYSTAL.addTrait(TinkerTraits.tasty).addTrait(BZZZ);
         }
 
         DEBRIS.addItem(BlockRegister.FRESH_DEBRIS,144);

@@ -4,6 +4,7 @@ package koldunec.vint.events;
 
 import koldunec.vint.blocks.plants.TorchBerry;
 import koldunec.vint.compatibility.TinkerIntegration;
+import koldunec.vint.compatibility.traits.Bzzz;
 import koldunec.vint.helpers.SpawnCorrector;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.IntegrationHelper;
@@ -37,12 +38,14 @@ import net.minecraft.util.*;
 import net.minecraft.world.WorldProviderHell;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
 
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.utils.ToolHelper;
