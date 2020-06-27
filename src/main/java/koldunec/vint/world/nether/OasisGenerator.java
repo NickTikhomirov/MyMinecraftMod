@@ -1,12 +1,10 @@
 package koldunec.vint.world.nether;
 
-import koldunec.vint.helpers.ConfigHelper;
-import koldunec.vint.helpers.NeighbourChecker;
+import koldunec.vint.ConfigHelper;
+import koldunec.vint.utils.NeighbourChecker;
 import koldunec.vint.init.BlockRegister;
-import koldunec.vint.init.IntegrationHelper;
-import koldunec.vint.vint;
+import koldunec.vint.IntegrationHelper;
 import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -61,7 +59,7 @@ public class OasisGenerator implements IWorldGenerator {
         ch.setBlockState(bp.down(),Blocks.SOUL_SAND.getDefaultState());
         ch.setBlockState(bp,Blocks.SOUL_SAND.getDefaultState());
         bp = bp.up();
-        if(NeighbourChecker.checkHorizontal(ch,bp,any)==0 && r.nextInt(15)==0){
+        if(NeighbourChecker.checkHorizontal(ch,bp,NeighbourChecker::checkNonAir)==0 && r.nextInt(15)==0){
             ch.setBlockState(bp,BlockRegister.NETHER_CACTUS.getDefaultState());
             switch(r.nextInt(3)){
                 case 0:
@@ -82,16 +80,6 @@ public class OasisGenerator implements IWorldGenerator {
             ch.setBlockState(bp, wrose.getDefaultState());
 
 
-        }
-    }
-
-    AnyChecker any = new AnyChecker();
-
-    static class AnyChecker implements NeighbourChecker.INeighbourPredicate{
-
-        @Override
-        public boolean check(IBlockState i) {
-            return !i.getBlock().equals(Blocks.AIR);
         }
     }
 }

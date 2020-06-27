@@ -2,8 +2,7 @@ package koldunec.vint.events;
 
 import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
 import koldunec.vint.helpers.VanillaHelper;
-import koldunec.vint.init.IntegrationHelper;
-import koldunec.vint.utils.RandomUtils;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.items.scroll;
 import koldunec.vint.init.ItemRegister;
@@ -132,7 +131,7 @@ public class ThosePitifulDeaths {
 
         // difficulty changers drop
         if(IntegrationHelper.isLoadedScalingH){
-            if(e.getEntity() instanceof EntityPigZombie && RandomUtils.getTrueWithChance(7))
+            if(e.getEntity() instanceof EntityPigZombie && e.getEntity().getEntityWorld().rand.nextInt(7)==0)
                 e.getEntity().entityDropItem(
                         new ItemStack(
                                 Item.getByNameOrId("scalinghealth:difficultychanger"),

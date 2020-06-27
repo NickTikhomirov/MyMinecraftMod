@@ -1,6 +1,6 @@
 package koldunec.vint.world.generate;
 
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.items.scroll2;
 import koldunec.vint.vint;
 import koldunec.vint.world.structures.ISkyIsle;

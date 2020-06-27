@@ -2,9 +2,8 @@ package koldunec.vint.compatibility;
 
 
 import koldunec.vint.init.BlockRegister;
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.recipes.AlternativeCarving;
-import koldunec.vint.vint;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;

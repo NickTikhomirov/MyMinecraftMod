@@ -1,0 +1,17 @@
+{
+  "modifier": "capitator",
+  "text": [
+    {
+      "text": "When you break cactus, you get cactus. Sounds obviously, but you'll like it"
+    }
+  ],
+  "effects": [
+    "Break cacti and reeds simply",
+    "Bamboo from FutureMC is supported too",
+    "Single use"
+  ],
+  "demoTool": [
+    "tconstruct:mattock",
+    "tconstruct:axe"
+  ]
+}

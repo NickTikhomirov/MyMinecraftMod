@@ -1,9 +1,9 @@
 package koldunec.vint.compatibility;
 
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
-import koldunec.vint.items.Broom;
+import koldunec.vint.items.tools.Broom;
 import koldunec.vint.items.gunpowder_reed.reed_item;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;

@@ -1,7 +1,7 @@
 package koldunec.vint.recipes.CraftConditions;
 
 import com.google.gson.JsonObject;
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.IntegrationHelper;
 import net.minecraft.util.JsonUtils;
 import net.minecraftforge.common.crafting.IConditionFactory;
 import net.minecraftforge.common.crafting.JsonContext;

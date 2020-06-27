@@ -1,8 +1,9 @@
 package koldunec.vint.proxy;
 
 
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.client.GuiHandler;
-import koldunec.vint.helpers.ConfigHelper;
+import koldunec.vint.ConfigHelper;
 import koldunec.vint.init.*;
 import koldunec.vint.init.others.LootRegister;
 import koldunec.vint.init.others.TileRegister;
@@ -14,6 +15,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 
 public class CommonProxy {
         public void preInit(FMLPreInitializationEvent event) {
+                vint.LOGGER.info("Started pre-initialization");
                 ConfigHelper.init();
                 IntegrationHelper.init();
                 EntityRegister.register();

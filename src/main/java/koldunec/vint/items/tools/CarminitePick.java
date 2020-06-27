@@ -1,6 +1,6 @@
 package koldunec.vint.items.tools;
 
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.init.others.MaterialRegister;
 import net.minecraft.block.state.IBlockState;

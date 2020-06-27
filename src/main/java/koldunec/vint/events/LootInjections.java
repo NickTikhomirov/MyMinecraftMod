@@ -1,7 +1,6 @@
 package koldunec.vint.events;
 
-import koldunec.vint.init.IntegrationHelper;
-import koldunec.vint.vint;
+import koldunec.vint.IntegrationHelper;
 import net.minecraft.item.Item;
 import net.minecraft.world.storage.loot.*;
 import net.minecraft.world.storage.loot.conditions.LootCondition;

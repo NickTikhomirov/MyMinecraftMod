@@ -1,6 +1,7 @@
 package koldunec.vint.helpers;
 
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.IntegrationHelper;
+import koldunec.vint.utils.TechHelper;
 import koldunec.vint.vint;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.monster.*;

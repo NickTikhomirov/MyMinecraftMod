@@ -24,13 +24,15 @@ modifier.redpower.name=Red Power
 modifier.redpower.desc=§oNobody asked for this reference§r\nYour tool deals great damage to endermen and some other ender-specific creatures.
 modifier.slimecutter.name=Bane of Slimes
 modifier.slimecutter.desc=§oIn remembrance of the Great War of Pandas and Slimes. (pandas won yay)§r\nDeals more damage to slimes.
-modifier.capitator.name=Farmer Frenzy
-modifier.capitator.desc=§oStop cactis' from killing cactis§r\nYour tool is able to gather reeds and cacti safely.
 modifier.blackening.name=Blackening
 modifier.blackening.desc=§oColor Matters§r\nMined stone turns into blackstone.
 modifier.bzzz.name=Hivemind
 modifier.bzzz.desc=§oPart of the team, part of the hive§r\nYou can heal other players with your tool's hit (FORGET ABOUT PVP).
+modifier.reaching.name=Distant Reach
+modifier.reaching.desc=§oFar Mine§r\nAwfully long arms for mining awfully long mines.
 
+modifier.capitator.name=Farmer Frenzy
+modifier.capitator.desc=§oStop cactis from killing cactis§r\nYour tool is able to gather reeds and cacti safely.
 modifier.primal.name=Primal Rage
 modifier.primal.desc=§oSponsored by Those Strange Mushrooms(TM)§r\nIf block has at least one coordinate with prime absolute value, the mining speed is increased.
 modifier.complex.name=Complex
@@ -38,6 +40,10 @@ modifier.complex.desc=§oEvery complex thing requires a bit of imagination§r\nD
 modifier.fundamental.name=Fundamental
 modifier.fundamental.desc=§oCobblestonks§r\nYour mined cobblestone will not be burned in lava.
 
+modifier.warm.name=Warm
+modifier.warm.desc=§oReliable pickaxe is the only thing that saves you at cold winter's night§r\Your tool warms you without overheating.
+modifier.cool.name=Cool
+modifier.warm.desc=§oVery cool§r\Your tool cools you without overcooling.
 
 
 

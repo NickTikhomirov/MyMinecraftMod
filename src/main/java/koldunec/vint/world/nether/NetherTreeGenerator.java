@@ -4,14 +4,11 @@ import com.progwml6.natura.nether.NaturaNether;
 import com.progwml6.natura.nether.block.leaves.BlockNetherLeaves;
 import com.progwml6.natura.nether.block.leaves.BlockNetherLeaves2;
 import com.progwml6.natura.nether.block.logs.BlockNetherLog;
-import com.progwml6.natura.world.worldgen.glowshroom.nether.PurpleGlowshroomGenerator;
 import com.progwml6.natura.world.worldgen.trees.nether.DarkwoodTreeGenerator;
 import com.progwml6.natura.world.worldgen.trees.nether.FusewoodTreeGenerator;
 import com.progwml6.natura.world.worldgen.trees.nether.GhostwoodTreeGenerator;
-import koldunec.vint.helpers.ConfigHelper;
-import koldunec.vint.helpers.TreeBuilder;
-import koldunec.vint.init.BlockRegister;
-import net.minecraft.block.Block;
+import koldunec.vint.ConfigHelper;
+import koldunec.vint.world.structure_builders.TreeBuilder;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -62,17 +59,6 @@ public class NetherTreeGenerator implements IWorldGenerator {
         x+=chunkX<<4;                           // temp
         z+=chunkZ<<4;                           // temp
         TreeBuilder.BuildProperTree(world,new BlockPos(x,y,z));    // temp
-
-        //int y = ch.getHeightValue(x,z)-1;
-        //PurpleGlowshroomGenerator purp = new PurpleGlowshroomGenerator(NaturaNether.netherLargePurpleGlowshroom.getDefaultState());
-        //Block base = ch.getBlockState(x,y,z).getBlock();
-        //if(base.equals(BlockRegister.RED_NYLIUM)) {
-        //    ch.setBlockState(new BlockPos(x,y,z),NaturaNether.netherTaintedSoil.getDefaultState());
-        //    x+=chunkX<<4;
-        //    z+=chunkZ<<4;
-        //    purp.generateShroom(random, world, new BlockPos(x, y + 1, z));
-        //} else if(base.equals(BlockRegister.BLUE_NYLIUM) && y<134){
-        //}
     }
 
 

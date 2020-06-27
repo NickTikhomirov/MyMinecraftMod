@@ -1,5 +1,6 @@
 package koldunec.vint.init;
 
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.recipes.BrewRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;

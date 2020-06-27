@@ -1,7 +1,8 @@
 package koldunec.vint.init;
 
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.others.MaterialRegister;
-import koldunec.vint.items.tools.CarminitePick;
+import koldunec.vint.items.tools.*;
 import koldunec.vint.items.baseItems.base_fuel;
 import koldunec.vint.items.blockitems.ReedBorerItem;
 import koldunec.vint.items.*;
@@ -17,10 +18,8 @@ import koldunec.vint.items.throwables.cursedRock;
 import koldunec.vint.items.throwables.inertstone;
 import koldunec.vint.items.saviour;
 import koldunec.vint.items.gd_apple;
-import koldunec.vint.items.tools.CarminiteAxe;
-import koldunec.vint.items.tools.PaintStone;
-import koldunec.vint.items.tools.reliquarist_sword;
 import koldunec.vint.objectbuilders.ObjectBuilder;
+import koldunec.vint.objectbuilders.Sideclass_Items;
 import koldunec.vint.objectbuilders.SimpleItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -81,7 +80,7 @@ public class ItemRegister{
     public static Item BROOM = put(new Broom());
     public static Item MAGICBALL = put(new cursedRock("magic_ball",24));
     public static Item LASERCORE = new LaserCore();
-    public static Item CHLESIS = new Chlesis();
+    public static Item CHLESIS = Sideclass_Items.ChlesisLoader();
     public static Item xyAMULET = new xyAmulet();
     public static Item SAVIOUR = new saviour();
     public static Item MAGIC_PROTECTOR = put(new base_item("amulet0",16));
@@ -102,7 +101,7 @@ public class ItemRegister{
     public static Item SHELL = new shell();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
     public static Item CARMINITE_AXE = new CarminiteAxe();
-    public static Item CARMINITE_PICKAXE = new CarminitePick();
+    public static Item CARMINITE_PICKAXE = Sideclass_Items.CarminitePickLoader();
 
     public static Item ALUMINUM = new base_item("aluminum", 64);
 
@@ -111,7 +110,6 @@ public class ItemRegister{
             setRegister(i);
 
         setRegister(LASERCORE);
-        setRegister(CHLESIS);
         setRegister(ROUND_STONE);
         setRegister(RELIQUARISTS_SWORD);
         setRegister(SCROLL_ISLE);
@@ -120,6 +118,9 @@ public class ItemRegister{
         setRegister(MAGIC_FLINTS);
         setRegister(SCROLL);
         setRegister(POWDER_REED);
+
+        if(IntegrationHelper.isLoadedChisel)
+            setRegister(CHLESIS);
 
         if(IntegrationHelper.isLoadedTwilight){
             setRegister(TRANSFORMATION_DUST);
@@ -136,9 +137,11 @@ public class ItemRegister{
             setRender(i);
 
         setRender(LASERCORE);
-        setRender(CHLESIS);
         setRender(ROUND_STONE);
         setRender(RELIQUARISTS_SWORD);
+
+        if(IntegrationHelper.isLoadedChisel)
+            setRender(CHLESIS);
 
         if(IntegrationHelper.isLoadedTwilight) {
             setRender(TRANSFORMATION_DUST);

@@ -1,10 +1,8 @@
 package koldunec.vint.world.nether;
 
-import com.progwml6.natura.common.config.Config;
 import com.progwml6.natura.nether.NaturaNether;
-import com.progwml6.natura.world.worldgen.NetherBerryBushesGenerator;
 import com.progwml6.natura.world.worldgen.berry.nether.NetherBerryBushGenerator;
-import koldunec.vint.helpers.ConfigHelper;
+import koldunec.vint.ConfigHelper;
 import koldunec.vint.init.BlockRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

@@ -1,6 +1,6 @@
 package koldunec.vint.items.tools;
 
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.others.MaterialRegister;
 import koldunec.vint.vint;
 import lumien.randomthings.block.BlockNatureCore;

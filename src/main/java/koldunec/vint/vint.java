@@ -9,6 +9,9 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Random;
 
 
@@ -42,6 +45,7 @@ public class vint{
     public static CreativeTabs magicTab = new magicTab("magicTab");
     public static Random random = new Random();
 
+    public static final Logger LOGGER = LogManager.getLogger(vint.MODID);
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {

@@ -1,9 +1,9 @@
 package koldunec.vint.proxy;
 
 
-import koldunec.vint.compatibility.TinkerBook.MaterialDocumenter;
-import koldunec.vint.compatibility.TinkerBook.ModifierAppender;
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.compatibility.Tinker.TinkerBook.MaterialDocumenter;
+import koldunec.vint.compatibility.Tinker.TinkerBook.ModifierAppender;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.entities.entityBitcoin;
 import koldunec.vint.entities.entityMagicBall;
 import koldunec.vint.init.BlockRegister;
@@ -19,19 +19,18 @@ import slimeknights.tconstruct.library.book.TinkerBook;
 
 public class ClientProxy extends CommonProxy{
     @Override
-    public void preInit(FMLPreInitializationEvent event)
-    {
+    public void preInit(FMLPreInitializationEvent event) {
+        super.preInit(event);
         RenderingRegistry.registerEntityRenderingHandler(entityMagicBall.class, new SnowballRenderFactory(ItemRegister.MAGICBALL));
         RenderingRegistry.registerEntityRenderingHandler(entityStone.class, new SnowballRenderFactory(ItemRegister.ROUND_STONE));
         RenderingRegistry.registerEntityRenderingHandler(entityBitcoin.class, new SnowballRenderFactory(ItemRegister.BITCOIN5000));
-        super.preInit(event);
     }
 
     @Override
     public void init(FMLInitializationEvent event){
+        super.init(event);
         ItemRegister.registerRender();
         BlockRegister.registerRender();
-        super.init(event);
     }
 
     @Override

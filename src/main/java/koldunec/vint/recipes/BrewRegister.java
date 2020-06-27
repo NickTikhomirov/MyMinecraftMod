@@ -1,6 +1,6 @@
 package koldunec.vint.recipes;
 
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.potions.PotionRegister;
 import net.minecraft.init.Blocks;

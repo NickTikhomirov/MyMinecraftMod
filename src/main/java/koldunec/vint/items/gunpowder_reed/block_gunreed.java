@@ -1,6 +1,6 @@
 package koldunec.vint.items.gunpowder_reed;
 
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;

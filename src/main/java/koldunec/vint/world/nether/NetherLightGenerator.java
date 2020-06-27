@@ -1,36 +1,31 @@
 package koldunec.vint.world.nether;
 
-import koldunec.vint.helpers.ConfigHelper;
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.ConfigHelper;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.world.DecorationGenerator;
-import koldunec.vint.world.nether.LightPlacers.Crystalplacer;
-import koldunec.vint.world.nether.LightPlacers.Fireplacer;
-import koldunec.vint.world.nether.LightPlacers.PumpkinPlacer;
+import koldunec.vint.world.structure_builders.LightPlacer_Actions;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
-import net.minecraft.world.gen.structure.template.PlacementSettings;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class NetherLightGenerator extends DecorationGenerator {
 
-    static LightPlacer Pumpkiner = new PumpkinPlacer();
 
     private static ArrayList<LightPlacer> PLACERS = new ArrayList<LightPlacer>(){{
-        add(Pumpkiner);
-        add(Pumpkiner);
-        add(Pumpkiner);
-        add(new EmptyPlacer());
+        add(LightPlacer_Actions::placePumpkin);
+        add(LightPlacer_Actions::placePumpkin);
+        add(LightPlacer_Actions::placePumpkin);
     }};
 
     public NetherLightGenerator(){
         if(IntegrationHelper.isLoadedFuture)
-            PLACERS.add(new Fireplacer());
+            PLACERS.add(LightPlacer_Actions::placeFire);
         if(IntegrationHelper.isLoadedQuark)
-            PLACERS.add(new Crystalplacer());
+            PLACERS.add(LightPlacer_Actions::placeCrystal);
     }
 
 
@@ -50,12 +45,8 @@ public class NetherLightGenerator extends DecorationGenerator {
     }
 
 
-    abstract public static class LightPlacer{
-        abstract public void place(Random r, World w, BlockPos bp);
-    }
-
-    public static class EmptyPlacer extends LightPlacer{
-        @Override
-        public void place(Random r, World w, BlockPos bp) {}
+    // interface with one method accepts any static method with same signature
+    public interface LightPlacer{
+        void place(Random r, World w, BlockPos bp);
     }
 }

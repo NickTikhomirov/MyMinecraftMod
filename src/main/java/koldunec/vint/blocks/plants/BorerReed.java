@@ -1,10 +1,9 @@
 package koldunec.vint.blocks.plants;
 
-import koldunec.vint.helpers.NeighbourChecker;
-import koldunec.vint.init.IntegrationHelper;
+import koldunec.vint.utils.NeighbourChecker;
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.items.gunpowder_reed.block_gunreed;
-import koldunec.vint.vint;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -14,14 +13,11 @@ import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -31,7 +27,6 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import net.minecraftforge.oredict.OreDictionary;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -171,11 +166,8 @@ public class BorerReed extends Block implements IPlantable {
             return false;
         if(w.getTileEntity(bp)!=null)
             return false;
-        return NeighbourChecker.checkHorizontal(w,bp,liquidChecker)==0;
+        return NeighbourChecker.checkHorizontal(w,bp,NeighbourChecker::checkLiquid)==0;
     }
-
-    public static LiquidChecker liquidChecker = new LiquidChecker();
-
 
 
 
@@ -206,10 +198,4 @@ public class BorerReed extends Block implements IPlantable {
         return new ItemStack(ItemRegister.BORER_REED);
     }
 
-    public static class LiquidChecker implements NeighbourChecker.INeighbourPredicate{
-        @Override
-        public boolean check(IBlockState i) {
-            return i.getMaterial().isLiquid();
-        }
-    }
 }
