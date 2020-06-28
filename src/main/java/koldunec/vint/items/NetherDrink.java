@@ -14,10 +14,10 @@ import net.minecraft.world.storage.loot.RandomValueRange;
 import static net.minecraft.init.MobEffects.*;
 
 
-public class nether_drink extends ItemFood {
+public class NetherDrink extends ItemFood {
 
 
-    public nether_drink() {
+    public NetherDrink() {
         super(0,0,false);
         this.setRegistryName("netherdrink");
         this.setUnlocalizedName("netherdrink");

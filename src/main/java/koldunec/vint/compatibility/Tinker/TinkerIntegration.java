@@ -8,7 +8,7 @@ import koldunec.vint.compatibility.Tinker.traits.tas_tic.Warm;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
-import koldunec.vint.objectbuilders.Sidemod_Items;
+import koldunec.vint.utils.routers.Sidemod_Items;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;

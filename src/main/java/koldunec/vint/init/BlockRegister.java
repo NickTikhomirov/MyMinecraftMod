@@ -3,6 +3,7 @@ package koldunec.vint.init;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.blocks.*;
 import koldunec.vint.blocks.plants.BorerReed;
+import koldunec.vint.blocks.plants.GhastPod;
 import koldunec.vint.blocks.plants.GlowCactus;
 import koldunec.vint.blocks.plants.TorchBerry;
 import koldunec.vint.items.*;
@@ -56,7 +57,7 @@ public class BlockRegister {
     public static Block WATER_PORTAL = new basic_block("portal_water", Material.IRON,"pickaxe",1,5F, 30.0F,0);
     public static Block CURING_CROPS = new curingCrops("curing_crops");
     public static Block TORCH_CROPS = new TorchBerry();
-    public static Block GHAST_POD = new block_ghastpod();
+    public static Block GHAST_POD = new GhastPod();
     public static Block SHROOMLIGHT = put(ObjectBuilder.BuildShroomLight());
 
     public static Block LLAMA_SPAWNER = new LlamaFlower();
@@ -74,7 +75,7 @@ public class BlockRegister {
 
     public static Block ORE_BIT = put(new bitore("ore_bit",2,5,6));
     public static Block ORE_EGG = put(new eggore("ore_egg",64));
-    public static Block ORE_RAINBOW = put(new rainbow_ore("ore_rainbow",1,2,3));
+    public static Block ORE_RAINBOW = put(new RainbowOre("ore_rainbow",1,2,3));
 
     public static Block ORE_ALUMINUM = new bitore("ore_al",4,7,200);
     public static Block ALBLOCK = new basic_block("block_aluminum",Material.IRON,"pickaxe",1,1F,50F,10);

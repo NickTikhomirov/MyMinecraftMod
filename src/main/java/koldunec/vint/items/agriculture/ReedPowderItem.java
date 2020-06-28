@@ -1,5 +1,6 @@
-package koldunec.vint.items.gunpowder_reed;
+package koldunec.vint.items.agriculture;
 
+import koldunec.vint.items.gunpowder_reed.block_gunreed;
 import koldunec.vint.vint;
 import koldunec.vint.init.BlockRegister;
 import net.minecraft.block.Block;
@@ -17,8 +18,8 @@ import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class reed_item extends ItemBlockSpecial implements IBehaviorDispenseItem {
-    public reed_item(){
+public class ReedPowderItem extends ItemBlockSpecial implements IBehaviorDispenseItem {
+    public ReedPowderItem(){
         super(BlockRegister.REED_GUNPOWDER);
         this.setRegistryName("gunreed");
         this.setUnlocalizedName("gunreed");

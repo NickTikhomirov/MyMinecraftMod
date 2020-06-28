@@ -21,9 +21,9 @@ import javax.annotation.Nullable;
 import java.util.List;
 
 
-public class shell extends base_item {
+public class Shell extends base_item {
 
-    public shell() {
+    public Shell() {
         super("shell",64);
     }
 

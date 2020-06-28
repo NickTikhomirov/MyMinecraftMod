@@ -1,19 +1,12 @@
 package koldunec.vint.recipes;
 
-import koldunec.vint.helpers.DyeHelper;
+import koldunec.vint.utils.DyeHelper;
 import koldunec.vint.init.ItemRegister;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.InventoryCrafting;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.world.World;
-import scala.Array;
-import scala.Int;
-import scala.actors.threadpool.Arrays;
-
-import java.util.ArrayList;
 
 public class paint_operator extends net.minecraftforge.registries.IForgeRegistryEntry.Impl<IRecipe> implements IRecipe {
 

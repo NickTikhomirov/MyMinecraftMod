@@ -1,4 +1,4 @@
-package koldunec.vint.items.blockitems;
+package koldunec.vint.items.agriculture;
 
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.vint;

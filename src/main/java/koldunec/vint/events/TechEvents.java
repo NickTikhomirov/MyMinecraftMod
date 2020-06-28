@@ -4,9 +4,7 @@ import koldunec.vint.vint;
 import koldunec.vint.items.another_dye_please_dont_blame_me;
 import koldunec.vint.items.flints;
 import koldunec.vint.items.gunpowder_reed.block_gunreed;
-import koldunec.vint.items.scroll;
 import koldunec.vint.items.scroll2;
-import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.recipes.dragonBreathFix;
 import koldunec.vint.recipes.paint_operator;
@@ -24,7 +22,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import java.util.HashMap;
-import java.util.Map;
 
 @Mod.EventBusSubscriber
 public class TechEvents {
@@ -40,19 +37,17 @@ public class TechEvents {
             ModelLoader.setCustomModelResourceLocation(flint, type.ordinal(), new ModelResourceLocation(flint.getRegistryName() + "_" + type.toString().toLowerCase(), "inventory"));
         }
         final Item Scroll = ItemRegister.SCROLL;
-        for(scroll.scrollTypes type : scroll.scrollTypes.values()){
+        for(koldunec.vint.items.Scroll.scrollTypes type : koldunec.vint.items.Scroll.scrollTypes.values()){
             ModelLoader.setCustomModelResourceLocation(Scroll,type.ordinal(), new ModelResourceLocation(Scroll.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
         }
         final Item Reed = ItemRegister.POWDER_REED;
         for(block_gunreed.reedTypes type: block_gunreed.reedTypes.values()){
             ModelLoader.setCustomModelResourceLocation(Reed,type.ordinal(),new ModelResourceLocation(Reed.getRegistryName()+"_"+type.toString().toLowerCase(),"inventory"));
         }
-        final Item Scroll2 = ItemRegister.SCROLL_ISLE;
+        final Item Scroll2 = ItemRegister.SCROLL_TRIVIA;
         for(scroll2.scroll2Types type : scroll2.scroll2Types.values()){
             ModelLoader.setCustomModelResourceLocation(Scroll2,type.ordinal(), new ModelResourceLocation(Scroll2.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
         }
-        //ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegister.LLAMA_SPAWNER),0, new ModelResourceLocation("llama_flower","inventory"));
-        //ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(BlockRegister.LLAMA_SPAWNER),1, new ModelResourceLocation("llama_flower","inventory"));
     }
 
     @SubscribeEvent

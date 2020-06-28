@@ -14,13 +14,13 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class rainbow_ore extends Block
+public class RainbowOre extends Block
 {
     Item drops;
     int am;
     int aM;
     int AM;
-    public rainbow_ore(String name, int amountMin, int amountMax, int amountMaxWithFortune)
+    public RainbowOre(String name, int amountMin, int amountMax, int amountMaxWithFortune)
     {
         super(Material.GROUND);
         this.setRegistryName(name);

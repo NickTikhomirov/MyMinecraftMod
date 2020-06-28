@@ -1,5 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"quark"
+    }
+  ],
   "ingredients": [
     {
       "item": "quark:soul_bead"

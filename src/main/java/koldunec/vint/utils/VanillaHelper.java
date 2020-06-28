@@ -1,4 +1,4 @@
-package koldunec.vint.helpers;
+package koldunec.vint.utils;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;

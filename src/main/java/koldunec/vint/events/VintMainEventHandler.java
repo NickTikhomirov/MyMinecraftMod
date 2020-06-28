@@ -1,15 +1,13 @@
 package koldunec.vint.events;
 
 
-
 import koldunec.vint.blocks.plants.TorchBerry;
 import koldunec.vint.compatibility.Tinker.TinkerIntegration;
-import koldunec.vint.helpers.SpawnCorrector;
+import koldunec.vint.utils.SpawnCorrector;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.items.tools.Broom;
 import koldunec.vint.vint;
-import koldunec.vint.items.tools.reliquarist_sword;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.potions.PotionRegister;
 import lumien.randomthings.potion.ModPotions;
@@ -47,7 +45,6 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.utils.ToolHelper;
-import teamroots.embers.entity.EntityAncientGolem;
 
 import twilightforest.block.BlockTFLeaves;
 import twilightforest.block.BlockTFMagicLeaves;
@@ -85,7 +82,7 @@ public class VintMainEventHandler{
         Block target = targetstate.getBlock();
         if(IntegrationHelper.isLoadedTwilight){
             //lantern transformation
-            if(IntegrationHelper.isLoaded("quark"))
+            if(IntegrationHelper.isLoadedQuark)
                 if(!e.getWorld().isRemote && e.getItemStack().getItem().getClass().equals(ItemTFTransformPowder.class)) {
                     Block lantern = Blocks.SEA_LANTERN;
                     Block old = Block.getBlockFromName("quark:elder_sea_lantern");
@@ -199,19 +196,6 @@ public class VintMainEventHandler{
                 if(enemy instanceof EntityPlayer && !((EntityPlayer)enemy).getHeldItemMainhand().isEmpty()){
                     if(isAthame(((EntityPlayer) e.getSource().getTrueSource()).getHeldItemMainhand()))
                         e.setAmount(25F);
-                }
-            }
-        }
-
-        if(IntegrationHelper.isLoaded("embers")){
-            if(victim instanceof EntityAncientGolem){
-                if(enemy instanceof EntityPlayer){
-                    ItemStack hand = ((EntityPlayer) enemy).getHeldItemMainhand();
-                    if(!hand.isEmpty()){
-                        if(hand.getItem() instanceof reliquarist_sword){
-                            e.setAmount(25F);
-                        }
-                    }
                 }
             }
         }

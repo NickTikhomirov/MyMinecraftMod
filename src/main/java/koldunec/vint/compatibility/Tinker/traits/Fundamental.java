@@ -1,7 +1,7 @@
 package koldunec.vint.compatibility.Tinker.traits;
 
 import koldunec.vint.utils.TechHelper;
-import koldunec.vint.helpers.VanillaHelper;
+import koldunec.vint.utils.VanillaHelper;
 import koldunec.vint.init.BlockRegister;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

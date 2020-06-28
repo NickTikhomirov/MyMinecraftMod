@@ -1,4 +1,4 @@
-package koldunec.vint.helpers;
+package koldunec.vint.utils;
 
 import koldunec.vint.init.ItemRegister;
 import net.minecraft.init.Blocks;

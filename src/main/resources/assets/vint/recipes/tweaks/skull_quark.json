@@ -1,5 +1,11 @@
 {
   "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"quark"
+    }
+  ],
   "pattern": [
     "___",
     "_C_",

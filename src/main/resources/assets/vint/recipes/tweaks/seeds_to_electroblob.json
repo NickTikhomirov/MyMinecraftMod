@@ -1,5 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"t3s4ebw"
+    }
+  ],
   "ingredients": [
     {
       "item": "ebwizardry:magic_crystal",

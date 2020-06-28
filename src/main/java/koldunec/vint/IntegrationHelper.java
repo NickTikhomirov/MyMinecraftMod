@@ -17,6 +17,7 @@ public class IntegrationHelper {
     public static boolean isLoadedChisel = false;
     public static boolean isLoadedFuture = false;
     public static boolean isLoadedTough = false;
+    public static boolean isLoadedTea = false;
 
     public static String idTwilight = "twilightforest";
     public static String idTinker = "tconstruct";
@@ -40,6 +41,8 @@ public class IntegrationHelper {
         isLoadedCharm = isLoaded("charm");
         isLoadedChisel = isLoaded("chisel");
         isLoadedTough = isLoaded(idTough);
+        isLoadedTea = isLoaded("simplytea");
+
         isLoadedFuture = isLoaded(idFuture);
         if(!isLoadedFuture)
             if(isLoaded("futuremc")){

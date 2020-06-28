@@ -1,10 +1,11 @@
 package koldunec.vint.events;
 
 import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
-import koldunec.vint.helpers.VanillaHelper;
+import koldunec.vint.utils.VanillaHelper;
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.items.Moss;
 import koldunec.vint.vint;
-import koldunec.vint.items.scroll;
+import koldunec.vint.items.Scroll;
 import koldunec.vint.init.ItemRegister;
 import net.daveyx0.primitivemobs.entity.monster.EntityBrainSlime;
 import net.minecraft.entity.Entity;
@@ -14,7 +15,6 @@ import net.minecraft.entity.monster.*;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.DamageSource;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -33,11 +33,7 @@ public class ThosePitifulDeaths {
         if(e.getEntity().getEntityWorld().isRemote) return;
         List<EntityItem> list = e.getDrops();
         EntityLivingBase victim = e.getEntityLiving();
-        DamageSource way = e.getSource();
         Random rng = vint.random;
-        EntityLivingBase killer = null;
-        if(way.getTrueSource() instanceof EntityLivingBase)
-            killer = (EntityLivingBase)way.getTrueSource();
 
         if(IntegrationHelper.isLoadedThaumcraft){
             if(victim instanceof EntityFireBat){
@@ -57,7 +53,7 @@ public class ThosePitifulDeaths {
 
         if(IntegrationHelper.isLoadedTwilight && IntegrationHelper.isLoadedPrimitive){
             if(victim instanceof EntityTFMinoshroom){
-                list.add(new EntityItem(victim.getEntityWorld(),victim.posX,victim.posY,victim.posZ,new ItemStack(ItemRegister.SCROLL_ISLE,1,0)));
+                list.add(new EntityItem(victim.getEntityWorld(),victim.posX,victim.posY,victim.posZ,new ItemStack(ItemRegister.SCROLL_TRIVIA,1,0)));
             }
         }
 
@@ -87,7 +83,7 @@ public class ThosePitifulDeaths {
 
         //moss
         if(e.getEntityLiving().isEntityUndead())
-            if(vint.random.nextInt(100)==0)
+            if(vint.random.nextInt(Moss.getProbabilityBound())==0)
                 dropItem(e.getEntityLiving(),ItemRegister.MOSS,1,0);
 
         // primitives: brainslime tweaks
@@ -124,7 +120,7 @@ public class ThosePitifulDeaths {
                         new ItemStack(
                                 ItemRegister.SCROLL,
                                 1,
-                                vint.random.nextInt(scroll.scrollTypes.values().length)),
+                                vint.random.nextInt(Scroll.scrollTypes.values().length)),
                         0.5F);
         }
 

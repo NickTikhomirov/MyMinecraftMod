@@ -1,8 +1,9 @@
-package koldunec.vint.objectbuilders;
+package koldunec.vint.utils.routers;
 
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.items.Chlesis;
 import koldunec.vint.items.tools.CarminitePick;
+import koldunec.vint.objectbuilders.SimpleItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 

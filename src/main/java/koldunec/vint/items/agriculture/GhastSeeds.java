@@ -1,4 +1,4 @@
-package koldunec.vint.items;
+package koldunec.vint.items.agriculture;
 
 import koldunec.vint.vint;
 import koldunec.vint.init.BlockRegister;
@@ -13,9 +13,9 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ghast_seeds extends ItemSeeds {
+public class GhastSeeds extends ItemSeeds {
 
-    public ghast_seeds(){
+    public GhastSeeds(){
         super(BlockRegister.GHAST_POD, Blocks.OBSIDIAN);
         setRegistryName("ghast_seeds");
         setUnlocalizedName("ghast_seeds");

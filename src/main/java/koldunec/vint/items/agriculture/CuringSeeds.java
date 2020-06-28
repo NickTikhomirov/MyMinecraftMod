@@ -1,13 +1,13 @@
-package koldunec.vint.items.curinggrass;
+package koldunec.vint.items.agriculture;
 
 import koldunec.vint.vint;
 import koldunec.vint.init.BlockRegister;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemSeeds;
 
-public class curingseeds extends ItemSeeds {
+public class CuringSeeds extends ItemSeeds {
 
-    public curingseeds(){
+    public CuringSeeds(){
         super(BlockRegister.CURING_CROPS, Blocks.FARMLAND);
         setRegistryName("curingseeds");
         setUnlocalizedName("curingseeds");

@@ -1,4 +1,4 @@
-package koldunec.vint.helpers;
+package koldunec.vint.utils;
 
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.utils.TechHelper;

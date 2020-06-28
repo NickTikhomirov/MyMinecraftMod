@@ -4,7 +4,7 @@ import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.items.tools.Broom;
-import koldunec.vint.items.gunpowder_reed.reed_item;
+import koldunec.vint.items.agriculture.ReedPowderItem;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.init.Blocks;
@@ -17,7 +17,7 @@ import team.chisel.common.carving.Carving;
 
 public class OtherTweaker {
     public static void trivia(){
-        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegister.POWDER_REED,(reed_item)ItemRegister.POWDER_REED);
+        BlockDispenser.DISPENSE_BEHAVIOR_REGISTRY.putObject(ItemRegister.POWDER_REED,(ReedPowderItem)ItemRegister.POWDER_REED);
         if(IntegrationHelper.isLoadedQuark){
             Broom.affected_blocks.add(Block.getBlockFromName("quark:elder_sea_lantern"));
         }

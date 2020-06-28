@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class scroll extends Item {
+public class Scroll extends Item {
     public enum scrollTypes{
         DESERT,MINE,DUNGEON,JUNGLE;
 
@@ -39,7 +39,7 @@ public class scroll extends Item {
         return super.getUnlocalizedName() + "." + scrollTypes.getByMeta(i).getName();
     }
 
-    public scroll(){
+    public Scroll(){
         this.setRegistryName("scroll");
         this.setUnlocalizedName("scroll");
         this.setCreativeTab(vint.magicTab);

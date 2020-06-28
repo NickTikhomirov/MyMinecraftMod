@@ -1,12 +1,14 @@
 package koldunec.vint.events;
 
-import koldunec.vint.helpers.VanillaHelper;
+import koldunec.vint.utils.VanillaHelper;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.init.others.LootRegister;
+import koldunec.vint.loot.SideAppender;
+import koldunec.vint.loot.VintAppender;
+import koldunec.vint.objectbuilders.OtherBuilder;
 import koldunec.vint.potions.PotionRegister;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.ResourceLocation;
@@ -14,11 +16,11 @@ import net.minecraft.world.storage.loot.*;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraft.world.storage.loot.functions.SetCount;
-import net.minecraft.world.storage.loot.functions.SetMetadata;
 import net.minecraft.world.storage.loot.functions.SetNBT;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+
 
 @Mod.EventBusSubscriber
 public class LootTable_Event {
@@ -27,36 +29,41 @@ public class LootTable_Event {
         ResourceLocation name = e.getName();
 
         if(name.equals(LootRegister.LLAMA_ISLAND)){
-            LootInjections.llamaIsleIntegrations(e.getTable());
+            VintAppender.AppendLlama(e.getTable());
             return;
         }
 
         if(IntegrationHelper.isLoadedTinkers && IntegrationHelper.isLoadedPrimitive){
-            if(name.equals(new ResourceLocation("primitivemobs","entities/flame_spewer")))
-                LootInjections.flameSpewerInjection(e.getTable());
-            return;
+            if(name.equals(new ResourceLocation("primitivemobs","entities/flame_spewer"))) {
+                SideAppender.flameSpewerInjection(e.getTable());
+                return;
+            }
         }
 
         if(IntegrationHelper.isLoadedTwilight) {
-            ResourceLocation r = new ResourceLocation("twilightforest","structures/hill_1/common");
-            if (name.equals(r)) {
-                final LootPool pool2 = e.getTable().getPool("main");
-                pool2.addEntry(new LootEntryItem(ItemRegister.TRANSFORMATION_DUST, 1, 0, new LootFunction[] {new SetCount(new LootCondition[0], new RandomValueRange(1, 5))}, new LootCondition[0], "loottable:dusttras"));
+            if (name.equals(new ResourceLocation("twilightforest","structures/hill_1/common"))) {
+                LootPool pool2 = e.getTable().getPool("main");
+                pool2.addEntry(OtherBuilder.LootEntryBuilder(ItemRegister.TRANSFORMATION_DUST, 1, 1, 5, "loottable:dusttras"));
+                return;
             }
-            ResourceLocation naga = new ResourceLocation("twilightforest", "entities/naga");
-            if(e.getName().equals(naga)){
+            if(name.equals(new ResourceLocation("twilightforest", "entities/naga"))){
                 e.getTable().addPool(
-                        new LootPool(
-                                new LootEntry[]{new LootEntryItem(Item.getByNameOrId("twilightforest:steeleaf_ingot"),1,1, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(4,6))}, new LootCondition[0], "leaves")},
-                                new LootCondition[0],
-                                new RandomValueRange(1,1),
-                                new RandomValueRange(0,0),
+                        OtherBuilder.LootPoolBuilder(
+                                OtherBuilder.LootEntryBuilder("twilightforest:steeleaf_ingot",1, 4,6, "leaves"),
+                                1,
                                 "leaves"
                         )
                 );
+                return;
             }
-
-            return;
+        }
+        if(IntegrationHelper.isLoadedTea){
+            if(LootTableList.CHESTS_IGLOO_CHEST.equals(e.getName())) {
+                e.getTable().addPool(OtherBuilder.LootPoolBuilder(
+                        OtherBuilder.LootEntryBuilder("simplytea:tea_sapling", 5, 1, 1, "tea"), 1, "tea"
+                ));
+                return;
+            }
         }
 
         if(name.equals(LootTableList.CHESTS_JUNGLE_TEMPLE_DISPENSER)) {
@@ -67,45 +74,25 @@ public class LootTable_Event {
             pool.addEntry(new LootEntryItem(Items.SPAWN_EGG, 1000, 0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(1, 3)), new SetNBT(new LootCondition[0],  egg.getTagCompound())}, new LootCondition[0], "loottable:spider_surprise"));
             return;
         }
-        if(LootTableList.CHESTS_IGLOO_CHEST.equals(e.getName())){
-            LootInjections.addDefault(
-                    e.getTable().getPool("main"),
-                    ItemRegister.SUPERCURING_GRASS,
-                    5,
-                    new RandomValueRange(3,7),
-                    "loottable:supergrass");
-            return;
-        }
         if(LootTableList.CHESTS_VILLAGE_BLACKSMITH.equals(e.getName())){
-            e.getTable().getPool("main").addEntry(new LootEntryItem(
+            e.getTable().getPool("main").addEntry(OtherBuilder.LootEntryBuilder(
                     ItemRegister.SCROLL,
-                    10,
-                    1,
-                    new LootFunction[]{
-                            LootInjections.setCount(1,1),
-                            LootInjections.setMeta(1)
-                    },
-                    new LootCondition[0],"loottable:scroll"));
-            return;
-        }
-        if(LootTableList.CHESTS_DESERT_PYRAMID.equals(e.getName())){
-            e.getTable().getPool("pool1").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,10,0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(1,3))}, new LootCondition[0],"loottable:supergrass"));
+                    1, 10, 1, 1,
+                    "loottable:scroll"
+            ));
             return;
         }
         if(LootTableList.GAMEPLAY_FISHING_JUNK.equals(e.getName())){
-            e.getTable().getPool("main").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,5,0, new LootFunction[]{new SetCount(new LootCondition[0], new RandomValueRange(1,3))}, new LootCondition[0],"loottable:supergrass"));
+            e.getTable().getPool("main").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,5,0, new LootFunction[]{OtherBuilder.setCount(1,3)}, new LootCondition[0],"loottable:supergrass"));
             return;
         }
         if(LootTableList.GAMEPLAY_FISHING_TREASURE.equals(e.getName())){
-            e.getTable().getPool("main").addEntry(new LootEntryItem(
-                    ItemRegister.SCROLL,
-                    10,
-                    1,
-                    new LootFunction[]{
-                            new SetCount(new LootCondition[0], new RandomValueRange(1,1)),
-                            new SetMetadata(new LootCondition[0],new RandomValueRange(3,3))
-                    },
-                    new LootCondition[0],"loottable:scroll"));
+            e.getTable().getPool("main").addEntry(
+                    OtherBuilder.LootEntryBuilder(
+                        ItemRegister.SCROLL,
+                        3, 10, 1, 1,
+                        "loottable:scroll"
+            ));
             return;
         }
     }

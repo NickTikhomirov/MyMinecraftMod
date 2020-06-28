@@ -1,4 +1,4 @@
-package koldunec.vint.items;
+package koldunec.vint.blocks.plants;
 
 import koldunec.vint.init.ItemRegister;
 import net.minecraft.block.Block;
@@ -14,8 +14,8 @@ import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class block_ghastpod extends BlockCocoa {
-    public block_ghastpod(){
+public class GhastPod extends BlockCocoa {
+    public GhastPod(){
         super();
         this.setUnlocalizedName("block_ghastpod");
         this.setRegistryName("block_ghastpod");

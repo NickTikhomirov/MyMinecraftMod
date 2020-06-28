@@ -1,4 +1,4 @@
-package koldunec.vint.objectbuilders;
+package koldunec.vint.utils.routers;
 
 import koldunec.vint.IntegrationHelper;
 import net.daveyx0.primitivemobs.core.PrimitiveMobsItems;

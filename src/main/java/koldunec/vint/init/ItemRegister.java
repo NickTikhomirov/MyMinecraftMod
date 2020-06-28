@@ -1,25 +1,22 @@
 package koldunec.vint.init;
 
 import koldunec.vint.IntegrationHelper;
-import koldunec.vint.init.others.MaterialRegister;
+import koldunec.vint.items.agriculture.*;
 import koldunec.vint.items.tools.*;
 import koldunec.vint.items.baseItems.base_fuel;
-import koldunec.vint.items.blockitems.ReedBorerItem;
 import koldunec.vint.items.*;
 import koldunec.vint.items.baseItems.base_item;
 import koldunec.vint.items.crafting_tools.cheasel;
 import koldunec.vint.items.crafting_tools.cleaner;
 import koldunec.vint.items.curinggrass.curinggrass;
-import koldunec.vint.items.curinggrass.curingseeds;
 import koldunec.vint.items.curinggrass.supercuringgrass;
-import koldunec.vint.items.gunpowder_reed.reed_item;
 import koldunec.vint.items.throwables.bitcoin5000;
 import koldunec.vint.items.throwables.cursedRock;
 import koldunec.vint.items.throwables.inertstone;
 import koldunec.vint.items.saviour;
 import koldunec.vint.items.gd_apple;
 import koldunec.vint.objectbuilders.ObjectBuilder;
-import koldunec.vint.objectbuilders.Sideclass_Items;
+import koldunec.vint.utils.routers.Sideclass_Items;
 import koldunec.vint.objectbuilders.SimpleItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -33,25 +30,24 @@ import java.util.HashSet;
 public class ItemRegister{
     public static HashSet<Item> DEFAULT_INIT = new HashSet<>();
 
-    public static Item CURINGSEEDS = put(new curingseeds());
+    public static Item CURINGSEEDS = put(new CuringSeeds());
     public static Item CURING_GRASS= put(new curinggrass());
     public static Item SUPERCURING_GRASS= put(new supercuringgrass());
-    public static Item POWDER_REED = new reed_item();
+    public static Item POWDER_REED = new ReedPowderItem();
 
     public static Item VANILLA_POWDER = put(new base_item("vanilla_powder",64));
 
     public static Item BAMBOO_HOE = put(ObjectBuilder.BuildBambooHoe());
 
-    public static Item GHAST_SEEDS = put(new ghast_seeds());
+    public static Item GHAST_SEEDS = put(new GhastSeeds());
     public static Item BITCOIN = put(new base_fuel("bitcoin",64, (short)800));
     public static Item BITCOIN5000 = put(new bitcoin5000("bitcoin5000",64));
 
     public static Item ESSENCE_RAINBOW= put(new base_item("rEssence", 64));
-    public static Item FLINTBASE = put(new flint_base());
     public static Item MAGIC_FLINTS = new flints();
-    public static Item ROUND_STONE = new inertstone("round_stone",64);
+    public static Item ROUND_STONE = put(new inertstone("round_stone",64));
     public static Item WOODEN_RUNE = put(new base_item("wooden_rune",64));
-    public static Item SOUL_FRUIT = put(new soul_fruit());
+    public static Item SOUL_FRUIT = put(new SoulFruit());
     public static Item NETHER_CRYSTAL = put(new base_item("nether_crystal",64));
     public static Item SOUL = put(new base_item("small_soul",64));
     public static Item RED_POWDER = put(new oreProspector());
@@ -75,11 +71,9 @@ public class ItemRegister{
     public static Item ANOTHER_DYE = new another_dye_please_dont_blame_me();
     public static Item HALFDUST = put(new base_item("halfdust",64));
 
-    public static Item RELIQUARISTS_SWORD = new reliquarist_sword(MaterialRegister.thaumicMix,"ambersword");
-    public static Item DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD = put(new reliquarist_sword(MaterialRegister.diamondgolden_golden_diamond, "dggd_sword"));
     public static Item BROOM = put(new Broom());
     public static Item MAGICBALL = put(new cursedRock("magic_ball",24));
-    public static Item LASERCORE = new LaserCore();
+    public static Item LASERCORE = put(new LaserCore());
     public static Item CHLESIS = Sideclass_Items.ChlesisLoader();
     public static Item xyAMULET = new xyAmulet();
     public static Item SAVIOUR = new saviour();
@@ -88,8 +82,8 @@ public class ItemRegister{
     public static Item SOUL_SHEARS = put(new soul_shears());
     public static Item SPONGE_OF_CONCEPTUALIZATION = put(new cleaner());
     public static Item CHISEl_OF_CONCEPTUALIZATION = put(new cheasel());
-    public static Item SCROLL = new scroll();
-    public static Item NETHER_DRINK = put(new nether_drink());
+    public static Item SCROLL = new Scroll();
+    public static Item NETHER_DRINK = put(new NetherDrink());
 
     public static Item HONEY_CRYSTAL = put(new base_item("honey_crystal",64));
     public static Item BAMBOO_BREAD = put(new SimpleItems.SimpleFood("bamboo_bread",1,1.5F));
@@ -97,8 +91,8 @@ public class ItemRegister{
 
     //twilight items
     public static Item BORER_REED = new ReedBorerItem();
-    public static Item SCROLL_ISLE = new scroll2();
-    public static Item SHELL = new shell();
+    public static Item SCROLL_TRIVIA = new scroll2();
+    public static Item SHELL = new Shell();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
     public static Item CARMINITE_AXE = new CarminiteAxe();
     public static Item CARMINITE_PICKAXE = Sideclass_Items.CarminitePickLoader();
@@ -109,10 +103,7 @@ public class ItemRegister{
         for(Item i: DEFAULT_INIT)
             setRegister(i);
 
-        setRegister(LASERCORE);
-        setRegister(ROUND_STONE);
-        setRegister(RELIQUARISTS_SWORD);
-        setRegister(SCROLL_ISLE);
+        setRegister(SCROLL_TRIVIA);
 
         setRegister(ANOTHER_DYE);
         setRegister(MAGIC_FLINTS);
@@ -135,10 +126,6 @@ public class ItemRegister{
     public static void registerRender() {
         for(Item i: DEFAULT_INIT)
             setRender(i);
-
-        setRender(LASERCORE);
-        setRender(ROUND_STONE);
-        setRender(RELIQUARISTS_SWORD);
 
         if(IntegrationHelper.isLoadedChisel)
             setRender(CHLESIS);
