@@ -6,7 +6,7 @@ import koldunec.vint.init.ItemRegister;
 import koldunec.vint.init.others.LootRegister;
 import koldunec.vint.loot.SideAppender;
 import koldunec.vint.loot.VintAppender;
-import koldunec.vint.objectbuilders.OtherBuilder;
+import koldunec.vint.objectbuilders.LootObjectsBuilder;
 import koldunec.vint.potions.PotionRegister;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -43,13 +43,13 @@ public class LootTable_Event {
         if(IntegrationHelper.isLoadedTwilight) {
             if (name.equals(new ResourceLocation("twilightforest","structures/hill_1/common"))) {
                 LootPool pool2 = e.getTable().getPool("main");
-                pool2.addEntry(OtherBuilder.LootEntryBuilder(ItemRegister.TRANSFORMATION_DUST, 1, 1, 5, "loottable:dusttras"));
+                pool2.addEntry(LootObjectsBuilder.LootEntryBuilder(ItemRegister.TRANSFORMATION_DUST, 1, 1, 5, "loottable:dusttras"));
                 return;
             }
             if(name.equals(new ResourceLocation("twilightforest", "entities/naga"))){
                 e.getTable().addPool(
-                        OtherBuilder.LootPoolBuilder(
-                                OtherBuilder.LootEntryBuilder("twilightforest:steeleaf_ingot",1, 4,6, "leaves"),
+                        LootObjectsBuilder.LootPoolBuilder(
+                                LootObjectsBuilder.LootEntryBuilder("twilightforest:steeleaf_ingot",1, 4,6, "leaves"),
                                 1,
                                 "leaves"
                         )
@@ -59,8 +59,8 @@ public class LootTable_Event {
         }
         if(IntegrationHelper.isLoadedTea){
             if(LootTableList.CHESTS_IGLOO_CHEST.equals(e.getName())) {
-                e.getTable().addPool(OtherBuilder.LootPoolBuilder(
-                        OtherBuilder.LootEntryBuilder("simplytea:tea_sapling", 5, 1, 1, "tea"), 1, "tea"
+                e.getTable().addPool(LootObjectsBuilder.LootPoolBuilder(
+                        LootObjectsBuilder.LootEntryBuilder("simplytea:tea_sapling", 5, 1, 1, "tea"), 1, "tea"
                 ));
                 return;
             }
@@ -75,7 +75,7 @@ public class LootTable_Event {
             return;
         }
         if(LootTableList.CHESTS_VILLAGE_BLACKSMITH.equals(e.getName())){
-            e.getTable().getPool("main").addEntry(OtherBuilder.LootEntryBuilder(
+            e.getTable().getPool("main").addEntry(LootObjectsBuilder.LootEntryBuilder(
                     ItemRegister.SCROLL,
                     1, 10, 1, 1,
                     "loottable:scroll"
@@ -83,12 +83,12 @@ public class LootTable_Event {
             return;
         }
         if(LootTableList.GAMEPLAY_FISHING_JUNK.equals(e.getName())){
-            e.getTable().getPool("main").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,5,0, new LootFunction[]{OtherBuilder.setCount(1,3)}, new LootCondition[0],"loottable:supergrass"));
+            e.getTable().getPool("main").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,5,0, new LootFunction[]{LootObjectsBuilder.setCount(1,3)}, new LootCondition[0],"loottable:supergrass"));
             return;
         }
         if(LootTableList.GAMEPLAY_FISHING_TREASURE.equals(e.getName())){
             e.getTable().getPool("main").addEntry(
-                    OtherBuilder.LootEntryBuilder(
+                    LootObjectsBuilder.LootEntryBuilder(
                         ItemRegister.SCROLL,
                         3, 10, 1, 1,
                         "loottable:scroll"

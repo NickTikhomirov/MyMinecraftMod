@@ -178,6 +178,8 @@ tile.red_nether_shroom.name=Crimson Fungus
 tile.blue_nether_shroom.name=Warped Fungus
 
 tile.torch_crop.name=Torchberry Bush
+tile.twilight_reactor.name=Twilight Reactor
+container.twilight_reactor=Twilight Reactor
 
 tile.gem_ore.name=Gem Ore
 

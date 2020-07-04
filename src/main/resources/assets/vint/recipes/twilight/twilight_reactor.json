@@ -1,0 +1,38 @@
+{
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ETE",
+    "PRP",
+    "PBP"
+  ],
+  "key": {
+    "P": {
+      "item": "twilightforest:tower_wood",
+      "data": 1
+    },
+    "R": {
+      "item": "twilightforest:tower_device",
+      "data": 12
+    },
+    "B": {
+      "item": "twilightforest:block_storage",
+      "data": 0
+    },
+    "E": {
+      "item": "twilightforest:borer_essence"
+    },
+    "T": {
+      "item": "twilightforest:transformation_powder"
+    }
+  },
+  "result": {
+    "item": "vint:twilight_reactor",
+    "count": 1
+  }
+}

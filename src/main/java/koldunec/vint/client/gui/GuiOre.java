@@ -8,7 +8,7 @@ import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.util.ResourceLocation;
 
-public class store_gui extends GuiContainer {
+public class GuiOre extends GuiContainer {
 
     /** The ResourceLocation containing the chest GUI texture. */
     private static final ResourceLocation CHEST_GUI_TEXTURE = new ResourceLocation(vint.MODID,"textures/gui/generic_54.png");
@@ -17,7 +17,7 @@ public class store_gui extends GuiContainer {
     /** window height is calculated with these values; the more rows, the heigher */
     private final int inventoryRows;
 
-    public store_gui(IInventory upperInv, IInventory lowerInv)
+    public GuiOre(IInventory upperInv, IInventory lowerInv)
     {
         super(new ContainerChest(upperInv, lowerInv, Minecraft.getMinecraft().player));
         this.upperChestInventory = upperInv;

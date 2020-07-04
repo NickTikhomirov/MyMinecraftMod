@@ -2,6 +2,7 @@ package koldunec.vint.init;
 
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.recipes.BrewRegister;
+import koldunec.vint.recipes.TwilightTransmutations.TransmutationsRegister;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -17,6 +18,8 @@ public class CraftingRegister
         initCoreCrafting();
         initSmelting();
         BrewRegister.initBrewing();
+        if(IntegrationHelper.isLoadedTwilight)
+            TransmutationsRegister.init();
     }
 
 
@@ -33,6 +36,12 @@ public class CraftingRegister
         GameRegistry.addSmelting(ItemRegister.POTION_MIX, new ItemStack(ItemRegister.NETHER_CRYSTAL), 1F);
         if(IntegrationHelper.isLoadedChisel){
             GameRegistry.addSmelting(Item.getByNameOrId("chisel:chisel_diamond"), new ItemStack(ItemRegister.CHLESIS), 10F);
+        }
+        if(IntegrationHelper.isLoadedFuture){
+            GameRegistry.addSmelting(
+                    Item.getByNameOrId(IntegrationHelper.idFuture+"honey_block"),
+                    new ItemStack(ItemRegister.HONEY_CRYSTAL), 1F
+            );
         }
     }
 

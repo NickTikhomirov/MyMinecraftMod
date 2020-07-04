@@ -21,6 +21,7 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import scala.Int;
 
 import java.util.HashSet;
 
@@ -80,13 +81,13 @@ public class BlockRegister {
     public static Block ORE_ALUMINUM = new bitore("ore_al",4,7,200);
     public static Block ALBLOCK = new basic_block("block_aluminum",Material.IRON,"pickaxe",1,1F,50F,10);
 
-    //public static Block TOWER_FURNACE = new TowerFurnace(2F,30F);
+    public static Block TOWER_FURNACE = new TowerFurnace(false);
+    public static Block TOWER_FURNACE_LIT = new TowerFurnace(true);
 
 
     public static void register() {
         for(Block b: DEFAULT_INIT)
             registerBlock(b);
-
 
         registerBlock(WATER_PORTAL);
         registerBlock(BRICKS_Light);
@@ -102,6 +103,8 @@ public class BlockRegister {
         if(IntegrationHelper.isLoadedTwilight) {
             ForgeRegistries.BLOCKS.register(REED_BORER);
             ForgeRegistries.BLOCKS.register(TORCH_CROPS);
+            registerBlock(TOWER_FURNACE);
+            registerBlock(TOWER_FURNACE_LIT);
         }
 
 
@@ -121,8 +124,10 @@ public class BlockRegister {
         setRender(LLAMA_SPAWNER,0);
         setRender(LLAMA_SPAWNER,1);
 
-        //if(vint.isLoadedTwilight)
-            //setRender(TOWER_FURNACE);
+        if(IntegrationHelper.isLoadedTwilight) {
+            setRender(TOWER_FURNACE);
+            setRender(TOWER_FURNACE_LIT);
+        }
 
     }
 

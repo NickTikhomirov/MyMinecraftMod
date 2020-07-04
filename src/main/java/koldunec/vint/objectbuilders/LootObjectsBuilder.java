@@ -11,7 +11,7 @@ import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraft.world.storage.loot.functions.SetCount;
 import net.minecraft.world.storage.loot.functions.SetMetadata;
 
-public class OtherBuilder {
+public class LootObjectsBuilder {
     public static LootPool LootPoolBuilder(LootEntry entry, RandomValueRange range, String name){
         return new LootPool(
             new LootEntry[]{entry},

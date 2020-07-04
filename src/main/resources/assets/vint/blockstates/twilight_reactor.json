@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "vint:twilight_reactor" },
+    "facing=south": { "model": "vint:twilight_reactor", "y": 180 },
+    "facing=west":  { "model": "vint:twilight_reactor", "y": 270 },
+    "facing=east":  { "model": "vint:twilight_reactor", "y": 90 }
+  }
+}

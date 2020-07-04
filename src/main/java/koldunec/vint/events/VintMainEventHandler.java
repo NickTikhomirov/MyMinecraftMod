@@ -301,11 +301,6 @@ public class VintMainEventHandler{
                 }
             }
         }
-        if(e.getSource().getTrueSource() instanceof EntityPlayer){
-            if(((EntityPlayer)e.getSource().getTrueSource()).getHeldItem(EnumHand.MAIN_HAND).getItem().equals(ItemRegister.DIAMONDGOLDEN_GOLDEN_DIAMOND_SWORD)){
-                e.getSource().setMagicDamage();
-            }
-        }
     }
 
 

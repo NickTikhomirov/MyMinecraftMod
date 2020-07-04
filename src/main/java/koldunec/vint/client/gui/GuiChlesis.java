@@ -6,8 +6,8 @@ import net.minecraft.util.EnumHand;
 import team.chisel.client.gui.GuiChisel;
 import team.chisel.common.inventory.InventoryChiselSelection;
 
-public class guiChlesis extends GuiChisel {
-    public guiChlesis(InventoryPlayer iinventory, InventoryChiselSelection menu, EnumHand hand) {
+public class GuiChlesis extends GuiChisel {
+    public GuiChlesis(InventoryPlayer iinventory, InventoryChiselSelection menu, EnumHand hand) {
         super(iinventory, menu, hand);
         inventorySlots = new ContainerChlesis(iinventory, menu, hand);
         container = (ContainerChlesis)inventorySlots;

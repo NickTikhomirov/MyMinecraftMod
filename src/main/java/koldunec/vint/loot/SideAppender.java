@@ -1,6 +1,6 @@
 package koldunec.vint.loot;
 
-import koldunec.vint.objectbuilders.OtherBuilder;
+import koldunec.vint.objectbuilders.LootObjectsBuilder;
 import net.minecraft.item.Item;
 import net.minecraft.world.storage.loot.*;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
@@ -10,8 +10,8 @@ import net.minecraft.world.storage.loot.functions.SetCount;
 public class SideAppender {
 
     public static void flameSpewerInjection(LootTable table){
-        table.addPool(OtherBuilder.LootPoolBuilder(
-                OtherBuilder.LootEntryBuilder(
+        table.addPool(LootObjectsBuilder.LootPoolBuilder(
+                LootObjectsBuilder.LootEntryBuilder(
                        "tconstruct:edible",
                        4,
                        1,

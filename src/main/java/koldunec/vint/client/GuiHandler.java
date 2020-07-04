@@ -1,8 +1,11 @@
 package koldunec.vint.client;
 
-import koldunec.vint.client.gui.guiChlesis;
-import koldunec.vint.client.gui.store_gui;
+import koldunec.vint.client.gui.GuiTower;
+import koldunec.vint.client.gui.GuiChlesis;
+import koldunec.vint.client.gui.GuiOre;
+import koldunec.vint.tileentities.TileTower;
 import koldunec.vint.tileentities.containers.ContainerChlesis;
+import koldunec.vint.tileentities.containers.ContainerTower;
 import koldunec.vint.tileentities.containers.container_store;
 import koldunec.vint.tileentities.EntityStore;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,6 +20,7 @@ import javax.annotation.Nullable;
 public class GuiHandler implements IGuiHandler {
     public static final int GUI_CHLESIS = -1;
     public static final int GUI_STORE = 0;
+    public static final int GUI_TOWER = 1;
 
 
     @Nullable
@@ -26,6 +30,8 @@ public class GuiHandler implements IGuiHandler {
             return new container_store(player.inventory, (EntityStore)world.getTileEntity(new BlockPos(x,y,z)),player);
         if(ID==GUI_CHLESIS)
             return new ContainerChlesis(player.inventory, new InventoryChiselSelection(player.getHeldItem(EnumHand.values()[x]), 60), EnumHand.values()[x]);
+        if(ID==GUI_TOWER)
+            return new ContainerTower(player.inventory,(TileTower)world.getTileEntity(new BlockPos(x,y,z)));
         return null;
     }
 
@@ -33,9 +39,11 @@ public class GuiHandler implements IGuiHandler {
     @Override
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         if(ID==GUI_STORE)
-            return new store_gui(player.inventory, (EntityStore)world.getTileEntity(new BlockPos(x,y,z)));
+            return new GuiOre(player.inventory, (EntityStore)world.getTileEntity(new BlockPos(x,y,z)));
         if(ID==GUI_CHLESIS)
-            return new guiChlesis(player.inventory, new InventoryChiselSelection(player.getHeldItem(EnumHand.values()[x]), 60), EnumHand.values()[x]);
+            return new GuiChlesis(player.inventory, new InventoryChiselSelection(player.getHeldItem(EnumHand.values()[x]), 60), EnumHand.values()[x]);
+        if(ID==GUI_TOWER)
+            return new GuiTower(player.inventory, (TileTower)world.getTileEntity(new BlockPos(x,y,z)));
         return null;
     }
 }

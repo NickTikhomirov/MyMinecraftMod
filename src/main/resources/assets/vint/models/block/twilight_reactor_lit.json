@@ -1,0 +1,8 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "vint:blocks/reactor_top",
+    "front": "vint:blocks/reactor_lit",
+    "side": "vint:blocks/reactor_side"
+  }
+}
