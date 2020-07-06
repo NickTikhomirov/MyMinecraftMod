@@ -34,6 +34,7 @@ public class CraftingRegister
     private static void initSmelting(){
         GameRegistry.addSmelting(BlockRegister.ORE_BIT, new ItemStack(ItemRegister.BITCOIN5000), 0.5F);
         GameRegistry.addSmelting(ItemRegister.POTION_MIX, new ItemStack(ItemRegister.NETHER_CRYSTAL), 1F);
+        GameRegistry.addSmelting(BlockRegister.FRESH_DEBRIS, new ItemStack(BlockRegister.FAKE_NETHERITE), 1F);
         if(IntegrationHelper.isLoadedChisel){
             GameRegistry.addSmelting(Item.getByNameOrId("chisel:chisel_diamond"), new ItemStack(ItemRegister.CHLESIS), 10F);
         }

@@ -2,7 +2,7 @@ package koldunec.vint.tileentities;
 
 import koldunec.vint.blocks.TowerFurnace;
 import koldunec.vint.recipes.TwilightTransmutations.FuelHelper;
-import koldunec.vint.recipes.TwilightTransmutations.ITwilightResult;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ITwilightResult;
 import koldunec.vint.recipes.TwilightTransmutations.TransmutationsRegister;
 import koldunec.vint.tileentities.containers.ContainerTower;
 import koldunec.vint.utils.EnumSides;
@@ -101,6 +101,8 @@ public class TileTower extends TileEntityLockable implements ITickable, ISidedIn
              return false;
          ITwilightResult result = TransmutationsRegister.getResult(base, catalyst, this);
          if(result==null)
+             return false;
+         if(!result.canProcess(base, catalyst, this))
              return false;
          ItemStack newResult = result.getResultStack(base,catalyst,this);
          if(newResult.isEmpty())

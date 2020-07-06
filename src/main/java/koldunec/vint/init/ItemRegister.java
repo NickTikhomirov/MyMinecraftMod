@@ -52,6 +52,7 @@ public class ItemRegister{
     public static Item SOUL = put(new base_item("small_soul",64));
     public static Item RED_POWDER = put(new oreProspector());
     public static Item MOSS = put(new Moss());
+    public static Item DUST = put(new SimpleItems.SimpleItem("dust",64));
 
     public static Item GOLDEN_DIAMOND = put(new base_item("dg0",64));
     public static Item DIAMOND_GOLD = put(new base_item("dg1",64));
@@ -96,6 +97,8 @@ public class ItemRegister{
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
     public static Item CARMINITE_AXE = new CarminiteAxe();
     public static Item CARMINITE_PICKAXE = Sideclass_Items.CarminitePickLoader();
+    public static Item FROZEN_CORE = new SimpleItems.SimpleItem("frozen_core", 64);
+    public static Item AURORA_CORE = new SimpleItems.SimpleItem("aurora_core", 64);
 
     public static Item ALUMINUM = new base_item("aluminum", 64);
 
@@ -119,6 +122,8 @@ public class ItemRegister{
             setRegister(CARMINITE_PICKAXE);
             setRegister(SHELL);
             setRegister(BORER_REED);
+            setRegister(FROZEN_CORE);
+            setRegister(AURORA_CORE);
         }
     }
 
@@ -136,6 +141,8 @@ public class ItemRegister{
             setRender(CARMINITE_PICKAXE);
             setRender(SHELL);
             setRender(BORER_REED);
+            setRender(FROZEN_CORE);
+            setRender(AURORA_CORE);
         }
     }
 

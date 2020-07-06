@@ -47,6 +47,8 @@ modifier.warm.desc=§oVery cool§r\Your tool cools you without overcooling.
 
 
 
+
+item.dust.name=Dust
 item.bitcoin.name=One Bitcoin
 item.bitcoin5000.name=Bitcoin 5000
 item.broom.name=Broom
@@ -67,7 +69,6 @@ item.amulet0.name=Amulet of Magic Protection
 item.p_trans.name=Dye Transmutation Stone
 item.red_powder.name=Red Powder
 item.cleaner.name=Sponge of Conceptualization
-item.ambersword.name=Reliquarist's Sword
 item.shell.name=Wooden Shell with Meef Stroganoff
 item.halfdust.name=Half of Glowstone Dust
 
@@ -75,7 +76,7 @@ item.curinggrass.name=Curing Grass
 item.supercuringgrass.name=Curing Grass++
 item.curingseeds.name=Seeds of Curing Grass
 
-item.reed_borer_item.name=Boring Reed
+item.reed_borer_item.name=Borer Reed
 
 item.effect_freezer.name=Potion Mix
 item.nether_crystal.name=Nether Crystal
@@ -83,7 +84,6 @@ item.ghast_seeds.name=Soul Seeds
 item.soul_fruit.name=Soul Fruit
 item.small_soul.name=Small Soul
 item.soul_shears.name=Soul Shears
-item.nether_cup.name=Nether Cup
 
 item.dg0.name=Golden Diamond
 item.dg1.name=Diamond Gold
@@ -117,13 +117,11 @@ item.curedfish.name=Safe Pufferfish
 item.curedpotato.name=Safe Potato
 item.curedfruit.name=Safe Chorus Fruit
 
-item.flint_base.name=Inert Magic Flint
-item.magic_flint.weak.name=Weak Magic Flint
-item.magic_flint.void.name=Void Magic Flint
-
 item.dusttrans.name=Transformation Dust
 item.carminite_axe.name=Carminite Axe
 item.carminite_pick.name=Carminite Pickaxe
+item.frozen_core.name=Frozen Core
+item.aurora_core.name=Aurora Core
 
 item.vanilla_powder.name=Vanilla Powder
 item.moss.name=Moss
@@ -151,8 +149,14 @@ tile.st_ore.name=StORE
 tile.llama_flower.name=Llama Flower
 tile.block_aluminum.name=Aluminum Block
 tile.ore_al.name=Aluminum Ore
-tile.radio_cactus.name=Nether Cactus
 
+tile.fake_iron.name=Fake Iron Block
+tile.fake_gold.name=Fake Gold Block
+tile.fake_diamond.name=Fake Diamond Block
+tile.fake_netherite.name=Trasherite Block
+tile.fake_emerald.name=Fake Emerald Block
+
+tile.radio_cactus.name=Nether Cactus
 tile.shroomlight.name=Shroomlight
 tile.basalt_raw.name=Basalt
 tile.basalt_pillar.name=Polished Basalt

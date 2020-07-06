@@ -1,5 +1,6 @@
-package koldunec.vint.recipes.TwilightTransmutations;
+package koldunec.vint.recipes.TwilightTransmutations.RecipeResults;
 
+import koldunec.vint.init.ItemRegister;
 import koldunec.vint.tileentities.TileTower;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -8,9 +9,14 @@ import net.minecraft.item.ItemStack;
 import java.util.HashMap;
 import java.util.HashSet;
 
+/**
+ * Repairing recipe that targets only one tool, that takes catalyst's place
+ * The resulting item is trash (default: dust)
+ */
+
 public class RepairRecipe implements ITwilightResult {
-    public ItemStack result = new ItemStack(Blocks.SAND);
-    public HashSet<Item> repairable = new HashSet<>();
+    public ItemStack result = new ItemStack(ItemRegister.DUST);
+    public Item repairable;
     public HashMap<Item,Integer> materials = new HashMap<>();
     public int step;
 
@@ -19,14 +25,20 @@ public class RepairRecipe implements ITwilightResult {
     }
 
      public RepairRecipe(Item tool, ItemStack material, int amount){
-        repairable.add(tool);
+        repairable = tool;
         materials.put(material.getItem(),material.getMetadata());
         step = amount;
     }
 
-    public void put(Item tool, ItemStack material){
-        repairable.add(tool);
+    public RepairRecipe(Item tool, ItemStack material, ItemStack trash){
+        this(tool, material,1 ,trash);
+    }
+
+    public RepairRecipe(Item tool, ItemStack material, int amount, ItemStack trash){
+        repairable = tool;
         materials.put(material.getItem(),material.getMetadata());
+        step = amount;
+        result = trash;
     }
 
     @Override
@@ -35,7 +47,7 @@ public class RepairRecipe implements ITwilightResult {
         if(i==null)
             return false;
         int ii = i;
-        return repairable.contains(catalyst.getItem()) && base.getMetadata()==ii;
+        return repairable.equals(catalyst.getItem()) && catalyst.getItemDamage()>0 && base.getMetadata()==ii;
     }
 
     @Override

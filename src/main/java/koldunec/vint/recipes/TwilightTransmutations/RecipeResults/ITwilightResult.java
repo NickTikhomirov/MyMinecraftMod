@@ -1,4 +1,4 @@
-package koldunec.vint.recipes.TwilightTransmutations;
+package koldunec.vint.recipes.TwilightTransmutations.RecipeResults;
 
 import koldunec.vint.tileentities.TileTower;
 import net.minecraft.item.ItemStack;

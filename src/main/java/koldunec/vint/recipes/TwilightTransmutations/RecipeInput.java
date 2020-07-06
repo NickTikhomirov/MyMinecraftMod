@@ -1,5 +1,6 @@
 package koldunec.vint.recipes.TwilightTransmutations;
 
+import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
@@ -8,12 +9,30 @@ public class RecipeInput {
     public Item catalyst;
     public int basemeta = 0;
     public int catalystmeta = 0;
-    public RecipeInput(ItemStack b, ItemStack cat){
-        base = b.getItem();
-        basemeta = b.getItemDamage();
-        catalyst = cat.getItem();
-        catalystmeta = cat.getItemDamage();
+
+    public RecipeInput(Item _base, int _basemeta, Item _catalyst, int _catalystmeta){
+        base = _base;
+        basemeta = _basemeta;
+        catalyst = _catalyst;
+        catalystmeta = _catalystmeta;
     }
+
+    public RecipeInput(ItemStack b, ItemStack cat){
+        this(b.getItem(), b.getItemDamage(), cat.getItem(), cat.getItemDamage());
+    }
+
+    public RecipeInput(Block _base, int _basemeta, Item _catalyst, int _catalystmeta){
+        this(Item.getItemFromBlock(_base), _basemeta, _catalyst, _catalystmeta);
+    }
+
+    public RecipeInput(Item _base, Item _catalyst){
+        this(_base, 0, _catalyst, 0);
+    }
+
+    public RecipeInput(Block _base, Item _catalyst){
+        this(_base, 0, _catalyst, 0);
+    }
+
 
     @Override
     public int hashCode() {

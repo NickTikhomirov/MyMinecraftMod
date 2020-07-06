@@ -2,6 +2,8 @@ package koldunec.vint.recipes.TwilightTransmutations;
 
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
+import koldunec.vint.utils.routers.Sidemod_Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
@@ -17,8 +19,15 @@ public class FuelHelper {
         return 0;
     }
 
+
     public static boolean IsValidFuel(ItemStack i){
         return CountFuelValue(i)>0;
+    }
+
+
+    // called in TransmutationsRegister
+    public static void init(){
+        REGISTRY.add(new DefaultFuelHandler());
     }
 
     public interface IFuelHandler{
@@ -33,19 +42,18 @@ public class FuelHelper {
                 return false;
             if(i.getItem().equals(ItemRegister.TRANSFORMATION_DUST))
                 return true;
-            return i.getItem().getRegistryName().getResourcePath().equals("borer_essence");
+            if(i.getItem().equals(Sidemod_Items.TransformPowder()))
+                return true;
+            return i.getItem().equals(Sidemod_Items.Borer());
         }
 
         @Override
         public int getFuelValue(ItemStack i) {
             if(i.getItem().equals(ItemRegister.TRANSFORMATION_DUST))
-                return 20;
-            return 80;
+                return 50;
+            if(i.getItem().equals(Sidemod_Items.TransformPowder()))
+                return 500;
+            return 100;
         }
-    }
-
-    // called in TransmutationsRegister
-    public static void init(){
-        REGISTRY.add(new DefaultFuelHandler());
     }
 }

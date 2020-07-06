@@ -1,24 +1,47 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    " r ",
-    "ROR",
-    " R "
+    "ygl",
+    "oKb",
+    "rSp"
   ],
   "key": {
     "r": {
-      "item": "vint:red_powder"
+      "type": "forge:ore_dict",
+      "ore": "dyeRed"
     },
-    "O": {
-      "item": "vint:round_stone"
+    "o": {
+      "type": "forge:ore_dict",
+      "ore": "dyeOrange"
     },
-    "R": {
-      "item": "vint:rEssence"
+    "y": {
+      "type": "forge:ore_dict",
+      "ore": "dyeYellow"
+    },
+    "g": {
+      "type": "forge:ore_dict",
+      "ore": "dyeGreen"
+    },
+    "l": {
+      "type": "forge:ore_dict",
+      "ore": "dyeLightBlue"
+    },
+    "b": {
+      "type": "forge:ore_dict",
+      "ore": "dyeBlue"
+    },
+    "p": {
+      "type": "forge:ore_dict",
+      "ore": "dyePurple"
+    },
+    "K": {
+      "item": "minecraft:flint"
+    },
+    "S": {
+      "item": "vint:vanilla_powder"
     }
   },
   "result": {
-    "item": "vint:p_trans",
-    "data":  0,
-    "count": 1
+    "item": "vint:p_trans"
   }
 }

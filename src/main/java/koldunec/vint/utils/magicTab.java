@@ -11,6 +11,6 @@ public class magicTab extends CreativeTabs {
 
     @Override
     public ItemStack getTabIconItem(){
-        return new ItemStack(ItemRegister.ESSENCE_RAINBOW);
+        return new ItemStack(ItemRegister.PAINT_TRANSMUTATOR);
     }
 }

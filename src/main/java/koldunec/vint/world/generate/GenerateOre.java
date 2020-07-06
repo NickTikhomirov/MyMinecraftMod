@@ -48,7 +48,8 @@ public class GenerateOre implements IWorldGenerator {
     public static final Generatable[] generatesOverw = new Generatable[]{
             new Generatable(BlockRegister.STORE.getDefaultState(), 3, 12, 15, 64, Blocks.STONE),
             new Generatable(BlockRegister.ORE_EGG.getDefaultState(), 3, 5, 10, 20, Blocks.STONE),
-            new Generatable(Blocks.EMERALD_ORE.getDefaultState(),3,5,4,32,Blocks.STONE)
+            new Generatable(Blocks.EMERALD_ORE.getDefaultState(),3,5,4,32,Blocks.STONE),
+            new Generatable(BlockRegister.ORE_RAINBOW.getDefaultState(), 3, 18, 60, 120, Blocks.DIRT)
     };
 
 

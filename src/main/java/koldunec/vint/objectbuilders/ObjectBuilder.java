@@ -17,6 +17,7 @@ public class ObjectBuilder {
 
     public static class SimpleBlock extends Block{
         private boolean flammable = false;
+        private boolean anytool = false;
 
         public SimpleBlock(String name, Material blockMaterialIn, SoundType soundType) {
             super(blockMaterialIn);
@@ -27,17 +28,17 @@ public class ObjectBuilder {
         }
 
         @Override
+        public boolean isToolEffective(String type, IBlockState state) {
+            if(anytool)
+                return true;
+            return super.isToolEffective(type, state);
+        }
+
+        @Override
         public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
             return flammable?20:0;
         }
 
-        public static Block BuildDefaultPlanks(String name, boolean flammableParam){
-            SimpleBlock block = new SimpleBlock(name, Material.WOOD, SoundType.WOOD);
-            block.setHardness(2.0F);
-            block.setResistance(5.0F);
-            block.flammable = flammableParam;
-            return block;
-        }
     }
 
     public static Block BuildWarpedWart(){
@@ -58,6 +59,21 @@ public class ObjectBuilder {
         result.setHardness(0.5F);
         result.setResistance(10F);
         return result;
+    }
+
+    public static Block BuildDefaultPlanks(String name, boolean flammableParam){
+        SimpleBlock block = new SimpleBlock(name, Material.WOOD, SoundType.WOOD);
+        block.setHardness(2.0F);
+        block.setResistance(5.0F);
+        block.flammable = flammableParam;
+        return block;
+    }
+
+    public static Block BuildFake(String name){
+        SimpleBlock block = new SimpleBlock(name, Material.IRON, SoundType.METAL);
+        block.anytool = true;
+        block.setHardness(0.8F);
+        return block;
     }
 
     public static Block BuildRock(String s){

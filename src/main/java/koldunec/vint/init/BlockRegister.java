@@ -21,7 +21,6 @@ import net.minecraft.item.ItemBlock;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import scala.Int;
 
 import java.util.HashSet;
 
@@ -50,8 +49,8 @@ public class BlockRegister {
     public static Block RED_NETHER_MUSH = put(new NetherShroom("red_nether_shroom"));
     public static Block BLUE_NETHER_MUSH = put(new NetherShroom("blue_nether_shroom"));
 
-    public static Block RED_PLANKS = put(ObjectBuilder.SimpleBlock.BuildDefaultPlanks("red_planks",false));
-    public static Block BLUE_PLANKS = put(ObjectBuilder.SimpleBlock.BuildDefaultPlanks("blue_planks",false));
+    public static Block RED_PLANKS = put(ObjectBuilder.BuildDefaultPlanks("red_planks",false));
+    public static Block BLUE_PLANKS = put(ObjectBuilder.BuildDefaultPlanks("blue_planks",false));
 
     public static Block NETHER_CACTUS = put(new GlowCactus());
 
@@ -71,8 +70,8 @@ public class BlockRegister {
     public static Block COBBLE_MOSS_old = new basic_block("block_oldmoss",Material.ROCK, "pickaxe",0,2F ,30F,255);
     public static Block COBBLE_MOSS_red = new basic_block("block_redmoss",Material.ROCK,"pickaxe",0,2F,30F,255);
     public static Block COBBLE_old = new basic_block("block_oldstone",Material.ROCK,"pickaxe",0,2F,30F,255);
-    public static Block PLANKS_Light = put(ObjectBuilder.SimpleBlock.BuildDefaultPlanks("block_planks_light", true));
-    public static Block PLANKS_uncommon = put(ObjectBuilder.SimpleBlock.BuildDefaultPlanks("block_planks_uncommon", true));
+    public static Block PLANKS_Light = put(ObjectBuilder.BuildDefaultPlanks("block_planks_light", true));
+    public static Block PLANKS_uncommon = put(ObjectBuilder.BuildDefaultPlanks("block_planks_uncommon", true));
 
     public static Block ORE_BIT = put(new bitore("ore_bit",2,5,6));
     public static Block ORE_EGG = put(new eggore("ore_egg",64));
@@ -83,11 +82,17 @@ public class BlockRegister {
 
     public static Block TOWER_FURNACE = new TowerFurnace(false);
     public static Block TOWER_FURNACE_LIT = new TowerFurnace(true);
+    public static Block FAKE_IRON = put(ObjectBuilder.BuildFake("fake_iron"));
+    public static Block FAKE_GOLD = put(ObjectBuilder.BuildFake("fake_gold"));
+    public static Block FAKE_DIAMOND = put(ObjectBuilder.BuildFake("fake_diamond"));
+    public static Block FAKE_NETHERITE = put(ObjectBuilder.BuildFake("fake_netherite"));
+    public static Block FAKE_EMERALD = put(ObjectBuilder.BuildFake("fake_emerald"));
 
 
     public static void register() {
         for(Block b: DEFAULT_INIT)
             registerBlock(b);
+
 
         registerBlock(WATER_PORTAL);
         registerBlock(BRICKS_Light);

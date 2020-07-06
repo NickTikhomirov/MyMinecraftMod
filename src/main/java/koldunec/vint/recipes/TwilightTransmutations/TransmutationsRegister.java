@@ -1,7 +1,11 @@
 package koldunec.vint.recipes.TwilightTransmutations;
 
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ITwilightResult;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.MWTransform;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RepairRecipe;
 import koldunec.vint.tileentities.TileTower;
+import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;
@@ -41,6 +45,16 @@ public class TransmutationsRegister {
         RECIPES_1.put(new RecipeInput(in,cata), out);
     }
 
+    public static void put(RecipeInput in, ITwilightResult out){
+        if(in==null || out==null)
+            return;
+        if(in.base.equals(Items.AIR) || in.catalyst.equals(Items.AIR))
+            return;
+        if(getResult(in)!=null)
+            return;
+        RECIPES_1.put(in, out);
+    }
+
 
     public static void init(){
         if(!IntegrationHelper.isLoadedTwilight)
@@ -49,6 +63,12 @@ public class TransmutationsRegister {
         TwilightTransmutationsData.initCarminite();
         TwilightTransmutationsData.initCinder();
         TwilightTransmutationsData.initTransform();
+        TwilightTransmutationsData.initDragonBreath();
+        TwilightTransmutationsData.initIce();
+        TwilightTransmutationsData.initConduit();
+        TwilightTransmutationsData.initIntegration();
+        TwilightTransmutationsData.initRepairs();
 
+        RECIPES_2.add(new MWTransform());
     }
 }
