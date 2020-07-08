@@ -5,6 +5,7 @@ import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ITwilightResul
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.MWTransform;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RepairRecipe;
 import koldunec.vint.tileentities.TileTower;
+import koldunec.vint.tileentities.containers.ContainerTower;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import twilightforest.block.TFBlocks;
@@ -73,6 +74,8 @@ public class TransmutationsRegister {
         TwilightTransmutationsIntegration.initIntegration();
         TwilightTransmutationsData.initWoods(new ItemStack(TFItems.magic_map_focus), 100);
         TwilightTransmutationsData.initWoods(new ItemStack(TFBlocks.magic_log_core, 1, 1), 50);
+
+        ContainerTower.CATALYSTS_FOR_TRANSFER.put(TFItems.magic_map_focus, 0);
 
         RECIPES_2.add(new MWTransform());
     }

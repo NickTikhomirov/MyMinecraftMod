@@ -1,11 +1,18 @@
 package koldunec.vint.recipes.TwilightTransmutations;
 
+import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RecipeOutput;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class Defaulter {
+
+    // for correct JEI support
+    public boolean isSimple(){
+        return true;
+    }
+
     public Item catalyst;
     public int meta;
     public int time = 100;
@@ -49,9 +56,13 @@ public class Defaulter {
      */
 
     public void register(Item base, int base_meta, Item result, int result_meta){
-        TransmutationsRegister.put(
-                new RecipeInput(base, base_meta, catalyst, meta),
-                new RecipeOutput(new ItemStack(result, result_amount, result_meta), time));
+        RecipeInput input = new RecipeInput(base, base_meta, catalyst, meta);
+        RecipeOutput output = new RecipeOutput(new ItemStack(result, result_amount, result_meta), time);
+        TransmutationsRegister.put(input, output);
+        if(isSimple()) {
+            RecipeLimbo.DefaultRecipe temp = new RecipeLimbo.DefaultRecipe(input, output);
+            // no need to register, because recipe auto-registers itself in its constructor
+        }
     }
 
     public void register(Item base, Item result, int result_meta){

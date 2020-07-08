@@ -309,3 +309,12 @@ vint:flavor2=Amber hate Embers!
 vint:flavor3=Very diamond
 vint:flavor4=Also very golden
 vint:flavor5=Very tough. Nobody but a minotaur is able to open this shell.
+
+########################
+######### JEI ##########
+########################
+
+vint.jei.tooltip.catalyst.safe=Will not be consumed
+vint.jei.tooltip.catalyst.dang=Will be consumed
+
+vint.jei.docs.borer=This plant grows downwards, making its way through the wood. \nPlace it on the top of wooden column (even workbench column is suitable) and the plant will slowly consume it

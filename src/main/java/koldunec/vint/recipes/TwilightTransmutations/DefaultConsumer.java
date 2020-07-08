@@ -7,6 +7,11 @@ import net.minecraft.item.ItemStack;
 
 public class DefaultConsumer extends Defaulter {
 
+    @Override
+    public boolean isSimple() {
+        return false;
+    }
+
     public DefaultConsumer(Item _cata, int _meta){ super(_cata, _meta); }
     public DefaultConsumer(Block _cata, int _meta){ this(Item.getItemFromBlock(_cata), _meta); }
     public DefaultConsumer(Item _cata){ this(_cata, 0); }
