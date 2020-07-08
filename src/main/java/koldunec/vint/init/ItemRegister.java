@@ -8,7 +8,7 @@ import koldunec.vint.items.*;
 import koldunec.vint.items.baseItems.base_item;
 import koldunec.vint.items.crafting_tools.cheasel;
 import koldunec.vint.items.crafting_tools.cleaner;
-import koldunec.vint.items.curinggrass.curinggrass;
+import koldunec.vint.items.curinggrass.Vitasaria_Item;
 import koldunec.vint.items.curinggrass.supercuringgrass;
 import koldunec.vint.items.throwables.bitcoin5000;
 import koldunec.vint.items.throwables.cursedRock;
@@ -30,12 +30,10 @@ import java.util.HashSet;
 public class ItemRegister{
     public static HashSet<Item> DEFAULT_INIT = new HashSet<>();
 
-    public static Item CURINGSEEDS = put(new CuringSeeds());
-    public static Item CURING_GRASS= put(new curinggrass());
+    public static Item VITASARIA_SEEDS = put(new CuringSeeds());
+    public static Item VITASARIA = put(new Vitasaria_Item());
     public static Item SUPERCURING_GRASS= put(new supercuringgrass());
     public static Item POWDER_REED = new ReedPowderItem();
-
-    public static Item VANILLA_POWDER = put(new base_item("vanilla_powder",64));
 
     public static Item BAMBOO_HOE = put(ObjectBuilder.BuildBambooHoe());
 
@@ -43,14 +41,13 @@ public class ItemRegister{
     public static Item BITCOIN = put(new base_fuel("bitcoin",64, (short)800));
     public static Item BITCOIN5000 = put(new bitcoin5000("bitcoin5000",64));
 
-    public static Item ESSENCE_RAINBOW= put(new base_item("rEssence", 64));
     public static Item MAGIC_FLINTS = new flints();
     public static Item ROUND_STONE = put(new inertstone("round_stone",64));
     public static Item WOODEN_RUNE = put(new base_item("wooden_rune",64));
     public static Item SOUL_FRUIT = put(new SoulFruit());
     public static Item NETHER_CRYSTAL = put(new base_item("nether_crystal",64));
     public static Item SOUL = put(new base_item("small_soul",64));
-    public static Item RED_POWDER = put(new oreProspector());
+    public static Item RED_POWDER = put(new SimpleItems.SimpleItem("red_powder", 64));
     public static Item MOSS = put(new Moss());
     public static Item DUST = put(new SimpleItems.SimpleItem("dust",64));
 

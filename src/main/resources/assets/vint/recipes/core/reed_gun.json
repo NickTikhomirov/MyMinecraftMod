@@ -11,23 +11,23 @@
       "item": "minecraft:redstone"
     },
     {
-      "item": "minecraft:redstone"
+      "item": "minecraft:glowstone_dust"
     },
     {
-      "item": "vint:red_powder"
+      "item": "vint:curingseeds"
     },
     {
-      "item": "vint:ressence"
+      "item": "vint:small_soul"
     },
     {
-      "item": "vint:ressence"
+      "item": "minecraft:melon_seeds"
     },
     {
       "item": "vint:effect_freezer"
     },
     {
       "item": "minecraft:dye",
-      "data": 15
+      "data": 4
     }
   ],
   "result": {

@@ -1,4 +1,4 @@
-package koldunec.vint.items;
+package koldunec.vint.blocks;
 
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.vint;
@@ -7,65 +7,36 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 import java.util.Random;
 
-public class RainbowOre extends Block
-{
-    Item drops;
-    int am;
-    int aM;
-    int AM;
-    public RainbowOre(String name, int amountMin, int amountMax, int amountMaxWithFortune)
-    {
+public class RainbowOre extends Block {
+    public RainbowOre(String name) {
         super(Material.GROUND);
         this.setRegistryName(name);
         this.setUnlocalizedName(name);
         this.setCreativeTab(vint.magicTab);
         this.setHardness(0.2F);
-        this.setResistance(Blocks.DIRT.getExplosionResistance(null,null,null,null));
         this.setSoundType(SoundType.GROUND);
-        am = amountMin;
-        aM = amountMax;
-        AM = amountMaxWithFortune;
-    }
-    public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return ItemRegister.ESSENCE_RAINBOW;
     }
 
-    public int quantityDropped(Random random)
-    {
-        int f = am + random.nextInt(aM-am+1);
-        return (f>aM)?aM:f;
-    }
-
-
-    public int quantityDroppedWithBonus(int fortune, Random random) {
-
-        if (fortune > 0 && Item.getItemFromBlock(this) != this.getItemDropped((IBlockState)this.getBlockState().getValidStates().iterator().next(), random, fortune)) {
-
-            int i = random.nextInt(fortune + 2) - 1;
-
-            if (i < 0) {
-
-                i = 0;
-
-            }
-            int f = this.quantityDropped(random) * (i + 1);
-            return (f>AM)?AM:f;
-
-        }
-
-        else {
-
-            return this.quantityDropped(random);
-
-        }
-
+    @Override
+    public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
+        drops.add(new ItemStack(Items.DYE, 1));
+        drops.add(new ItemStack(Items.DYE, 14));
+        drops.add(new ItemStack(Items.DYE, 11));
+        drops.add(new ItemStack(ItemRegister.ANOTHER_DYE, 1));
+        drops.add(new ItemStack(Items.DYE, 12));
+        drops.add(new ItemStack(ItemRegister.ANOTHER_DYE, 3));
+        drops.add(new ItemStack(Items.DYE, 5));
     }
 
     @Override

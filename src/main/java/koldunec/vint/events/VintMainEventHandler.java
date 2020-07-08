@@ -61,11 +61,11 @@ public class VintMainEventHandler{
 
     @SubscribeEvent
     public static void onClickEntity(PlayerInteractEvent.EntityInteract e){
-        if(IntegrationHelper.isLoadedTinkers && IntegrationHelper.isLoadedNatura && !e.isCanceled()){
+        if(IntegrationHelper.isLoadedTinkers && !e.isCanceled()){
             EntityPlayer player = e.getEntityPlayer();
             ItemStack weapon = player.getHeldItemMainhand();
             if(ToolHelper.hasCategory(weapon, Category.TOOL)){
-                if(ToolHelper.getTraits(weapon).contains(TinkerIntegration.PRIMAL)){
+                if(ToolHelper.getTraits(weapon).contains(TinkerIntegration.ACTIVATING)){
                     if(e.getTarget() instanceof EntityCreeper) {
                         player.swingArm(EnumHand.MAIN_HAND);
                         ((EntityCreeper) e.getTarget()).ignite();
@@ -174,12 +174,6 @@ public class VintMainEventHandler{
                             e.getDrops().add(new ItemStack(ItemRegister.TRANSFORMATION_DUST));
                     }
                 }
-            if(e.getState().getBlock() instanceof BlockTFLeaves && ((BlockTFLeaves) e.getState().getBlock()).func_180651_a(e.getState())==9){
-                if(!e.getDrops().contains(new ItemStack(Item.getItemFromBlock(e.getState().getBlock())))) {
-                    if(vint.random.nextInt(3)==0)
-                        e.getDrops().add(new ItemStack(ItemRegister.ESSENCE_RAINBOW));
-                }
-            }
         }
     }
 

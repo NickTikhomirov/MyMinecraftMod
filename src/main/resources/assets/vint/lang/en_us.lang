@@ -39,6 +39,8 @@ modifier.complex.name=Complex
 modifier.complex.desc=§oEvery complex thing requires a bit of imagination§r\nDeals more damage to primitive mobs.
 modifier.fundamental.name=Fundamental
 modifier.fundamental.desc=§oCobblestonks§r\nYour mined cobblestone will not be burned in lava.
+modifier.activating.name=Explosive Expulsion
+modifier.activating.desc=§oThere is now need to fight creepers if you can blow them§r\nUse your tool on a creeper and it will blow up.
 
 modifier.warm.name=Warm
 modifier.warm.desc=§oReliable pickaxe is the only thing that saves you at cold winter's night§r\Your tool warms you without overheating.
@@ -52,14 +54,11 @@ item.dust.name=Dust
 item.bitcoin.name=One Bitcoin
 item.bitcoin5000.name=Bitcoin 5000
 item.broom.name=Broom
-item.rEssence.name=Rainbow Essence
 item.potatogp.name=Golden Poisoned Potato
 item.magic_ball.name=Cursed Rock
-item.sparkles.name=Sparkles
 item.lasercore.name=Simple Laser
 item.chlesis.name=Chlesis
 item.fishy.name=Fishy
-item.runic_stick.name=Runic Rod
 item.round_stone.name=Inert Stone
 item.magnetpick.name=Magnetic Pickaxe
 item.xy_amulet.name=Xycronium Amulet
@@ -72,9 +71,9 @@ item.cleaner.name=Sponge of Conceptualization
 item.shell.name=Wooden Shell with Meef Stroganoff
 item.halfdust.name=Half of Glowstone Dust
 
-item.curinggrass.name=Curing Grass
-item.supercuringgrass.name=Curing Grass++
-item.curingseeds.name=Seeds of Curing Grass
+item.curinggrass.name=Vitasaria
+item.supercuringgrass.name=Verytasaria++
+item.curingseeds.name=Vitasaria Seeds
 
 item.reed_borer_item.name=Borer Reed
 
@@ -123,7 +122,6 @@ item.carminite_pick.name=Carminite Pickaxe
 item.frozen_core.name=Frozen Core
 item.aurora_core.name=Aurora Core
 
-item.vanilla_powder.name=Vanilla Powder
 item.moss.name=Moss
 item.bamboo_hoe.name=Bamboo Hoe
 
@@ -136,7 +134,7 @@ item.honey_berry.name=Honey Berry
 #######################
 
 tile.ore_bit.name=Bitcoin Ore
-tile.ore_rainbow.name=Dye Ore
+tile.ore_rainbow.name=Rainbow Ore
 tile.ore_egg.name=Егор
 tile.block_bricks_dark.name=Strange Bricks
 tile.block_bricks_light.name=Light Bricks
@@ -147,8 +145,6 @@ tile.block_redmoss.name=Bloody Cobble
 tile.block_oldstone.name=Old Cobble
 tile.st_ore.name=StORE
 tile.llama_flower.name=Llama Flower
-tile.block_aluminum.name=Aluminum Block
-tile.ore_al.name=Aluminum Ore
 
 tile.fake_iron.name=Fake Iron Block
 tile.fake_gold.name=Fake Gold Block

@@ -1,15 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "B"
+    "__",
+    "__"
   ],
   "key": {
-    "B": {
-      "item": "vint:soul_fruit"
+    "_": {
+      "item": "vint:dust"
     }
   },
   "result": {
-    "item": "minecraft:slime_ball",
-    "count": 2
+    "item": "minecraft:sand",
+    "data": 0
   }
 }

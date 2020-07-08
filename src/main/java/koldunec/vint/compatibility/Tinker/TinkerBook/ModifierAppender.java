@@ -6,13 +6,14 @@ import slimeknights.mantle.client.book.data.SectionData;
 import slimeknights.mantle.client.book.repository.FileRepository;
 import slimeknights.tconstruct.library.book.content.ContentListing;
 import slimeknights.tconstruct.library.book.sectiontransformer.SectionTransformer;
+import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
 import java.util.HashSet;
 
 public class ModifierAppender extends SectionTransformer {
 
-    public static HashSet<AbstractTrait> APPENDANTS = new HashSet<>();
+    public static HashSet<Modifier> APPENDANTS = new HashSet<>();
 
     public ModifierAppender() {
         super("modifiers");
@@ -24,7 +25,7 @@ public class ModifierAppender extends SectionTransformer {
         for(; section.pages.get(i).content instanceof ContentListing; ++i){}  // search for end
         --i;
         ContentListing listing = (ContentListing)section.pages.get(i).content;
-        for(AbstractTrait app: APPENDANTS) {
+        for(Modifier app: APPENDANTS) {
             PageData pd = new PageData();
             pd.source = new FileRepository("vint:book");
             pd.parent = section;

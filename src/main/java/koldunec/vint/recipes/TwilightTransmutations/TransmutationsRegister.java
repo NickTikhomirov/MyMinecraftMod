@@ -7,6 +7,8 @@ import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RepairRecipe;
 import koldunec.vint.tileentities.TileTower;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import twilightforest.block.TFBlocks;
+import twilightforest.item.TFItems;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -65,9 +67,12 @@ public class TransmutationsRegister {
         TwilightTransmutationsData.initTransform();
         TwilightTransmutationsData.initDragonBreath();
         TwilightTransmutationsData.initIce();
-        TwilightTransmutationsData.initConduit();
-        TwilightTransmutationsData.initIntegration();
         TwilightTransmutationsData.initRepairs();
+        TwilightTransmutationsData.initNether();
+        TwilightTransmutationsData.initOthers();
+        TwilightTransmutationsIntegration.initIntegration();
+        TwilightTransmutationsData.initWoods(new ItemStack(TFItems.magic_map_focus), 100);
+        TwilightTransmutationsData.initWoods(new ItemStack(TFBlocks.magic_log_core, 1, 1), 50);
 
         RECIPES_2.add(new MWTransform());
     }

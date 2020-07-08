@@ -5,13 +5,17 @@ import koldunec.vint.tileentities.containers.slots.SlotTowerFuel;
 import koldunec.vint.tileentities.containers.slots.SlotTowerResult;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.init.Items;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.Slot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+
+import java.util.HashMap;
 
 public class ContainerTower extends Container {
     private final IInventory tileTower;
@@ -19,12 +23,15 @@ public class ContainerTower extends Container {
     private int totalCookTime;
     private int furnaceBurnTime;
     private int currentItemBurnTime;
+    public static HashMap<Item, Integer> CATALYSTS_FOR_TRANSFER = new HashMap<Item, Integer>(){{
+        put(Items.DRAGON_BREATH, 0);
+    }};
 
     public ContainerTower(InventoryPlayer playerInventory, IInventory furnaceInventory) {
         tileTower = furnaceInventory;
-        addSlotToContainer(new Slot(furnaceInventory, 0, 56, 17));
-        addSlotToContainer(new Slot(furnaceInventory, 1, 46, 53));
-        addSlotToContainer(new SlotTowerFuel(furnaceInventory, 2, 66, 53));
+        addSlotToContainer(new Slot(furnaceInventory, 0, 56, 35));
+        addSlotToContainer(new Slot(furnaceInventory, 1, 36, 35));
+        addSlotToContainer(new SlotTowerFuel(furnaceInventory, 2, 150, 61));
         addSlotToContainer(new SlotTowerResult(playerInventory.player, furnaceInventory, 3, 116, 35));
         for (int i = 0; i < 3; ++i)
             for (int j = 0; j < 9; ++j)
@@ -79,12 +86,19 @@ public class ContainerTower extends Container {
                     return ItemStack.EMPTY;
                 slot.onSlotChange(itemstack1, itemstack);
             } else if (index != 1 && index != 0 && index != 2) {
-                if (!mergeItemStack(itemstack1, 0, 1, false)) {
+                Integer result = CATALYSTS_FOR_TRANSFER.get(itemstack1.getItem());
+                if(
+                        result!=null &&
+                        (result.equals(itemstack1.getMetadata()) || result.equals(-1))  &&
+                        !mergeItemStack(itemstack1, 1, 2, false)
+                )
                     return ItemStack.EMPTY;
-                } else if (FuelHelper.IsValidFuel(itemstack1)) {
+                if (FuelHelper.IsValidFuel(itemstack1))
                     if (!mergeItemStack(itemstack1, 2, 3, false))
                         return ItemStack.EMPTY;
-                } else if (index < 31) {
+                if (!mergeItemStack(itemstack1, 0, 1, false))
+                    return ItemStack.EMPTY;
+                if (index < 31) {
                     if (!mergeItemStack(itemstack1, 31, 40, false))
                         return ItemStack.EMPTY;
                 } else if (index < 40 && !mergeItemStack(itemstack1, 4, 31, false))

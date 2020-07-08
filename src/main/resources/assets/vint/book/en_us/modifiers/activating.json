@@ -1,0 +1,18 @@
+{
+  "modifier": "activating",
+  "text": [
+    {
+      "text": "Ancient redstone has lost most of its powers, but it still can blow creepers"
+    }
+  ],
+  "effects": [
+    "Right Click on a creeper to activate it (like flint and steel)",
+    "Doesn't require a modifier",
+    "Single use"
+  ],
+  "demoTool": [
+    "tconstruct:pickaxe",
+    "tconstruct:axe",
+    "tconstruct:longsword"
+  ]
+}

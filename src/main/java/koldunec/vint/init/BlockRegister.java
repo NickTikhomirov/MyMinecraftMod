@@ -75,7 +75,7 @@ public class BlockRegister {
 
     public static Block ORE_BIT = put(new bitore("ore_bit",2,5,6));
     public static Block ORE_EGG = put(new eggore("ore_egg",64));
-    public static Block ORE_RAINBOW = put(new RainbowOre("ore_rainbow",1,2,3));
+    public static Block ORE_RAINBOW = put(new RainbowOre("ore_rainbow"));
 
     public static Block ORE_ALUMINUM = new bitore("ore_al",4,7,200);
     public static Block ALBLOCK = new basic_block("block_aluminum",Material.IRON,"pickaxe",1,1F,50F,10);

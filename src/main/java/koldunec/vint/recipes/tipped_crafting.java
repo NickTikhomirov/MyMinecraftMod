@@ -28,7 +28,7 @@ public class tipped_crafting extends net.minecraftforge.registries.IForgeRegistr
                         }
 
                     }
-                    else if (item != ItemRegister.CURING_GRASS)
+                    else if (item != ItemRegister.VITASARIA)
                     {
                         return false;
                     }

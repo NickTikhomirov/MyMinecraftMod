@@ -45,11 +45,11 @@ public class curingCrops extends BlockCrops {
         super.getDrops(drops, world, pos, state, fortune);
         if(getAge(state)>2)
             if(rand.nextBoolean())
-                drops.add(new ItemStack(ItemRegister.CURINGSEEDS,1));
+                drops.add(new ItemStack(ItemRegister.VITASARIA_SEEDS,1));
         if(getAge(state)==4 && rand.nextBoolean())
-            drops.add(new ItemStack(ItemRegister.CURING_GRASS,1));
+            drops.add(new ItemStack(ItemRegister.VITASARIA,1));
         if(getAge(state)==5)
-            drops.add(new ItemStack(ItemRegister.CURING_GRASS,1+rand.nextInt(2)));
+            drops.add(new ItemStack(ItemRegister.VITASARIA,1+rand.nextInt(2)));
     }
 
     public AxisAlignedBB getBoundingBox(IBlockState blockState, IBlockAccess source, BlockPos position) {
@@ -58,12 +58,12 @@ public class curingCrops extends BlockCrops {
 
     @Override
     protected Item getSeed() {
-        return ItemRegister.CURINGSEEDS;
+        return ItemRegister.VITASARIA_SEEDS;
     }
 
     @Override
     protected Item getCrop() {
-        return ItemRegister.CURING_GRASS;
+        return ItemRegister.VITASARIA;
     }
 
     protected int getBonemealAgeIncrease(World world) {
@@ -99,11 +99,11 @@ public class curingCrops extends BlockCrops {
     @Override
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if(getAge(state)==5 && !worldIn.isRemote && !playerIn.isSneaking()){
-            ItemStack a = new ItemStack(ItemRegister.CURING_GRASS,1+ vint.random.nextInt(2));
+            ItemStack a = new ItemStack(ItemRegister.VITASARIA,1+ vint.random.nextInt(2));
             if(!playerIn.inventory.addItemStackToInventory(a))
                 playerIn.dropItem(a,false);
             if(vint.random.nextBoolean()){
-                ItemStack b = new ItemStack(ItemRegister.CURINGSEEDS,1);
+                ItemStack b = new ItemStack(ItemRegister.VITASARIA_SEEDS,1);
                 if(!playerIn.inventory.addItemStackToInventory(b))
                     playerIn.dropItem(b,false);
             }

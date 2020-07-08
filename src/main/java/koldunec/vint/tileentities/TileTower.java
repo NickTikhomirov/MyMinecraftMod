@@ -74,7 +74,7 @@ public class TileTower extends TileEntityLockable implements ITickable, ISidedIn
                  }
                  if (isBurning() && canOperate()) {
                      ++cookTime;
-                     if (cookTime == totalCookTime) {
+                     if (cookTime >= totalCookTime) {
                          cookTime = 0;
                          smeltItem();
                          makeDirty = true;
@@ -129,10 +129,12 @@ public class TileTower extends TileEntityLockable implements ITickable, ISidedIn
          totalCookTime = result.getProcessTime(base, catalyst, this);
          towerItemStacks.set(0,result.getBaseStack(base,catalyst,this).copy());
          towerItemStacks.set(1,result.getCatalystAfterTransmutation(base,catalyst, this).copy());
-         if(oldResult.isEmpty())
-             towerItemStacks.set(3,stackResult);
-         else
-             oldResult.grow(stackResult.getCount());
+         if(!result.emptyOutputChance(base, catalyst, this)) {
+             if (oldResult.isEmpty())
+                 towerItemStacks.set(3, stackResult);
+             else
+                 oldResult.grow(stackResult.getCount());
+         }
          result.optionalActivity(base,catalyst,towerItemStacks.get(2).copy(),this);
      }
 

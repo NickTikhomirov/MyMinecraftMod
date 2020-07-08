@@ -12,9 +12,9 @@ import net.minecraft.world.World;
 import static net.minecraft.init.MobEffects.HUNGER;
 
 
-public class curinggrass extends SimpleItems.SimpleFood  {
+public class Vitasaria_Item extends SimpleItems.SimpleFood  {
 
-    public curinggrass() {
+    public Vitasaria_Item() {
         super("curinggrass",1,1);
     }
 
@@ -27,8 +27,7 @@ public class curinggrass extends SimpleItems.SimpleFood  {
 
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn)
-    {
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack itemstack = playerIn.getHeldItem(handIn);
 
         if (playerIn.canEat(false))

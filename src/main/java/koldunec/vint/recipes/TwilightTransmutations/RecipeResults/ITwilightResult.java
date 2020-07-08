@@ -17,6 +17,10 @@ public interface ITwilightResult {
         return true;
     }
 
+    // for recipes that actually NEED to return air
+    // if you need random, you can use vint.random
+    default boolean emptyOutputChance(ItemStack base, ItemStack catalyst, TileTower tile){ return false; }
+
     ItemStack getResultStack(ItemStack base, ItemStack catalyst, TileTower tile);
 
     ItemStack getCatalystAfterTransmutation(ItemStack base, ItemStack catalyst, TileTower tile);

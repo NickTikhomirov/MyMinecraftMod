@@ -32,7 +32,7 @@ public class GuiTower extends GuiContainer {
         drawTexturedModalRect(i, j, 0, 0, xSize, ySize);
         if (TileTower.isBurning(tileTower)) {
             int k = getBurnLeftScaled(13);
-            drawTexturedModalRect(i + 56, j + 36 + 12 - k, 176, 12 - k, 14, k + 1);
+            drawTexturedModalRect(i + 150, j + 44 + 12 - k, 176, 12 - k, 14, k + 1);
         }
         int l = getCookProgressScaled(24);
         drawTexturedModalRect(i + 79, j + 34, 176, 14, l + 1, 16);

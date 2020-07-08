@@ -35,10 +35,11 @@
       "ore": "dyePurple"
     },
     "K": {
-      "item": "minecraft:flint"
+      "item": "minecraft:stone",
+      "data": 0
     },
     "S": {
-      "item": "vint:vanilla_powder"
+      "item": "vint:effect_freezer"
     }
   },
   "result": {

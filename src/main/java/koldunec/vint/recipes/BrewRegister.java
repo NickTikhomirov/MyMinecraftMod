@@ -59,7 +59,7 @@ public class BrewRegister {
     private static void initMindProtection() {
         PotionHelper.addMix(PotionTypes.THICK, ItemRegister.GOLDEN_POTATO, PotionRegister.MINDDEVOUR_TYPE_STANDARD);
 
-        PotionHelper.addMix(PotionRegister.MINDDEVOUR_TYPE_STANDARD, ItemRegister.CURING_GRASS, PotionRegister.MINDPROTECTION_TYPE_STANDARD);
+        PotionHelper.addMix(PotionRegister.MINDDEVOUR_TYPE_STANDARD, ItemRegister.VITASARIA, PotionRegister.MINDPROTECTION_TYPE_STANDARD);
         PotionHelper.addMix(PotionRegister.MINDDEVOUR_TYPE_STANDARD, Items.FERMENTED_SPIDER_EYE, PotionRegister.MINDPROTECTION_TYPE_STANDARD);
         PotionHelper.addMix(PotionRegister.MINDPROTECTION_TYPE_STANDARD, Ingredient.fromStacks(new ItemStack(Items.DYE, 1, 3)), PotionRegister.MINDPROTECTION_TYPE_STRONG);
         PotionHelper.addMix(PotionTypes.WATER, ItemRegister.SUPERCURING_GRASS, PotionRegister.MINDPROTECTION_TYPE_STRONG);
@@ -73,7 +73,7 @@ public class BrewRegister {
         PotionHelper.addMix(PotionRegister.PLAGUE_TYPE_MIXED1, ItemRegister.FLESH, PotionRegister.PLAGUE_TYPE_MIXED2);
 
         PotionHelper.addMix(PotionRegister.MINDDEVOUR_TYPE_STANDARD, Items.SPIDER_EYE, PotionRegister.ACID_TYPE_STANDART);
-        PotionHelper.addMix(PotionRegister.ACID_TYPE_STANDART, ItemRegister.ESSENCE_RAINBOW, PotionRegister.ACID_TYPE_STRONG);
+        PotionHelper.addMix(PotionRegister.ACID_TYPE_STANDART, Items.MELON_SEEDS, PotionRegister.ACID_TYPE_STRONG);
         PotionHelper.addMix(PotionRegister.ACID_TYPE_STRONG, Ingredient.fromStacks(new ItemStack(Items.FISH, 1, ItemFishFood.FishType.PUFFERFISH.getMetadata())), PotionRegister.ACID_TYPE_SUPERSTRONG);
     }
 

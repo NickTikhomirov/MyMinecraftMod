@@ -4,6 +4,7 @@ import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.ChlesisSetter;
 import koldunec.vint.compatibility.OtherTweaker;
 import koldunec.vint.compatibility.Tinker.TinkerIntegration;
+import koldunec.vint.recipes.TwilightTransmutations.TwilightTransmutationsIntegration;
 import koldunec.vint.tileentities.containers.ContainerChlesis;
 import koldunec.vint.utils.GemHelper;
 import koldunec.vint.vint;
@@ -35,6 +36,8 @@ public class CompatibilityRegister {
             FUTURE_BAMBOO = Item.getByNameOrId(IntegrationHelper.idFuture+":bamboo");
         oreRegisterSideItems();
         OtherTweaker.trivia();
+        if(IntegrationHelper.isLoadedTwilight)
+            TwilightTransmutationsIntegration.updateGlass();
         if(IntegrationHelper.isLoadedTinkers)
             TinkerIntegration.init();
 
@@ -55,7 +58,7 @@ public class CompatibilityRegister {
 
 
     public static void grassRegisterItems(){
-        MinecraftForge.addGrassSeed(new ItemStack(ItemRegister.CURING_GRASS),10);
+        MinecraftForge.addGrassSeed(new ItemStack(ItemRegister.VITASARIA_SEEDS),10);
         MinecraftForge.addGrassSeed(new ItemStack(ItemRegister.ANOTHER_DYE,1,1),3);
     }
 
