@@ -17,7 +17,6 @@ public class ObjectBuilder {
 
     public static class SimpleBlock extends Block{
         private boolean flammable = false;
-        private boolean anytool = false;
 
         public SimpleBlock(String name, Material blockMaterialIn, SoundType soundType) {
             super(blockMaterialIn);
@@ -27,12 +26,6 @@ public class ObjectBuilder {
             setUnlocalizedName(name);
         }
 
-        @Override
-        public boolean isToolEffective(String type, IBlockState state) {
-            if(anytool)
-                return true;
-            return super.isToolEffective(type, state);
-        }
 
         @Override
         public int getFlammability(IBlockAccess world, BlockPos pos, EnumFacing face) {
@@ -70,8 +63,8 @@ public class ObjectBuilder {
     }
 
     public static Block BuildFake(String name){
-        SimpleBlock block = new SimpleBlock(name, Material.IRON, SoundType.METAL);
-        block.anytool = true;
+        SimpleBlock block = new SimpleBlock(name, MaterialRegister.FAKE_IRON, SoundType.METAL);
+        block.setHarvestLevel("pickaxe", 0);
         block.setHardness(0.8F);
         return block;
     }

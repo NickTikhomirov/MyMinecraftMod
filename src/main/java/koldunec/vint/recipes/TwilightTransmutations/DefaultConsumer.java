@@ -1,5 +1,7 @@
 package koldunec.vint.recipes.TwilightTransmutations;
 
+import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RecipeOutput;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RecipeOutputConsumeCatalyst;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -19,9 +21,10 @@ public class DefaultConsumer extends Defaulter {
 
     @Override
     public void register(Item base, int base_meta, Item result, int result_meta){
-        TransmutationsRegister.put(
-                new RecipeInput(base, base_meta, catalyst, meta),
-                new RecipeOutputConsumeCatalyst(new ItemStack(result, 1, result_meta), time));
+        RecipeInput input = new RecipeInput(base, base_meta, catalyst, meta);
+        RecipeOutput output = new RecipeOutputConsumeCatalyst(new ItemStack(result, result_amount, result_meta), time);
+        TransmutationsRegister.put(input, output);
+        new RecipeLimbo.ConsumeRecipe(input,output);
     }
 
     public void update(Item i, int _meta){

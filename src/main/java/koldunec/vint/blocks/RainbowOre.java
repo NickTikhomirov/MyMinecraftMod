@@ -30,13 +30,13 @@ public class RainbowOre extends Block {
 
     @Override
     public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state, int fortune) {
-        drops.add(new ItemStack(Items.DYE, 1));
-        drops.add(new ItemStack(Items.DYE, 14));
-        drops.add(new ItemStack(Items.DYE, 11));
-        drops.add(new ItemStack(ItemRegister.ANOTHER_DYE, 1));
-        drops.add(new ItemStack(Items.DYE, 12));
-        drops.add(new ItemStack(ItemRegister.ANOTHER_DYE, 3));
-        drops.add(new ItemStack(Items.DYE, 5));
+        drops.add(new ItemStack(Items.DYE, 1, 1));
+        drops.add(new ItemStack(Items.DYE, 1, 14));
+        drops.add(new ItemStack(Items.DYE, 1, 11));
+        drops.add(new ItemStack(ItemRegister.ANOTHER_DYE, 1, 1));
+        drops.add(new ItemStack(Items.DYE, 1, 12));
+        drops.add(new ItemStack(ItemRegister.ANOTHER_DYE, 1, 3));
+        drops.add(new ItemStack(Items.DYE, 1, 5));
     }
 
     @Override

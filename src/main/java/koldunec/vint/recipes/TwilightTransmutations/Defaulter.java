@@ -60,7 +60,7 @@ public class Defaulter {
         RecipeOutput output = new RecipeOutput(new ItemStack(result, result_amount, result_meta), time);
         TransmutationsRegister.put(input, output);
         if(isSimple()) {
-            RecipeLimbo.DefaultRecipe temp = new RecipeLimbo.DefaultRecipe(input, output);
+            new RecipeLimbo.DefaultRecipe(input, output);
             // no need to register, because recipe auto-registers itself in its constructor
         }
     }

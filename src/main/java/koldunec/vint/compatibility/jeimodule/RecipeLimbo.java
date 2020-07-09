@@ -19,6 +19,7 @@ public class RecipeLimbo {
 
     // Filled in Defaulter class
     public static List<DefaultRecipe> LIST_OF_SIMPLES = new ArrayList<>();
+    public static List<DefaultRecipe> LIST_OF_CONSUMES = new ArrayList<>();
 
     public static class DefaultRecipe implements IRecipeWrapper {
         ItemStack base;
@@ -30,15 +31,19 @@ public class RecipeLimbo {
             catalyst = _catalyst;
             result = _result;
             time = _time;
-            LIST_OF_SIMPLES.add(this);
+            getList().add(this);
         }
 
         public DefaultRecipe(RecipeInput input, RecipeOutput output){
-            base = new ItemStack(input.base, 1 ,input.basemeta);
-            catalyst = new ItemStack(input.catalyst, 1 ,input.catalystmeta);
+            base = new ItemStack(input.getBase(), 1 , input.getBasemeta());
+            catalyst = new ItemStack(input.getCatalyst(), 1 , input.getCatalystmeta());
             result = output.result;    // should work because we are talking about simpliest recipe
             time = output.time;
-            LIST_OF_SIMPLES.add(this);
+            getList().add(this);
+        }
+
+        public List<DefaultRecipe> getList(){
+            return LIST_OF_SIMPLES;
         }
 
         @Override
@@ -49,12 +54,29 @@ public class RecipeLimbo {
 
         @Override
         public void drawInfo(Minecraft minecraft, int recipeWidth, int recipeHeight, int mouseX, int mouseY) {
-            drawStringCentered(minecraft.fontRenderer, TextFormatting.DARK_RED + "" + (time/20.0) + " sec", 60, -1);
+            drawStringCentered(minecraft.fontRenderer, TextFormatting.DARK_GRAY + "" + (time/20.0) + " sec", 60, -1);
         }
 
         @SideOnly(Side.CLIENT)
         private void drawStringCentered(FontRenderer fontRenderer, String text, int x, int y) {
             fontRenderer.drawString(text, (x - fontRenderer.getStringWidth(text) / 2), y, 0);
+        }
+    }
+
+    public static class DefaultRecipeWithWildcardCatalyst extends DefaultRecipe {
+        public DefaultRecipeWithWildcardCatalyst(RecipeInput input, RecipeOutput output) {
+            super(input, output);
+        }
+    }
+
+    public static class ConsumeRecipe extends DefaultRecipe{
+        public ConsumeRecipe(RecipeInput input, RecipeOutput output) {
+            super(input, output);
+        }
+
+        @Override
+        public List<DefaultRecipe> getList() {
+            return LIST_OF_CONSUMES;
         }
     }
 }

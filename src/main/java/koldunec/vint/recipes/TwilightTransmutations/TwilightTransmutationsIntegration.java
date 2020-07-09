@@ -4,7 +4,6 @@ import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ROutputAurora;
-import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RecipeOutputConsumeCatalyst;
 import koldunec.vint.tileentities.containers.ContainerTower;
 import koldunec.vint.utils.routers.Sidemod_Items;
 import net.minecraft.init.Blocks;

@@ -1,20 +1,17 @@
 package koldunec.vint.recipes.TwilightTransmutations;
 
+import koldunec.vint.utils.ItemWithMeta;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class RecipeInput {
-    public Item base;
-    public Item catalyst;
-    public int basemeta = 0;
-    public int catalystmeta = 0;
+    public ItemWithMeta base;
+    public ItemWithMeta catalyst;
 
     public RecipeInput(Item _base, int _basemeta, Item _catalyst, int _catalystmeta){
-        base = _base;
-        basemeta = _basemeta;
-        catalyst = _catalyst;
-        catalystmeta = _catalystmeta;
+        base = new ItemWithMeta(_base, _basemeta);
+        catalyst = new ItemWithMeta(_catalyst, _catalystmeta);
     }
 
     public RecipeInput(ItemStack b, ItemStack cat){
@@ -23,6 +20,11 @@ public class RecipeInput {
 
     public RecipeInput(Block _base, int _basemeta, Item _catalyst, int _catalystmeta){
         this(Item.getItemFromBlock(_base), _basemeta, _catalyst, _catalystmeta);
+    }
+
+    public RecipeInput(ItemWithMeta _base, ItemWithMeta _catalyst){
+        base = _base;
+        catalyst = _catalyst;
     }
 
     public RecipeInput(Item _base, Item _catalyst){
@@ -36,10 +38,7 @@ public class RecipeInput {
 
     @Override
     public int hashCode() {
-        if(catalyst==null)
-            return base.hashCode()^basemeta;
-        else
-            return (base.hashCode()^catalyst.hashCode())|((basemeta^catalystmeta)<<2);
+        return (getBase().hashCode()^ getCatalyst().hashCode())|((getBasemeta() ^ getCatalystmeta())<<2);
     }
 
     @Override
@@ -50,9 +49,15 @@ public class RecipeInput {
             return false;
         RecipeInput r = (RecipeInput)obj;
         return
-                base.equals(r.base)
-             && catalyst.equals(r.catalyst)
-             && catalystmeta==r.catalystmeta
-             && basemeta==r.basemeta;
+                base.equals(r.base) && catalyst.equals(r.catalyst);
     }
+
+    public Item getBase() { return base.item; }
+    public void setBase(Item base) { this.base.item = base; }
+    public Item getCatalyst() { return catalyst.item; }
+    public void setCatalyst(Item catalyst) { this.catalyst.item = catalyst; }
+    public int getBasemeta() { return base.meta; }
+    public void setBasemeta(int basemeta) { base.meta = basemeta; }
+    public int getCatalystmeta() { return catalyst.meta; }
+    public void setCatalystmeta(int catalystmeta) { catalyst.meta = catalystmeta; }
 }

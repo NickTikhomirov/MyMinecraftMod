@@ -3,7 +3,6 @@ package koldunec.vint.recipes.TwilightTransmutations;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ITwilightResult;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.MWTransform;
-import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RepairRecipe;
 import koldunec.vint.tileentities.TileTower;
 import koldunec.vint.tileentities.containers.ContainerTower;
 import net.minecraft.init.Items;
@@ -51,7 +50,7 @@ public class TransmutationsRegister {
     public static void put(RecipeInput in, ITwilightResult out){
         if(in==null || out==null)
             return;
-        if(in.base.equals(Items.AIR) || in.catalyst.equals(Items.AIR))
+        if(in.getBase().equals(Items.AIR) || in.getCatalyst().equals(Items.AIR))
             return;
         if(getResult(in)!=null)
             return;
@@ -78,5 +77,6 @@ public class TransmutationsRegister {
         ContainerTower.CATALYSTS_FOR_TRANSFER.put(TFItems.magic_map_focus, 0);
 
         RECIPES_2.add(new MWTransform());
+        MWTransform.assignJEI();
     }
 }
