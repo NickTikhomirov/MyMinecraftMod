@@ -4,7 +4,6 @@ package koldunec.vint.proxy;
 import koldunec.vint.compatibility.Tinker.TinkerBook.MaterialDocumenter;
 import koldunec.vint.compatibility.Tinker.TinkerBook.ModifierAppender;
 import koldunec.vint.IntegrationHelper;
-import koldunec.vint.entities.entityBitcoin;
 import koldunec.vint.entities.entityMagicBall;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
@@ -23,7 +22,6 @@ public class ClientProxy extends CommonProxy{
         super.preInit(event);
         RenderingRegistry.registerEntityRenderingHandler(entityMagicBall.class, new SnowballRenderFactory(ItemRegister.MAGICBALL));
         RenderingRegistry.registerEntityRenderingHandler(entityStone.class, new SnowballRenderFactory(ItemRegister.ROUND_STONE));
-        RenderingRegistry.registerEntityRenderingHandler(entityBitcoin.class, new SnowballRenderFactory(ItemRegister.BITCOIN5000));
     }
 
     @Override

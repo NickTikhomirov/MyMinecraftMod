@@ -1,4 +1,4 @@
-package koldunec.vint.compatibility.jeimodule.TooltipCallbacks;
+package koldunec.vint.compatibility.jeimodule;
 
 
 import mezz.jei.api.gui.ITooltipCallback;

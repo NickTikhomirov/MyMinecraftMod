@@ -10,7 +10,6 @@ import koldunec.vint.items.crafting_tools.cheasel;
 import koldunec.vint.items.crafting_tools.cleaner;
 import koldunec.vint.items.curinggrass.Vitasaria_Item;
 import koldunec.vint.items.curinggrass.supercuringgrass;
-import koldunec.vint.items.throwables.bitcoin5000;
 import koldunec.vint.items.throwables.cursedRock;
 import koldunec.vint.items.throwables.inertstone;
 import koldunec.vint.items.saviour;
@@ -38,10 +37,7 @@ public class ItemRegister{
     public static Item BAMBOO_HOE = put(ObjectBuilder.BuildBambooHoe());
 
     public static Item GHAST_SEEDS = put(new GhastSeeds());
-    public static Item BITCOIN = put(new base_fuel("bitcoin",64, (short)800));
-    public static Item BITCOIN5000 = put(new bitcoin5000("bitcoin5000",64));
 
-    public static Item MAGIC_FLINTS = new flints();
     public static Item ROUND_STONE = put(new inertstone("round_stone",64));
     public static Item WOODEN_RUNE = put(new base_item("wooden_rune",64));
     public static Item SOUL_FRUIT = put(new SoulFruit());
@@ -79,7 +75,7 @@ public class ItemRegister{
     public static Item PAINT_TRANSMUTATOR = put(new PaintStone());
     public static Item SOUL_SHEARS = put(new soul_shears());
     public static Item SPONGE_OF_CONCEPTUALIZATION = put(new cleaner());
-    public static Item CHISEl_OF_CONCEPTUALIZATION = put(new cheasel());
+
     public static Item SCROLL = new Scroll();
     public static Item NETHER_DRINK = put(new NetherDrink());
 
@@ -97,8 +93,6 @@ public class ItemRegister{
     public static Item FROZEN_CORE = new SimpleItems.SimpleItem("frozen_core", 64);
     public static Item AURORA_CORE = new SimpleItems.SimpleItem("aurora_core", 64);
 
-    public static Item ALUMINUM = new base_item("aluminum", 64);
-
     public static void register() {
         for(Item i: DEFAULT_INIT)
             setRegister(i);
@@ -106,7 +100,6 @@ public class ItemRegister{
         setRegister(SCROLL_TRIVIA);
 
         setRegister(ANOTHER_DYE);
-        setRegister(MAGIC_FLINTS);
         setRegister(SCROLL);
         setRegister(POWDER_REED);
 

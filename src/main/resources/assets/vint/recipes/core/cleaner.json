@@ -6,15 +6,9 @@
     "GGG"
   ],
   "key": {
-    "w": [
-      {
+    "w": {
         "item": "minecraft:water_bucket"
-      },
-      {
-        "item": "vint:flints",
-        "data": 1
-      }
-    ],
+     }
     "O": {
       "item": "minecraft:wool",
       "data": 32767

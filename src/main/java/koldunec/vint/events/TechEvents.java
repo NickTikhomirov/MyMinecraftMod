@@ -2,7 +2,6 @@ package koldunec.vint.events;
 
 import koldunec.vint.vint;
 import koldunec.vint.items.another_dye_please_dont_blame_me;
-import koldunec.vint.items.flints;
 import koldunec.vint.items.gunpowder_reed.block_gunreed;
 import koldunec.vint.items.scroll2;
 import koldunec.vint.init.ItemRegister;
@@ -31,10 +30,6 @@ public class TechEvents {
         final Item Dye = ItemRegister.ANOTHER_DYE;
         for (another_dye_please_dont_blame_me.dyeTypes type : another_dye_please_dont_blame_me.dyeTypes.values()){
             ModelLoader.setCustomModelResourceLocation(Dye, type.ordinal(), new ModelResourceLocation(Dye.getRegistryName() + "_" + type.toString().toLowerCase(), "inventory"));
-        }
-        final Item flint = ItemRegister.MAGIC_FLINTS;
-        for(flints.flintTypes type : flints.flintTypes.values()){
-            ModelLoader.setCustomModelResourceLocation(flint, type.ordinal(), new ModelResourceLocation(flint.getRegistryName() + "_" + type.toString().toLowerCase(), "inventory"));
         }
         final Item Scroll = ItemRegister.SCROLL;
         for(koldunec.vint.items.Scroll.scrollTypes type : koldunec.vint.items.Scroll.scrollTypes.values()){

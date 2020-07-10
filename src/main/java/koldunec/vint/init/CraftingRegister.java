@@ -33,7 +33,6 @@ public class CraftingRegister
 
 
     private static void initSmelting(){
-        GameRegistry.addSmelting(BlockRegister.ORE_BIT, new ItemStack(ItemRegister.BITCOIN5000), 0.5F);
         GameRegistry.addSmelting(ItemRegister.POTION_MIX, new ItemStack(ItemRegister.NETHER_CRYSTAL), 1F);
         GameRegistry.addSmelting(BlockRegister.FRESH_DEBRIS, new ItemStack(BlockRegister.FAKE_NETHERITE), 1F);
         GameRegistry.addSmelting(ItemRegister.SOUL_FRUIT, new ItemStack(Items.GHAST_TEAR), 1F);

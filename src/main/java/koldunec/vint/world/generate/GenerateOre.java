@@ -14,16 +14,6 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.Random;
 
-
-// old stuff
-//runGenerator(BlockRegister.ORE_BIT.getDefaultState(), 4, 8, 20, 64, Blocks.STONE, world, random, chunkX, chunkZ);
-//runGenerator(BlockRegister.ORE_SPARKLE.getDefaultState(), 7, 8, 30, 64, Blocks.STONE, world, random, chunkX, chunkZ);
-//runGenerator(BlockRegister.ORE_EGG.getDefaultState(), 3, 5, 10, 20, Blocks.STONE, world, random, chunkX, chunkZ);
-//runGenerator(Blocks.EMERALD_ORE.getDefaultState(),3,5,4,32, Blocks.STONE, world, random, chunkX, chunkZ);
-//runGenerator(BlockRegister.ORE_ALUMINUM.getDefaultState(), 3, 12, 25, 50, Blocks.STONE, world, random, chunkX, chunkZ);
-
-
-
 public class GenerateOre implements IWorldGenerator {
 
     // struct for keeping data at the same place

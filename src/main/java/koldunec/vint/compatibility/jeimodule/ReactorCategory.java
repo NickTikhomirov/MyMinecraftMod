@@ -1,6 +1,5 @@
 package koldunec.vint.compatibility.jeimodule;
 
-import koldunec.vint.compatibility.jeimodule.TooltipCallbacks.CataSafe;
 import koldunec.vint.vint;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
