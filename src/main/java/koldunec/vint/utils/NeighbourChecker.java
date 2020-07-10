@@ -50,4 +50,16 @@ public class NeighbourChecker {
         }
         return i;
     }
+
+
+    public static boolean SuitableZone(World w, BlockPos start, BlockPos size){
+        int x = start.getX();
+        int y = start.getY();
+        int z = start.getZ();
+        for(int ix=0;ix<size.getX();ix++)
+            for(int iz=0;iz<size.getZ();iz++)
+                for(int iy=0;iy<size.getY();iy++)
+                    if(!w.getBlockState(new BlockPos(x+ix,y+iy,z+iz)).getBlock().equals(Blocks.AIR)) return false;
+        return true;
+    }
 }

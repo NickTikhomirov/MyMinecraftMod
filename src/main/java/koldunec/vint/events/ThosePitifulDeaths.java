@@ -4,8 +4,8 @@ import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
 import koldunec.vint.utils.VanillaHelper;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.items.Moss;
+import koldunec.vint.utils.EnumScrollTypes;
 import koldunec.vint.vint;
-import koldunec.vint.items.Scroll;
 import koldunec.vint.init.ItemRegister;
 import net.daveyx0.primitivemobs.entity.monster.EntityBrainSlime;
 import net.minecraft.entity.Entity;
@@ -120,7 +120,7 @@ public class ThosePitifulDeaths {
                         new ItemStack(
                                 ItemRegister.SCROLL,
                                 1,
-                                vint.random.nextInt(Scroll.scrollTypes.values().length)),
+                                vint.random.nextInt(EnumScrollTypes.values().length)),
                         0.5F);
         }
 

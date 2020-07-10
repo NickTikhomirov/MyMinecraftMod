@@ -31,6 +31,7 @@ public class CataSafe implements ITooltipCallback<ItemStack> {
     public void onTooltip(int i, boolean b, @Nonnull ItemStack o, @Nonnull List<String> list) {
         if(i!=1)
             return;
+        list.add(" ");
         TextFormatting formatting = safe? TextFormatting.GREEN : TextFormatting.RED;
         String msg = "vint.jei.tooltip.catalyst.";
         if(!safe && _32767!=0)

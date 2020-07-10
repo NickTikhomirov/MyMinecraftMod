@@ -1,7 +1,7 @@
 package koldunec.vint.world.structures;
 
+import koldunec.vint.utils.NeighbourChecker;
 import koldunec.vint.vint;
-import koldunec.vint.items.scroll2;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.tileentities.EntityStore;
 import net.minecraft.util.ResourceLocation;
@@ -34,7 +34,7 @@ public class nether_island implements IWorldGenerator {
             int z = (chunkZ << 4) + 8;
             int y = vint.random.nextInt(10)+65;
             BlockPos p = new BlockPos(x,y,z);
-            if(!scroll2.nice_zone(world,p,new BlockPos(15,15,15))) return;
+            if(!NeighbourChecker.SuitableZone(world,p,new BlockPos(15,15,15))) return;
             WorldServer w = (WorldServer) world;
             TemplateManager t = w.getStructureTemplateManager();
             Template template = t.get(w.getMinecraftServer(),new ResourceLocation(vint.MODID+":i_1_n"));

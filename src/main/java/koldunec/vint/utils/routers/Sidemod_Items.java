@@ -23,48 +23,9 @@ public class Sidemod_Items {
         return Items.AIR;
     }
 
-    public static Item Experiment_115(){
-        if(IntegrationHelper.isLoadedTwilight)
-            return twilightforest.item.TFItems.experiment_115;
-        return Items.AIR;
-    }
-
-    public static Item TwilightSapling(){
-        if(IntegrationHelper.isLoadedTwilight)
-            return Item.getItemFromBlock(twilightforest.block.TFBlocks.twilight_sapling);
-        return Items.AIR;
-    }
-
-    public static Item VenisonCook(){
-        if(IntegrationHelper.isLoadedTwilight)
-            return twilightforest.item.TFItems.cooked_venison;
-        return Items.AIR;
-    }
-
-    public static Item Fan(){
-        if(IntegrationHelper.isLoadedTwilight)
-            return twilightforest.item.TFItems.peacock_fan;
-        return Items.AIR;
-    }
-
-    public static Item Aurora(boolean not_glass){
-        if(IntegrationHelper.isLoadedTwilight)
-            if(not_glass)
-                return Item.getItemFromBlock(twilightforest.block.TFBlocks.aurora_block);
-            else
-                return Item.getItemFromBlock(twilightforest.block.TFBlocks.auroralized_glass);
-        return Items.AIR;
-    }
-
     public static Item Focus(){
         if(IntegrationHelper.isLoadedTwilight)
             return twilightforest.item.TFItems.maze_map_focus;
-        return Items.AIR;
-    }
-
-    public static Item FieryTears(){
-        if(IntegrationHelper.isLoadedTwilight)
-            return twilightforest.item.TFItems.fiery_tears;
         return Items.AIR;
     }
 

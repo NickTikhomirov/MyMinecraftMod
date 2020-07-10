@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:cheasel",
+      "data": 32767
+    },
+    {
+      "item": "minecraft:heavy_weighted_pressure_plate"
+    }
+  ],
+  "result":
+    {
+      "item": "minecraft:iron_ingot",
+      "count": 2
+    }
+}

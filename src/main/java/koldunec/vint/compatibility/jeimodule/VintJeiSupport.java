@@ -3,6 +3,7 @@ package koldunec.vint.compatibility.jeimodule;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
+import koldunec.vint.items.Scroll;
 import koldunec.vint.vint;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.IModPlugin;
@@ -48,5 +49,6 @@ public class VintJeiSupport implements IModPlugin {
         registry.addRecipeCatalyst(new ItemStack(BlockRegister.TOWER_FURNACE), SAFE.getUid());
 
         registry.addIngredientInfo(new ItemStack(ItemRegister.BORER_REED), VanillaTypes.ITEM, "vint.jei.docs.borer");
+        registry.addIngredientInfo(Scroll.SCROLLS, VanillaTypes.ITEM, "vint.jei.docs.scroll");
     }
 }

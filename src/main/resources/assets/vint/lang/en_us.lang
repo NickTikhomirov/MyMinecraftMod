@@ -98,8 +98,9 @@ item.scroll.desert.name=Loot Scroll: Desert
 item.scroll.mine.name=Loot Scroll: Mineshaft
 item.scroll.dungeon.name=Loot Scroll: Dungeon
 item.scroll.jungle.name=Loot Scroll: Jungle
+item.scroll.nether.name=Loot Scroll: Nether
+
 item.scroll2.mushroom.name=Scroll of Mushrooms
-item.scroll2.nether.name=Loot Scroll: Nether
 item.scroll2.reroll.name=Scroll of Reroll
 
 item.gunreed.gunpowder.name=Gunpowder Cane
@@ -314,4 +315,5 @@ vint.jei.tooltip.catalyst.dmg=Loses %s durability
 vint.jei.tooltip.catalyst.notfull=Requires to be damaged
 
 
+vint.jei.docs.scroll=These scrolls are dropped from any boss randomly. Sneak-use a scroll on an empty stORE block, so the block will be filled with loot of one chest of respective dungeon.
 vint.jei.docs.borer=This plant grows downwards, making its way through the wood. \nPlace it on the top of wooden column (even workbench column is suitable) and the plant will slowly consume it

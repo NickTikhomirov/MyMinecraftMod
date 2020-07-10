@@ -1,7 +1,7 @@
 package koldunec.vint.world.generate;
 
 import koldunec.vint.IntegrationHelper;
-import koldunec.vint.items.scroll2;
+import koldunec.vint.utils.NeighbourChecker;
 import koldunec.vint.vint;
 import koldunec.vint.world.structures.ISkyIsle;
 import koldunec.vint.world.structures.LlamaIsland;
@@ -66,7 +66,7 @@ public class SkyIsleGenerator implements IWorldGenerator {
     }
 
     public boolean emptyPos15(World world, BlockPos p){
-        return scroll2.nice_zone(world,p,new BlockPos(15,15,15));
+        return NeighbourChecker.SuitableZone(world,p,new BlockPos(15,15,15));
     }
 
     boolean randomNGen(Random r, int bound){

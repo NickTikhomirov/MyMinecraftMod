@@ -1,9 +1,10 @@
 package koldunec.vint.events;
 
+import koldunec.vint.utils.EnumNonLootScrollTypes;
+import koldunec.vint.utils.EnumScrollTypes;
 import koldunec.vint.vint;
 import koldunec.vint.items.another_dye_please_dont_blame_me;
 import koldunec.vint.items.gunpowder_reed.block_gunreed;
-import koldunec.vint.items.scroll2;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.recipes.dragonBreathFix;
 import koldunec.vint.recipes.paint_operator;
@@ -32,16 +33,16 @@ public class TechEvents {
             ModelLoader.setCustomModelResourceLocation(Dye, type.ordinal(), new ModelResourceLocation(Dye.getRegistryName() + "_" + type.toString().toLowerCase(), "inventory"));
         }
         final Item Scroll = ItemRegister.SCROLL;
-        for(koldunec.vint.items.Scroll.scrollTypes type : koldunec.vint.items.Scroll.scrollTypes.values()){
-            ModelLoader.setCustomModelResourceLocation(Scroll,type.ordinal(), new ModelResourceLocation(Scroll.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
+        for(EnumScrollTypes type : EnumScrollTypes.values()){
+            ModelLoader.setCustomModelResourceLocation(Scroll, type.ordinal(), new ModelResourceLocation(Scroll.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
         }
         final Item Reed = ItemRegister.POWDER_REED;
         for(block_gunreed.reedTypes type: block_gunreed.reedTypes.values()){
-            ModelLoader.setCustomModelResourceLocation(Reed,type.ordinal(),new ModelResourceLocation(Reed.getRegistryName()+"_"+type.toString().toLowerCase(),"inventory"));
+            ModelLoader.setCustomModelResourceLocation(Reed, type.ordinal(),new ModelResourceLocation(Reed.getRegistryName()+"_"+type.toString().toLowerCase(),"inventory"));
         }
         final Item Scroll2 = ItemRegister.SCROLL_TRIVIA;
-        for(scroll2.scroll2Types type : scroll2.scroll2Types.values()){
-            ModelLoader.setCustomModelResourceLocation(Scroll2,type.ordinal(), new ModelResourceLocation(Scroll2.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
+        for(EnumNonLootScrollTypes type : EnumNonLootScrollTypes.values()){
+            ModelLoader.setCustomModelResourceLocation(Scroll2, type.ordinal(), new ModelResourceLocation(Scroll2.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
         }
     }
 
