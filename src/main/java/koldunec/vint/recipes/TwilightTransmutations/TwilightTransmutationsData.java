@@ -109,6 +109,7 @@ public class TwilightTransmutationsData {
         Defaulter STAR = new Defaulter(Items.NETHER_STAR);
 
         CRYSTAL.register(Blocks.NETHER_WART_BLOCK, Blocks.SOUL_SAND);
+        CRYSTAL.register(BlockRegister.BASALT_RAW, BlockRegister.FRESH_DEBRIS);
         STAR.register(Items.DYE, 4, Items.QUARTZ);
         STAR.register(Items.QUARTZ,Items.DYE, 4 );
 

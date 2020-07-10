@@ -85,7 +85,11 @@ public class Defaulter {
         register(Item.getItemFromBlock(base), base_meta, result, result_meta);
     }
 
-    public void register(Block base , Item result){
+    public void register(Block base, Item result){
         register(Item.getItemFromBlock(base), 0, result, 0);
+    }
+
+    public void register(Block base, Item result, int result_meta){
+        register(Item.getItemFromBlock(base), 0, result, result_meta);
     }
 }

@@ -20,6 +20,12 @@ public class TwilightTransmutationsIntegration {
         initNatura();
         initTinkers();
 
+        if(IntegrationHelper.isLoadedPrimitive){
+            TwilightTransmutationsData.CONSUMER.update(Item.getByNameOrId("primitivemobs:camouflage_dye"));
+            TwilightTransmutationsData.CONSUMER.time=500;
+            TwilightTransmutationsData.CONSUMER.register(Blocks.STONE, ItemRegister.PAINT_TRANSMUTATOR);
+        }
+
         if(IntegrationHelper.isLoadedCharm){
             TransmutationsRegister.put(
                     new RecipeInput(new ItemStack(Item.getByNameOrId("charm:charged_emerald")), new ItemStack(ItemRegister.FROZEN_CORE)),
@@ -76,18 +82,29 @@ public class TwilightTransmutationsIntegration {
         if(!IntegrationHelper.isLoadedNatura)
             return;
         Defaulter CRYSTAL = new Defaulter(ItemRegister.NETHER_CRYSTAL);
+
+        CRYSTAL.register(Blocks.NETHERRACK, Item.getByNameOrId("natura:nether_heat_sand"));
     }
 
 
-    private static void initTinkers(){
+    private static void initTinkers() {
         if(!IntegrationHelper.isLoadedTinkers)
             return;
         Defaulter DRAGON = new Defaulter(Items.DRAGON_BREATH);
         Item sapling = Item.getByNameOrId("tconstruct:slime_sapling");
+        Item dirt = Item.getByNameOrId("tconstruct:slime_dirt");
+        Item grass = Item.getByNameOrId("tconstruct:slime_grass");
+        Item slime = Item.getByNameOrId("tconstruct:slime");
         DRAGON.register(sapling, 1, sapling, 2);
 
         TwilightTransmutationsData.CONSUMER.update(Items.GOLDEN_APPLE, 1);
         TwilightTransmutationsData.CONSUMER.register(sapling, 1, sapling, 2);
+
+        TwilightTransmutationsData.CONSUMER.update(Items.BEETROOT);
+        TwilightTransmutationsData.CONSUMER.register(Blocks.SLIME_BLOCK, dirt, 0);
+        TwilightTransmutationsData.CONSUMER.register(slime, 1, dirt, 1);
+        TwilightTransmutationsData.CONSUMER.register(slime, 2, dirt, 2);
+        TwilightTransmutationsData.CONSUMER.register(slime, 3, dirt, 3);
 
     }
 

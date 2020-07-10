@@ -10,26 +10,15 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeCategory;
 import mezz.jei.api.recipe.IRecipeWrapper;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-
-import java.util.List;
 
 
 public class ReactorCategory implements IRecipeCategory {
-
-    protected String type(){
-        return "no consume";
-    }
 
     public static final String UID = "VINT_REACTOR";
     IDrawable back;
 
     public ReactorCategory(IGuiHelper i){
-        back = i.createDrawable(
-                new ResourceLocation(
-                        vint.MODID,
-                        "textures/gui/reactor_jei.png"),25, 20, 110, 33);
+        back = i.createDrawable(VintJeiSupport.reactor_texture,25, 20, 110, 33);
     }
 
     @Override
@@ -39,7 +28,7 @@ public class ReactorCategory implements IRecipeCategory {
 
     @Override
     public String getTitle() {
-        return "Twilight Reactor ("+ type()+")";
+        return "Twilight Reactor";
     }
 
     @Override
@@ -58,16 +47,17 @@ public class ReactorCategory implements IRecipeCategory {
         prepareTooltips(guiItemStacks, iRecipeWrapper);
         guiItemStacks.init(0, true, 24, 9);
         guiItemStacks.init(1, true, 4, 9);
-        guiItemStacks.init(2, false, 83, 9);
+        guiItemStacks.init(2, false, 84, 9);
         guiItemStacks.set(0, iIngredients.getInputs(VanillaTypes.ITEM).get(0));
         guiItemStacks.set(1, iIngredients.getInputs(VanillaTypes.ITEM).get(1));
         guiItemStacks.set(2, iIngredients.getOutputs(VanillaTypes.ITEM).get(0));
     }
 
     protected void prepareTooltips(IGuiItemStackGroup group, IRecipeWrapper wrapper){
+        boolean consume = wrapper instanceof RecipeLimbo.ConsumeRecipe;
         if(wrapper instanceof RecipeLimbo.DefaultRecipeWithWildcardCatalyst)
-            group.addTooltipCallback(new CataSafe(true, 1));
+            group.addTooltipCallback(new CataSafe(!consume, 1));
         else
-            group.addTooltipCallback(CataSafe.getInstance(true));
+            group.addTooltipCallback(CataSafe.getInstance(!consume)); // todo make durability-consuming recipes
     }
 }

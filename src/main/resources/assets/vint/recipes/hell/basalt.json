@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "__",
+    "__"
+  ],
+  "key": {
+    "_": {
+      "item": "vint:basalt_raw"
+    }
+  },
+  "result": {
+    "item": "vint:basalt_pillar",
+    "count": 4
+  }
+}
