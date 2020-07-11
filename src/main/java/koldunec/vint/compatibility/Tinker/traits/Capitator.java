@@ -81,6 +81,8 @@ public class Capitator extends ModifierTrait {
 
     @Override
     public boolean canApplyCustom(ItemStack stack) {
+        if(!(stack.getItem() instanceof ToolCore))
+            return false;
         return ((ToolCore) stack.getItem()).hasCategory(Category.HARVEST);
     }
 }

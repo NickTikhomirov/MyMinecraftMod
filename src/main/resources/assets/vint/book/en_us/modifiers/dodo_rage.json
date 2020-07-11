@@ -1,0 +1,17 @@
+{
+  "modifier": "dodo_rage",
+  "text": [
+    {
+      "text": "Thousands of dodos guide your strike."
+    }
+  ],
+  "effects": [
+    "You have 1% chance to deal enormous amount of damage",
+    "Doesn't require a modifier",
+    "Single use"
+  ],
+  "demoTool": [
+    "tconstruct:longsword",
+    "tconstruct:broadsword"
+  ]
+}

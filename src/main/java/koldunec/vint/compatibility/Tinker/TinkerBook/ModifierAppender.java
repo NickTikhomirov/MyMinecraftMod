@@ -1,5 +1,6 @@
 package koldunec.vint.compatibility.Tinker.TinkerBook;
 
+import net.minecraft.client.resources.I18n;
 import slimeknights.mantle.client.book.data.BookData;
 import slimeknights.mantle.client.book.data.PageData;
 import slimeknights.mantle.client.book.data.SectionData;
@@ -21,6 +22,7 @@ public class ModifierAppender extends SectionTransformer {
 
     @Override
     public void transform(BookData book, SectionData section) {
+        boolean flag = false;
         int i = 0;
         for(; section.pages.get(i).content instanceof ContentListing; ++i){}  // search for end
         --i;
@@ -33,7 +35,10 @@ public class ModifierAppender extends SectionTransformer {
             pd.data = "modifiers/"+app.getIdentifier()+".json";
             section.pages.add(pd);
             pd.load();
-            listing.addEntry(app.getLocalizedName(), pd);
+            if(!flag) {
+                listing.addEntry(I18n.format("vint.tcon.placetaker"), pd);
+                flag = true;
+            }
         }
     }
 }

@@ -2,7 +2,6 @@ package koldunec.vint.compatibility.Tinker;
 
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.Tinker.TinkerBook.ModifierAppender;
-import koldunec.vint.compatibility.Tinker.traits.tas_tic.Warm;
 import koldunec.vint.init.CompatibilityRegister;
 import koldunec.vint.init.ItemRegister;
 import net.minecraft.block.Block;
@@ -63,7 +62,8 @@ public class ConfigureMaterials {
         TinkerRegistry.addMaterialStats(CARMINITE,
                 new HeadMaterialStats(200, 11F, 7.5F, 2),
                 new ExtraMaterialStats(150),
-                new HandleMaterialStats(1.4F,5)
+                new HandleMaterialStats(1.4F,5),
+                new BowStringMaterialStats(1.4F)
         );
         TinkerRegistry.addMaterialStats(MAZESTONE,
                 new HeadMaterialStats(255, 3F, 2F, 4),
@@ -76,10 +76,15 @@ public class ConfigureMaterials {
                 new HandleMaterialStats(0.85F, 60),
                 new BowMaterialStats(0.5F, 1.5F,7)
         );
+        TinkerRegistry.addMaterialStats(FROZEN,
+                new HeadMaterialStats(333,0.1F,4F, 2),
+                new BowMaterialStats(1.8F, 1F, 4),
+                new ArrowShaftMaterialStats(1, 10));
 
 
         TinkerRegistry.integrate(CARMINITE).preInit();
         TinkerRegistry.integrate(MAZESTONE).preInit();
+        TinkerRegistry.integrate(FROZEN).preInit();
         TinkerRegistry.integrate(IRONWOOD,IRONWOOD_JIJA,"Ironwood").preInit();
     }
 
@@ -129,8 +134,9 @@ public class ConfigureMaterials {
         CARMINITE.addTrait(TConstruct.twilit, HEAD).addTrait(BORING, HEAD).addTrait(BZZZ, HEAD);
         CARMINITE.addTrait(TConstruct.twilit, HANDLE).addTrait(TinkerTraits.lightweight, HANDLE).addTrait(TinkerTraits.unnatural, HANDLE);
 
-        MAZESTONE.addItem(Item.getByNameOrId("twilightforest:maze_stone"));
-        MAZESTONE.setRepresentativeItem(Block.getBlockFromName("twilightforest:maze_stone"));
+        for(int i=0; i<8; ++i)
+            MAZESTONE.addItem(new ItemStack(Item.getByNameOrId("twilightforest:maze_stone"), 1, i),1, 144);
+        MAZESTONE.setRepresentativeItem(new ItemStack(Block.getBlockFromName("twilightforest:maze_stone"), 1, 1));
         MAZESTONE.setCraftable(true).setCastable(false);
         MAZESTONE.addTrait(LEFT_HAND_RULE, HEAD);
         MAZESTONE.addTrait(TinkerTraits.duritos, EXTRA);
@@ -143,6 +149,17 @@ public class ConfigureMaterials {
         IRONWOOD.addTrait(TConstruct.twilit).addTrait(TinkerTraits.ecological).addTrait(TinkerTraits.magnetic);
         IRONWOOD.addTrait(TConstruct.twilit, HEAD).addTrait(TinkerTraits.ecological, HEAD).addTrait(TinkerTraits.magnetic2, HEAD);
         IRONWOOD.setCastable(true).setCraftable(false);
+
+        FROZEN.addItem(ItemRegister.FROZEN_CORE);
+        FROZEN.setRepresentativeItem(ItemRegister.FROZEN_CORE);
+        FROZEN.setCastable(false).setCraftable(true);
+        FROZEN.addTrait(TConstruct.twilit, HEAD).addTrait(TConstruct.twilit, BOW).addTrait(TConstruct.twilit, SHAFT);
+        FROZEN.addTrait(TinkerTraits.coldblooded, HEAD).addTrait(TinkerTraits.coldblooded, BOW);
+        FROZEN.addTrait(TinkerTraits.freezing, SHAFT);
+        FROZEN.addTrait(ICE_QUEEN, BOW);
+
+        if(IntegrationHelper.isLoadedTough)
+            FROZEN.addTrait(COOL, HEAD).addTrait(COOL, BOW).addTrait(COOL, SHAFT);
 
         TConstruct.nagascale.addTrait(TConstruct.synergy).addTrait(TinkerTraits.fractured);
     }

@@ -77,6 +77,8 @@ public class ItemRegister{
     public static Item SPONGE_OF_CONCEPTUALIZATION = put(new cleaner());
 
     public static Item SCROLL = new Scroll();
+    public static Item SCROLL_SHROOM = new MushroomScroll();
+    public static Item SCROLL_REROLL = new RerollScroll();
     public static Item NETHER_DRINK = put(new NetherDrink());
 
     public static Item HONEY_CRYSTAL = put(new base_item("honey_crystal",64));
@@ -85,7 +87,6 @@ public class ItemRegister{
 
     //twilight items
     public static Item BORER_REED = new ReedBorerItem();
-    public static Item SCROLL_TRIVIA = new scroll2();
     public static Item SHELL = new Shell();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
     public static Item CARMINITE_AXE = new CarminiteAxe();
@@ -97,11 +98,15 @@ public class ItemRegister{
         for(Item i: DEFAULT_INIT)
             setRegister(i);
 
-        setRegister(SCROLL_TRIVIA);
-
         setRegister(ANOTHER_DYE);
         setRegister(SCROLL);
         setRegister(POWDER_REED);
+
+        if(IntegrationHelper.isLoadedPrimitive)
+            setRegister(SCROLL_SHROOM);
+
+        if(IntegrationHelper.isLoaded("ebwizardry"))
+            setRegister(SCROLL_REROLL);
 
         if(IntegrationHelper.isLoadedChisel)
             setRegister(CHLESIS);
@@ -121,6 +126,12 @@ public class ItemRegister{
     public static void registerRender() {
         for(Item i: DEFAULT_INIT)
             setRender(i);
+
+        if(IntegrationHelper.isLoadedPrimitive)
+            setRender(SCROLL_SHROOM);
+
+        if(IntegrationHelper.isLoaded("ebwizardry"))
+            setRender(SCROLL_REROLL);
 
         if(IntegrationHelper.isLoadedChisel)
             setRender(CHLESIS);

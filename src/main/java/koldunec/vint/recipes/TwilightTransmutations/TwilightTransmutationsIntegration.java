@@ -19,6 +19,7 @@ public class TwilightTransmutationsIntegration {
         initQuark();
         initNatura();
         initTinkers();
+        initEbob();
 
         if(IntegrationHelper.isLoadedPrimitive){
             TwilightTransmutationsData.CONSUMER.update(Item.getByNameOrId("primitivemobs:camouflage_dye"));
@@ -97,16 +98,49 @@ public class TwilightTransmutationsIntegration {
         Item slime = Item.getByNameOrId("tconstruct:slime");
         DRAGON.register(sapling, 1, sapling, 2);
 
-        TwilightTransmutationsData.CONSUMER.update(Items.GOLDEN_APPLE, 1);
-        TwilightTransmutationsData.CONSUMER.register(sapling, 1, sapling, 2);
+        DefaultConsumer CONSUMER = TwilightTransmutationsData.CONSUMER;
 
-        TwilightTransmutationsData.CONSUMER.update(Items.BEETROOT);
-        TwilightTransmutationsData.CONSUMER.register(Blocks.SLIME_BLOCK, dirt, 0);
-        TwilightTransmutationsData.CONSUMER.register(slime, 1, dirt, 1);
-        TwilightTransmutationsData.CONSUMER.register(slime, 2, dirt, 2);
-        TwilightTransmutationsData.CONSUMER.register(slime, 3, dirt, 3);
+        CONSUMER.update(Items.GOLDEN_APPLE, 1);
+        CONSUMER.register(sapling, 1, sapling, 2);
 
+        CONSUMER.update(ItemRegister.VITASARIA);
+        CONSUMER.register(Blocks.SLIME_BLOCK, dirt, 0);
+        CONSUMER.register(slime, 1, dirt, 1);
+        CONSUMER.update(Items.REDSTONE);
+        CONSUMER.register(dirt, 1, dirt, 2);
+        CONSUMER.update(ItemRegister.POTION_MIX);
+        CONSUMER.register(dirt, 1, dirt, 3);
+        CONSUMER.register(dirt, 2, dirt, 3);
+        CONSUMER.update(ItemRegister.MOSS);
+        CONSUMER.register(dirt, 0, grass, 1);
+        CONSUMER.register(dirt, 1, grass, 2);
+        CONSUMER.register(dirt, 2, grass, 8);
+        CONSUMER.register(dirt, 3, grass, 14);
     }
+
+    public static void initEbob(){
+        if(!IntegrationHelper.isLoaded("ebwizardry"))
+            return;
+        DefaultConsumer CONSUMER = TwilightTransmutationsData.CONSUMER;
+        CONSUMER.update(Item.getByNameOrId("ebwizardry:blank_scroll"));
+        Defaulter DIAMOND = new Defaulter(Item.getByNameOrId("ebwizardry:astral_diamond"));
+        ContainerTower.CATALYSTS_FOR_TRANSFER.put(DIAMOND.catalyst, 0);
+        Item crystal = Item.getByNameOrId("ebwizardry:magic_crystal");
+        CONSUMER.register(TFItems.magic_beans, Item.getByNameOrId("ebwizardry:blast_upgrade"));
+
+        DIAMOND.register(ItemRegister.NETHER_CRYSTAL, crystal, 1);
+        DIAMOND.register(Blocks.ICE, crystal, 2);
+        DIAMOND.register(Blocks.PACKED_ICE, crystal, 2);
+        DIAMOND.register(TFItems.borer_essence, crystal, 4);
+        DIAMOND.register(Items.EMERALD, crystal, 5);
+        DIAMOND.register(Items.ENDER_PEARL, crystal, 6);
+        DIAMOND.register(TFItems.charm_of_life_1, crystal, 7);
+
+        DIAMOND.isThunder = true;
+        DIAMOND.register(crystal, crystal, 3);
+    }
+
+
 
 
     public static void updateGlass(){

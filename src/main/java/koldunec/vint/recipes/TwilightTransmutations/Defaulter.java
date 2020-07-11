@@ -2,21 +2,34 @@ package koldunec.vint.recipes.TwilightTransmutations;
 
 import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RecipeOutput;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ThunderRecipe;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class Defaulter {
 
-    // for correct JEI support
-    public boolean isSimple(){
-        return true;
+    protected RecipeInput getInput(Item i, int i_meta){
+        return new RecipeInput(i, i_meta, catalyst, meta);
+    }
+
+    protected RecipeOutput getOutput(Item i, int i_meta){
+        ItemStack result = new ItemStack(i, result_amount, i_meta);
+        return isThunder?
+                new ThunderRecipe(result, false):
+                new RecipeOutput(result, time);
+    }
+
+    protected void saveJEI(RecipeInput i, RecipeOutput o){
+        new RecipeLimbo.DefaultRecipe(i, o, isThunder?ThunderRecipe.THUNDER_MESSAGE:"");
+        // no need to register, because recipe auto-registers itself in its constructor
     }
 
     public Item catalyst;
     public int meta;
     public int time = 100;
     public int result_amount = 1;
+    public boolean isThunder = false;
 
     public Defaulter(Item _cata, int _meta){
        catalyst = _cata;
@@ -56,13 +69,10 @@ public class Defaulter {
      */
 
     public void register(Item base, int base_meta, Item result, int result_meta){
-        RecipeInput input = new RecipeInput(base, base_meta, catalyst, meta);
-        RecipeOutput output = new RecipeOutput(new ItemStack(result, result_amount, result_meta), time);
+        RecipeInput input = getInput(base, base_meta);
+        RecipeOutput output = getOutput(result, result_meta);
         TransmutationsRegister.put(input, output);
-        if(isSimple()) {
-            new RecipeLimbo.DefaultRecipe(input, output);
-            // no need to register, because recipe auto-registers itself in its constructor
-        }
+        saveJEI(input, output);
     }
 
     public void register(Item base, Item result, int result_meta){

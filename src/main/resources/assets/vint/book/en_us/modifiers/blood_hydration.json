@@ -1,0 +1,16 @@
+{
+  "modifier": "blood_hydration",
+  "text": [
+    {
+      "text": "Give your tool more blood and it will reward you with few drops of water"
+    }
+  ],
+  "effects": [
+    "Hitting enemies sometimes hydrates you",
+    "Useless against skeletons",
+    "Single use"
+  ],
+  "demoTool": [
+    "tconstruct:broadsword"
+  ]
+}

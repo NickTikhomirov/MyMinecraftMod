@@ -53,7 +53,7 @@ public class ThosePitifulDeaths {
 
         if(IntegrationHelper.isLoadedTwilight && IntegrationHelper.isLoadedPrimitive){
             if(victim instanceof EntityTFMinoshroom){
-                list.add(new EntityItem(victim.getEntityWorld(),victim.posX,victim.posY,victim.posZ,new ItemStack(ItemRegister.SCROLL_TRIVIA,1,0)));
+                list.add(new EntityItem(victim.getEntityWorld(),victim.posX,victim.posY,victim.posZ,new ItemStack(ItemRegister.SCROLL_SHROOM)));
             }
         }
 
@@ -114,7 +114,7 @@ public class ThosePitifulDeaths {
 
         // scrolls
         if(!e.getEntity().isNonBoss()){
-            int bound = 1 + vint.random.nextInt(2);
+            int bound = 2 + vint.random.nextInt(1);
             for(int i=0; i<bound; ++i)
                 e.getEntity().entityDropItem(
                         new ItemStack(

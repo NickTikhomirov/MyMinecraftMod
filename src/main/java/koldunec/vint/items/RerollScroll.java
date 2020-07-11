@@ -8,14 +8,33 @@ import koldunec.vint.objectbuilders.SimpleItems;
 import koldunec.vint.vint;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class RerollScroll extends SimpleItems.SimpleItem {
     public RerollScroll() {
         super("scroll_reroll", 64);
     }
 
-    public static boolean player_has_books(EntityPlayer player){
+    @Override
+    public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+        if(     worldIn.isRemote ||
+                player==null ||
+                !player.isSneaking())
+            return EnumActionResult.PASS;
+        if(player_has_books(player)){
+            player_steal_book(player);
+            player.getHeldItem(hand).shrink(1);
+            return EnumActionResult.SUCCESS;
+        }
+        return EnumActionResult.PASS;
+    }
+
+    private static boolean player_has_books(EntityPlayer player){
         if(!IntegrationHelper.isLoaded("ebwizardry"))
             return false;
         NonNullList<ItemStack> i = player.inventory.mainInventory;
@@ -23,7 +42,7 @@ public class RerollScroll extends SimpleItems.SimpleItem {
         return i.get(0).getMetadata()==i.get(8).getMetadata();
     }
 
-    public static void player_steal_book(EntityPlayer player){
+    private static void player_steal_book(EntityPlayer player){
         NonNullList<ItemStack> i = player.inventory.mainInventory;
         int meta = i.get(8).getMetadata();
         Tier t = Spell.byMetadata(meta).getTier();

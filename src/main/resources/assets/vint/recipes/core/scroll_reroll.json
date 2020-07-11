@@ -8,7 +8,7 @@
       "item": "vint:effect_freezer"
     },
     {
-      "item": "vint:red_powder"
+      "item": "minecraft:redstone"
     },
     [
       {
@@ -46,7 +46,6 @@
     ]
   ],
   "result": {
-    "item": "vint:scroll2",
-    "data": 2
+    "item": "vint:scroll_reroll"
   }
 }

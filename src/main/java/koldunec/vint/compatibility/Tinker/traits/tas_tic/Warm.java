@@ -1,19 +1,16 @@
 package koldunec.vint.compatibility.Tinker.traits.tas_tic;
 
 import koldunec.vint.IntegrationHelper;
-import koldunec.vint.utils.ThirstHelper;
+import koldunec.vint.compatibility.Tinker.TinkerIntegration;
+import koldunec.vint.utils.NailHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 
-import toughasnails.api.TANPotions;
-import toughasnails.api.temperature.Temperature;
-import toughasnails.api.temperature.TemperatureHelper;
-import toughasnails.temperature.TemperatureHandler;
+import slimeknights.tconstruct.library.utils.ToolHelper;
 
 public class Warm extends AbstractTrait {
 
@@ -32,22 +29,8 @@ public class Warm extends AbstractTrait {
             return;
         if(!(entity instanceof EntityPlayer))
             return;
-        EntityPlayer player = (EntityPlayer) entity;
-        TemperatureHandler handler = (TemperatureHandler) TemperatureHelper.getTemperatureData(player);
-        int time = ThirstHelper.getTime(tool);
-        Temperature temperature = handler.getTemperature();
-        int tempint = temperature.getRawValue();
-        if(tempint< ThirstHelper.CONST_TEMPERATURE){
-            if(time>0){
-                ThirstHelper.setTime(tool, time - 1);
-                return;
-            }
-            if(world.rand.nextInt(ThirstHelper.CONST_PROB_REMOVE_COLD)==0)
-                player.removePotionEffect(TANPotions.hypothermia);
-            handler.setTemperature(new Temperature(tempint+1));
-            ThirstHelper.setTime(tool,ThirstHelper.CONST_TIME_TEMP);
-        } else {
-            ThirstHelper.setTime(tool,ThirstHelper.CONST_TIME_TEMP);
-        }
+        if(ToolHelper.getTraits(tool).contains(TinkerIntegration.COOL))
+            return;  // if tool is multitemperatural, warm's logic is handled by cool
+        NailHelper.regulateTemperature((EntityPlayer) entity, tool, false, true);
     }
 }

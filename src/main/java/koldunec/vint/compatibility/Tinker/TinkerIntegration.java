@@ -4,6 +4,7 @@ import koldunec.vint.compatibility.Tinker.TinkerBook.MaterialDocumenter;
 import koldunec.vint.compatibility.Tinker.TinkerBook.ModifierAppender;
 import koldunec.vint.compatibility.Tinker.traits.*;
 import koldunec.vint.compatibility.Tinker.traits.tas_tic.Cool;
+import koldunec.vint.compatibility.Tinker.traits.tas_tic.SweetBlood;
 import koldunec.vint.compatibility.Tinker.traits.tas_tic.Warm;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.IntegrationHelper;
@@ -21,24 +22,23 @@ import slimeknights.mantle.util.RecipeMatch;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.modifiers.ModifierTrait;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
-import slimeknights.tconstruct.tools.TinkerTraits;
-import slimeknights.tconstruct.tools.modifiers.ToolModifier;
+import slimeknights.tconstruct.shared.TinkerCommons;
+import slimeknights.tconstruct.tools.*;
 
-
-import static koldunec.vint.utils.TechHelper.getColor;
 
 public class TinkerIntegration {
-    public static Material CARMINITE = new Material("carminite", getColor(154F,0,0));
-    public static Material IRONWOOD = new Material("ironwood", getColor(133F,137F,52F));
-    public static Material MAZESTONE = new Material("mazestone", getColor(110F,122,109));
+    public static Material CARMINITE = new Material("carminite", ColorConstants.CARMINITE_COLOR);
+    public static Material IRONWOOD = new Material("ironwood", ColorConstants.IRONWOOD_COLOR);
+    public static Material MAZESTONE = new Material("mazestone", ColorConstants.MAZESTONE_COLOR);
+    public static Material FROZEN = new Material("frozen", ColorConstants.FROZEN_COLOR);
 
-    public static Material BAMBOO = new Material("bamboo", getColor(130,168,89));
-    public static Material HONEY_CRYSTAL = new Material("honey_crystal",getColor(255F,195F,15F));
+    public static Material BAMBOO = new Material("bamboo", ColorConstants.BAMBOO_COLOR);
+    public static Material HONEY_CRYSTAL = new Material("honey_crystal", ColorConstants.HONEY_COLOR);
 
-    public static Material CRIMSON_LOG = new Material("crimson_log", getColor(123F,0F,0F));
-    public static Material WARPED_LOG = new Material("warped_log", getColor(22F,97F,91F));
-    public static Material NETHER_CACTUS = new Material("nether_cactus",getColor(210,210,0));
-    public static Material DEBRIS = new Material("debris", getColor(126,96,89));
+    public static Material CRIMSON_LOG = new Material("crimson_log", ColorConstants.CRIMSON_COLOR);
+    public static Material WARPED_LOG = new Material("warped_log", ColorConstants.WARPED_COLOR);
+    public static Material NETHER_CACTUS = new Material("nether_cactus", ColorConstants.CACTUS_COLOR);
+    public static Material DEBRIS = new Material("debris", ColorConstants.DEBRIS_COLOR);
 
     public static AbstractTrait LEFT_HAND_RULE = new LeftHandRule();
     public static AbstractTrait BORING = new Boring();
@@ -48,17 +48,21 @@ public class TinkerIntegration {
     public static AbstractTrait BLACKENING = new Blackening();
     public static AbstractTrait BZZZ = new Bzzz();
     public static AbstractTrait REACHING = new Reaching();
+    public static AbstractTrait ICE_QUEEN = new IceQueen();
 
     public static AbstractTrait CAPITATOR = new Capitator();
     public static AbstractTrait FUNDAMENTAL = new Fundamental();
     public static AbstractTrait PRIMAL = new Primal();
     public static AbstractTrait COMPLEX = new Complex();
     public static ModifierTrait ACTIVATING = new Activating();
+    public static ModifierTrait DODO_RAGE = new DodoRage();
 
     public static AbstractTrait WARM = new Warm();
     public static AbstractTrait COOL = new Cool();
+    public static ModifierTrait BLOOD_HYDRATION = new SweetBlood();
 
     public static Fluid IRONWOOD_JIJA = null;
+
 
     public static void preInit(){
         preInitJija();
@@ -71,8 +75,12 @@ public class TinkerIntegration {
         ModifierAppender.APPENDANTS.add(FUNDAMENTAL);
         ModifierAppender.APPENDANTS.add(CAPITATOR);
         ModifierAppender.APPENDANTS.add(ACTIVATING);
-        if(IntegrationHelper.isLoadedPrimitive)
+        if(IntegrationHelper.isLoadedPrimitive) {
             ModifierAppender.APPENDANTS.add(COMPLEX);
+            ModifierAppender.APPENDANTS.add(DODO_RAGE);
+        }
+        if(IntegrationHelper.isLoadedTough)
+            ModifierAppender.APPENDANTS.add(BLOOD_HYDRATION);
 
         ConfigureMaterials.addStatsVint();
         ConfigureMaterials.addStatsTwilight();
@@ -125,8 +133,18 @@ public class TinkerIntegration {
         }
         ACTIVATING.addRecipeMatch(new RecipeMatch.Item(new ItemStack(ItemRegister.RED_POWDER), 1));
         FUNDAMENTAL.addRecipeMatch(new RecipeMatch.Item(new ItemStack(ItemRegister.WOODEN_RUNE),1));
-        if(IntegrationHelper.isLoadedPrimitive)
-            COMPLEX.addRecipeMatch(new RecipeMatch.Item(new ItemStack(Sidemod_Items.Camodye()),1));
+        if(IntegrationHelper.isLoadedPrimitive) {
+            COMPLEX.addRecipeMatch(new RecipeMatch.Item(new ItemStack(Sidemod_Items.Camodye()), 1));
+            DODO_RAGE.addRecipeMatch(new RecipeMatch.Item(new ItemStack(Item.getByNameOrId("primitivemobs:dodo_egg")), 1));
+        }
+        if(IntegrationHelper.isLoadedTough)
+            BLOOD_HYDRATION.addRecipeMatch(new RecipeMatch.ItemCombination( 1,
+                    new ItemStack(TinkerCommons.edibles, 1, 3),
+                    new ItemStack(TinkerCommons.edibles, 1, 3),
+                    new ItemStack(TinkerCommons.edibles, 1, 3),
+                    new ItemStack(Items.BONE),
+                    new ItemStack(Items.BONE)
+            ));
     }
 
 
@@ -141,4 +159,6 @@ public class TinkerIntegration {
         tag.setBoolean("toolforge", true);
         FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
     }
+
+
 }

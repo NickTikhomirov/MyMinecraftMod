@@ -1,6 +1,6 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "vint:items/scroll2_mushroom"
+    "layer0": "vint:items/scroll_reroll"
   }
 }

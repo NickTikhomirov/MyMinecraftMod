@@ -43,20 +43,13 @@ public class ReactorCategory implements IRecipeCategory {
     @Override
     public void setRecipe(IRecipeLayout iRecipeLayout, IRecipeWrapper iRecipeWrapper, IIngredients iIngredients) {
         IGuiItemStackGroup guiItemStacks = iRecipeLayout.getItemStacks();
-        prepareTooltips(guiItemStacks, iRecipeWrapper);
+        if(iRecipeWrapper instanceof RecipeLimbo.ICertainTooltipHandler)
+            guiItemStacks.addTooltipCallback((RecipeLimbo.ICertainTooltipHandler) iRecipeWrapper);
         guiItemStacks.init(0, true, 24, 9);
         guiItemStacks.init(1, true, 4, 9);
         guiItemStacks.init(2, false, 84, 9);
         guiItemStacks.set(0, iIngredients.getInputs(VanillaTypes.ITEM).get(0));
         guiItemStacks.set(1, iIngredients.getInputs(VanillaTypes.ITEM).get(1));
         guiItemStacks.set(2, iIngredients.getOutputs(VanillaTypes.ITEM).get(0));
-    }
-
-    protected void prepareTooltips(IGuiItemStackGroup group, IRecipeWrapper wrapper){
-        boolean consume = wrapper instanceof RecipeLimbo.ConsumeRecipe;
-        if(wrapper instanceof RecipeLimbo.DefaultRecipeWithWildcardCatalyst)
-            group.addTooltipCallback(new CataSafe(!consume, 1));
-        else
-            group.addTooltipCallback(CataSafe.getInstance(!consume)); // todo make durability-consuming recipes
     }
 }

@@ -26,7 +26,6 @@ public class CompatibilityRegister {
         GemHelper.preInit();
         if(IntegrationHelper.isLoadedTinkers) {
             vint.LOGGER.info("Started processing interactions with Tinkers Construct");
-            TConstruct.log.info("No please don't do that!");
             TinkerIntegration.preInit();
         }
     }
@@ -57,13 +56,13 @@ public class CompatibilityRegister {
 
 
 
-    public static void grassRegisterItems(){
+    private static void grassRegisterItems(){
         MinecraftForge.addGrassSeed(new ItemStack(ItemRegister.VITASARIA_SEEDS),10);
         MinecraftForge.addGrassSeed(new ItemStack(ItemRegister.ANOTHER_DYE,1,1),3);
     }
 
 
-    public static void oreRegisterItems(){
+    private static void oreRegisterItems(){
         OreDictionary.registerOre("dyeBlack",new ItemStack(ItemRegister.ANOTHER_DYE,1,0));
         OreDictionary.registerOre("dyeGreen",new ItemStack(ItemRegister.ANOTHER_DYE,1,1));
         OreDictionary.registerOre("dyeBrown",new ItemStack(ItemRegister.ANOTHER_DYE,1,2));
@@ -71,11 +70,11 @@ public class CompatibilityRegister {
         OreDictionary.registerOre("dyeWhite",new ItemStack(ItemRegister.ANOTHER_DYE,1,4));
     }
 
-    public static void oreRegisterBlocks(){
+    private static void oreRegisterBlocks(){
 
     }
 
-    public static void oreRegisterSideItems(){
+    private static void oreRegisterSideItems(){
         if(IntegrationHelper.isLoadedProjectX){
             OreDictionary.registerOre("dyeBlue", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 0));
             OreDictionary.registerOre("dyeLime", new ItemStack(Item.getByNameOrId("projectx:xycronium_nugget"), 1, 1));

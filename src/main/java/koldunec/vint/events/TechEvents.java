@@ -1,6 +1,5 @@
 package koldunec.vint.events;
 
-import koldunec.vint.utils.EnumNonLootScrollTypes;
 import koldunec.vint.utils.EnumScrollTypes;
 import koldunec.vint.vint;
 import koldunec.vint.items.another_dye_please_dont_blame_me;
@@ -39,10 +38,6 @@ public class TechEvents {
         final Item Reed = ItemRegister.POWDER_REED;
         for(block_gunreed.reedTypes type: block_gunreed.reedTypes.values()){
             ModelLoader.setCustomModelResourceLocation(Reed, type.ordinal(),new ModelResourceLocation(Reed.getRegistryName()+"_"+type.toString().toLowerCase(),"inventory"));
-        }
-        final Item Scroll2 = ItemRegister.SCROLL_TRIVIA;
-        for(EnumNonLootScrollTypes type : EnumNonLootScrollTypes.values()){
-            ModelLoader.setCustomModelResourceLocation(Scroll2, type.ordinal(), new ModelResourceLocation(Scroll2.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
         }
     }
 
