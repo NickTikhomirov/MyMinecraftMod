@@ -32,10 +32,18 @@ public class ItemWithMeta {
     public boolean equals(Object obj) {
         if(this==obj)
             return true;
+        if(obj==null)
+            return false;
         if(obj.getClass()!=this.getClass())
             return false;
         ItemWithMeta cast = (ItemWithMeta) obj;
         return item==cast.item && meta==cast.meta;
+    }
+
+    public boolean equalsStack(ItemStack i){
+        if(i==null)
+            return false;
+        return item.equals(i.getItem()) && meta==i.getMetadata();
     }
 
     public ItemWithMeta copy(){

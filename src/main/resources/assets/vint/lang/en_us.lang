@@ -323,7 +323,11 @@ vint.jei.tooltip.catalyst.dang=Will be consumed
 vint.jei.tooltip.catalyst.anydur=No durability restrictions
 vint.jei.tooltip.catalyst.dmg=Loses %s durability
 vint.jei.tooltip.catalyst.notfull=Requires to be damaged
+
+vint.jei.time.simple=sec
+vint.jei.time.partial=s/dur
 vint.jei.needstorm=Requires thunderstorm
+vint.jei.repair_msg=Repairs for %s durability
 
 vint.jei.docs.scroll=These scrolls are randomly dropped from any boss. Sneak-use a scroll on an empty stORE block, so the block will be filled with loot of one chest of respective dungeon.
 vint.jei.docs.borer=This plant grows downwards, making its way through the wood. \nPlace it on the top of wooden column (even workbench column is suitable) and the plant will slowly consume it

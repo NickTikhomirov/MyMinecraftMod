@@ -20,7 +20,7 @@ public class TwilightTransmutationsData {
     public static void initCinder(){
         Defaulter CINDER = new Defaulter(TFItems.lamp_of_cinders);
 
-        CINDER.register(Items.ROTTEN_FLESH, TFItems.raw_meef);
+        CINDER.register(Items.ROTTEN_FLESH, Items.LEATHER);
         CINDER.register(TFBlocks.twilight_sapling, 0, TFBlocks.twilight_sapling, 4);
         CINDER.register(Items.DRAGON_BREATH, TFItems.fiery_tears);
 
@@ -40,6 +40,7 @@ public class TwilightTransmutationsData {
         CARMINITE.register(Blocks.COAL_BLOCK, TFBlocks.fire_jet,0);
         CARMINITE.register(Blocks.MAGMA, TFBlocks.fire_jet,3);
         CARMINITE.register(Blocks.DIRT, Blocks.DIRT,2);
+        CARMINITE.register(Items.ROTTEN_FLESH, TFItems.raw_meef);
 
         CARMINITE.register(Items.COOKED_BEEF, TFItems.experiment_115);
         CARMINITE.register(Items.COOKED_MUTTON, TFItems.experiment_115);
@@ -59,6 +60,7 @@ public class TwilightTransmutationsData {
     public static void initTransform(){
         Defaulter TRANSFORM = new Defaulter(TFBlocks.magic_log_core, 1);
 
+        TRANSFORM.register(Items.ROTTEN_FLESH, TFItems.raw_meef);
         TRANSFORM.register(Items.COOKED_BEEF, TFItems.cooked_venison);
         TRANSFORM.register(Items.BEEF, TFItems.raw_venison);
         TRANSFORM.register(BlockRegister.STORE, TFItems.charm_of_keeping_2);
@@ -129,10 +131,10 @@ public class TwilightTransmutationsData {
     }
 
     public static void initRepairs(){
-        TransmutationsRegister.RECIPES_2.add(new RepairRecipe(TFItems.crumble_horn, new ItemStack(TFBlocks.magic_log, 1, 2), 32));
-        TransmutationsRegister.RECIPES_2.add(new RepairRecipe(Items.ELYTRA, new ItemStack(Items.RABBIT), 27));
+        TransmutationsRegister.RECIPES_2.add(RepairRecipe.BuildAndJEI(TFItems.crumble_horn, new ItemStack(TFBlocks.magic_log, 1, 2), 32));
+        TransmutationsRegister.RECIPES_2.add(RepairRecipe.BuildAndJEI(Items.ELYTRA, new ItemStack(Items.RABBIT_HIDE), 27));
         if(IntegrationHelper.isLoadedNatura)
-            TransmutationsRegister.RECIPES_2.add(new RepairRecipe(Items.ELYTRA, new ItemStack(Item.getByNameOrId("natura:materials"), 1, 6), 108));
+            TransmutationsRegister.RECIPES_2.add(RepairRecipe.BuildAndJEI(Items.ELYTRA, new ItemStack(Item.getByNameOrId("natura:materials"), 1, 6), 108));
         TransmutationsRegister.RECIPES_2.add(new DurabilityConversion());
 
         ContainerTower.CATALYSTS_FOR_TRANSFER.put(TFItems.crumble_horn, -1);

@@ -111,7 +111,7 @@ public class TwilightTransmutationsIntegration {
         CONSUMER.update(ItemRegister.POTION_MIX);
         CONSUMER.register(dirt, 1, dirt, 3);
         CONSUMER.register(dirt, 2, dirt, 3);
-        CONSUMER.update(ItemRegister.MOSS);
+        CONSUMER.update(ItemRegister.VITASARIA_SEEDS);
         CONSUMER.register(dirt, 0, grass, 1);
         CONSUMER.register(dirt, 1, grass, 2);
         CONSUMER.register(dirt, 2, grass, 8);

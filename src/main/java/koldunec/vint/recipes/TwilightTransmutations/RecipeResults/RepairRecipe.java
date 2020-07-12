@@ -1,7 +1,9 @@
 package koldunec.vint.recipes.TwilightTransmutations.RecipeResults;
 
+import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.tileentities.TileTower;
+import koldunec.vint.utils.ItemWithMeta;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -17,37 +19,18 @@ import java.util.HashSet;
 public class RepairRecipe implements ITwilightResult {
     public ItemStack result = new ItemStack(ItemRegister.DUST);
     public Item repairable;
-    public HashMap<Item,Integer> materials = new HashMap<>();
+    public ItemWithMeta material;
     public int step;
 
-    public RepairRecipe(Item tool, ItemStack material){
-        this(tool, material,1);
-    }
-
-     public RepairRecipe(Item tool, ItemStack material, int amount){
+     public RepairRecipe(Item tool, ItemStack _mat, int amount){
         repairable = tool;
-        materials.put(material.getItem(),material.getMetadata());
+        material = new ItemWithMeta(_mat);
         step = amount;
-    }
-
-    public RepairRecipe(Item tool, ItemStack material, ItemStack trash){
-        this(tool, material,1 ,trash);
-    }
-
-    public RepairRecipe(Item tool, ItemStack material, int amount, ItemStack trash){
-        repairable = tool;
-        materials.put(material.getItem(),material.getMetadata());
-        step = amount;
-        result = trash;
     }
 
     @Override
     public boolean canProcess(ItemStack base, ItemStack catalyst, TileTower tile) {
-        Integer i = materials.get(base.getItem());
-        if(i==null)
-            return false;
-        int ii = i;
-        return repairable.equals(catalyst.getItem()) && catalyst.getItemDamage()>0 && base.getMetadata()==ii;
+        return repairable.equals(catalyst.getItem()) && catalyst.getItemDamage()>0 && material.equalsStack(base);
     }
 
     @Override
@@ -65,5 +48,11 @@ public class RepairRecipe implements ITwilightResult {
     @Override
     public int getProcessTime(ItemStack base, ItemStack catalyst, TileTower tile) {
         return 50;
+    }
+
+    public static RepairRecipe BuildAndJEI(Item tool, ItemStack material, int amount){
+        RepairRecipe result = new RepairRecipe(tool, material, amount);
+        new RecipeLimbo.RepairRecipeJEI(result);
+        return result;
     }
 }

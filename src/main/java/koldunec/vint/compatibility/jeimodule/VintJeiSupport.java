@@ -21,12 +21,14 @@ public class VintJeiSupport implements IModPlugin {
     public ReactorCategory SAFE;
 
     public static ResourceLocation reactor_texture = new ResourceLocation(vint.MODID, "textures/gui/reactor_jei.png");
-    public static IDrawableAnimated BLUE_ARROW;
-    public static IDrawableAnimated  RED_ARROW;
+    public static IDrawableAnimated  BLUE_ARROW;
+    public static IDrawableAnimated   RED_ARROW;
+    public static IDrawableAnimated BORER_ARROW;
 
     public static void initArrows(IGuiHelper helper){
         BLUE_ARROW = helper.createAnimatedDrawable(helper.createDrawable(reactor_texture, 166, 0, 23+23, 16), 50, IDrawableAnimated.StartDirection.LEFT, false);
-         RED_ARROW = helper.createAnimatedDrawable(helper.createDrawable(reactor_texture, 166, 18, 23+23, 16), 50, IDrawableAnimated.StartDirection.LEFT, false);
+        RED_ARROW = helper.createAnimatedDrawable(helper.createDrawable(reactor_texture, 166, 18, 23+23, 16), 50, IDrawableAnimated.StartDirection.LEFT, false);
+        BORER_ARROW = helper.createAnimatedDrawable(helper.createDrawable(reactor_texture, 166, 36, 23+23, 16), 50, IDrawableAnimated.StartDirection.LEFT, false);
     }
 
 
