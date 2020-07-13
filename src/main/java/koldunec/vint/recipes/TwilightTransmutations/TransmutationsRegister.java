@@ -1,6 +1,7 @@
 package koldunec.vint.recipes.TwilightTransmutations;
 
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.DurabilityConversion;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ITwilightResult;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.MWTransform;
 import koldunec.vint.tileentities.TileTower;
@@ -78,5 +79,6 @@ public class TransmutationsRegister {
 
         RECIPES_2.add(new MWTransform());
         MWTransform.assignJEI();
+        DurabilityConversion.selfRegister();
     }
 }

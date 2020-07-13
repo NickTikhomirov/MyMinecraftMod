@@ -1,11 +1,14 @@
 package koldunec.vint.recipes.TwilightTransmutations.RecipeResults;
 
+import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
 import koldunec.vint.tileentities.TileTower;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import twilightforest.item.TFItems;
 
 public class DurabilityConversion implements ITwilightResult {
+
+    public static int AMOUNT = 14;
 
     @Override
     public boolean canProcess(ItemStack base, ItemStack catalyst, TileTower tile) {
@@ -41,10 +44,8 @@ public class DurabilityConversion implements ITwilightResult {
         Item icata = catalyst.getItem();
         ItemStack copy = catalyst.copy();
         int restore = 0;
-        if(icata.equals(TFItems.phantom_helmet))
-            restore = copy.getMaxDamage()/(2*base.getMaxDamage());
-        else if(icata.equals(TFItems.phantom_chestplate))
-            restore = copy.getMaxDamage()/(3*base.getMaxDamage());
+        if(icata.equals(TFItems.phantom_helmet) || icata.equals(TFItems.phantom_chestplate))
+            restore = AMOUNT;
         copy.setItemDamage(copy.getItemDamage() - restore);
         return copy;
     }
@@ -52,5 +53,12 @@ public class DurabilityConversion implements ITwilightResult {
     @Override
     public int getProcessTime(ItemStack base, ItemStack catalyst, TileTower tile) {
         return 50;
+    }
+
+    public static void selfRegister(){
+        Item magnet = TFItems.ore_magnet;
+        ItemStack result = new ItemStack(TFItems.armor_shard);
+        new RecipeLimbo.ConvertRecipeJEI(TFItems.phantom_helmet, magnet, AMOUNT, result, true);
+        new RecipeLimbo.ConvertRecipeJEI(TFItems.phantom_chestplate, magnet, AMOUNT, result, true);
     }
 }

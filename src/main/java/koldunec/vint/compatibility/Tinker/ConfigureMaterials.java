@@ -158,6 +158,8 @@ public class ConfigureMaterials {
         FROZEN.addTrait(TinkerTraits.freezing, SHAFT);
         FROZEN.addTrait(ICE_QUEEN, BOW);
 
+        IRONWOOD.addTrait(SHIFTING, HEAD);
+
         if(IntegrationHelper.isLoadedTough)
             FROZEN.addTrait(COOL, HEAD).addTrait(COOL, BOW).addTrait(COOL, SHAFT);
 

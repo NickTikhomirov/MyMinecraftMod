@@ -18,7 +18,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 import static koldunec.vint.compatibility.jeimodule.VintJeiSupport.*;
@@ -144,14 +143,15 @@ public class RecipeLimbo {
      */
 
     public static class RepairRecipeJEI extends DefaultRecipe {
+
+        protected RepairRecipeJEI(){}
+
         public RepairRecipeJEI(RepairRecipe recipe){
             base = recipe.material.BuildStack();
             result = recipe.result;
             message = "" + recipe.step;
             time = 50; // const for simple repair recipes
-            ItemStack temp = new ItemStack(recipe.repairable, 1);
-            temp.setItemDamage(recipe.repairable.getMaxDamage(temp)/2);
-            catalyst = temp;
+            catalyst = getHalfDamaged(recipe.repairable);
             time_msg = "vint.jei.time.partial";
             LIST_OF_SIMPLES.add(this);
         }
@@ -180,6 +180,44 @@ public class RecipeLimbo {
         public void getIngredients(IIngredients iIngredients) {
             iIngredients.setInputs(VanillaTypes.ITEM, new ArrayList<ItemStack>(){{add(base); add(catalyst);}});
             iIngredients.setOutputs(VanillaTypes.ITEM, new ArrayList<ItemStack>(){{add(result); add(catalyst);}});
+        }
+
+        protected ItemStack getHalfDamaged(Item i){
+            ItemStack temp = new ItemStack(i, 1);
+            temp.setItemDamage(i.getMaxDamage(temp)/2);
+            return temp;
+        }
+    }
+
+
+    /**
+     *  Pattern for transfer recipes
+     */
+
+    public static class ConvertRecipeJEI extends RepairRecipeJEI{
+        boolean results_on_end;
+
+        public ConvertRecipeJEI(Item _cata, Item _base, int _amount_to_cata, ItemStack _result, boolean onlyonce){
+            base = new ItemStack(_base, 1, 32767);
+            catalyst = getHalfDamaged(_cata);
+            result = _result;
+            message = ""+_amount_to_cata;
+            time_msg = "vint.jei.time.partial";
+            time = 50;
+            results_on_end = onlyonce;
+            LIST_OF_SIMPLES.add(this);
+        }
+
+        @Override
+        public void onTooltip(int i, boolean b, ItemStack itemStack, List<String> list) {
+            super.onTooltip(i, b, itemStack, list);
+            if(i==0){
+                list.add("");
+                list.add(TextFormatting.GOLD + I18n.format("vint.jei.tooltip.catalyst.dmg", 1));
+            } else if(results_on_end && i==2){
+                list.add("");
+                list.add(TextFormatting.GOLD + I18n.format("vint.jei.tooltip.result.onlyonce"));
+            }
         }
     }
 }

@@ -38,6 +38,7 @@ public class TowerFurnace extends BlockContainer {
         setSoundType(SoundType.WOOD);
         setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         lit = varlit;
+        setHardness(5.0F).setResistance(10.0F);
         if(lit) {
             lightValue = 15;
             setRegistryName("twilight_reactor_lit");

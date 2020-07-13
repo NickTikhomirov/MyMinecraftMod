@@ -17,6 +17,8 @@ material.honey_crystal.name=Honey
 
 fluid.ironwood=Molten Ironwood
 
+modifier.shifting.name=Shifting
+modifier.shifting.desc=§oNow reality (especially TinkersConstruct tools) can be whatever you want§r\nYour tool shifts, adapting to block you mine.
 modifier.lefthandrule.name=Left Hand Rule
 modifier.lefthandrule.desc=§oThe Main Rule of Mazes: You should avoid mazes§r\nWhile the tool in your left hand, it uses durability of right hand's tool
 modifier.boring.name=Boring
@@ -321,11 +323,12 @@ vint:flavor5=Very tough. Nobody but a minotaur is able to open this shell.
 vint.jei.tooltip.catalyst.safe=Will not be consumed
 vint.jei.tooltip.catalyst.dang=Will be consumed
 vint.jei.tooltip.catalyst.anydur=No durability restrictions
-vint.jei.tooltip.catalyst.dmg=Loses %s durability
+vint.jei.tooltip.catalyst.dmg=Loses %s durability per operation
 vint.jei.tooltip.catalyst.notfull=Requires to be damaged
+vint.jei.tooltip.result.onlyonce=Outputs once on destruction
 
 vint.jei.time.simple=sec
-vint.jei.time.partial=s/dur
+vint.jei.time.partial=s/transfer
 vint.jei.needstorm=Requires thunderstorm
 vint.jei.repair_msg=Repairs for %s durability
 

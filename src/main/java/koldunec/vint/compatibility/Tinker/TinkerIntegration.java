@@ -50,6 +50,8 @@ public class TinkerIntegration {
     public static AbstractTrait REACHING = new Reaching();
     public static AbstractTrait ICE_QUEEN = new IceQueen();
 
+    public static AbstractTrait SHIFTING = new Shifting();
+
     public static AbstractTrait CAPITATOR = new Capitator();
     public static AbstractTrait FUNDAMENTAL = new Fundamental();
     public static AbstractTrait PRIMAL = new Primal();
@@ -154,7 +156,7 @@ public class TinkerIntegration {
         FluidRegistry.registerFluid(IRONWOOD_JIJA);
         FluidRegistry.addBucketForFluid(IRONWOOD_JIJA);
         NBTTagCompound tag = new NBTTagCompound();
-        tag.setString("fluid", IRONWOOD_JIJA.getName());    // name of the fluid
+        tag.setString("fluid", IRONWOOD_JIJA.getName());    // low_name of the fluid
         tag.setString("ore", "Ironwood");                   // ore-suffix: ingotFoo, blockFoo, oreFoo,...
         tag.setBoolean("toolforge", true);
         FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
