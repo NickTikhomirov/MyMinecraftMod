@@ -5,6 +5,7 @@ import koldunec.vint.ConfigHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.world.DecorationGenerator;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

@@ -125,7 +125,7 @@ public class VintMainEventHandler{
         }
         if(one.getClass().equals(EntitySkeleton.class)){
             if(vint.random.nextInt(20)==0){
-                if(IntegrationHelper.isLoaded("randomthings")){
+                if(IntegrationHelper.isLoadedRandomThings){
                     ItemStack a = new ItemStack(Items.TIPPED_ARROW,1);
                     PotionUtils.addPotionToItemStack(a, ModPotions.collapseTypeStrong);
                     one.setItemStackToSlot(EntityEquipmentSlot.OFFHAND,a);

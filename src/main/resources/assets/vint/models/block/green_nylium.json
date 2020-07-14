@@ -1,0 +1,12 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "up": "vint:hell/green_nylium",
+    "down": "vint:hell/natura_dirt",
+    "north": "vint:hell/green_nylium_side",
+    "south": "vint:hell/green_nylium_side",
+    "west":  "vint:hell/green_nylium_side",
+    "east":  "vint:hell/green_nylium_side",
+    "particle": "vint:hell/green_nylium"
+  }
+}

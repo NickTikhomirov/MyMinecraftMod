@@ -1,0 +1,25 @@
+{
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"randomthings"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "kkk",
+    "kSk",
+    "kkk"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:slime"
+    },
+    "k": {
+      "item": "randomthings:glowingmushroom"
+    }
+  },
+  "result": {
+    "item": "vint:shroomlight"
+  }
+}

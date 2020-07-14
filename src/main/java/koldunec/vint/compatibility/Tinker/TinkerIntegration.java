@@ -32,6 +32,9 @@ public class TinkerIntegration {
     public static Material MAZESTONE = new Material("mazestone", ColorConstants.MAZESTONE_COLOR);
     public static Material FROZEN = new Material("frozen", ColorConstants.FROZEN_COLOR);
 
+    public static Material SPECTRE = new Material("spectral_metal", ColorConstants.SPECTRE_COLOR);
+    public static Material SPECTRE_STRING = new Material("spectral_string", ColorConstants.SPECTRE_COLOR);
+
     public static Material BAMBOO = new Material("bamboo", ColorConstants.BAMBOO_COLOR);
     public static Material HONEY_CRYSTAL = new Material("honey_crystal", ColorConstants.HONEY_COLOR);
 
@@ -87,6 +90,7 @@ public class TinkerIntegration {
         ConfigureMaterials.addStatsVint();
         ConfigureMaterials.addStatsTwilight();
         ConfigureMaterials.addStatsFuture();
+        ConfigureMaterials.addStatsOther();
     }
 
 
@@ -94,11 +98,12 @@ public class TinkerIntegration {
         ConfigureMaterials.ConfigureFuture();
         ConfigureMaterials.ConfigureTwilight();
         ConfigureMaterials.TweakTiCWithTaN();
+        ConfigureMaterials.ConfigureOther();
 
         DEBRIS.addItem(BlockRegister.FRESH_DEBRIS,144);
         DEBRIS.setRepresentativeItem(BlockRegister.FRESH_DEBRIS);
         DEBRIS.setCraftable(true).setCastable(false);
-        DEBRIS.addTrait(BLACKENING).addTrait(TinkerTraits.aridiculous).addTrait(REACHING);
+        DEBRIS.addTrait(BLACKENING).addTrait(TinkerTraits.aridiculous);
 
         NETHER_CACTUS.addItem(BlockRegister.NETHER_CACTUS, 144);
         NETHER_CACTUS.setRepresentativeItem(BlockRegister.NETHER_CACTUS);

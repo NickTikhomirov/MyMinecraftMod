@@ -4,6 +4,7 @@ import koldunec.vint.IntegrationHelper;
 import koldunec.vint.world.generate.*;
 import koldunec.vint.world.nether.*;
 import koldunec.vint.world.structure_builders.TowerDecorators.MiddleDecorator;
+import koldunec.vint.world.structure_builders.TowerDecorators.SideDecorator;
 import koldunec.vint.world.structure_builders.TowerDecorators.TopDecorator;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -23,6 +24,7 @@ public class GeneratorRegister {
         }
 
         // nether towers
+        SideDecorator.init();
         MiddleDecorator.init();
         TopDecorator.init();
     }

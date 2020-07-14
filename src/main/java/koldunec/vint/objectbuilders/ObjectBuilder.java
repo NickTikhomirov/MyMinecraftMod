@@ -34,11 +34,11 @@ public class ObjectBuilder {
 
     }
 
-    public static Block BuildWarpedWart(){
+    public static Block BuildWart(String name){
         IBlockState mainstate = Blocks.NETHER_WART.getDefaultState();
         Block result = new Block(mainstate.getMaterial());
-        result.setRegistryName("warped_wart");
-        result.setUnlocalizedName("warped_wart");
+        result.setRegistryName(name);
+        result.setUnlocalizedName(name);
         result.setCreativeTab(vint.magicTab);
         result.setHardness(0.5F);
         result.setResistance(10F);

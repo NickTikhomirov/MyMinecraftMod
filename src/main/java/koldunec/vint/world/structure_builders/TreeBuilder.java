@@ -4,6 +4,8 @@ import koldunec.vint.init.BlockRegister;
 import koldunec.vint.IntegrationHelper;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRotatedPillar;
+import net.minecraft.block.properties.IProperty;
+import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -37,16 +39,17 @@ public class TreeBuilder {
             else
                 BuildNetherTree(w, firstBlock, Blocks.BONE_BLOCK, Block.getBlockFromName("charm:rotten_flesh_block").getDefaultState());
         }
-        if(ground.getBlock().equals(BlockRegister.BLUE_NYLIUM))
-            BuildNetherTree(w,firstBlock,BlockRegister.BLUE_NY_LOG, BlockRegister.WARPED_WART.getDefaultState());
+        if(ground.getBlock().equals(BlockRegister.BLUE_NYLIUM)) {
+            BuildNetherTree(w, firstBlock, BlockRegister.BLUE_NY_LOG, BlockRegister.WARPED_WART.getDefaultState());
+        }
     }
 
     public static void BuildNetherTree(World w, BlockPos firstBlock, Block log, IBlockState leaves){
-        IBlockState logstate = log.getDefaultState().withProperty(BlockRotatedPillar.AXIS, EnumFacing.UP.getAxis());
+        IBlockState logstate=  log.getDefaultState().withProperty(BlockRotatedPillar.AXIS, EnumFacing.UP.getAxis());
         w.setBlockState(firstBlock,logstate);
         BlockPos offset = firstBlock.up();
         for(EnumFacing e: EnumFacing.HORIZONTALS)
-            w.setBlockState(firstBlock.offset(e),logstate.withProperty(BlockRotatedPillar.AXIS,e.getAxis()));
+            w.setBlockState(firstBlock.offset(e), logstate.withProperty(BlockRotatedPillar.AXIS, e.getAxis()));
         for(int stage=0; stage<4; ++stage){
             int stagemax = STAGE_PARAMS.get(stage);
             for(int i=1; i<=stagemax; ++i){

@@ -107,6 +107,40 @@ public class ConfigureMaterials {
     }
 
 
+    public static void addStatsOther(){
+        if(!IntegrationHelper.isLoadedRandomThings)
+            return;
+
+        TinkerRegistry.addMaterialStats(SPECTRE,
+                new HeadMaterialStats(300, 10, 7,2),
+                new HandleMaterialStats(0.8F, 10));
+
+        TinkerRegistry.addMaterialStats(SPECTRE_STRING,
+                new BowStringMaterialStats(1.4F));
+
+        TinkerRegistry.integrate(SPECTRE).preInit();
+        TinkerRegistry.integrate(SPECTRE_STRING).preInit();
+    }
+
+    public static void ConfigureOther(){
+        if(!IntegrationHelper.isLoadedRandomThings)
+            return;
+        Item spectre = Item.getByNameOrId("randomthings:ingredient");
+
+        SPECTRE.addItem(new ItemStack(spectre, 1, 3), 1, 144);
+        SPECTRE.setRepresentativeItem(new ItemStack(spectre, 1, 3));
+        SPECTRE.setCraftable(true).setCastable(false);
+        SPECTRE.addTrait(REACHING, HEAD).addTrait(REACHING, HANDLE);
+        SPECTRE.addTrait(TinkerTraits.unnatural, HEAD).addTrait(TinkerTraits.lightweight, HANDLE);
+
+        SPECTRE_STRING.addItem(new ItemStack(spectre, 1, 12), 1, 144);
+        SPECTRE_STRING.setRepresentativeItem(new ItemStack(spectre, 1, 12));
+        SPECTRE_STRING.setCraftable(true).setCastable(false);
+        SPECTRE_STRING.addTrait(TinkerTraits.lightweight, MaterialTypes.BOWSTRING);
+
+    }
+
+
     public static void ConfigureFuture(){
         if(!IntegrationHelper.isLoadedFuture)
             return;

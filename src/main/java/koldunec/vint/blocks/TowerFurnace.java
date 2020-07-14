@@ -13,16 +13,16 @@ import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
 import net.minecraft.inventory.InventoryHelper;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.Rotation;
+import net.minecraft.util.*;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nullable;
 import java.util.Random;
@@ -135,5 +135,42 @@ public class TowerFurnace extends BlockContainer {
     public EnumBlockRenderType getRenderType(IBlockState state)
     {
         return EnumBlockRenderType.MODEL;
+    }
+
+
+    @SideOnly(Side.CLIENT)
+    @SuppressWarnings("incomplete-switch")
+    public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand){
+        if (!lit) return;
+        EnumFacing enumfacing = stateIn.getValue(FACING);
+        EnumParticleTypes particleMain = EnumParticleTypes.CRIT_MAGIC;
+        EnumParticleTypes particleSecond = EnumParticleTypes.REDSTONE;
+        double d0 = pos.getX() + 0.5D;
+        double d1 = pos.getY() + rand.nextDouble() * 12.0D / 16.0D;
+        double d1_1 = pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
+        double d2 = pos.getZ() + 0.5D;
+        double d4 = rand.nextDouble() * 0.6D - 0.3D;
+        double mainSpeed = 0;
+        if (rand.nextDouble() < 0.1D)
+            worldIn.playSound(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
+
+        switch (enumfacing) {
+            case WEST:
+                worldIn.spawnParticle(particleMain, d0 - 0.52D, d1, d2 + d4, 0.0D, mainSpeed, 0.0D);
+                worldIn.spawnParticle(particleSecond, d0 - 0.52D, d1_1, d2 + d4, 0.0D, mainSpeed, 0.0D);
+                break;
+            case EAST:
+                worldIn.spawnParticle(particleMain, d0 + 0.52D, d1, d2 + d4, 0.0D, mainSpeed, 0.0D);
+                worldIn.spawnParticle(particleSecond, d0 + 0.52D, d1_1, d2 + d4, 0.0D, mainSpeed, 0.0D);
+                break;
+            case NORTH:
+                worldIn.spawnParticle(particleMain, d0 + d4, d1, d2 - 0.52D, 0.0D, mainSpeed, 0.0D);
+                worldIn.spawnParticle(particleSecond, d0 + d4, d1_1, d2 - 0.52D, 0.0D, mainSpeed, 0.0D);
+                break;
+            case SOUTH:
+                worldIn.spawnParticle(particleMain, d0 + d4, d1, d2 + 0.52D, 0.0D, mainSpeed, 0.0D);
+                worldIn.spawnParticle(particleSecond, d0 + d4, d1_1, d2 + 0.52D, 0.0D, mainSpeed, 0.0D);
+        }
+
     }
 }

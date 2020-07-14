@@ -7,6 +7,9 @@ material.mazestone.name=Mazestone
 material.ironwood.name=Ironwood
 material.frozen.name=Frozen
 
+material.spectral_metal.name=Spectral
+material.spectral_string.name=Spectral
+
 material.nether_cactus.name=Nether Cactus
 material.crimson_log.name=Crimson
 material.warped_log.name=Warped
@@ -173,16 +176,26 @@ tile.blackstone_polished.name=Polished Blackstone
 tile.blackstone_chiseled.name=Chiseled Blackstone
 tile.red_nylium.name=Crimson Nylium
 tile.blue_nylium.name=Warped Nylium
-tile.gold_nylium.name=Gold Nylium
+tile.gold_nylium.name=Golden Nylium
+tile.green_nylium.name=Green Nylium
 tile.debris.name=Absolutely Modern Debris
 
 tile.red_nether_log.name=Crimson Nylium Log
 tile.blue_nether_log.name=Warped Nylium Log
+tile.gold_nether_log.name=Golden Nylium Log
+tile.green_nether_log.name=Green Nylium Log
 tile.red_nether_log_strip.name=Crimson Stripped Log
 tile.blue_nether_log_strip.name=Warped Stripped Log
 tile.warped_wart.name=Warped Wart Block
+tile.gold_wart.name=Golden Wart Block
+tile.green_wart.name=Green Wart Block
 tile.red_planks.name=Crimson Planks
 tile.blue_planks.name=Warped Planks
+tile.gold_planks.name=Golden Planks
+tile.green_planks.name=Green Planks
+tile.warped_bricks.name=Warped Bricks
+tile.gold_bricks.name=Gold Bricks
+tile.green_bricks.name=Green Bricks
 
 tile.red_nether_shroom.name=Crimson Fungus
 tile.blue_nether_shroom.name=Warped Fungus

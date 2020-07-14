@@ -6,7 +6,6 @@ import koldunec.vint.blocks.plants.BorerReed;
 import koldunec.vint.blocks.plants.GhastPod;
 import koldunec.vint.blocks.plants.GlowCactus;
 import koldunec.vint.blocks.plants.TorchBerry;
-import koldunec.vint.items.*;
 import koldunec.vint.items.baseItems.basic_block;
 import koldunec.vint.items.curinggrass.curingCrops;
 import koldunec.vint.items.gunpowder_reed.block_gunreed;
@@ -36,21 +35,32 @@ public class BlockRegister {
     public static Block BLACKSTONE_POLISHED = put(ObjectBuilder.BuildRock("blackstone_polished"));
     public static Block BLACKSTONE_CHISELED = put(ObjectBuilder.BuildRock("blackstone_chiseled"));
 
+    public static Block WARPED_BRICKS = put(ObjectBuilder.BuildRock("warped_bricks"));
+    public static Block GOLD_BRICKS = put(ObjectBuilder.BuildRock("gold_bricks"));
+    public static Block GREEN_BRICKS = put(ObjectBuilder.BuildRock("green_bricks"));
+
     public static Block RED_NYLIUM = put(new BaseNylium("red_nylium"));
     public static Block BLUE_NYLIUM = put(new BaseNylium("blue_nylium"));
     public static Block GOLD_NYLIUM = put(new BaseNylium("gold_nylium"));
-    public static Block WARPED_WART = put(ObjectBuilder.BuildWarpedWart());
+    public static Block GREEN_NYLIUM = put(new BaseNylium("green_nylium"));
+    public static Block WARPED_WART = put(ObjectBuilder.BuildWart("warped_wart"));
+    public static Block GOLDEN_WART = put(ObjectBuilder.BuildWart("gold_wart"));
+    public static Block GREEN_WART = put(ObjectBuilder.BuildWart("green_wart"));
 
     public static Block RED_NY_LOG = put(TriDirectionaBuilder.BuildLog("red_nether_log"));
     public static Block RED_NY_LOG_STRIP = put(TriDirectionaBuilder.BuildLog("red_nether_log_strip"));
     public static Block BLUE_NY_LOG = put(TriDirectionaBuilder.BuildLog("blue_nether_log"));
     public static Block BLUE_NY_LOG_STRIP = put(TriDirectionaBuilder.BuildLog("blue_nether_log_strip"));
+    public static Block GOLD_NY_LOG = put(TriDirectionaBuilder.BuildLog("gold_nether_log"));
+    public static Block GREEN_NY_LOG = put(TriDirectionaBuilder.BuildLog("green_nether_log"));
 
     public static Block RED_NETHER_MUSH = put(new NetherShroom("red_nether_shroom"));
     public static Block BLUE_NETHER_MUSH = put(new NetherShroom("blue_nether_shroom"));
 
     public static Block RED_PLANKS = put(ObjectBuilder.BuildDefaultPlanks("red_planks",false));
     public static Block BLUE_PLANKS = put(ObjectBuilder.BuildDefaultPlanks("blue_planks",false));
+    public static Block GOLD_PLANKS = put(ObjectBuilder.BuildDefaultPlanks("gold_planks",false));
+    public static Block GREEN_PLANKS = put(ObjectBuilder.BuildDefaultPlanks("green_planks",false));
 
     public static Block NETHER_CACTUS = put(new GlowCactus());
 

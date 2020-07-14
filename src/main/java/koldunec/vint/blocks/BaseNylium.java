@@ -1,19 +1,17 @@
 package koldunec.vint.blocks;
 
 import koldunec.vint.init.BlockRegister;
-import koldunec.vint.items.baseItems.basic_block;
 import koldunec.vint.vint;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockGrass;
 import net.minecraft.block.IGrowable;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
+import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 
 import java.util.Random;
@@ -33,9 +31,10 @@ public class BaseNylium extends Block implements IGrowable {
 
     @Override
     public boolean canSustainPlant(IBlockState state, IBlockAccess world, BlockPos pos, EnumFacing direction, IPlantable plantable) {
-        if(plantable instanceof Block)
-            if(((Block)plantable).getRegistryName().getResourceDomain().equals("natura"))
+        if(plantable instanceof Block) {
+            if (((Block) plantable).getRegistryName().getResourceDomain().equals("natura"))
                 return true;
+        }
         if(plantable.equals(BlockRegister.NETHER_CACTUS) && this.equals(BlockRegister.GOLD_NYLIUM))
             return true;
         return super.canSustainPlant(state, world, pos, direction, plantable);

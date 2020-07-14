@@ -1,7 +1,10 @@
 package koldunec.vint.world.structure_builders;
 
 import koldunec.vint.init.BlockRegister;
+import koldunec.vint.world.structure_builders.TowerDecorators.MiddleDecorator;
+import koldunec.vint.world.structure_builders.TowerDecorators.SideDecorator;
 import koldunec.vint.world.structure_builders.TowerDecorators.TopDecorator;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
@@ -14,7 +17,12 @@ public class NetherTowerBuilder {
         int top = 131;
         for(int y=1; y<top; ++y)
             fillSlice(ch,y, BlockRegister.FRESH_DEBRIS.getDefaultState());
-        TopDecorator.execute(random,top,ch);
+        IBlockState side = BlockRegister.FRESH_DEBRIS.getDefaultState();
+        if(random.nextInt(3)!=0)
+            side = SideDecorator.VARIANTS.get(random.nextInt(SideDecorator.VARIANTS.size()));
+        MiddleDecorator.execute(random, top, ch, side);
+        top = 150;
+        TopDecorator.execute(random,top,ch, side);
     }
 
 

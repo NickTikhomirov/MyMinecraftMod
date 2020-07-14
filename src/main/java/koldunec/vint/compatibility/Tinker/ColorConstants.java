@@ -12,6 +12,8 @@ public class ColorConstants {
     public static int MAZESTONE_COLOR = getColor(110F,122,109);
     public static int FROZEN_COLOR = getColor(42, 226, 242);
 
+    public static int SPECTRE_COLOR = getColor(148, 175, 186);
+
     public static int BAMBOO_COLOR = getColor(130,168,89);
     public static int HONEY_COLOR = getColor(255F,195F,15F);
 

@@ -29,7 +29,7 @@ public class CarminiteAxe extends ItemAxe {
                 return 48F;
             }
         }
-        if(IntegrationHelper.isLoaded("randomthings")){
+        if(IntegrationHelper.isLoadedRandomThings){
             if(state.getBlock() instanceof BlockNatureCore)
                 return 48F;
         }
