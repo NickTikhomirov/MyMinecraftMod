@@ -6,6 +6,7 @@ import koldunec.vint.init.ItemRegister;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ROutputAurora;
 import koldunec.vint.tileentities.containers.ContainerTower;
 import koldunec.vint.utils.routers.Sidemod_Items;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -82,9 +83,61 @@ public class TwilightTransmutationsIntegration {
     private static void initNatura(){
         if(!IntegrationHelper.isLoadedNatura)
             return;
+        Block log = Block.getBlockFromName("natura:overworld_logs");
+        Block log2 = Block.getBlockFromName("natura:overworld_logs2");
+        Block log3 = Block.getBlockFromName("natura:redwood_logs");
+        Block sap = Block.getBlockFromName("natura:overworld_sapling");
+        Block sap2 = Block.getBlockFromName("natura:overworld_sapling2");
+        Block sap3 = Block.getBlockFromName("natura:nether_sapling");
         Defaulter CRYSTAL = new Defaulter(ItemRegister.NETHER_CRYSTAL);
+        Defaulter CINDER = new Defaulter(TFItems.lamp_of_cinders);
+        Defaulter POTAT = new Defaulter(ItemRegister.GOLDEN_POTATO);
+        DefaultConsumer CONSUMER = TwilightTransmutationsData.CONSUMER;
 
         CRYSTAL.register(Blocks.NETHERRACK, Item.getByNameOrId("natura:nether_heat_sand"));
+        CINDER.register(Blocks.ICE, Block.getBlockFromName("natura:clouds"));
+        CINDER.register(Blocks.PACKED_ICE, Block.getBlockFromName("natura:clouds"));
+        POTAT.register(BlockRegister.RED_NY_LOG, log, 2);
+        POTAT.register(BlockRegister.BLUE_NY_LOG, log, 2);  // amaranth
+        POTAT.register(Blocks.LOG, log, 0);                 // maple
+        POTAT.register(Blocks.LOG, 1, log, 1);    // silverbell
+        POTAT.register(Blocks.LOG, 3, log, 3);    // tigerwood
+        POTAT.register(Blocks.LOG2, log2, 1);               // eucalyptus
+        POTAT.register(TFBlocks.twilight_log, 2, log2, 0); // willow
+        POTAT.register(Blocks.LOG, 2, log2, 2);   // hopseed
+
+        POTAT.register(Blocks.LOG2, 1, log3, 2);
+        POTAT.register(TFBlocks.twilight_log, 3, log3);
+        POTAT.register(TFBlocks.tower_wood, log3, 1);
+
+        CONSUMER.update(TFItems.torchberries);
+        CONSUMER.register(Blocks.LOG, 2, log2, 3);
+        CONSUMER.register(Blocks.SAPLING, 2, sap2, 3);
+
+        POTAT.register(Blocks.SAPLING, sap, 0);                // maple
+        POTAT.register(Blocks.SAPLING, 1, sap, 1);   // silverbell
+        POTAT.register(Blocks.SAPLING, 3, sap, 3);   // tigerwood
+        POTAT.register(Blocks.SAPLING, 4, sap2, 1);  // eucalyptus
+        POTAT.register(Blocks.SAPLING, 2, sap2, 0);  // willow
+        POTAT.register(Blocks.TALLGRASS, 1, sap2, 2);// hopseed
+
+        CONSUMER.update(ItemRegister.POTION_MIX);
+        CONSUMER.register(Blocks.SAPLING, 3, sap, 2);  // amaranth
+
+        if(IntegrationHelper.isLoadedTinkers){
+            CONSUMER.update(Item.getByNameOrId("tconstruct:slime_congealed"), 3);
+            CONSUMER.register(sap3, Block.getBlockFromName("natura:nether_sapling2"));
+            CONSUMER.register(BlockRegister.FRESH_DEBRIS, Block.getBlockFromName("natura:nether_logs2"));
+            CONSUMER.register(Block.getBlockFromName("natura:nether_logs"), 0, Block.getBlockFromName("natura:nether_logs2"), 15);
+            CONSUMER.register(Block.getBlockFromName("natura:nether_logs"), 1, Block.getBlockFromName("natura:nether_logs2"), 15);
+            CONSUMER.register(Block.getBlockFromName("natura:nether_logs"), 2, Block.getBlockFromName("natura:nether_logs2"), 15);
+        }
+
+        CONSUMER.update(ItemRegister.SOUL_FRUIT);
+        CONSUMER.register(sap3, 1, sap3);
+        CONSUMER.register(sap3, 2, sap3);
+
+        ContainerTower.CATALYSTS_FOR_TRANSFER.put(ItemRegister.GOLDEN_POTATO, 0);
     }
 
 

@@ -36,6 +36,7 @@ public class CommonProxy {
 
         public void postInit(FMLPostInitializationEvent event) {
                 CompatibilityRegister.postInit();
+                GeneratorRegister.postInit();
                 BlockRegister.DEFAULT_INIT = null;
                 ItemRegister.DEFAULT_INIT = null;
         }

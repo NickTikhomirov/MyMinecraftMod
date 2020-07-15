@@ -3,6 +3,7 @@ package koldunec.vint.events;
 
 import koldunec.vint.blocks.plants.TorchBerry;
 import koldunec.vint.compatibility.Tinker.TinkerIntegration;
+import koldunec.vint.compatibility.natura.NaturaModuleClass;
 import koldunec.vint.utils.SpawnCorrector;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.IntegrationHelper;
@@ -10,6 +11,7 @@ import koldunec.vint.items.tools.Broom;
 import koldunec.vint.vint;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.potions.PotionRegister;
+import koldunec.vint.world.nether.NaturaDecoratorBerries;
 import lumien.randomthings.potion.ModPotions;
 import net.daveyx0.primitivemobs.entity.monster.EntityVoidEye;
 import net.minecraft.block.Block;
@@ -32,6 +34,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.potion.PotionUtils;
 import net.minecraft.util.*;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldProviderHell;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.EnderTeleportEvent;
@@ -78,33 +81,44 @@ public class VintMainEventHandler{
 
     @SubscribeEvent
     public static void onRightClick(PlayerInteractEvent.RightClickBlock e){
-        IBlockState targetstate = e.getWorld().getBlockState(e.getPos());
+        World world = e.getWorld();
+        IBlockState targetstate = world.getBlockState(e.getPos());
         Block target = targetstate.getBlock();
+        ItemStack stack = e.getItemStack();
+        Item tool = stack.getItem();
         if(IntegrationHelper.isLoadedTwilight){
             //lantern transformation
             if(IntegrationHelper.isLoadedQuark)
-                if(!e.getWorld().isRemote && e.getItemStack().getItem().getClass().equals(ItemTFTransformPowder.class)) {
+                if(!world.isRemote && tool.equals(TFItems.transformation_powder)) {
                     Block lantern = Blocks.SEA_LANTERN;
                     Block old = Block.getBlockFromName("quark:elder_sea_lantern");
                     if (target.equals(lantern)){
-                        e.getWorld().setBlockState(e.getPos(), old.getDefaultState(),1|2);
-                        e.getItemStack().shrink(1);
+                        world.setBlockState(e.getPos(), old.getDefaultState(),1|2);
+                        stack.shrink(1);
                     } else if(target.equals(old)){
                         e.getWorld().setBlockState(e.getPos(), lantern.getDefaultState(),1|2);
-                        e.getItemStack().shrink(1);
+                        stack.shrink(1);
                     }
                 }
             //torchberry plant
-            if(e.getItemStack().getItem().equals(TFItems.torchberries))
+            if(tool.equals(TFItems.torchberries))
                 if(TorchBerry.checkSoil(targetstate)>0)
-                    if(e.getFace().equals(EnumFacing.DOWN) && e.getWorld().getBlockState(e.getPos().down()).getBlock().equals(Blocks.AIR)){
-                        if(!e.getWorld().isRemote) {
-                            e.getItemStack().shrink(1);
-                            e.getWorld().setBlockState(e.getPos().down(), BlockRegister.TORCH_CROPS.getDefaultState(), 1 | 2);
+                    if(e.getFace().equals(EnumFacing.DOWN) && world.getBlockState(e.getPos().down()).getBlock().equals(Blocks.AIR)){
+                        if(!world.isRemote) {
+                            stack.shrink(1);
+                            world.setBlockState(e.getPos().down(), BlockRegister.TORCH_CROPS.getDefaultState(), 1 | 2);
                         } else {
-                            e.getWorld().playSound(e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS,  1F,1F,false);
+                            world.playSound(e.getPos().getX(), e.getPos().getY(), e.getPos().getZ(), SoundEvents.BLOCK_GRASS_PLACE, SoundCategory.BLOCKS,  1F,1F,false);
                         }
                     }
+        }
+        if(tool.equals(Items.DYE) && stack.getMetadata()==15){
+            if(IntegrationHelper.isLoadedNatura){
+                if(target.getRegistryName().toString().equals("natura:nether_glowshroom")){
+                    NaturaModuleClass.BuildShroom(target.getMetaFromState(targetstate), world, e.getPos());
+                    stack.shrink(1);
+                }
+            }
         }
     }
 

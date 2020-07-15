@@ -138,7 +138,7 @@ public class TinkerIntegration {
                     new ItemStack(Item.getByNameOrId(IntegrationHelper.idTwilight+":raw_meef"))
             ));
         }
-        ACTIVATING.addRecipeMatch(new RecipeMatch.Item(new ItemStack(ItemRegister.RED_POWDER), 1));
+        ACTIVATING.addRecipeMatch(new RecipeMatch.Item(new ItemStack(Blocks.REDSTONE_TORCH), 1));
         FUNDAMENTAL.addRecipeMatch(new RecipeMatch.Item(new ItemStack(ItemRegister.WOODEN_RUNE),1));
         if(IntegrationHelper.isLoadedPrimitive) {
             COMPLEX.addRecipeMatch(new RecipeMatch.Item(new ItemStack(Sidemod_Items.Camodye()), 1));

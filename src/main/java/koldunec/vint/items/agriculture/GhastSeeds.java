@@ -1,5 +1,6 @@
 package koldunec.vint.items.agriculture;
 
+import koldunec.vint.blocks.plants.GhastPod;
 import koldunec.vint.vint;
 import koldunec.vint.init.BlockRegister;
 import net.minecraft.block.state.IBlockState;
@@ -24,24 +25,16 @@ public class GhastSeeds extends ItemSeeds {
 
     @Override
     public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-        if(worldIn.getBlockState(pos).getBlock().equals(Blocks.OBSIDIAN)){
+        if(GhastPod.isObsidian(worldIn, pos)){
             ItemStack itemstack = player.getHeldItem(hand);
             if (facing == EnumFacing.DOWN || facing == EnumFacing.UP)
-            {
                 return EnumActionResult.FAIL;
-            }
             pos = pos.offset(facing);
-
-            if (worldIn.isAirBlock(pos))
-            {
+            if (worldIn.isAirBlock(pos)) {
                 IBlockState iblockstate1 = BlockRegister.GHAST_POD.getStateForPlacement(worldIn, pos, facing, hitX, hitY, hitZ, 0, player, hand);
                 worldIn.setBlockState(pos, iblockstate1, 10);
-
                 if (!player.capabilities.isCreativeMode)
-                {
                     itemstack.shrink(1);
-                }
-
                 return EnumActionResult.SUCCESS;
             }
         }

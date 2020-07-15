@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"conarm"
+    },
+    {
+      "type":"is_loaded",
+      "id":"primitivemobs"
+    }
+  ],
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "primitivemobs:camouflage_dye"
+    },
+    {
+      "item": "primitivemobs:camouflage_dye"
+    }
+  ],
+  "result":
+    {
+      "item": "conarm:invisible_ink"
+    }
+}

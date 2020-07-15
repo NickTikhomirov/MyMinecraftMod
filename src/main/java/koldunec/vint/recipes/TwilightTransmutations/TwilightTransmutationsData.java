@@ -23,6 +23,10 @@ public class TwilightTransmutationsData {
         CINDER.register(Items.ROTTEN_FLESH, Items.LEATHER);
         CINDER.register(TFBlocks.twilight_sapling, 0, TFBlocks.twilight_sapling, 4);
         CINDER.register(Items.DRAGON_BREATH, TFItems.fiery_tears);
+        CINDER.register(Items.SNOWBALL, Item.getItemFromBlock(TFBlocks.wispy_cloud));
+        CINDER.register(TFBlocks.wispy_cloud, TFBlocks.fluffy_cloud);
+        CINDER.register(Blocks.WOOL, Blocks.WEB);
+        CINDER.register(Items.WHEAT_SEEDS, Item.getItemFromBlock(Blocks.TALLGRASS));
 
         CINDER.time = 250;
         CINDER.register(Blocks.CHEST, BlockRegister.STORE);
@@ -41,6 +45,10 @@ public class TwilightTransmutationsData {
         CARMINITE.register(Blocks.MAGMA, TFBlocks.fire_jet,3);
         CARMINITE.register(Blocks.DIRT, Blocks.DIRT,2);
         CARMINITE.register(Items.ROTTEN_FLESH, TFItems.raw_meef);
+
+        CARMINITE.register(Blocks.LOG, TFBlocks.twilight_log, 3);
+        CARMINITE.register(Blocks.LOG, 1, TFBlocks.twilight_log, 3);
+        CARMINITE.register(Blocks.LOG2, 1, TFBlocks.twilight_log, 3);
 
         CARMINITE.register(Items.COOKED_BEEF, TFItems.experiment_115);
         CARMINITE.register(Items.COOKED_MUTTON, TFItems.experiment_115);
