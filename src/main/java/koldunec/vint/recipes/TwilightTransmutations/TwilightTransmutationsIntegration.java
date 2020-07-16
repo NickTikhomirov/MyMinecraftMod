@@ -5,7 +5,7 @@ import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ROutputAurora;
 import koldunec.vint.tileentities.containers.ContainerTower;
-import koldunec.vint.utils.routers.Sidemod_Items;
+import koldunec.vint.compatibility.Sidemod_Items;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -191,12 +191,5 @@ public class TwilightTransmutationsIntegration {
 
         DIAMOND.isThunder = true;
         DIAMOND.register(crystal, crystal, 3);
-    }
-
-
-
-
-    public static void updateGlass(){
-        TFBlocks.auroralized_glass.setHardness(0.3F);
     }
 }

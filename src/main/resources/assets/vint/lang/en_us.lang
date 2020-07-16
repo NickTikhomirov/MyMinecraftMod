@@ -13,6 +13,8 @@ material.spectral_string.name=Spectral
 material.nether_cactus.name=Nether Cactus
 material.crimson_log.name=Crimson
 material.warped_log.name=Warped
+material.gold_log.name=Goldish
+material.green_log.name=Greenish
 material.debris.name=Modern Debris
 
 material.bamboo.name=Bamboo
@@ -40,6 +42,10 @@ modifier.reaching.name=Distant Reach
 modifier.reaching.desc=§oAwfully long arms for mining awfully long mines.§r\nYour tool's reach distance is increased.
 modifier.ice_queen_has_a_crossbow.name=Snow Queen Has A Crossbow
 modifier.ice_queen_has_a_crossbow.desc=§oFamous fairy tale is going to get a twisted sequel§r\nYour crossbow has a chance to auto-load itself
+modifier.dmg_deal.name=Deal
+modifier.dmg_deal.desc=§oIf you need to deal (damage), just make a deal!§r\nYou deal 3.5 hearts of damage more, but you don't get certain common loot items.
+modifier.merciful.name=Merciful
+modifier.merciful.desc=§oMercy is one of tools of artificial selection§r\nYou deal no damage to children animals, but they are still scared from your hits.
 
 
 
@@ -63,6 +69,7 @@ modifier.cool.desc=§oVery cool§r\nYour tool cools you without overcooling.
 modifier.blood_hydration.name=Hydrated With Blood
 modifier.blood_hydration.desc=§oZombie juice with spider smoothie§r\Hitting enemies sometimes hydrates you.
 
+modifier.dmg_deal.extra=Damage+7, but some drops are disabled
 
 
 item.dust.name=Dust

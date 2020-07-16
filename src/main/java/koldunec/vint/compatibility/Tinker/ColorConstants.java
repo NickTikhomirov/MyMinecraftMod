@@ -19,6 +19,7 @@ public class ColorConstants {
 
     public static int CRIMSON_COLOR = getColor(123F,0F,0F);
     public static int WARPED_COLOR = getColor(22F,97F,91F);
+    public static int GREEN_LOG_COLOR = getColor(50F,144F,3F);
     public static int CACTUS_COLOR = getColor(210,210,0);
     public static int DEBRIS_COLOR = getColor(126,96,89);
 

@@ -1,5 +1,11 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"tconstruct"
+    }
+  ],
   "ingredients": [
     {
       "item": "tconstruct:edible",

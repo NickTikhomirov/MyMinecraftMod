@@ -1,12 +1,11 @@
 package koldunec.vint.init;
 
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.compatibility.OtherTweaker;
 import koldunec.vint.items.agriculture.*;
 import koldunec.vint.items.tools.*;
-import koldunec.vint.items.baseItems.base_fuel;
 import koldunec.vint.items.*;
 import koldunec.vint.items.baseItems.base_item;
-import koldunec.vint.items.crafting_tools.cheasel;
 import koldunec.vint.items.crafting_tools.cleaner;
 import koldunec.vint.items.curinggrass.Vitasaria_Item;
 import koldunec.vint.items.curinggrass.supercuringgrass;
@@ -15,7 +14,6 @@ import koldunec.vint.items.throwables.inertstone;
 import koldunec.vint.items.saviour;
 import koldunec.vint.items.gd_apple;
 import koldunec.vint.objectbuilders.ObjectBuilder;
-import koldunec.vint.utils.routers.Sideclass_Items;
 import koldunec.vint.objectbuilders.SimpleItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -68,7 +66,7 @@ public class ItemRegister{
     public static Item BROOM = put(new Broom());
     public static Item MAGICBALL = put(new cursedRock("magic_ball",24));
     public static Item LASERCORE = put(new LaserCore());
-    public static Item CHLESIS = Sideclass_Items.ChlesisLoader();
+    public static Item CHLESIS = OtherTweaker.ChlesisLoader();
     public static Item xyAMULET = new xyAmulet();
     public static Item SAVIOUR = new saviour();
     public static Item MAGIC_PROTECTOR = put(new base_item("amulet0",16));
@@ -90,7 +88,7 @@ public class ItemRegister{
     public static Item SHELL = new Shell();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
     public static Item CARMINITE_AXE = new CarminiteAxe();
-    public static Item CARMINITE_PICKAXE = Sideclass_Items.CarminitePickLoader();
+    public static Item CARMINITE_PICKAXE = new CarminitePick();
     public static Item FROZEN_CORE = new SimpleItems.SimpleItem("frozen_core", 64);
     public static Item AURORA_CORE = new SimpleItems.SimpleItem("aurora_core", 64);
 

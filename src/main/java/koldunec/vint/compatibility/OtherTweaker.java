@@ -3,8 +3,10 @@ package koldunec.vint.compatibility;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
+import koldunec.vint.items.Chlesis;
 import koldunec.vint.items.tools.Broom;
 import koldunec.vint.items.agriculture.ReedPowderItem;
+import koldunec.vint.objectbuilders.SimpleItems;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.init.Blocks;
@@ -96,5 +98,11 @@ public class OtherTweaker {
 
     public static void chiselInsert(String s, Item i, int meta){
         Carving.chisel.addVariation(s,CarvingUtils.variationFor(new ItemStack(i,1,meta),10));
+    }
+
+    public static Item ChlesisLoader(){
+        if(IntegrationHelper.isLoadedChisel)
+            return new Chlesis();
+        return new SimpleItems.SimpleItem("chlesis", 1);
     }
 }

@@ -9,7 +9,7 @@ import koldunec.vint.compatibility.Tinker.traits.tas_tic.Warm;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
-import koldunec.vint.utils.routers.Sidemod_Items;
+import koldunec.vint.compatibility.Sidemod_Items;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -40,6 +40,8 @@ public class TinkerIntegration {
 
     public static Material CRIMSON_LOG = new Material("crimson_log", ColorConstants.CRIMSON_COLOR);
     public static Material WARPED_LOG = new Material("warped_log", ColorConstants.WARPED_COLOR);
+    public static Material GOLD_LOG = new Material("gold_log", ColorConstants.CACTUS_COLOR);
+    public static Material GREEN_LOG = new Material("green_log", ColorConstants.GREEN_LOG_COLOR);
     public static Material NETHER_CACTUS = new Material("nether_cactus", ColorConstants.CACTUS_COLOR);
     public static Material DEBRIS = new Material("debris", ColorConstants.DEBRIS_COLOR);
 
@@ -52,6 +54,8 @@ public class TinkerIntegration {
     public static AbstractTrait BZZZ = new Bzzz();
     public static AbstractTrait REACHING = new Reaching();
     public static AbstractTrait ICE_QUEEN = new IceQueen();
+    public static AbstractTrait DEAL = new Deal();
+    public static AbstractTrait MERCIFUL = new Merciful();
 
     public static AbstractTrait SHIFTING = new Shifting();
 
@@ -110,14 +114,14 @@ public class TinkerIntegration {
         NETHER_CACTUS.setCraftable(true).setCastable(false);
         NETHER_CACTUS.addTrait(TinkerTraits.hellish).addTrait(TinkerTraits.prickly);
 
-        CRIMSON_LOG.addItem(BlockRegister.RED_NY_LOG, 144);
-        WARPED_LOG.addItem(BlockRegister.BLUE_NY_LOG, 144);
-        CRIMSON_LOG.setRepresentativeItem(BlockRegister.RED_NY_LOG);
-        WARPED_LOG.setRepresentativeItem(BlockRegister.BLUE_NY_LOG);
-        CRIMSON_LOG.setCraftable(true).setCastable(false);
-        WARPED_LOG.setCraftable(true).setCastable(false);
+        ConfigureMaterials.initLog(CRIMSON_LOG, BlockRegister.RED_NY_LOG);
+        ConfigureMaterials.initLog(WARPED_LOG, BlockRegister.BLUE_NY_LOG);
+        ConfigureMaterials.initLog(GOLD_LOG, BlockRegister.GOLD_NY_LOG);
+        ConfigureMaterials.initLog(GREEN_LOG, BlockRegister.GREEN_NY_LOG);
         CRIMSON_LOG.addTrait(TinkerTraits.hellish).addTrait(REDPOWER);
-        WARPED_LOG.addTrait(TinkerTraits.hellish).addTrait(TinkerTraits.alien);
+        WARPED_LOG.addTrait(TinkerTraits.hellish).addTrait(TinkerTraits.alien).addTrait(DEAL);
+        GREEN_LOG.addTrait(TinkerTraits.hellish).addTrait(MERCIFUL);
+
     }
 
 
@@ -161,7 +165,7 @@ public class TinkerIntegration {
         FluidRegistry.registerFluid(IRONWOOD_JIJA);
         FluidRegistry.addBucketForFluid(IRONWOOD_JIJA);
         NBTTagCompound tag = new NBTTagCompound();
-        tag.setString("fluid", IRONWOOD_JIJA.getName());    // low_name of the fluid
+        tag.setString("fluid", IRONWOOD_JIJA.getName());    // name of the fluid
         tag.setString("ore", "Ironwood");                   // ore-suffix: ingotFoo, blockFoo, oreFoo,...
         tag.setBoolean("toolforge", true);
         FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);

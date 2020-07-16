@@ -4,7 +4,7 @@ import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.ChlesisSetter;
 import koldunec.vint.compatibility.OtherTweaker;
 import koldunec.vint.compatibility.Tinker.TinkerIntegration;
-import koldunec.vint.recipes.TwilightTransmutations.TwilightTransmutationsIntegration;
+import koldunec.vint.compatibility.TwilightForest.MainTFModule;
 import koldunec.vint.tileentities.containers.ContainerChlesis;
 import koldunec.vint.utils.GemHelper;
 import koldunec.vint.vint;
@@ -12,7 +12,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
-import slimeknights.tconstruct.TConstruct;
 import twilightforest.block.TFBlocks;
 import twilightforest.item.TFItems;
 
@@ -36,7 +35,7 @@ public class CompatibilityRegister {
         oreRegisterSideItems();
         OtherTweaker.trivia();
         if(IntegrationHelper.isLoadedTwilight)
-            TwilightTransmutationsIntegration.updateGlass();
+            MainTFModule.updateGlass();
         if(IntegrationHelper.isLoadedTinkers)
             TinkerIntegration.init();
 

@@ -1,12 +1,14 @@
 {
   "type": "minecraft:crafting_shapeless",
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"randomthings"
+    }
+  ],
   "ingredients": [
     {
       "item": "randomthings:glowingmushroom"
-    },
-    {
-      "item": "vint:p_trans",
-      "data": 32767
     }
   ],
   "result":

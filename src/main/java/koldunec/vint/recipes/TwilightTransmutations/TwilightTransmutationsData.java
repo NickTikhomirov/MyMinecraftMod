@@ -27,6 +27,10 @@ public class TwilightTransmutationsData {
         CINDER.register(TFBlocks.wispy_cloud, TFBlocks.fluffy_cloud);
         CINDER.register(Blocks.WOOL, Blocks.WEB);
         CINDER.register(Items.WHEAT_SEEDS, Item.getItemFromBlock(Blocks.TALLGRASS));
+        CINDER.register(Blocks.DOUBLE_PLANT, 4, TFBlocks.thorn_rose);
+        CINDER.register(Blocks.STONE, TFBlocks.trollsteinn);
+        CINDER.register(Blocks.HARDENED_CLAY, TFBlocks.terrorcotta_circle);
+        CINDER.register(Blocks.STAINED_HARDENED_CLAY, 2, TFBlocks.terrorcotta_circle);
 
         CINDER.time = 250;
         CINDER.register(Blocks.CHEST, BlockRegister.STORE);
@@ -45,6 +49,7 @@ public class TwilightTransmutationsData {
         CARMINITE.register(Blocks.MAGMA, TFBlocks.fire_jet,3);
         CARMINITE.register(Blocks.DIRT, Blocks.DIRT,2);
         CARMINITE.register(Items.ROTTEN_FLESH, TFItems.raw_meef);
+        CARMINITE.register(Blocks.BRICK_BLOCK, TFBlocks.underbrick);
 
         CARMINITE.register(Blocks.LOG, TFBlocks.twilight_log, 3);
         CARMINITE.register(Blocks.LOG, 1, TFBlocks.twilight_log, 3);

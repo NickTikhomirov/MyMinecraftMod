@@ -2,6 +2,7 @@ package koldunec.vint.compatibility.Tinker;
 
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.Tinker.TinkerBook.ModifierAppender;
+import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.CompatibilityRegister;
 import koldunec.vint.init.ItemRegister;
 import net.minecraft.block.Block;
@@ -25,6 +26,21 @@ public class ConfigureMaterials {
     static String SHAFT = MaterialTypes.SHAFT;
     static String BOW = MaterialTypes.BOW;
 
+
+    public static void configureLog(Material m){
+        TinkerRegistry.addMaterialStats(m,
+                new HeadMaterialStats(256, 6F, 4F, 1),
+                new ExtraMaterialStats(65),
+                new HandleMaterialStats(0.99F,20)
+        );
+    }
+
+    public static void initLog(Material m, Block b){
+        m.addItem(b, 144);
+        m.setRepresentativeItem(b);
+        m.setCraftable(true).setCastable(false);
+    }
+
     public static void addStatsVint(){
         TinkerRegistry.addMaterialStats(NETHER_CACTUS,
                 new HeadMaterialStats(256, 6F, 4F, 1),
@@ -32,16 +48,10 @@ public class ConfigureMaterials {
                 new HandleMaterialStats(0.99F,20)
         );
 
-        TinkerRegistry.addMaterialStats(CRIMSON_LOG,
-                new HeadMaterialStats(256, 6F, 4F, 1),
-                new ExtraMaterialStats(65),
-                new HandleMaterialStats(0.99F,20)
-        );
-        TinkerRegistry.addMaterialStats(WARPED_LOG,
-                new HeadMaterialStats(256, 6F, 4F, 1),
-                new ExtraMaterialStats(65),
-                new HandleMaterialStats(0.99F,20)
-        );
+        configureLog(CRIMSON_LOG);
+        configureLog(WARPED_LOG);
+        configureLog(GOLD_LOG);
+        configureLog(GREEN_LOG);
 
         TinkerRegistry.addMaterialStats(DEBRIS,
                 new ExtraMaterialStats(128));
@@ -50,6 +60,8 @@ public class ConfigureMaterials {
         TinkerRegistry.integrate(NETHER_CACTUS).preInit();
         TinkerRegistry.integrate(CRIMSON_LOG).preInit();
         TinkerRegistry.integrate(WARPED_LOG).preInit();
+        TinkerRegistry.integrate(GOLD_LOG).preInit();
+        TinkerRegistry.integrate(GREEN_LOG).preInit();
         TinkerRegistry.integrate(DEBRIS).preInit();
     }
 

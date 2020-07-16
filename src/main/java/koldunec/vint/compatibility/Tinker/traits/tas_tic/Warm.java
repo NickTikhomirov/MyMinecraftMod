@@ -2,7 +2,7 @@ package koldunec.vint.compatibility.Tinker.traits.tas_tic;
 
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.Tinker.TinkerIntegration;
-import koldunec.vint.utils.NailHelper;
+import koldunec.vint.compatibility.OtherIntegration.NailHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;

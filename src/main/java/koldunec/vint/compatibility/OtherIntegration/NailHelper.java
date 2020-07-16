@@ -1,4 +1,4 @@
-package koldunec.vint.utils;
+package koldunec.vint.compatibility.OtherIntegration;
 
 import koldunec.vint.vint;
 import net.minecraft.entity.player.EntityPlayer;

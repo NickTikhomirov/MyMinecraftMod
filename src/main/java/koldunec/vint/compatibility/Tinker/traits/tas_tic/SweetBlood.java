@@ -2,13 +2,12 @@ package koldunec.vint.compatibility.Tinker.traits.tas_tic;
 
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.Tinker.ColorConstants;
-import koldunec.vint.utils.NailHelper;
+import koldunec.vint.compatibility.OtherIntegration.NailHelper;
 import koldunec.vint.vint;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.monster.AbstractSkeleton;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.text.TextFormatting;
 import slimeknights.tconstruct.library.modifiers.ModifierTrait;
 import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tools.ToolCore;

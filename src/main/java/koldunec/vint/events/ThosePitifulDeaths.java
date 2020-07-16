@@ -1,6 +1,7 @@
 package koldunec.vint.events;
 
 import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
+import koldunec.vint.compatibility.Tinker.traits.Deal;
 import koldunec.vint.utils.VanillaHelper;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.items.Moss;
@@ -12,6 +13,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,6 +24,7 @@ import thaumcraft.api.items.ItemsTC;
 import thaumcraft.common.entities.monster.EntityFireBat;
 import twilightforest.entity.boss.EntityTFMinoshroom;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -80,6 +83,11 @@ public class ThosePitifulDeaths {
     public void deathDrops(LivingDropsEvent e) {
         if(e.getEntity().getEntityWorld().isRemote) return;
         List<EntityItem> l = e.getDrops();
+
+        if(IntegrationHelper.isLoadedTinkers){
+            if(e.getEntityLiving().getEntityData().hasKey("vint_deal_sacrificed"))
+                l.removeIf((EntityItem ei) -> Deal.forbid(ei) == null);
+        }
 
         //moss
         if(e.getEntityLiving().isEntityUndead())

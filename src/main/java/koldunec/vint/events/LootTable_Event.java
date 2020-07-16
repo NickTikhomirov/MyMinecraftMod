@@ -1,5 +1,6 @@
 package koldunec.vint.events;
 
+import koldunec.vint.compatibility.TwilightForest.MainTFModule;
 import koldunec.vint.utils.VanillaHelper;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
@@ -41,21 +42,8 @@ public class LootTable_Event {
         }
 
         if(IntegrationHelper.isLoadedTwilight) {
-            if (name.equals(new ResourceLocation("twilightforest","structures/hill_1/common"))) {
-                LootPool pool2 = e.getTable().getPool("main");
-                pool2.addEntry(LootObjectsBuilder.LootEntryBuilder(ItemRegister.TRANSFORMATION_DUST, 1, 1, 5, "loottable:dusttras"));
-                return;
-            }
-            if(name.equals(new ResourceLocation("twilightforest", "entities/naga"))){
-                e.getTable().addPool(
-                        LootObjectsBuilder.LootPoolBuilder(
-                                LootObjectsBuilder.LootEntryBuilder("twilightforest:steeleaf_ingot",1, 4,6, "leaves"),
-                                1,
-                                "leaves"
-                        )
-                );
-                return;
-            }
+            if(name.getResourceDomain().equals("twilightforest"))
+                MainTFModule.processTable(e);
         }
         if(IntegrationHelper.isLoadedTea){
             if(LootTableList.CHESTS_IGLOO_CHEST.equals(e.getName())) {

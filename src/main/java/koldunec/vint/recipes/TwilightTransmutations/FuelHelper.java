@@ -2,8 +2,7 @@ package koldunec.vint.recipes.TwilightTransmutations;
 
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
-import koldunec.vint.utils.routers.Sidemod_Items;
-import net.minecraft.item.Item;
+import koldunec.vint.compatibility.Sidemod_Items;
 import net.minecraft.item.ItemStack;
 
 import java.util.ArrayList;

@@ -1,0 +1,30 @@
+{
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"twilightforest"
+    },
+    {
+      "type":"is_loaded",
+      "id":"tconstruct"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " k ",
+    "kSk",
+    " k "
+  ],
+  "key": {
+    "S": {
+      "item": "tconstruct:slime",
+      "data": 32767
+    },
+    "k": {
+      "item": "twilightforest:torchberries"
+    }
+  },
+  "result": {
+    "item": "vint:shroomlight"
+  }
+}

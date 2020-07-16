@@ -1,4 +1,4 @@
-package koldunec.vint.utils.routers;
+package koldunec.vint.compatibility;
 
 import koldunec.vint.IntegrationHelper;
 import net.minecraft.init.Items;
