@@ -2,6 +2,7 @@ package koldunec.vint.events;
 
 import com.progwml6.natura.entities.entity.monster.EntityNitroCreeper;
 import koldunec.vint.compatibility.Tinker.traits.Deal;
+import koldunec.vint.compatibility.TwilightForest.MainTFModule;
 import koldunec.vint.utils.VanillaHelper;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.items.Moss;
@@ -87,6 +88,8 @@ public class ThosePitifulDeaths {
         if(IntegrationHelper.isLoadedTinkers){
             if(e.getEntityLiving().getEntityData().hasKey("vint_deal_sacrificed"))
                 l.removeIf((EntityItem ei) -> Deal.forbid(ei) == null);
+            if(IntegrationHelper.isLoadedTwilight && !e.getEntityLiving().isNonBoss())
+                MainTFModule.checkQueenAndPass(e);
         }
 
         //moss

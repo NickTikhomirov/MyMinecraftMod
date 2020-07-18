@@ -22,7 +22,7 @@ public class DodoRage extends ModifierTrait {
 
     @Override
     public float damage(ItemStack tool, EntityLivingBase player, EntityLivingBase target, float damage, float newDamage, boolean isCritical) {
-        if(vint.random.nextInt(PROBABILITY_BOUND)==0)
+        if(target.isNonBoss() && vint.random.nextInt(PROBABILITY_BOUND)==0)
             return target.getMaxHealth()*5;
         return super.damage(tool, player, target, damage, newDamage, isCritical);
     }

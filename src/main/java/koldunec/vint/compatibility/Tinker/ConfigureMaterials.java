@@ -53,8 +53,6 @@ public class ConfigureMaterials {
         configureLog(GOLD_LOG);
         configureLog(GREEN_LOG);
 
-        TinkerRegistry.addMaterialStats(DEBRIS,
-                new ExtraMaterialStats(128));
 
 
         TinkerRegistry.integrate(NETHER_CACTUS).preInit();
@@ -62,7 +60,6 @@ public class ConfigureMaterials {
         TinkerRegistry.integrate(WARPED_LOG).preInit();
         TinkerRegistry.integrate(GOLD_LOG).preInit();
         TinkerRegistry.integrate(GREEN_LOG).preInit();
-        TinkerRegistry.integrate(DEBRIS).preInit();
     }
 
 
@@ -85,7 +82,7 @@ public class ConfigureMaterials {
         TinkerRegistry.addMaterialStats(IRONWOOD,
                 new HeadMaterialStats(204, 6F, 4F, 2),
                 new ExtraMaterialStats(50),
-                new HandleMaterialStats(0.85F, 60),
+                new HandleMaterialStats(1, 60),
                 new BowMaterialStats(0.5F, 1.5F,7)
         );
         TinkerRegistry.addMaterialStats(FROZEN,
@@ -93,10 +90,14 @@ public class ConfigureMaterials {
                 new BowMaterialStats(1.8F, 1F, 4),
                 new ArrowShaftMaterialStats(1, 10));
 
+        TinkerRegistry.addMaterialStats(AURORA,
+                new HeadMaterialStats(511,11F,2F, 4));
+
 
         TinkerRegistry.integrate(CARMINITE).preInit();
         TinkerRegistry.integrate(MAZESTONE).preInit();
         TinkerRegistry.integrate(FROZEN).preInit();
+        TinkerRegistry.integrate(AURORA).preInit();
         TinkerRegistry.integrate(IRONWOOD,IRONWOOD_JIJA,"Ironwood").preInit();
     }
 
@@ -204,7 +205,9 @@ public class ConfigureMaterials {
         FROZEN.addTrait(TinkerTraits.freezing, SHAFT);
         FROZEN.addTrait(ICE_QUEEN, BOW);
 
-        IRONWOOD.addTrait(SHIFTING, HEAD);
+        AURORA.setCastable(false).setCraftable(false);
+        AURORA.setRepresentativeItem(ItemRegister.AURORA_CORE);
+        AURORA.addTrait(SHIFTING).addTrait(WONDERBREAKER);
 
         if(IntegrationHelper.isLoadedTough)
             FROZEN.addTrait(COOL, HEAD).addTrait(COOL, BOW).addTrait(COOL, SHAFT);

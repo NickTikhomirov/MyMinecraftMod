@@ -49,4 +49,8 @@ public class ItemWithMeta {
     public ItemWithMeta copy(){
         return new ItemWithMeta(item, meta);
     }
+
+    public static ItemWithMeta by(ItemStack i){
+        return new ItemWithMeta(i);
+    }
 }

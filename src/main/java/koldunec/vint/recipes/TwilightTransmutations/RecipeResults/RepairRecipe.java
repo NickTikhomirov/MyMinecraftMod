@@ -22,7 +22,7 @@ public class RepairRecipe implements ITwilightResult {
     public ItemWithMeta material;
     public int step;
 
-     public RepairRecipe(Item tool, ItemStack _mat, int amount){
+    public RepairRecipe(Item tool, ItemStack _mat, int amount){
         repairable = tool;
         material = new ItemWithMeta(_mat);
         step = amount;

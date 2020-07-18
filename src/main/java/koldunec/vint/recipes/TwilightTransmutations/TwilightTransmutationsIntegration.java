@@ -4,6 +4,7 @@ import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ROutputAurora;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.WonderbreakingRecipe;
 import koldunec.vint.tileentities.containers.ContainerTower;
 import koldunec.vint.compatibility.Sidemod_Items;
 import net.minecraft.block.Block;
@@ -169,6 +170,9 @@ public class TwilightTransmutationsIntegration {
         CONSUMER.register(dirt, 1, grass, 2);
         CONSUMER.register(dirt, 2, grass, 8);
         CONSUMER.register(dirt, 3, grass, 14);
+
+        TransmutationsRegister.RECIPES_2.add(new WonderbreakingRecipe());
+        WonderbreakingRecipe.init();
     }
 
     public static void initEbob(){

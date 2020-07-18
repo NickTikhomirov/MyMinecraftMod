@@ -1,11 +1,16 @@
 package koldunec.vint.compatibility.TwilightForest;
 
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.compatibility.Tinker.TinkerIntegration;
 import koldunec.vint.init.ItemRegister;
+import koldunec.vint.utils.TechHelper;
+import koldunec.vint.utils.VanillaHelper;
 import net.minecraft.item.Item;
 import net.minecraft.world.storage.loot.LootTable;
 import net.minecraftforge.event.LootTableLoadEvent;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import twilightforest.block.TFBlocks;
+import twilightforest.entity.boss.EntityTFSnowQueen;
 import twilightforest.item.TFItems;
 
 import static koldunec.vint.objectbuilders.LootObjectsBuilder.LootEntryBuilder;
@@ -56,5 +61,10 @@ public class MainTFModule {
 
     public static void updateGlass(){
         TFBlocks.auroralized_glass.setHardness(0.3F);
+    }
+
+    public static void checkQueenAndPass(LivingDropsEvent e){
+        if(e.getEntityLiving() instanceof EntityTFSnowQueen)
+            TinkerIntegration.ProcessQueen(e);
     }
 }

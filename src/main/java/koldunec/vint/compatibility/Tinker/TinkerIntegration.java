@@ -10,20 +10,27 @@ import koldunec.vint.init.BlockRegister;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.compatibility.Sidemod_Items;
+import koldunec.vint.objectbuilders.LootObjectsBuilder;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import slimeknights.mantle.util.RecipeMatch;
+import slimeknights.tconstruct.library.events.TinkerEvent;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.modifiers.ModifierTrait;
+import slimeknights.tconstruct.library.tools.Pattern;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.tools.*;
+
+import java.util.List;
 
 
 public class TinkerIntegration {
@@ -31,6 +38,7 @@ public class TinkerIntegration {
     public static Material IRONWOOD = new Material("ironwood", ColorConstants.IRONWOOD_COLOR);
     public static Material MAZESTONE = new Material("mazestone", ColorConstants.MAZESTONE_COLOR);
     public static Material FROZEN = new Material("frozen", ColorConstants.FROZEN_COLOR);
+    public static Material AURORA = new Material("aurora", ColorConstants.FROZEN_COLOR, true);
 
     public static Material SPECTRE = new Material("spectral_metal", ColorConstants.SPECTRE_COLOR);
     public static Material SPECTRE_STRING = new Material("spectral_string", ColorConstants.SPECTRE_COLOR);
@@ -43,7 +51,6 @@ public class TinkerIntegration {
     public static Material GOLD_LOG = new Material("gold_log", ColorConstants.CACTUS_COLOR);
     public static Material GREEN_LOG = new Material("green_log", ColorConstants.GREEN_LOG_COLOR);
     public static Material NETHER_CACTUS = new Material("nether_cactus", ColorConstants.CACTUS_COLOR);
-    public static Material DEBRIS = new Material("debris", ColorConstants.DEBRIS_COLOR);
 
     public static AbstractTrait LEFT_HAND_RULE = new LeftHandRule();
     public static AbstractTrait BORING = new Boring();
@@ -58,6 +65,7 @@ public class TinkerIntegration {
     public static AbstractTrait MERCIFUL = new Merciful();
 
     public static AbstractTrait SHIFTING = new Shifting();
+    public static AbstractTrait WONDERBREAKER = new Wonderbreaker();
 
     public static AbstractTrait CAPITATOR = new Capitator();
     public static AbstractTrait FUNDAMENTAL = new Fundamental();
@@ -77,7 +85,6 @@ public class TinkerIntegration {
         preInitJija();
         RedPower.initPerks();
 
-        MaterialDocumenter.APPENDANTS.add(DEBRIS);
         if(IntegrationHelper.isLoadedFuture)
             MaterialDocumenter.APPENDANTS.add(BAMBOO);
 
@@ -104,11 +111,6 @@ public class TinkerIntegration {
         ConfigureMaterials.TweakTiCWithTaN();
         ConfigureMaterials.ConfigureOther();
 
-        DEBRIS.addItem(BlockRegister.FRESH_DEBRIS,144);
-        DEBRIS.setRepresentativeItem(BlockRegister.FRESH_DEBRIS);
-        DEBRIS.setCraftable(true).setCastable(false);
-        DEBRIS.addTrait(BLACKENING).addTrait(TinkerTraits.aridiculous);
-
         NETHER_CACTUS.addItem(BlockRegister.NETHER_CACTUS, 144);
         NETHER_CACTUS.setRepresentativeItem(BlockRegister.NETHER_CACTUS);
         NETHER_CACTUS.setCraftable(true).setCastable(false);
@@ -118,9 +120,10 @@ public class TinkerIntegration {
         ConfigureMaterials.initLog(WARPED_LOG, BlockRegister.BLUE_NY_LOG);
         ConfigureMaterials.initLog(GOLD_LOG, BlockRegister.GOLD_NY_LOG);
         ConfigureMaterials.initLog(GREEN_LOG, BlockRegister.GREEN_NY_LOG);
-        CRIMSON_LOG.addTrait(TinkerTraits.hellish).addTrait(REDPOWER);
-        WARPED_LOG.addTrait(TinkerTraits.hellish).addTrait(TinkerTraits.alien).addTrait(DEAL);
-        GREEN_LOG.addTrait(TinkerTraits.hellish).addTrait(MERCIFUL);
+        CRIMSON_LOG.addTrait(BLACKENING).addTrait(REDPOWER);
+        WARPED_LOG.addTrait(BLACKENING).addTrait(TinkerTraits.alien).addTrait(DEAL);
+        GOLD_LOG.addTrait(BLACKENING);
+        GREEN_LOG.addTrait(BLACKENING).addTrait(MERCIFUL);
 
     }
 
@@ -171,5 +174,9 @@ public class TinkerIntegration {
         FMLInterModComms.sendMessage("tconstruct", "integrateSmeltery", tag);
     }
 
+    public static void ProcessQueen(LivingDropsEvent e){
+        LootObjectsBuilder.BuildItemWithDeath(e, TinkerTools.pickHead.getItemstackWithMaterial(AURORA));
+        LootObjectsBuilder.BuildItemWithDeath(e, TinkerTools.excavatorHead.getItemstackWithMaterial(AURORA));
+    }
 
 }

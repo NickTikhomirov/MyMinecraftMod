@@ -6,6 +6,7 @@ material.carminite.name=Carminite
 material.mazestone.name=Mazestone
 material.ironwood.name=Ironwood
 material.frozen.name=Frozen
+material.aurora.name=Shifting
 
 material.spectral_metal.name=Spectral
 material.spectral_string.name=Spectral
@@ -22,8 +23,6 @@ material.honey_crystal.name=Honey
 
 fluid.ironwood=Molten Ironwood
 
-modifier.shifting.name=Shifting
-modifier.shifting.desc=§oNow reality (especially TinkersConstruct tools) can be whatever you want§r\nYour tool shifts, adapting to block you mine.
 modifier.lefthandrule.name=Left Hand Rule
 modifier.lefthandrule.desc=§oThe Main Rule of Mazes: You should avoid mazes§r\nWhile the tool in your left hand, it uses durability of right hand's tool
 modifier.boring.name=Boring
@@ -35,7 +34,7 @@ modifier.redpower.desc=§oNobody asked for this reference§r\nYour tool deals gr
 modifier.slimecutter.name=Bane of Slimes
 modifier.slimecutter.desc=§oIn remembrance of the Great War of Pandas and Slimes. (pandas won yay)§r\nDeals more damage to slimes.
 modifier.blackening.name=Blackening
-modifier.blackening.desc=§oColor Matters§r\nMined stone turns into blackstone.
+modifier.blackening.desc=§oColor doesn't matter§r\nMined stone is transformed into blackstone.
 modifier.bzzz.name=Hivemind
 modifier.bzzz.desc=§oPart of the team, part of the hive§r\nYou can heal other players with your tool's melee hit (FORGET ABOUT PVP).
 modifier.reaching.name=Distant Reach
@@ -46,6 +45,10 @@ modifier.dmg_deal.name=Deal
 modifier.dmg_deal.desc=§oIf you need to deal (damage), just make a deal!§r\nYou deal 3.5 hearts of damage more, but you don't get certain common loot items.
 modifier.merciful.name=Merciful
 modifier.merciful.desc=§oMercy is one of tools of artificial selection§r\nYou deal no damage to children animals, but they are still scared from your hits.
+modifier.shifting.name=Shifting
+modifier.shifting.desc=§oNow reality (especially TinkersConstruct tools) can be whatever you want§r\nYour tool shifts, adapting to block you mine.
+modifier.wonderbreaker.name=Wonderbreaker
+modifier.wonderbreaker.desc=§oThat ancient magic-eating demon... but this time it's you§r\nThe only way to repair this tool is to feed it with durability of other Twilight Forest artifacts in Twilight Reactor (It will not destroy them).
 
 
 
@@ -352,5 +355,5 @@ vint.jei.time.partial=s/transfer
 vint.jei.needstorm=Requires thunderstorm
 vint.jei.repair_msg=Repairs for %s durability
 
-vint.jei.docs.scroll=These scrolls are randomly dropped from any boss. Sneak-use a scroll on an empty stORE block, so the block will be filled with loot of one chest of respective dungeon.
+vint.jei.docs.scroll=These scrolls are randomly dropped from bosses. Sneak-use a scroll on an empty stORE block, and the block will be filled with loot of one chest of respective dungeon.
 vint.jei.docs.borer=This plant grows downwards, making its way through the wood. \nPlace it on the top of wooden column (even workbench column is suitable) and the plant will slowly consume it

@@ -1,5 +1,7 @@
 package koldunec.vint.objectbuilders;
 
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.storage.loot.LootEntry;
@@ -10,6 +12,7 @@ import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraft.world.storage.loot.functions.SetCount;
 import net.minecraft.world.storage.loot.functions.SetMetadata;
+import net.minecraftforge.event.entity.living.LivingDropsEvent;
 
 public class LootObjectsBuilder {
     public static LootPool LootPoolBuilder(LootEntry entry, RandomValueRange range, String name){
@@ -66,5 +69,17 @@ public class LootObjectsBuilder {
 
     public static SetCount setCount(int i, int j){
         return new SetCount(new LootCondition[0],new RandomValueRange(i,j));
+    }
+
+
+    // entityitems
+    public static void BuildItemWithDeath(LivingDropsEvent e, ItemStack i){
+        e.getDrops().add(new EntityItem(
+                e.getEntity().world,
+                e.getEntity().posX,
+                e.getEntity().posY,
+                e.getEntity().posZ,
+                i)
+        );
     }
 }
