@@ -1,0 +1,102 @@
+{
+  "pools": [
+    {
+      "name": "trash",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "twilightforest:structures/useless"
+        }
+      ]
+    },
+
+    {
+      "name": "common_2",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "twilightforest:structures/hill_2/common"
+        }
+      ]
+    },
+
+    {
+      "name": "common_3",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "twilightforest:structures/hill_3/common"
+        }
+      ]
+    },
+
+    {
+      "name": "uncommon_2",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "twilightforest:structures/hill_2/uncommon"
+        }
+      ]
+    },
+
+    {
+      "name": "uncommon_3",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "twilightforest:structures/hill_3/uncommon"
+        }
+      ]
+    },
+
+    {
+      "name": "rare_2",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "twilightforest:structures/hill_2/rare"
+        }
+      ]
+    },
+
+    {
+      "name": "rare_3",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "twilightforest:structures/hill_3/rare"
+        }
+      ]
+    },
+
+    {
+      "name": "urare_2",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "twilightforest:structures/hill_2/ultrarare"
+        }
+      ]
+    },
+
+    {
+      "name": "urare_3",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "loot_table",
+          "name": "twilightforest:structures/hill_3/ultrarare"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 package koldunec.vint.utils;
 
+import koldunec.vint.IntegrationHelper;
+import koldunec.vint.compatibility.Sidemod_Items;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -10,6 +12,9 @@ import net.minecraft.world.chunk.Chunk;
 public class NeighbourChecker {
 
     public static boolean checkIce(IBlockState i) {
+        if(IntegrationHelper.isLoadedFuture)
+            if(i.getBlock().equals(Sidemod_Items.BlueIceBlock()))
+                return true;
         return i.getBlock().equals(Blocks.PACKED_ICE);
     }
     public static boolean checkLiquid(IBlockState i) {

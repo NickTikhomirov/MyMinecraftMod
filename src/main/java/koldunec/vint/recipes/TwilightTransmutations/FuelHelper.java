@@ -49,9 +49,9 @@ public class FuelHelper {
         @Override
         public int getFuelValue(ItemStack i) {
             if(i.getItem().equals(ItemRegister.TRANSFORMATION_DUST))
-                return 50;
+                return 30;
             if(i.getItem().equals(Sidemod_Items.TransformPowder()))
-                return 500;
+                return 300;
             return 100;
         }
     }

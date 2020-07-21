@@ -1,6 +1,7 @@
 package koldunec.vint.events;
 
 import koldunec.vint.utils.EnumScrollTypes;
+import koldunec.vint.utils.EnumTwilightScrollTypes;
 import koldunec.vint.vint;
 import koldunec.vint.items.another_dye_please_dont_blame_me;
 import koldunec.vint.items.gunpowder_reed.block_gunreed;
@@ -27,18 +28,18 @@ public class TechEvents {
 
     @SubscribeEvent
     public static void ModelsFor(ModelRegistryEvent event){
-        final Item Dye = ItemRegister.ANOTHER_DYE;
-        for (another_dye_please_dont_blame_me.dyeTypes type : another_dye_please_dont_blame_me.dyeTypes.values()){
+        Item Dye = ItemRegister.ANOTHER_DYE;
+        Item Scroll = ItemRegister.SCROLL;
+        Item Reed = ItemRegister.POWDER_REED;
+        Item Twi_Scroll = ItemRegister.SCROLL_TWILIGHT;
+        for (another_dye_please_dont_blame_me.dyeTypes type : another_dye_please_dont_blame_me.dyeTypes.values())
             ModelLoader.setCustomModelResourceLocation(Dye, type.ordinal(), new ModelResourceLocation(Dye.getRegistryName() + "_" + type.toString().toLowerCase(), "inventory"));
-        }
-        final Item Scroll = ItemRegister.SCROLL;
-        for(EnumScrollTypes type : EnumScrollTypes.values()){
+        for(EnumScrollTypes type : EnumScrollTypes.values())
             ModelLoader.setCustomModelResourceLocation(Scroll, type.ordinal(), new ModelResourceLocation(Scroll.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
-        }
-        final Item Reed = ItemRegister.POWDER_REED;
-        for(block_gunreed.reedTypes type: block_gunreed.reedTypes.values()){
+        for(EnumTwilightScrollTypes type : EnumTwilightScrollTypes.values())
+            ModelLoader.setCustomModelResourceLocation(Twi_Scroll, type.ordinal(), new ModelResourceLocation(Twi_Scroll.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
+        for(block_gunreed.reedTypes type: block_gunreed.reedTypes.values())
             ModelLoader.setCustomModelResourceLocation(Reed, type.ordinal(),new ModelResourceLocation(Reed.getRegistryName()+"_"+type.toString().toLowerCase(),"inventory"));
-        }
     }
 
     @SubscribeEvent

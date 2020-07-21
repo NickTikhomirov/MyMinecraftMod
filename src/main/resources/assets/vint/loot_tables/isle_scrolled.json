@@ -1,0 +1,24 @@
+{
+    "pools": [
+        {
+            "name": "table_chest",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "vint:twi_chest"
+                }
+            ]
+        },
+        {
+            "name": "main",
+            "rolls": 1,
+            "entries": [
+                {
+                    "type": "loot_table",
+                    "name": "vint:twi_loot"
+                }
+            ]
+        }
+    ]
+}

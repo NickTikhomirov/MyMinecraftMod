@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "vint:blackstone_bricks"
+    }
+  ],
+  "result": {
+    "item": "vint:blackstone_polished"
+  }
+}

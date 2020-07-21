@@ -70,10 +70,6 @@ public class LootTable_Event {
             ));
             return;
         }
-        if(LootTableList.GAMEPLAY_FISHING_JUNK.equals(e.getName())){
-            e.getTable().getPool("main").addEntry(new LootEntryItem(ItemRegister.SUPERCURING_GRASS,5,0, new LootFunction[]{LootObjectsBuilder.setCount(1,3)}, new LootCondition[0],"loottable:supergrass"));
-            return;
-        }
         if(LootTableList.GAMEPLAY_FISHING_TREASURE.equals(e.getName())){
             e.getTable().getPool("main").addEntry(
                     LootObjectsBuilder.LootEntryBuilder(

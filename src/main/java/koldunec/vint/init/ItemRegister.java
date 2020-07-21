@@ -84,6 +84,7 @@ public class ItemRegister{
     public static Item HONEY_BERRY = put(new SimpleItems.SimpleFood("honey_berry", 4,4F));
 
     //twilight items
+    public static Item SCROLL_TWILIGHT = new TwilightScroll();
     public static Item BORER_REED = new ReedBorerItem();
     public static Item SHELL = new Shell();
     public static Item TRANSFORMATION_DUST = new base_item("dusttrans", 64);
@@ -110,6 +111,7 @@ public class ItemRegister{
             setRegister(CHLESIS);
 
         if(IntegrationHelper.isLoadedTwilight){
+            setRegister(SCROLL_TWILIGHT);
             setRegister(TRANSFORMATION_DUST);
             setRegister(CARMINITE_AXE);
             setRegister(CARMINITE_PICKAXE);

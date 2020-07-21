@@ -7,10 +7,9 @@ import net.minecraft.world.storage.loot.*;
 public class VintAppender {
 
     public static void AppendLlama(LootTable table){
-        boolean randomthings = IntegrationHelper.isLoaded("randomthings");
         boolean growcraft = IntegrationHelper.isLoaded("growthcraft_hops");
 
-        if(randomthings)
+        if(IntegrationHelper.isLoadedRandomThings)
             SideAppender.addDefault(
                     table.getPool("seeds"),
                     "randomthings:lotusseeds",
@@ -39,6 +38,16 @@ public class VintAppender {
                     "loottable:tea"
             );
             table.addPool(LootObjectsBuilder.LootPoolBuilder(entry, 1, "tea"));
+        }
+
+        if(IntegrationHelper.isLoadedFuture){
+            SideAppender.addDefault(
+                    table.getPool("seeds"),
+                    IntegrationHelper.idFuture+":bamboo",
+                    5,
+                    new RandomValueRange(7,10),
+                    "loottable:bamboo"
+            );
         }
     }
 }

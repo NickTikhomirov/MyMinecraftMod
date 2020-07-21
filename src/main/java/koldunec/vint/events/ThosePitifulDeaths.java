@@ -14,7 +14,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.*;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,7 +24,6 @@ import thaumcraft.api.items.ItemsTC;
 import thaumcraft.common.entities.monster.EntityFireBat;
 import twilightforest.entity.boss.EntityTFMinoshroom;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -125,7 +123,7 @@ public class ThosePitifulDeaths {
 
         // scrolls
         if(!e.getEntity().isNonBoss()){
-            int bound = 2 + vint.random.nextInt(1);
+            int bound = 1;
             for(int i=0; i<bound; ++i)
                 e.getEntity().entityDropItem(
                         new ItemStack(

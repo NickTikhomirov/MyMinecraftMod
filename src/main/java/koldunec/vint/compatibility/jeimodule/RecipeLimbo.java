@@ -183,6 +183,8 @@ public class RecipeLimbo {
         }
 
         protected ItemStack getHalfDamaged(Item i){
+            if(!i.isDamageable())
+                return new ItemStack(i);
             ItemStack temp = new ItemStack(i, 1);
             temp.setItemDamage(i.getMaxDamage(temp)/2);
             return temp;

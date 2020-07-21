@@ -1,6 +1,8 @@
 package koldunec.vint.compatibility;
 
 import koldunec.vint.IntegrationHelper;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 
@@ -39,5 +41,17 @@ public class Sidemod_Items {
         if(IntegrationHelper.isLoaded("conduit"))
             return Item.getByNameOrId("conduit:nautilus_shell");
         return Items.AIR;
+    }
+
+    public static Item BlueIce(){
+        if(IntegrationHelper.isLoadedFuture)
+            return Item.getByNameOrId(IntegrationHelper.idFuture+"blue_ice");
+        return Items.AIR;
+    }
+
+    public static Block BlueIceBlock(){
+        if(IntegrationHelper.isLoadedFuture)
+            return Block.getBlockFromName(IntegrationHelper.idFuture+"blue_ice");
+        return Blocks.AIR;
     }
 }

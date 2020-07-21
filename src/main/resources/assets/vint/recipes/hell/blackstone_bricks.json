@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "__",
+    "__"
+  ],
+  "key": {
+    "_": {
+      "item": "vint:blackstone"
+    }
+  },
+  "result": {
+    "item": "vint:blackstone_bricks",
+    "count": 4
+  }
+}

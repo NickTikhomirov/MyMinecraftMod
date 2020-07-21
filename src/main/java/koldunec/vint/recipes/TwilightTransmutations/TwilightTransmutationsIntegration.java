@@ -3,7 +3,7 @@ package koldunec.vint.recipes.TwilightTransmutations;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
-import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ROutputAurora;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RepairRecipe;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.WonderbreakingRecipe;
 import koldunec.vint.tileentities.containers.ContainerTower;
 import koldunec.vint.compatibility.Sidemod_Items;
@@ -16,25 +16,21 @@ import twilightforest.block.TFBlocks;
 import twilightforest.item.TFItems;
 
 public class TwilightTransmutationsIntegration {
+    static DefaultConsumer CONSUMER = TwilightTransmutationsData.CONSUMER;
 
     public static void initIntegration(){
         initQuark();
         initNatura();
         initTinkers();
         initEbob();
+        initRandom();
 
         if(IntegrationHelper.isLoadedPrimitive){
-            TwilightTransmutationsData.CONSUMER.update(Item.getByNameOrId("primitivemobs:camouflage_dye"));
-            TwilightTransmutationsData.CONSUMER.time=500;
-            TwilightTransmutationsData.CONSUMER.register(Blocks.STONE, ItemRegister.PAINT_TRANSMUTATOR);
+            CONSUMER.update(Item.getByNameOrId("primitivemobs:camouflage_dye"));
+            CONSUMER.time=500;
+            CONSUMER.register(Blocks.STONE, ItemRegister.PAINT_TRANSMUTATOR);
         }
 
-        if(IntegrationHelper.isLoadedCharm){
-            TransmutationsRegister.put(
-                    new RecipeInput(new ItemStack(Item.getByNameOrId("charm:charged_emerald")), new ItemStack(ItemRegister.FROZEN_CORE)),
-                    new ROutputAurora()
-            );
-        }
 
         if(IntegrationHelper.isLoaded("conduit")){
             Defaulter CONDUIT = new Defaulter(Sidemod_Items.ConduitHeart());
@@ -49,7 +45,12 @@ public class TwilightTransmutationsIntegration {
 
             CONDUIT.catalyst = TFItems.lamp_of_cinders;    // NO MORE CONDUIT
             CONDUIT.time = 250;
-            CONDUIT.register(ItemRegister.AURORA_CORE, Sidemod_Items.ConduitHeart());
+            CONDUIT.register(ItemRegister.FROZEN_CORE, Sidemod_Items.ConduitHeart());
+        }
+
+        if(IntegrationHelper.isLoadedFuture){
+            Defaulter ICE = new Defaulter(ItemRegister.FROZEN_CORE);
+            ICE.register(Blocks.PACKED_ICE, Sidemod_Items.BlueIce());
         }
 
     }
@@ -58,6 +59,7 @@ public class TwilightTransmutationsIntegration {
         if(!IntegrationHelper.isLoadedQuark)
             return;
         Defaulter TRANSFORM = new Defaulter(TFBlocks.magic_log_core, 1);
+        Defaulter CARMINITE = new Defaulter(TFItems.carminite);
         Defaulter DIAMONDCORE = new Defaulter(Item.getByNameOrId("quark:diamond_heart"));
         Defaulter DRAGON = new Defaulter(Items.DRAGON_BREATH);
 
@@ -78,6 +80,13 @@ public class TwilightTransmutationsIntegration {
         DIAMONDCORE.register(Blocks.CONCRETE_POWDER, 11, crystal, 6);
         DIAMONDCORE.register(Blocks.CONCRETE_POWDER, 10, crystal, 7);
 
+        CONSUMER.update(Blocks.NETHERRACK);
+        CONSUMER.register(TFBlocks.fire_jet, Block.getBlockFromName("quark:smoker"));
+        TRANSFORM.register(Block.getBlockFromName("quark:smoker"), TFBlocks.fire_jet);
+        CARMINITE.register(Block.getBlockFromName("quark:smoker"), TFBlocks.fire_jet);
+        //CARMINITE.register(Block.getBlockFromName("randomthings:glowingmushroom"), TFBlocks.twilight_plant, 4);
+        CARMINITE.register(Block.getBlockFromName("quark:glowshroom"), TFBlocks.twilight_plant, 4);
+
         ContainerTower.CATALYSTS_FOR_TRANSFER.put(DIAMONDCORE.catalyst, 0);
     }
 
@@ -93,7 +102,10 @@ public class TwilightTransmutationsIntegration {
         Defaulter CRYSTAL = new Defaulter(ItemRegister.NETHER_CRYSTAL);
         Defaulter CINDER = new Defaulter(TFItems.lamp_of_cinders);
         Defaulter POTAT = new Defaulter(ItemRegister.GOLDEN_POTATO);
-        DefaultConsumer CONSUMER = TwilightTransmutationsData.CONSUMER;
+        Defaulter CARMINITE = new Defaulter(TFItems.carminite);
+
+        for(int i=0; i<3; ++i)
+            CARMINITE.register(Block.getBlockFromName("natura:nether_glowshroom"), i, TFBlocks.twilight_plant, 4);
 
         CRYSTAL.register(Blocks.NETHERRACK, Item.getByNameOrId("natura:nether_heat_sand"));
         CINDER.register(Blocks.ICE, Block.getBlockFromName("natura:clouds"));
@@ -138,6 +150,25 @@ public class TwilightTransmutationsIntegration {
         CONSUMER.register(sap3, 1, sap3);
         CONSUMER.register(sap3, 2, sap3);
 
+
+        Item food = Item.getByNameOrId("natura:edibles");
+        CONSUMER.update(food, 10);
+        ContainerTower.CATALYSTS_FOR_TRANSFER.put(food, 10);
+        CONSUMER.register(Blocks.DIRT, Block.getBlockFromName("natura:nether_tainted_soil"));
+        CONSUMER.register(Blocks.VINE, Block.getBlockFromName("natura:nether_thorn_vines"));
+        CONSUMER.register(food, 2, Item.getByNameOrId("natura:overworld_berrybush_raspberry"));
+        CONSUMER.register(food, 3, Item.getByNameOrId("natura:overworld_berrybush_blueberry"));
+        CONSUMER.register(food, 4, Item.getByNameOrId("natura:overworld_berrybush_blackberry"));
+        CONSUMER.register(food, 5, Item.getByNameOrId("natura:overworld_berrybush_maloberry"));
+        CONSUMER.register(food, 6, Item.getByNameOrId("natura:nether_berrybush_blightberry"));
+        CONSUMER.register(food, 7, Item.getByNameOrId("natura:nether_berrybush_duskberry"));
+        CONSUMER.register(food, 8, Item.getByNameOrId("natura:nether_berrybush_skyberry"));
+        CONSUMER.register(food, 9, Item.getByNameOrId("natura:nether_berrybush_stingberry"));
+        CONSUMER.register(Blocks.RED_MUSHROOM, Items.NETHER_WART);
+        CONSUMER.register(Blocks.BROWN_MUSHROOM, Items.NETHER_WART);
+        CONSUMER.register(Items.EGG, Items.SLIME_BALL);
+
+
         ContainerTower.CATALYSTS_FOR_TRANSFER.put(ItemRegister.GOLDEN_POTATO, 0);
     }
 
@@ -151,8 +182,6 @@ public class TwilightTransmutationsIntegration {
         Item grass = Item.getByNameOrId("tconstruct:slime_grass");
         Item slime = Item.getByNameOrId("tconstruct:slime");
         DRAGON.register(sapling, 1, sapling, 2);
-
-        DefaultConsumer CONSUMER = TwilightTransmutationsData.CONSUMER;
 
         CONSUMER.update(Items.GOLDEN_APPLE, 1);
         CONSUMER.register(sapling, 1, sapling, 2);
@@ -171,14 +200,15 @@ public class TwilightTransmutationsIntegration {
         CONSUMER.register(dirt, 2, grass, 8);
         CONSUMER.register(dirt, 3, grass, 14);
 
+        TransmutationsRegister.RECIPES_2.add(RepairRecipe.BuildAndJEI(Item.getByNameOrId("tconstruct:moms_spaghetti"), new ItemStack(TFItems.maze_wafer), 25));
+
         TransmutationsRegister.RECIPES_2.add(new WonderbreakingRecipe());
         WonderbreakingRecipe.init();
     }
 
-    public static void initEbob(){
+    private static void initEbob(){
         if(!IntegrationHelper.isLoaded("ebwizardry"))
             return;
-        DefaultConsumer CONSUMER = TwilightTransmutationsData.CONSUMER;
         CONSUMER.update(Item.getByNameOrId("ebwizardry:blank_scroll"));
         Defaulter DIAMOND = new Defaulter(Item.getByNameOrId("ebwizardry:astral_diamond"));
         ContainerTower.CATALYSTS_FOR_TRANSFER.put(DIAMOND.catalyst, 0);
@@ -195,5 +225,19 @@ public class TwilightTransmutationsIntegration {
 
         DIAMOND.isThunder = true;
         DIAMOND.register(crystal, crystal, 3);
+    }
+
+    private static void initRandom(){
+        if(!IntegrationHelper.isLoadedRandomThings)
+            return;
+        Block biome = Block.getBlockFromName("randomthings:biomestone");
+        CONSUMER.update(TFBlocks.huge_stalk);
+        CONSUMER.register(Blocks.COBBLESTONE, biome);
+        CONSUMER.register(Blocks.STONE, biome, 1);
+        CONSUMER.register(Blocks.STONEBRICK, biome, 2);
+        CONSUMER.register(Blocks.STONEBRICK, 2, biome, 3);
+        CONSUMER.register(Blocks.STONEBRICK, 3, biome, 4);
+        CONSUMER.register(Blocks.GLASS, Block.getBlockFromName("randomthings:biomeglass"));
+
     }
 }

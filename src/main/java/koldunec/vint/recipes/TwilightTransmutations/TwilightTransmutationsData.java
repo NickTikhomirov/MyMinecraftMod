@@ -50,6 +50,14 @@ public class TwilightTransmutationsData {
         CARMINITE.register(Blocks.DIRT, Blocks.DIRT,2);
         CARMINITE.register(Items.ROTTEN_FLESH, TFItems.raw_meef);
         CARMINITE.register(Blocks.BRICK_BLOCK, TFBlocks.underbrick);
+        CARMINITE.register(Blocks.HARDENED_CLAY, TFBlocks.underbrick, 3);
+        CARMINITE.register(TFBlocks.dark_leaves, TFBlocks.hedge);
+        CARMINITE.register(TFItems.steeleaf_ingot, TFItems.armor_shard);
+        CARMINITE.register(TFItems.naga_scale, TFItems.armor_shard);
+
+        CARMINITE.result_amount=4;
+        CARMINITE.register(TFBlocks.block_storage, TFItems.knightmetal_ingot);
+        CARMINITE.result_amount=1;
 
         CARMINITE.register(Blocks.LOG, TFBlocks.twilight_log, 3);
         CARMINITE.register(Blocks.LOG, 1, TFBlocks.twilight_log, 3);
@@ -107,15 +115,16 @@ public class TwilightTransmutationsData {
 
 
     public static void initIce(){
-        Defaulter ICE_CATALYST = new Defaulter(ItemRegister.AURORA_CORE);
+        Defaulter ICE_CATALYST = new Defaulter(ItemRegister.FROZEN_CORE);
 
         ICE_CATALYST.register(Blocks.SNOW, Blocks.PACKED_ICE);
         ICE_CATALYST.register(Blocks.STONEBRICK, TFBlocks.aurora_block);
         ICE_CATALYST.register(Blocks.STONEBRICK, 3, TFBlocks.aurora_block);
         ICE_CATALYST.register(Blocks.GLASS, TFBlocks.auroralized_glass);
         ICE_CATALYST.register(Items.FIRE_CHARGE, TFItems.ice_bomb);
+        ICE_CATALYST.register(Items.NETHERBRICK, Items.BRICK);
 
-        ContainerTower.CATALYSTS_FOR_TRANSFER.put(ItemRegister.AURORA_CORE, 0);
+        ContainerTower.CATALYSTS_FOR_TRANSFER.put(ItemRegister.FROZEN_CORE, 0);
     }
 
 
@@ -125,6 +134,10 @@ public class TwilightTransmutationsData {
 
         CRYSTAL.register(Blocks.NETHER_WART_BLOCK, Blocks.SOUL_SAND);
         CRYSTAL.register(BlockRegister.BASALT_RAW, BlockRegister.FRESH_DEBRIS);
+        CRYSTAL.register(Blocks.COBBLESTONE, BlockRegister.BLACKCOBBLE);
+        CRYSTAL.register(Blocks.STONE, BlockRegister.BLACKSTONE);
+        CRYSTAL.register(Blocks.STONEBRICK, BlockRegister.BLACKSTONE_BRICKS);
+        CRYSTAL.register(Blocks.STONEBRICK, 3, BlockRegister.BLACKSTONE_CHISELED);
         STAR.register(Items.DYE, 4, Items.QUARTZ);
         STAR.register(Items.QUARTZ,Items.DYE, 4 );
 

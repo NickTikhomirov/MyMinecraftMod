@@ -1,0 +1,21 @@
+{
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ooo"
+  ],
+  "key": {
+    "o": {
+      "item": "vint:reed_borer_item"
+    }
+  },
+  "result": {
+    "item": "minecraft:paper",
+    "count": 12
+  }
+}

@@ -38,4 +38,6 @@ public class DefaultConsumer extends Defaulter {
     }
 
     public void update(Item i){ update(i, 0); }
+
+    public void update(Block b){ update(Item.getItemFromBlock(b), 0);}
 }
