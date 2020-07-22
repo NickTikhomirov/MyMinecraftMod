@@ -41,7 +41,7 @@ public class CraftingRegister
         }
         if(IntegrationHelper.isLoadedFuture){
             GameRegistry.addSmelting(
-                    Item.getByNameOrId(IntegrationHelper.idFuture+"honey_block"),
+                    Item.getByNameOrId(IntegrationHelper.idFuture+":honey_block"),
                     new ItemStack(ItemRegister.HONEY_CRYSTAL), 1F
             );
         }

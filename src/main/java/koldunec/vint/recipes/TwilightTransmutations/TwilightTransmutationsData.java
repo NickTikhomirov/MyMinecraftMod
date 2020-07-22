@@ -29,8 +29,6 @@ public class TwilightTransmutationsData {
         CINDER.register(Items.WHEAT_SEEDS, Item.getItemFromBlock(Blocks.TALLGRASS));
         CINDER.register(Blocks.DOUBLE_PLANT, 4, TFBlocks.thorn_rose);
         CINDER.register(Blocks.STONE, TFBlocks.trollsteinn);
-        CINDER.register(Blocks.HARDENED_CLAY, TFBlocks.terrorcotta_circle);
-        CINDER.register(Blocks.STAINED_HARDENED_CLAY, 2, TFBlocks.terrorcotta_circle);
 
         CINDER.time = 250;
         CINDER.register(Blocks.CHEST, BlockRegister.STORE);

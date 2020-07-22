@@ -1,5 +1,6 @@
 package koldunec.vint.compatibility.Tinker.traits;
 
+import koldunec.vint.compatibility.Tinker.ColorConstants;
 import koldunec.vint.utils.VanillaHelper;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.CompatibilityRegister;
@@ -31,7 +32,7 @@ public class Capitator extends ModifierTrait {
     }
 
     public Capitator() {
-        super("capitator", TextFormatting.GREEN.getColorIndex());
+        super("capitator", ColorConstants.GREEN_LOG_COLOR);
     }
 
     private static BlockPos findTop(Block b, World w, BlockPos pos){

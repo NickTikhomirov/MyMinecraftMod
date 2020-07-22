@@ -45,13 +45,13 @@ public class Sidemod_Items {
 
     public static Item BlueIce(){
         if(IntegrationHelper.isLoadedFuture)
-            return Item.getByNameOrId(IntegrationHelper.idFuture+"blue_ice");
+            return Item.getByNameOrId(IntegrationHelper.idFuture+":blue_ice");
         return Items.AIR;
     }
 
     public static Block BlueIceBlock(){
         if(IntegrationHelper.isLoadedFuture)
-            return Block.getBlockFromName(IntegrationHelper.idFuture+"blue_ice");
+            return Block.getBlockFromName(IntegrationHelper.idFuture+":blue_ice");
         return Blocks.AIR;
     }
 }

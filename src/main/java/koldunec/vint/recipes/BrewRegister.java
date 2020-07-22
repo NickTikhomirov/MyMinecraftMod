@@ -1,6 +1,7 @@
 package koldunec.vint.recipes;
 
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.potions.PotionRegister;
 import net.minecraft.init.Blocks;
@@ -22,11 +23,14 @@ public class BrewRegister {
         initPoisonProtection();
         initOther();
 
+        PotionHelper.addMix(PotionTypes.THICK, Ingredient.fromItem(Item.getItemFromBlock(BlockRegister.BLUE_NETHER_MUSH)), PotionTypes.INVISIBILITY);
+        PotionHelper.addMix(PotionTypes.THICK, Ingredient.fromItem(Item.getItemFromBlock(BlockRegister.RED_NETHER_MUSH)), PotionTypes.STRENGTH);
+
         //apple potions
         PotionHelper.addMix(PotionTypes.THICK, Ingredient.fromStacks(new ItemStack(Items.GOLDEN_APPLE, 1, 0)), PotionRegister.GOLDENAPLLE_TYPE_STANDART);
         PotionHelper.addMix(PotionTypes.THICK, Ingredient.fromStacks(new ItemStack(Items.GOLDEN_APPLE, 1, 1)), PotionRegister.GOLDENAPLLE_TYPE_STRONG);
-        PotionHelper.addMix(PotionTypes.THICK, ItemRegister.DIAMONDGOLDEN_APPLE, PotionRegister.DIAMONDGOLDENAPPLE_TYPE_STANDART);
-        PotionHelper.addMix(PotionTypes.THICK, ItemRegister.GOLDENDIAMOND_APPLE, PotionRegister.GOLDENDIAMONAPPLE_TYPE_STANDART);
+        //PotionHelper.addMix(PotionTypes.THICK, ItemRegister.DIAMONDGOLDEN_APPLE, PotionRegister.DIAMONDGOLDENAPPLE_TYPE_STANDART);
+        //PotionHelper.addMix(PotionTypes.THICK, ItemRegister.GOLDENDIAMOND_APPLE, PotionRegister.GOLDENDIAMONAPPLE_TYPE_STANDART);
 
         //haste block
         PotionHelper.addMix(PotionTypes.SWIFTNESS, Ingredient.fromStacks(new ItemStack(Items.DYE, 1, 3)), PotionRegister.HASTE_TYPE_STANDART);

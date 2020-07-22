@@ -1,0 +1,17 @@
+{
+  "modifier": "dimensional",
+  "text": [
+    {
+      "text": "Attaching a stable ender pearl to your tool activates its inner powers"
+    }
+  ],
+  "effects": [
+    "Most of your dimension-related traits are effective without restrictions",
+    "Single use"
+  ],
+  "demoTool": [
+    "tconstruct:pickaxe",
+    "tconstruct:axe",
+    "tconstruct:longsword"
+  ]
+}

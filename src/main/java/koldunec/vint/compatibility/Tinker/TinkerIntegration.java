@@ -63,6 +63,7 @@ public class TinkerIntegration {
     public static AbstractTrait ICE_QUEEN = new IceQueen();
     public static AbstractTrait DEAL = new Deal();
     public static AbstractTrait MERCIFUL = new Merciful();
+    public static AbstractTrait CRUSADE = new Crusade();
 
     public static AbstractTrait SHIFTING = new Shifting();
     public static AbstractTrait WONDERBREAKER = new Wonderbreaker();
@@ -73,6 +74,7 @@ public class TinkerIntegration {
     public static AbstractTrait COMPLEX = new Complex();
     public static ModifierTrait ACTIVATING = new Activating();
     public static ModifierTrait DODO_RAGE = new DodoRage();
+    public static ModifierTrait DIMENSIONAL = new Dimensional();
 
     public static AbstractTrait WARM = new Warm();
     public static AbstractTrait COOL = new Cool();
@@ -120,11 +122,12 @@ public class TinkerIntegration {
         ConfigureMaterials.initLog(WARPED_LOG, BlockRegister.BLUE_NY_LOG);
         ConfigureMaterials.initLog(GOLD_LOG, BlockRegister.GOLD_NY_LOG);
         ConfigureMaterials.initLog(GREEN_LOG, BlockRegister.GREEN_NY_LOG);
-        CRIMSON_LOG.addTrait(BLACKENING).addTrait(REDPOWER);
-        WARPED_LOG.addTrait(BLACKENING).addTrait(TinkerTraits.alien).addTrait(DEAL);
+        CRIMSON_LOG.addTrait(BLACKENING).addTrait(TinkerTraits.aridiculous);
+        CRIMSON_LOG.addTrait(BLACKENING, MaterialTypes.EXTRA).addTrait(TinkerTraits.momentum, MaterialTypes.EXTRA);
+        CRIMSON_LOG.addTrait(REDPOWER, MaterialTypes.HEAD).addTrait(BLACKENING, MaterialTypes.HEAD);
+        WARPED_LOG.addTrait(BLACKENING).addTrait(TinkerTraits.alien).addTrait(DEAL, MaterialTypes.HEAD).addTrait(BLACKENING, MaterialTypes.HEAD).addTrait(TinkerTraits.alien, MaterialTypes.HEAD);
         GOLD_LOG.addTrait(BLACKENING);
         GREEN_LOG.addTrait(BLACKENING).addTrait(MERCIFUL);
-
     }
 
 
@@ -159,6 +162,10 @@ public class TinkerIntegration {
                     new ItemStack(Items.BONE),
                     new ItemStack(Items.BONE)
             ));
+        if(IntegrationHelper.isLoadedRandomThings)
+            DIMENSIONAL.addRecipeMatch(new RecipeMatch.ItemCombination(1,
+                    new ItemStack(Item.getByNameOrId("randomthings:stableenderpearl")))
+            );
     }
 
 

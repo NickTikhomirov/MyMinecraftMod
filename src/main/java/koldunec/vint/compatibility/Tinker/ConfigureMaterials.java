@@ -29,9 +29,9 @@ public class ConfigureMaterials {
 
     public static void configureLog(Material m){
         TinkerRegistry.addMaterialStats(m,
-                new HeadMaterialStats(256, 6F, 4F, 1),
+                new HeadMaterialStats(200, 5F, 5F, 0),
                 new ExtraMaterialStats(65),
-                new HandleMaterialStats(0.99F,20)
+                new HandleMaterialStats(1F,0)
         );
     }
 
@@ -86,7 +86,7 @@ public class ConfigureMaterials {
                 new BowMaterialStats(0.5F, 1.5F,7)
         );
         TinkerRegistry.addMaterialStats(FROZEN,
-                new HeadMaterialStats(333,0.1F,4F, 2),
+                new HeadMaterialStats(444,9F,2F, 2),
                 new BowMaterialStats(1.8F, 1F, 4),
                 new ArrowShaftMaterialStats(1, 10));
 
@@ -133,6 +133,7 @@ public class ConfigureMaterials {
 
         TinkerRegistry.integrate(SPECTRE).preInit();
         TinkerRegistry.integrate(SPECTRE_STRING).preInit();
+        ModifierAppender.APPENDANTS.add(DIMENSIONAL);
     }
 
     public static void ConfigureOther(){
@@ -143,14 +144,13 @@ public class ConfigureMaterials {
         SPECTRE.addItem(new ItemStack(spectre, 1, 3), 1, 144);
         SPECTRE.setRepresentativeItem(new ItemStack(spectre, 1, 3));
         SPECTRE.setCraftable(true).setCastable(false);
-        SPECTRE.addTrait(REACHING, HEAD).addTrait(REACHING, HANDLE);
+        SPECTRE.addTrait(REACHING, HEAD).addTrait(REACHING, HANDLE).addTrait(REACHING);
         SPECTRE.addTrait(TinkerTraits.unnatural, HEAD).addTrait(TinkerTraits.lightweight, HANDLE);
 
         SPECTRE_STRING.addItem(new ItemStack(spectre, 1, 12), 1, 144);
         SPECTRE_STRING.setRepresentativeItem(new ItemStack(spectre, 1, 12));
         SPECTRE_STRING.setCraftable(true).setCastable(false);
         SPECTRE_STRING.addTrait(TinkerTraits.lightweight, MaterialTypes.BOWSTRING);
-
     }
 
 
@@ -167,7 +167,7 @@ public class ConfigureMaterials {
         HONEY_CRYSTAL.addItem(ItemRegister.HONEY_CRYSTAL,1,144);
         HONEY_CRYSTAL.setRepresentativeItem(ItemRegister.HONEY_CRYSTAL);
         HONEY_CRYSTAL.setCraftable(true).setCastable(false);
-        HONEY_CRYSTAL.addTrait(TinkerTraits.tasty).addTrait(BZZZ);
+        HONEY_CRYSTAL.addTrait(TinkerTraits.tasty).addTrait(BZZZ).addTrait(CRUSADE);
     }
 
 
@@ -204,6 +204,7 @@ public class ConfigureMaterials {
         FROZEN.addTrait(TinkerTraits.coldblooded, HEAD).addTrait(TinkerTraits.coldblooded, BOW);
         FROZEN.addTrait(TinkerTraits.freezing, SHAFT);
         FROZEN.addTrait(ICE_QUEEN, BOW);
+        FROZEN.addTrait(TinkerTraits.momentum, HEAD);
 
         AURORA.setCastable(false).setCraftable(false);
         AURORA.setRepresentativeItem(ItemRegister.AURORA_CORE);

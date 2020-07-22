@@ -17,6 +17,7 @@ import twilightforest.item.TFItems;
 
 public class TwilightTransmutationsIntegration {
     static DefaultConsumer CONSUMER = TwilightTransmutationsData.CONSUMER;
+    static Defaulter CARMINITE = new Defaulter(TFItems.carminite);
 
     public static void initIntegration(){
         initQuark();
@@ -59,7 +60,6 @@ public class TwilightTransmutationsIntegration {
         if(!IntegrationHelper.isLoadedQuark)
             return;
         Defaulter TRANSFORM = new Defaulter(TFBlocks.magic_log_core, 1);
-        Defaulter CARMINITE = new Defaulter(TFItems.carminite);
         Defaulter DIAMONDCORE = new Defaulter(Item.getByNameOrId("quark:diamond_heart"));
         Defaulter DRAGON = new Defaulter(Items.DRAGON_BREATH);
 
@@ -84,7 +84,6 @@ public class TwilightTransmutationsIntegration {
         CONSUMER.register(TFBlocks.fire_jet, Block.getBlockFromName("quark:smoker"));
         TRANSFORM.register(Block.getBlockFromName("quark:smoker"), TFBlocks.fire_jet);
         CARMINITE.register(Block.getBlockFromName("quark:smoker"), TFBlocks.fire_jet);
-        //CARMINITE.register(Block.getBlockFromName("randomthings:glowingmushroom"), TFBlocks.twilight_plant, 4);
         CARMINITE.register(Block.getBlockFromName("quark:glowshroom"), TFBlocks.twilight_plant, 4);
 
         ContainerTower.CATALYSTS_FOR_TRANSFER.put(DIAMONDCORE.catalyst, 0);
@@ -102,7 +101,6 @@ public class TwilightTransmutationsIntegration {
         Defaulter CRYSTAL = new Defaulter(ItemRegister.NETHER_CRYSTAL);
         Defaulter CINDER = new Defaulter(TFItems.lamp_of_cinders);
         Defaulter POTAT = new Defaulter(ItemRegister.GOLDEN_POTATO);
-        Defaulter CARMINITE = new Defaulter(TFItems.carminite);
 
         for(int i=0; i<3; ++i)
             CARMINITE.register(Block.getBlockFromName("natura:nether_glowshroom"), i, TFBlocks.twilight_plant, 4);
@@ -166,8 +164,6 @@ public class TwilightTransmutationsIntegration {
         CONSUMER.register(food, 9, Item.getByNameOrId("natura:nether_berrybush_stingberry"));
         CONSUMER.register(Blocks.RED_MUSHROOM, Items.NETHER_WART);
         CONSUMER.register(Blocks.BROWN_MUSHROOM, Items.NETHER_WART);
-        CONSUMER.register(Items.EGG, Items.SLIME_BALL);
-
 
         ContainerTower.CATALYSTS_FOR_TRANSFER.put(ItemRegister.GOLDEN_POTATO, 0);
     }
@@ -176,14 +172,14 @@ public class TwilightTransmutationsIntegration {
     private static void initTinkers() {
         if(!IntegrationHelper.isLoadedTinkers)
             return;
-        Defaulter DRAGON = new Defaulter(Items.DRAGON_BREATH);
         Item sapling = Item.getByNameOrId("tconstruct:slime_sapling");
         Item dirt = Item.getByNameOrId("tconstruct:slime_dirt");
         Item grass = Item.getByNameOrId("tconstruct:slime_grass");
         Item slime = Item.getByNameOrId("tconstruct:slime");
-        DRAGON.register(sapling, 1, sapling, 2);
 
-        CONSUMER.update(Items.GOLDEN_APPLE, 1);
+        CONSUMER.update(TFItems.fiery_blood);
+        CONSUMER.register(sapling, 1, sapling, 2);
+        CONSUMER.update(TFItems.fiery_tears);
         CONSUMER.register(sapling, 1, sapling, 2);
 
         CONSUMER.update(ItemRegister.VITASARIA);
@@ -238,6 +234,7 @@ public class TwilightTransmutationsIntegration {
         CONSUMER.register(Blocks.STONEBRICK, 2, biome, 3);
         CONSUMER.register(Blocks.STONEBRICK, 3, biome, 4);
         CONSUMER.register(Blocks.GLASS, Block.getBlockFromName("randomthings:biomeglass"));
+        CARMINITE.register(Block.getBlockFromName("randomthings:glowingmushroom"), TFBlocks.twilight_plant, 4);
 
     }
 }

@@ -49,7 +49,8 @@ modifier.shifting.name=Shifting
 modifier.shifting.desc=§oNow reality (especially TinkersConstruct tools) can be whatever you want§r\nYour tool shifts, adapting to block you mine.
 modifier.wonderbreaker.name=Wonderbreaker
 modifier.wonderbreaker.desc=§oThat ancient magic-eating demon... but this time it's you§r\nThe only way to repair this tool is to feed it with durability of other Twilight Forest artifacts in Twilight Reactor (It will not destroy them).
-
+modifier.crusade.name=Buzzing Crusade
+modifier.crusade.desc=§oNow you are prepared§r\nYou deal more damage in non-vanilla dimensions.
 
 
 modifier.capitator.name=Farmer Frenzy
@@ -64,11 +65,14 @@ modifier.activating.name=Explosive Expulsion
 modifier.activating.desc=§oThere is now need to fight creepers if you can blow them§r\nUse your tool on a creeper and it will blow up.
 modifier.dodo_rage.name=Rage of Thousand Dodos
 modifier.dodo_rage.desc=§oPhenomenal dodo power contained in the itty-bitty TinkersConstruct tool§r\n You have 1% chance to deal damage equal to 5 healths of your target.
+modifier.dimensional.name=Superdimensional
+modifier.dimensional.desc=§oWhen live gives you traits, make life take restrictions back!§r\n Most of dimension-related abilities of you tool are always active.
+
 
 modifier.warm.name=Warm
-modifier.warm.desc=§oReliable pickaxe is the only thing that saves you at cold winter's night§r\nYour tool warms you without overheating.
+modifier.warm.desc=§oSo work til you warm, enwarmed by labour, then purchase relief from a local retailer§r\nYour tool warms you.
 modifier.cool.name=Cool
-modifier.cool.desc=§oVery cool§r\nYour tool cools you without overcooling.
+modifier.cool.desc=§oVery cool§r\nYour tool cools you.
 modifier.blood_hydration.name=Hydrated With Blood
 modifier.blood_hydration.desc=§oZombie juice with spider smoothie§r\Hitting enemies sometimes hydrates you.
 

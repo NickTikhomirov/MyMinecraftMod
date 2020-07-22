@@ -4,27 +4,24 @@ import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.Sidemod_Items;
 import koldunec.vint.compatibility.Tinker.TinkerIntegration;
 import koldunec.vint.init.ItemRegister;
-import koldunec.vint.utils.EnumScrollTypes;
 import koldunec.vint.utils.EnumTwilightScrollTypes;
-import koldunec.vint.utils.TechHelper;
-import koldunec.vint.utils.VanillaHelper;
 import koldunec.vint.vint;
 import net.minecraft.entity.Entity;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.ResourceLocation;
-import net.minecraft.world.storage.loot.LootContext;
-import net.minecraft.world.storage.loot.LootEntryTable;
+import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTable;
 import net.minecraft.world.storage.loot.RandomValueRange;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import twilightforest.block.TFBlocks;
+import twilightforest.compat.TConstruct;
 import twilightforest.entity.EntityTFSlimeBeetle;
 import twilightforest.entity.boss.EntityTFSnowQueen;
 import twilightforest.item.TFItems;
+import twilightforest.world.TFWorld;
 
 import static koldunec.vint.objectbuilders.LootObjectsBuilder.LootEntryBuilder;
 import static koldunec.vint.objectbuilders.LootObjectsBuilder.LootPoolBuilder;
@@ -52,13 +49,14 @@ public class MainTFModule {
             case "structures/darktower_cache/common":
                 insertLootDarktower_Common(table);
                 break;
+            case "structures/darktower_cache/rare":
+                insertLootDarktower_Rare(table);
+                break;
         }
     }
 
 
     public static void insertLootUseless(LootTableLoadEvent e){
-        //((LootEntryTable)table.getPool("common").getEntry("twilightforest:structures/useless")).
-        //e.getLootTableManager().getLootTableFromLocation(new ResourceLocation("twilightforest", "structures/useless"));
         LootTable table = e.getTable();
         TFLootHelper USELESS = new TFLootHelper(table);
         USELESS.insertLootMain(LootEntryBuilder(ItemRegister.TRANSFORMATION_DUST, 2, 4, 7, "vint_trans"));
@@ -73,7 +71,7 @@ public class MainTFModule {
         USELESS.main.removeEntry("minecraft:yellow_flower");
         USELESS.main.setRolls(new RandomValueRange(2,3));
         if(IntegrationHelper.isLoadedFuture){
-            USELESS.insertLootMain(LootEntryBuilder(IntegrationHelper.idFuture+"bamboo", 1, 2,3, "bamboo"));
+            USELESS.insertLootMain(LootEntryBuilder(IntegrationHelper.idFuture+":bamboo", 1, 2,3, "bamboo"));
         }
     }
 
@@ -84,7 +82,14 @@ public class MainTFModule {
         TABLE.insertLootMain(LootEntryBuilder(ItemRegister.TRANSFORMATION_DUST, 1, 7, 12, "vint_transform"));
     }
 
+    public static void insertLootDarktower_Rare(LootTable table){
+        TFLootHelper TABLE = new TFLootHelper(table);
+        TABLE.insertLootMain(LootEntryBuilder(ItemRegister.BORER_REED, 1, 1, 1, "vint_borer_reed"));
+    }
+
     public static void insertItemAsPool(LootTable table, Item i, int meta, int min, int max){
+        if(i==null)
+            return;
         table.addPool(
                 LootPoolBuilder(
                         LootEntryBuilder(i, meta, 10, min, max, "vint_"+i.getRegistryName()), 1, "vint_pool_"+i.getRegistryName()
@@ -111,5 +116,13 @@ public class MainTFModule {
                     0.5F);
         if(e.getEntityLiving() instanceof EntityTFSnowQueen)
             TinkerIntegration.ProcessQueen(e);
+    }
+
+    public static boolean isTF(World w){
+        return TFWorld.isTwilightForest(w);
+    }
+
+    public static Object getTwilitTrait(){
+        return TConstruct.twilit;
     }
 }
