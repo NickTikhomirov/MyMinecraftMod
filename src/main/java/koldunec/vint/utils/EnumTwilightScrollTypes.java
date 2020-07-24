@@ -9,7 +9,9 @@ import javax.annotation.Nonnull;
 public enum EnumTwilightScrollTypes {
     HILL(LootRegister.TWILIGHT_HILL_SCROLL),
     MAZE(new ResourceLocation("twilightforest", "structures/hedge_maze/hedge_maze")),
-    ISLE(LootRegister.TWILIGHT_ISLE_SCROLL);
+    ISLE(LootRegister.TWILIGHT_ISLE_SCROLL),
+    TOWER(new ResourceLocation("twilightforest", "structures/tower_room/tower_room")),
+    GRAVEYARD(new ResourceLocation("twilightforest", "structures/graveyard/graveyard"));
 
     private ResourceLocation table;
 

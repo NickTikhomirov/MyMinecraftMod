@@ -1,5 +1,6 @@
 package koldunec.vint.recipes.TwilightTransmutations.RecipeResults;
 
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.tileentities.TileTower;
@@ -52,7 +53,8 @@ public class RepairRecipe implements ITwilightResult {
 
     public static RepairRecipe BuildAndJEI(Item tool, ItemStack material, int amount){
         RepairRecipe result = new RepairRecipe(tool, material, amount);
-        new RecipeLimbo.RepairRecipeJEI(result);
+        if(IntegrationHelper.isLoadedJEI)
+            new RecipeLimbo.RepairRecipeJEI(result);
         return result;
     }
 }

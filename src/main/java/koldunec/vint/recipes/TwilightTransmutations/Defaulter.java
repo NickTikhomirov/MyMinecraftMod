@@ -1,5 +1,6 @@
 package koldunec.vint.recipes.TwilightTransmutations;
 
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RecipeOutput;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.ThunderRecipe;
@@ -72,7 +73,8 @@ public class Defaulter {
         RecipeInput input = getInput(base, base_meta);
         RecipeOutput output = getOutput(result, result_meta);
         TransmutationsRegister.put(input, output);
-        saveJEI(input, output);
+        if(IntegrationHelper.isLoadedJEI)
+            saveJEI(input, output);
     }
 
     public void register(Item base, Item result, int result_meta){

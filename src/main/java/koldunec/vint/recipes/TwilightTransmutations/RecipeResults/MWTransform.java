@@ -1,5 +1,6 @@
 package koldunec.vint.recipes.TwilightTransmutations.RecipeResults;
 
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeInput;
 import koldunec.vint.tileentities.TileTower;
@@ -42,6 +43,8 @@ public class MWTransform implements ITwilightResult {
     }
 
     public static void assignJEI(){
+        if(!IntegrationHelper.isLoadedJEI)
+            return;
         ItemWithMeta catalyst = new ItemWithMeta(TFItems.moonworm_queen, 32767);
         for(ItemWithMeta key: recipes.keySet()) {
             new RecipeLimbo.DefaultRecipeWithWildcardCatalyst(new RecipeInput(key, catalyst), new RecipeOutput(recipes.get(key), 100));

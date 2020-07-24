@@ -4,6 +4,7 @@ import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.Sidemod_Items;
 import koldunec.vint.compatibility.Tinker.TinkerIntegration;
 import koldunec.vint.init.ItemRegister;
+import koldunec.vint.init.others.LootRegister;
 import koldunec.vint.utils.EnumTwilightScrollTypes;
 import koldunec.vint.vint;
 import net.minecraft.entity.Entity;
@@ -11,6 +12,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.loot.LootTable;
 import net.minecraft.world.storage.loot.RandomValueRange;
@@ -23,8 +25,7 @@ import twilightforest.entity.boss.EntityTFSnowQueen;
 import twilightforest.item.TFItems;
 import twilightforest.world.TFWorld;
 
-import static koldunec.vint.objectbuilders.LootObjectsBuilder.LootEntryBuilder;
-import static koldunec.vint.objectbuilders.LootObjectsBuilder.LootPoolBuilder;
+import static koldunec.vint.objectbuilders.LootObjectsBuilder.*;
 
 public class MainTFModule {
 
@@ -47,10 +48,26 @@ public class MainTFModule {
                     insertItemAsPool(table, Sidemod_Items.BlueIce(), 0, 12, 16);
                 break;
             case "structures/darktower_cache/common":
+                insertNautilus(table);
                 insertLootDarktower_Common(table);
                 break;
             case "structures/darktower_cache/rare":
                 insertLootDarktower_Rare(table);
+                break;
+            case "structures/graveyard/graveyard":
+                insertTableAsPool(table, LootRegister.GRAVEYARD_POTIONS,1,1, "potions");
+                insertTableAsPool(table, LootRegister.TWILIGHT_GRAVE_RARE_FIXED, 1, 1, "rarefix");
+                break;
+            case "structures/hill_2/uncommon":
+            case "structures/hill_3/uncommon":
+            case "structures/hedge_maze/rare":
+            case "structures/tree_cache/uncommon":
+            case "structures/basement/rare":
+            case "structures/labyrinth_dead_end/uncommon":
+            case "structures/labyrinth_room/rare":
+            case "structures/stronghold_cache/common":
+            case "structures/stronghold_room/common":
+                insertNautilus(table);
                 break;
         }
     }
@@ -70,6 +87,9 @@ public class MainTFModule {
         USELESS.main.removeEntry("minecraft:red_flower");
         USELESS.main.removeEntry("minecraft:yellow_flower");
         USELESS.main.setRolls(new RandomValueRange(2,3));
+        if(IntegrationHelper.isLoadedEbWizardry){
+            USELESS.insertLootMain(LootEntryBuilder(Item.getByNameOrId("ebwizardry:magic_crystal"), 0, 1, 5, 7, "useless_crystal"));
+        }
         if(IntegrationHelper.isLoadedFuture){
             USELESS.insertLootMain(LootEntryBuilder(IntegrationHelper.idFuture+":bamboo", 1, 2,3, "bamboo"));
         }
@@ -87,6 +107,13 @@ public class MainTFModule {
         TABLE.insertLootMain(LootEntryBuilder(ItemRegister.BORER_REED, 1, 1, 1, "vint_borer_reed"));
     }
 
+    public static void insertNautilus(LootTable table){
+        if(!IntegrationHelper.isLoaded("conduit"))
+            return;
+        TFLootHelper helper = new TFLootHelper(table);
+        helper.insertLootMain(LootEntryBuilder(Sidemod_Items.ConduitShell(), 1, 1, 1, "conduit_shell"));
+    }
+
     public static void insertItemAsPool(LootTable table, Item i, int meta, int min, int max){
         if(i==null)
             return;
@@ -95,6 +122,10 @@ public class MainTFModule {
                         LootEntryBuilder(i, meta, 10, min, max, "vint_"+i.getRegistryName()), 1, "vint_pool_"+i.getRegistryName()
                 )
         );
+    }
+
+    public static void insertTableAsPool(LootTable table, ResourceLocation loc, int min, int max, String name){
+        table.addPool(LootPoolBuilder(EntryFromTable(loc, name), new RandomValueRange(min, max), "vint"+name));
     }
 
     public static void updateGlass(){

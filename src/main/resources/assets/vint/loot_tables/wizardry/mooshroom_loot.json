@@ -1,0 +1,145 @@
+{
+  "pools": [
+    {
+      "name": "main",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "ebwizardry:ring_hammer",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:charm_minion_health",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:ring_earth_biome",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:ring_defender",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:ring_interdiction",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:ring_blockwrangler",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:charm_light",
+          "weight": 3
+        }
+      ]
+    },
+
+    {
+      "name": "supplies",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "ebwizardry:poison_bomb",
+          "weight": 2,
+          "functions": [{
+            "function": "set_count",
+            "count": {"min": 5, "max": 8}
+          }]
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:melee_upgrade",
+          "weight": 2
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:astral_diamond",
+          "weight": 1
+        }
+      ]
+    },
+
+    {
+      "name": "crystals",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "entryName": "crystal_heal",
+          "name": "ebwizardry:magic_crystal",
+          "functions": [{
+            "function": "set_data",
+            "data": 7
+          }]
+        },
+        {
+          "type": "item",
+          "entryName": "crystal_earth",
+          "name": "ebwizardry:magic_crystal",
+          "functions": [{
+            "function": "set_data",
+            "data": 5
+          }]
+        }
+      ]
+    },
+
+
+    {
+      "name": "armor",
+      "rolls": {
+        "min": 1,
+        "max": 2
+      },
+      "entries": [
+        {
+          "type": "item",
+          "name": "ebwizardry:wizard_hat_earth",
+          "weight": 20
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:wizard_robe_earth",
+          "weight": 9
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:wizard_leggings_earth",
+          "weight": 9
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:wizard_boots_earth",
+          "weight": 20
+        }
+      ]
+    },
+
+    {
+      "name": "spells",
+      "rolls": 3,
+      "entries": [
+        {
+          "type": "item",
+          "name": "ebwizardry:spell_book",
+          "functions": [
+            {
+              "function": "ebwizardry:random_spell",
+              "tiers": [ "advanced", "master" ],
+              "elements": [ "earth" ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

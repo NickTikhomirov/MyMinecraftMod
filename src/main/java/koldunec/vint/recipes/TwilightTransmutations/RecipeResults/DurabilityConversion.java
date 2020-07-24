@@ -1,5 +1,6 @@
 package koldunec.vint.recipes.TwilightTransmutations.RecipeResults;
 
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
 import koldunec.vint.tileentities.TileTower;
 import net.minecraft.item.Item;
@@ -56,6 +57,8 @@ public class DurabilityConversion implements ITwilightResult {
     }
 
     public static void selfRegister(){
+        if(!IntegrationHelper.isLoadedJEI)
+            return;
         Item magnet = TFItems.ore_magnet;
         ItemStack result = new ItemStack(TFItems.armor_shard);
         new RecipeLimbo.ConvertRecipeJEI(TFItems.phantom_helmet, magnet, AMOUNT, result, true);

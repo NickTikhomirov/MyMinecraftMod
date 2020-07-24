@@ -1,0 +1,49 @@
+{
+  "pools": [
+    {
+      "name": "main",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "entryName": "potion_invisibility",
+          "name": "minecraft:potion",
+          "functions": [{
+            "function": "set_nbt",
+            "tag": "{Potion: \"minecraft:invisibility\"}"
+          }]
+        },
+
+        {
+          "type": "item",
+          "entryName": "potion_vision",
+          "name": "minecraft:potion",
+          "functions": [{
+            "function": "set_nbt",
+            "tag": "{Potion: \"minecraft:night_vision\"}"
+          }]
+        },
+
+        {
+          "type": "item",
+          "entryName": "potion_luck",
+          "name": "minecraft:potion",
+          "functions": [{
+            "function": "set_nbt",
+            "tag": "{Potion: \"minecraft:luck\"}"
+          }]
+        },
+
+        {
+          "type": "item",
+          "entryName": "potion_fire",
+          "name": "minecraft:potion",
+          "functions": [{
+            "function": "set_nbt",
+            "tag": "{Potion: \"minecraft:fire_resistance\"}"
+          }]
+        }
+      ]
+    }
+  ]
+}

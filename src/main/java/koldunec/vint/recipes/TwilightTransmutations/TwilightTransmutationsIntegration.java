@@ -1,8 +1,11 @@
 package koldunec.vint.recipes.TwilightTransmutations;
 
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.BasaltProvider;
+import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RecipeOutput;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.RepairRecipe;
 import koldunec.vint.recipes.TwilightTransmutations.RecipeResults.WonderbreakingRecipe;
 import koldunec.vint.tileentities.containers.ContainerTower;
@@ -52,6 +55,12 @@ public class TwilightTransmutationsIntegration {
         if(IntegrationHelper.isLoadedFuture){
             Defaulter ICE = new Defaulter(ItemRegister.FROZEN_CORE);
             ICE.register(Blocks.PACKED_ICE, Sidemod_Items.BlueIce());
+
+            RecipeInput in = new RecipeInput(Items.LAVA_BUCKET, Sidemod_Items.BlueIce());
+            RecipeOutput out = new BasaltProvider(BlockRegister.BASALT_RAW, 50);
+            TransmutationsRegister.RECIPES_1.put(in, out);
+            if(IntegrationHelper.isLoadedJEI)
+                new RecipeLimbo.CobbleGenRecipe(in, out);
         }
 
     }
@@ -234,6 +243,8 @@ public class TwilightTransmutationsIntegration {
         CONSUMER.register(Blocks.STONEBRICK, 2, biome, 3);
         CONSUMER.register(Blocks.STONEBRICK, 3, biome, 4);
         CONSUMER.register(Blocks.GLASS, Block.getBlockFromName("randomthings:biomeglass"));
+        CONSUMER.update(BlockRegister.GREEN_NY_LOG);
+        CONSUMER.register(Blocks.CHEST, Block.getBlockFromName("randomthings:specialchest"));
         CARMINITE.register(Block.getBlockFromName("randomthings:glowingmushroom"), TFBlocks.twilight_plant, 4);
 
     }

@@ -135,8 +135,8 @@ item.scroll_reroll.name=Scroll of Reroll
 item.twilight_scroll.hill.name=Loot Scroll: Hill
 item.twilight_scroll.maze.name=Loot Scroll: Hedge Maze
 item.twilight_scroll.isle.name=Loot Scroll: Floating Island
-item.twilight_scroll.jungle.name=Loot Scroll: Jungle
-item.twilight_scroll.nether.name=Loot Scroll: Nether
+item.twilight_scroll.tower.name=Loot Scroll: Lich Tower
+item.twilight_scroll.graveyard.name=Loot Scroll: Graveyard
 
 item.gunreed.gunpowder.name=Gunpowder Cane
 item.gunreed.redstone.name=Redstone Cane

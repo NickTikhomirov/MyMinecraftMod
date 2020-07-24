@@ -222,4 +222,19 @@ public class RecipeLimbo {
             }
         }
     }
+
+    public static class CobbleGenRecipe extends DefaultRecipe{
+        public CobbleGenRecipe(RecipeInput input, RecipeOutput output){
+            super(input,output);
+        }
+
+        @Override
+        public void onTooltip(int i, boolean b, ItemStack itemStack, List<String> list) {
+            super.onTooltip(i, b, itemStack, list);
+            if(i!=0)
+                return;
+            list.add("");
+            list.add(TextFormatting.GREEN + I18n.format("vint.jei.tooltip.catalyst.safe"));
+        }
+    }
 }

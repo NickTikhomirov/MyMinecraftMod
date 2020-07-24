@@ -1,0 +1,92 @@
+{
+  "pools": [
+    {
+      "name": "main",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "name": "ebwizardry:amulet_recovery",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:ring_battlemage",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:charm_growth",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:charm_abseiling",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:ring_poison",
+          "weight": 3
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:wizard_robe_earth",
+          "weight": 1
+        }
+      ]
+    },
+
+    {
+      "name": "supplies",
+      "rolls": 2,
+      "entries": [
+        {
+          "type": "item",
+          "name": "ebwizardry:poison_bomb",
+          "functions": [{
+              "function": "set_count",
+              "count": {"min": 5, "max": 8}
+            }]
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:range_upgrade"
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:condenser_upgrade"
+        },
+        {
+          "type": "item",
+          "name": "ebwizardry:blast_upgrade"
+        }
+      ]
+    },
+
+    {
+      "name": "crystals",
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "item",
+          "entryName": "crystal_heal",
+          "name": "ebwizardry:magic_crystal",
+          "functions": [{
+            "function": "set_data",
+            "data": 7
+          }]
+        },
+        {
+          "type": "item",
+          "entryName": "crystal_earth",
+          "name": "ebwizardry:magic_crystal",
+          "functions": [{
+            "function": "set_data",
+            "data": 5
+          }]
+        }
+      ]
+    }
+  ]
+}

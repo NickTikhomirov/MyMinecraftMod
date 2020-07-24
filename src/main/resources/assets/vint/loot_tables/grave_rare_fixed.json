@@ -1,0 +1,29 @@
+{
+  "pools": [{
+	"name": "main",
+	"rolls": 1,
+	"entries": [
+	  {
+		"type": "item",
+		"name": "minecraft:golden_apple"
+	  },
+	  {
+	  	"type": "item",
+	  	"name": "vint:ghast_seeds"
+	  },
+	  {
+		"type": "item",
+		"name": "twilightforest:uncrafting_table"
+	  },
+	  {
+	  	"type": "item",
+	  	"name": "twilightforest:moonworm_queen"
+	  },
+	  {
+		"type": "item",
+		"name": "twilightforest:transformation_powder",
+		"functions": [{ "function": "set_count", "count": { "min": 5, "max": 10 } }]
+	  }
+	]
+  }]
+}

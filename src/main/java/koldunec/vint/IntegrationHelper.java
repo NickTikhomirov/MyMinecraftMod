@@ -19,6 +19,8 @@ public class IntegrationHelper {
     public static boolean isLoadedTough = false;
     public static boolean isLoadedTea = false;
     public static boolean isLoadedRandomThings = false;
+    public static boolean isLoadedEbWizardry = false;
+    public static boolean isLoadedJEI = false;
 
 
     public static String idTwilight = "twilightforest";
@@ -45,6 +47,8 @@ public class IntegrationHelper {
         isLoadedTough = isLoaded(idTough);
         isLoadedTea = isLoaded("simplytea");
         isLoadedRandomThings = isLoaded("randomthings");
+        isLoadedEbWizardry = isLoaded("ebwizardry");
+        isLoadedJEI = isLoaded("jei");
 
         isLoadedFuture = isLoaded(idFuture);
         if(!isLoadedFuture)

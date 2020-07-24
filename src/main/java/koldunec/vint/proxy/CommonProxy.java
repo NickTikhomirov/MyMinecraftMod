@@ -27,6 +27,7 @@ public class CommonProxy {
         }
 
         public void init(FMLInitializationEvent event) {
+                IntegrationHelper.init();   // second time just in case :P
                 NetworkRegistry.INSTANCE.registerGuiHandler(vint.instance,new GuiHandler());
                 LootRegister.register();
                 GeneratorRegister.register();
