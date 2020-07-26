@@ -1,7 +1,8 @@
 package koldunec.vint.compatibility.Tinker;
 
-import koldunec.vint.compatibility.Tinker.TinkerBook.MaterialDocumenter;
-import koldunec.vint.compatibility.Tinker.TinkerBook.ModifierAppender;
+import koldunec.vint.compatibility.Tinker.materials.BaseMaterial;
+import koldunec.vint.compatibility.Tinker.materials.MaterialCarminite;
+import koldunec.vint.compatibility.Tinker.materials.MaterialFrozen;
 import koldunec.vint.compatibility.Tinker.traits.*;
 import koldunec.vint.compatibility.Tinker.traits.tas_tic.Cool;
 import koldunec.vint.compatibility.Tinker.traits.tas_tic.SweetBlood;
@@ -11,7 +12,6 @@ import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.compatibility.Sidemod_Items;
 import koldunec.vint.objectbuilders.LootObjectsBuilder;
-import net.minecraft.entity.item.EntityItem;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -22,22 +22,30 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import slimeknights.mantle.util.RecipeMatch;
-import slimeknights.tconstruct.library.events.TinkerEvent;
+import slimeknights.tconstruct.library.DryingRecipe;
+import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.*;
+import slimeknights.tconstruct.library.modifiers.Modifier;
 import slimeknights.tconstruct.library.modifiers.ModifierTrait;
-import slimeknights.tconstruct.library.tools.Pattern;
 import slimeknights.tconstruct.library.traits.AbstractTrait;
 import slimeknights.tconstruct.shared.TinkerCommons;
 import slimeknights.tconstruct.tools.*;
 
-import java.util.List;
+import java.util.ArrayList;
+import java.util.HashSet;
 
 
 public class TinkerIntegration {
-    public static Material CARMINITE = new Material("carminite", ColorConstants.CARMINITE_COLOR);
+
+    public static HashSet<Modifier> APPENDANTS_MOD = new HashSet<>();
+    public static HashSet<Material> APPENDANTS_MAT = new HashSet<>();
+
+    public static ArrayList<BaseMaterial> list = new ArrayList<>();
+
+    public static BaseMaterial CARMINITE = new MaterialCarminite();
     public static Material IRONWOOD = new Material("ironwood", ColorConstants.IRONWOOD_COLOR);
     public static Material MAZESTONE = new Material("mazestone", ColorConstants.MAZESTONE_COLOR);
-    public static Material FROZEN = new Material("frozen", ColorConstants.FROZEN_COLOR);
+    public static BaseMaterial FROZEN = new MaterialFrozen();
     public static Material AURORA = new Material("aurora", ColorConstants.FROZEN_COLOR, true);
 
     public static Material SPECTRE = new Material("spectral_metal", ColorConstants.SPECTRE_COLOR);
@@ -84,21 +92,21 @@ public class TinkerIntegration {
 
 
     public static void preInit(){
+        TinkerRegistry.registerDryingRecipe(ItemRegister.VITASARIA, ItemRegister.DUST, 5*60*20);
         preInitJija();
-        RedPower.initPerks();
 
         if(IntegrationHelper.isLoadedFuture)
-            MaterialDocumenter.APPENDANTS.add(BAMBOO);
+            APPENDANTS_MAT.add(BAMBOO);
 
-        ModifierAppender.APPENDANTS.add(FUNDAMENTAL);
-        ModifierAppender.APPENDANTS.add(CAPITATOR);
-        ModifierAppender.APPENDANTS.add(ACTIVATING);
+        APPENDANTS_MOD.add(FUNDAMENTAL);
+        APPENDANTS_MOD.add(CAPITATOR);
+        APPENDANTS_MOD.add(ACTIVATING);
         if(IntegrationHelper.isLoadedPrimitive) {
-            ModifierAppender.APPENDANTS.add(COMPLEX);
-            ModifierAppender.APPENDANTS.add(DODO_RAGE);
+            APPENDANTS_MOD.add(COMPLEX);
+            APPENDANTS_MOD.add(DODO_RAGE);
         }
         if(IntegrationHelper.isLoadedTough)
-            ModifierAppender.APPENDANTS.add(BLOOD_HYDRATION);
+            APPENDANTS_MOD.add(BLOOD_HYDRATION);
 
         ConfigureMaterials.addStatsVint();
         ConfigureMaterials.addStatsTwilight();
@@ -184,6 +192,21 @@ public class TinkerIntegration {
     public static void ProcessQueen(LivingDropsEvent e){
         LootObjectsBuilder.BuildItemWithDeath(e, TinkerTools.pickHead.getItemstackWithMaterial(AURORA));
         LootObjectsBuilder.BuildItemWithDeath(e, TinkerTools.excavatorHead.getItemstackWithMaterial(AURORA));
+    }
+
+    protected BaseMaterial put(BaseMaterial get){
+        if(!get.allowed())
+            return null;
+        list.add(get);
+        return get;
+    }
+
+    public static ItemStack getDrying(ItemStack i){
+        return TinkerRegistry.getDryingResult(i);
+    }
+
+    public static int getTime(ItemStack i){
+        return TinkerRegistry.getDryingTime(i);
     }
 
 }

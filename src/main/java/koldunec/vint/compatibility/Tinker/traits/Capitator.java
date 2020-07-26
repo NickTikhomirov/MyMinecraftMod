@@ -23,6 +23,10 @@ public class Capitator extends ModifierTrait {
     public HashSet<Block> TARGETS = new HashSet<Block>(){{
         add(BlockRegister.NETHER_CACTUS);
     }};
+    public HashSet<Block> FORBIDDEN = new HashSet<Block>(){{
+       add(Blocks.PUMPKIN_STEM);
+       add(Blocks.MELON_STEM);
+    }};
 
     public void appendCactus(){
         TARGETS.add(Block.getBlockFromName("minecraft:cactus"));
@@ -62,6 +66,10 @@ public class Capitator extends ModifierTrait {
         if(ep==null)
             return;
         Block block = w.getBlockState(bp).getBlock();
+        if(FORBIDDEN.contains(block)){
+            event.setCanceled(true);
+            return;
+        }
         if(!TARGETS.contains(block))
             return;
         if(isLone(w,bp))

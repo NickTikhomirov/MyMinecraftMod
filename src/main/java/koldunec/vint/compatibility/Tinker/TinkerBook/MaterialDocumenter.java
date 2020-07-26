@@ -1,6 +1,7 @@
 package koldunec.vint.compatibility.Tinker.TinkerBook;
 
 
+import koldunec.vint.compatibility.Tinker.TinkerIntegration;
 import slimeknights.mantle.client.book.data.BookData;
 import slimeknights.mantle.client.book.data.PageData;
 import slimeknights.mantle.client.book.data.SectionData;
@@ -13,11 +14,8 @@ import slimeknights.tconstruct.library.book.content.ContentPageIconList;
 import slimeknights.tconstruct.library.book.sectiontransformer.SectionTransformer;
 import slimeknights.tconstruct.library.materials.Material;
 
-import java.util.HashSet;
-
 
 public class MaterialDocumenter extends SectionTransformer {
-    public static HashSet<Material> APPENDANTS = new HashSet<>();
 
     public MaterialDocumenter() {
         super("materials");
@@ -25,7 +23,7 @@ public class MaterialDocumenter extends SectionTransformer {
 
     @Override
     public void transform(BookData book, SectionData section) {
-        for(Material material: APPENDANTS){
+        for(Material material: TinkerIntegration.APPENDANTS_MAT){
             PageData page = addPage(section, material.getIdentifier(), ContentMaterial.ID, new HeadlessMaterialData(material));
             SizedBookElement icon;
             if(material.getRepresentativeItem() != null)

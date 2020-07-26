@@ -7,6 +7,7 @@ import koldunec.vint.compatibility.Tinker.TinkerIntegration;
 import koldunec.vint.compatibility.TwilightForest.MainTFModule;
 import koldunec.vint.tileentities.containers.ContainerChlesis;
 import koldunec.vint.utils.GemHelper;
+import koldunec.vint.utils.UsefulSets;
 import koldunec.vint.vint;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -20,9 +21,7 @@ public class CompatibilityRegister {
 
     public static void preInit(){
         oreRegisterItems();
-        oreRegisterBlocks();
         grassRegisterItems();
-        GemHelper.preInit();
         if(IntegrationHelper.isLoadedTinkers) {
             vint.LOGGER.info("Started processing interactions with Tinkers Construct");
             TinkerIntegration.preInit();
@@ -33,6 +32,7 @@ public class CompatibilityRegister {
         if(IntegrationHelper.isLoadedFuture)
             FUTURE_BAMBOO = Item.getByNameOrId(IntegrationHelper.idFuture+":bamboo");
         oreRegisterSideItems();
+        UsefulSets.init();
         OtherTweaker.trivia();
         if(IntegrationHelper.isLoadedTwilight)
             MainTFModule.updateGlass();
@@ -47,7 +47,6 @@ public class CompatibilityRegister {
     }
 
     public static void postInit(){
-        GemHelper.postInit();
         if(IntegrationHelper.isLoadedTinkers)
             TinkerIntegration.postInit();
 
@@ -67,10 +66,6 @@ public class CompatibilityRegister {
         OreDictionary.registerOre("dyeBrown",new ItemStack(ItemRegister.ANOTHER_DYE,1,2));
         OreDictionary.registerOre("dyeBlue",new ItemStack(ItemRegister.ANOTHER_DYE,1,3));
         OreDictionary.registerOre("dyeWhite",new ItemStack(ItemRegister.ANOTHER_DYE,1,4));
-    }
-
-    private static void oreRegisterBlocks(){
-
     }
 
     private static void oreRegisterSideItems(){

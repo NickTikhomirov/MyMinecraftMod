@@ -1,7 +1,7 @@
 package koldunec.vint.blocks;
 
 import koldunec.vint.init.BlockRegister;
-import koldunec.vint.tileentities.TileTower;
+import koldunec.vint.tileentities.TileEntityDryer;
 import koldunec.vint.vint;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockHorizontal;
@@ -27,26 +27,26 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class TowerFurnace extends BlockContainer {
+public class Dryer extends BlockContainer {
 
     public static PropertyDirection FACING = BlockHorizontal.FACING;
     private static boolean keepInventory;
     private boolean lit;                 // is used for particle spawning
 
-    public TowerFurnace(boolean varlit) {
-        super(Material.WOOD);
-        setSoundType(SoundType.WOOD);
+    public Dryer(boolean varlit) {
+        super(Material.ROCK);
+        setSoundType(SoundType.STONE);
         setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
         lit = varlit;
         setHardness(5.0F).setResistance(10.0F);
         if(lit) {
             lightValue = 15;
-            setRegistryName("twilight_reactor_lit");
-            setUnlocalizedName("twilight_reactor_lit");
+            setRegistryName("tinker_dryer_lit");
+            setUnlocalizedName("tinker_dryer_lit");
             return;
         }
-        setRegistryName("twilight_reactor");
-        setUnlocalizedName("twilight_reactor");
+        setRegistryName("tinker_dryer");
+        setUnlocalizedName("tinker_dryer");
         setCreativeTab(vint.magicTab);
     }
 
@@ -55,8 +55,8 @@ public class TowerFurnace extends BlockContainer {
         if (worldIn.isRemote)
             return true;
         TileEntity tileentity = worldIn.getTileEntity(pos);
-        if (tileentity instanceof TileTower)
-            playerIn.openGui(vint.instance, 1,worldIn,pos.getX(),pos.getY(),pos.getZ());
+        if (tileentity instanceof TileEntityDryer)
+            playerIn.openGui(vint.instance, 2,worldIn,pos.getX(),pos.getY(),pos.getZ());
         return true;
     }
 
@@ -68,11 +68,11 @@ public class TowerFurnace extends BlockContainer {
         TileEntity tileentity = worldIn.getTileEntity(pos);
         keepInventory = true;
         if (active) {
-            worldIn.setBlockState(pos, BlockRegister.TOWER_FURNACE_LIT.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, BlockRegister.TOWER_FURNACE_LIT.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, BlockRegister.DRYER_LIT.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, BlockRegister.DRYER_LIT.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         } else {
-            worldIn.setBlockState(pos, BlockRegister.TOWER_FURNACE.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
-            worldIn.setBlockState(pos, BlockRegister.TOWER_FURNACE.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, BlockRegister.DRYER.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
+            worldIn.setBlockState(pos, BlockRegister.DRYER.getDefaultState().withProperty(FACING, iblockstate.getValue(FACING)), 3);
         }
         keepInventory = false;
         if (tileentity != null) {
@@ -85,8 +85,8 @@ public class TowerFurnace extends BlockContainer {
     public void breakBlock(World worldIn, BlockPos pos, IBlockState state) {
         if (!keepInventory) {
             TileEntity tileentity = worldIn.getTileEntity(pos);
-            if (tileentity instanceof TileTower)
-                InventoryHelper.dropInventoryItems(worldIn, pos, (TileTower)tileentity);
+            if (tileentity instanceof TileEntityDryer)
+                InventoryHelper.dropInventoryItems(worldIn, pos, (TileEntityDryer)tileentity);
         }
         super.breakBlock(worldIn, pos, state);
     }
@@ -119,7 +119,7 @@ public class TowerFurnace extends BlockContainer {
     @Nullable
     @Override
     public TileEntity createNewTileEntity(World worldIn, int meta) {
-        return new TileTower();
+        return new TileEntityDryer();
     }
 
     public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
@@ -128,12 +128,12 @@ public class TowerFurnace extends BlockContainer {
 
     @Override
     public Item getItemDropped(IBlockState state, Random rand, int fortune) {
-        return Item.getItemFromBlock(BlockRegister.TOWER_FURNACE);
+        return Item.getItemFromBlock(BlockRegister.DRYER);
     }
 
     @Override
     public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        return new ItemStack(BlockRegister.TOWER_FURNACE);
+        return new ItemStack(BlockRegister.DRYER);
     }
 
     @Override
@@ -146,36 +146,31 @@ public class TowerFurnace extends BlockContainer {
     @SideOnly(Side.CLIENT)
     @SuppressWarnings("incomplete-switch")
     public void randomDisplayTick(IBlockState stateIn, World worldIn, BlockPos pos, Random rand){
-        if (!lit) return;
+        if(!lit)
+            return;
         EnumFacing enumfacing = stateIn.getValue(FACING);
-        EnumParticleTypes particleMain = EnumParticleTypes.CRIT_MAGIC;
-        EnumParticleTypes particleSecond = EnumParticleTypes.REDSTONE;
         double d0 = pos.getX() + 0.5D;
-        double d1 = pos.getY() + rand.nextDouble() * 12.0D / 16.0D;
-        double d1_1 = pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
+        double d1 = pos.getY() + rand.nextDouble() * 6.0D / 16.0D;
         double d2 = pos.getZ() + 0.5D;
         double d4 = rand.nextDouble() * 0.6D - 0.3D;
-        double mainSpeed = 0;
         if (rand.nextDouble() < 0.1D)
             worldIn.playSound(pos.getX() + 0.5D, pos.getY(), pos.getZ() + 0.5D, SoundEvents.BLOCK_FURNACE_FIRE_CRACKLE, SoundCategory.BLOCKS, 1.0F, 1.0F, false);
-
         switch (enumfacing) {
             case WEST:
-                worldIn.spawnParticle(particleMain, d0 - 0.52D, d1, d2 + d4, 0.0D, mainSpeed, 0.0D);
-                worldIn.spawnParticle(particleSecond, d0 - 0.52D, d1_1, d2 + d4, 0.0D, mainSpeed, 0.0D);
+                worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 - 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
                 break;
-            case EAST:
-                worldIn.spawnParticle(particleMain, d0 + 0.52D, d1, d2 + d4, 0.0D, mainSpeed, 0.0D);
-                worldIn.spawnParticle(particleSecond, d0 + 0.52D, d1_1, d2 + d4, 0.0D, mainSpeed, 0.0D);
+            case EAST: worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
+                worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + 0.52D, d1, d2 + d4, 0.0D, 0.0D, 0.0D);
                 break;
-            case NORTH:
-                worldIn.spawnParticle(particleMain, d0 + d4, d1, d2 - 0.52D, 0.0D, mainSpeed, 0.0D);
-                worldIn.spawnParticle(particleSecond, d0 + d4, d1_1, d2 - 0.52D, 0.0D, mainSpeed, 0.0D);
+            case NORTH: worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
+                worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 - 0.52D, 0.0D, 0.0D, 0.0D);
                 break;
-            case SOUTH:
-                worldIn.spawnParticle(particleMain, d0 + d4, d1, d2 + 0.52D, 0.0D, mainSpeed, 0.0D);
-                worldIn.spawnParticle(particleSecond, d0 + d4, d1_1, d2 + 0.52D, 0.0D, mainSpeed, 0.0D);
+             case SOUTH: worldIn.spawnParticle(EnumParticleTypes.SMOKE_NORMAL, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
+                worldIn.spawnParticle(EnumParticleTypes.FLAME, d0 + d4, d1, d2 + 0.52D, 0.0D, 0.0D, 0.0D);
         }
-
     }
+
+
 }
+

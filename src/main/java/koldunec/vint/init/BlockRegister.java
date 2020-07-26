@@ -86,6 +86,10 @@ public class BlockRegister {
     public static Block ORE_EGG = put(new eggore("ore_egg",64));
     public static Block ORE_RAINBOW = put(new RainbowOre("ore_rainbow"));
 
+    public static Block DRYER = new Dryer(false);
+    public static Block DRYER_LIT = new Dryer(true);
+
+
     public static Block TOWER_FURNACE = new TowerFurnace(false);
     public static Block TOWER_FURNACE_LIT = new TowerFurnace(true);
     public static Block FAKE_IRON = put(ObjectBuilder.BuildFake("fake_iron"));
@@ -118,6 +122,10 @@ public class BlockRegister {
             registerBlock(TOWER_FURNACE_LIT);
         }
 
+        if(IntegrationHelper.isLoadedTinkers) {
+            registerBlock(DRYER);
+            registerBlock(DRYER_LIT);
+        }
 
     }
 
@@ -138,6 +146,10 @@ public class BlockRegister {
         if(IntegrationHelper.isLoadedTwilight) {
             setRender(TOWER_FURNACE);
             setRender(TOWER_FURNACE_LIT);
+        }
+        if(IntegrationHelper.isLoadedTinkers) {
+            setRender(DRYER);
+            setRender(DRYER_LIT);
         }
 
     }

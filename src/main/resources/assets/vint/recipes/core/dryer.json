@@ -1,0 +1,25 @@
+{
+    "conditions": [
+        {
+            "type":"is_loaded",
+            "id":"tconstruct"
+        }
+    ],
+    "type": "forge:ore_shaped",
+    "pattern": [
+        "OOO",
+        "O O",
+        "OOO"
+    ],
+    "key": {
+        "O": [
+            {
+                "item": "tconstruct:materials",
+                "data": 2
+            }
+        ]
+    },
+    "result": {
+        "item": "vint:tinker_dryer"
+    }
+}

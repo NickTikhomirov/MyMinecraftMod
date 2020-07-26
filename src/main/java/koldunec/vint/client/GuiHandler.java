@@ -1,10 +1,13 @@
 package koldunec.vint.client;
 
+import koldunec.vint.client.gui.GuiDryer;
 import koldunec.vint.client.gui.GuiTower;
 import koldunec.vint.client.gui.GuiChlesis;
 import koldunec.vint.client.gui.GuiOre;
+import koldunec.vint.tileentities.TileEntityDryer;
 import koldunec.vint.tileentities.TileTower;
 import koldunec.vint.tileentities.containers.ContainerChlesis;
+import koldunec.vint.tileentities.containers.ContainerDryer;
 import koldunec.vint.tileentities.containers.ContainerTower;
 import koldunec.vint.tileentities.containers.container_store;
 import koldunec.vint.tileentities.EntityStore;
@@ -21,6 +24,7 @@ public class GuiHandler implements IGuiHandler {
     public static final int GUI_CHLESIS = -1;
     public static final int GUI_STORE = 0;
     public static final int GUI_TOWER = 1;
+    public static final int GUI_DRYER = 2;
 
 
     @Nullable
@@ -32,6 +36,8 @@ public class GuiHandler implements IGuiHandler {
             return new ContainerChlesis(player.inventory, new InventoryChiselSelection(player.getHeldItem(EnumHand.values()[x]), 60), EnumHand.values()[x]);
         if(ID==GUI_TOWER)
             return new ContainerTower(player.inventory,(TileTower)world.getTileEntity(new BlockPos(x,y,z)));
+        if(ID==GUI_DRYER)
+            return new ContainerDryer(player.inventory, (TileEntityDryer)world.getTileEntity(new BlockPos(x,y,z)));
         return null;
     }
 
@@ -44,6 +50,8 @@ public class GuiHandler implements IGuiHandler {
             return new GuiChlesis(player.inventory, new InventoryChiselSelection(player.getHeldItem(EnumHand.values()[x]), 60), EnumHand.values()[x]);
         if(ID==GUI_TOWER)
             return new GuiTower(player.inventory, (TileTower)world.getTileEntity(new BlockPos(x,y,z)));
+        if(ID==GUI_DRYER)
+            return new GuiDryer(player.inventory, (TileEntityDryer)world.getTileEntity(new BlockPos(x, y, z)));
         return null;
     }
 }

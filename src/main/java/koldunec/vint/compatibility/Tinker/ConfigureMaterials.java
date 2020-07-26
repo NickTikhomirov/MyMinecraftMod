@@ -1,8 +1,6 @@
 package koldunec.vint.compatibility.Tinker;
 
 import koldunec.vint.IntegrationHelper;
-import koldunec.vint.compatibility.Tinker.TinkerBook.ModifierAppender;
-import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.CompatibilityRegister;
 import koldunec.vint.init.ItemRegister;
 import net.minecraft.block.Block;
@@ -66,14 +64,11 @@ public class ConfigureMaterials {
     public static void addStatsTwilight(){
         if(!IntegrationHelper.isLoadedTwilight)
             return;
-        ModifierAppender.APPENDANTS.add(PRIMAL);
+        APPENDANTS_MOD.add(PRIMAL);
 
-        TinkerRegistry.addMaterialStats(CARMINITE,
-                new HeadMaterialStats(200, 11F, 7.5F, 2),
-                new ExtraMaterialStats(150),
-                new HandleMaterialStats(1.4F,5),
-                new BowStringMaterialStats(1.4F)
-        );
+        CARMINITE.addParts();
+        FROZEN.addParts();
+
         TinkerRegistry.addMaterialStats(MAZESTONE,
                 new HeadMaterialStats(255, 3F, 2F, 4),
                 new ExtraMaterialStats(340)
@@ -85,18 +80,15 @@ public class ConfigureMaterials {
                 new HandleMaterialStats(1, 60),
                 new BowMaterialStats(0.5F, 1.5F,7)
         );
-        TinkerRegistry.addMaterialStats(FROZEN,
-                new HeadMaterialStats(444,9F,2F, 2),
-                new BowMaterialStats(1.8F, 1F, 4),
-                new ArrowShaftMaterialStats(1, 10));
+
 
         TinkerRegistry.addMaterialStats(AURORA,
                 new HeadMaterialStats(511,11F,2F, 4));
 
 
-        TinkerRegistry.integrate(CARMINITE).preInit();
+        CARMINITE.register();
+        FROZEN.register();
         TinkerRegistry.integrate(MAZESTONE).preInit();
-        TinkerRegistry.integrate(FROZEN).preInit();
         TinkerRegistry.integrate(AURORA).preInit();
         TinkerRegistry.integrate(IRONWOOD,IRONWOOD_JIJA,"Ironwood").preInit();
     }
@@ -133,7 +125,7 @@ public class ConfigureMaterials {
 
         TinkerRegistry.integrate(SPECTRE).preInit();
         TinkerRegistry.integrate(SPECTRE_STRING).preInit();
-        ModifierAppender.APPENDANTS.add(DIMENSIONAL);
+        APPENDANTS_MOD.add(DIMENSIONAL);
     }
 
     public static void ConfigureOther(){
@@ -176,10 +168,7 @@ public class ConfigureMaterials {
             return;
         CARMINITE.addItem(new ItemStack(Item.getByNameOrId("twilightforest:carminite"), 1), 1, 144);
         CARMINITE.setRepresentativeItem(Item.getByNameOrId("twilightforest:carminite"));
-        CARMINITE.setCraftable(true).setCastable(false);
-        CARMINITE.addTrait(TConstruct.twilit).addTrait(BZZZ);
-        CARMINITE.addTrait(TConstruct.twilit, HEAD).addTrait(BORING, HEAD).addTrait(BZZZ, HEAD);
-        CARMINITE.addTrait(TConstruct.twilit, HANDLE).addTrait(TinkerTraits.lightweight, HANDLE).addTrait(TinkerTraits.unnatural, HANDLE);
+        CARMINITE.registerTraits();
 
         for(int i=0; i<8; ++i)
             MAZESTONE.addItem(new ItemStack(Item.getByNameOrId("twilightforest:maze_stone"), 1, i),1, 144);
@@ -199,12 +188,7 @@ public class ConfigureMaterials {
 
         FROZEN.addItem(ItemRegister.FROZEN_CORE);
         FROZEN.setRepresentativeItem(ItemRegister.FROZEN_CORE);
-        FROZEN.setCastable(false).setCraftable(true);
-        FROZEN.addTrait(TConstruct.twilit, HEAD).addTrait(TConstruct.twilit, BOW).addTrait(TConstruct.twilit, SHAFT);
-        FROZEN.addTrait(TinkerTraits.coldblooded, HEAD).addTrait(TinkerTraits.coldblooded, BOW);
-        FROZEN.addTrait(TinkerTraits.freezing, SHAFT);
-        FROZEN.addTrait(ICE_QUEEN, BOW);
-        FROZEN.addTrait(TinkerTraits.momentum, HEAD);
+        FROZEN.registerTraits();
 
         AURORA.setCastable(false).setCraftable(false);
         AURORA.setRepresentativeItem(ItemRegister.AURORA_CORE);

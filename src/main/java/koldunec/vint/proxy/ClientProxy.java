@@ -1,9 +1,9 @@
 package koldunec.vint.proxy;
 
 
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.Tinker.TinkerBook.MaterialDocumenter;
 import koldunec.vint.compatibility.Tinker.TinkerBook.ModifierAppender;
-import koldunec.vint.IntegrationHelper;
 import koldunec.vint.entities.entityMagicBall;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;

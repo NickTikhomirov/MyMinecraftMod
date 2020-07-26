@@ -70,11 +70,15 @@ modifier.dimensional.desc=§oWhen live gives you traits, make life take restrict
 
 
 modifier.warm.name=Warm
-modifier.warm.desc=§oSo work til you warm, enwarmed by labour, then purchase relief from a local retailer§r\nYour tool warms you.
+modifier.warm.desc=§oSo work til you bleed, enwarmed by labour, then purchase relief from a local retailer§r\nYour tool warms you.
 modifier.cool.name=Cool
 modifier.cool.desc=§oVery cool§r\nYour tool cools you.
 modifier.blood_hydration.name=Hydrated With Blood
-modifier.blood_hydration.desc=§oZombie juice with spider smoothie§r\Hitting enemies sometimes hydrates you.
+modifier.blood_hydration.desc=§oZombie juice with spider smoothie§r\nHitting enemies sometimes hydrates you.
+
+modifier.experimental_armor.name=Experimental Cooking
+modifier.experimental_armor.desc=§oBad guys are good cooks§r\nEating vanilla meat gives you double foodpoints.
+
 
 modifier.dmg_deal.extra=Damage+7, but some drops are disabled
 
@@ -219,10 +223,12 @@ tile.green_bricks.name=Green Bricks
 
 tile.red_nether_shroom.name=Crimson Fungus
 tile.blue_nether_shroom.name=Warped Fungus
-
 tile.torch_crop.name=Torchberry Bush
+
 tile.twilight_reactor.name=Twilight Reactor
 container.twilight_reactor=Twilight Reactor
+tile.tinker_dryer.name=Dryer
+vint.container.dryer=Dryer
 
 tile.gem_ore.name=Gem Ore
 
@@ -367,3 +373,4 @@ vint.jei.repair_msg=Repairs for %s durability
 
 vint.jei.docs.scroll=These scrolls are randomly dropped from bosses. Sneak-use a scroll on an empty stORE block, and the block will be filled with loot of one chest of respective dungeon.
 vint.jei.docs.borer=This plant grows downwards, making its way through the wood. \nPlace it on the top of wooden column (even workbench column is suitable) and the plant will slowly consume it
+vint.jei.docs.dryer=This block acts like TConstruct's drying rack, but instead of long fuel-free operations it uses furnace fuel and operates 30 times faster (note that some recipes are too long by default, so in certain cases Dryer can take up to 30 pieces of coal).

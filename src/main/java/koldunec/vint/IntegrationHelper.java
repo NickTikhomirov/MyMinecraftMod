@@ -21,6 +21,7 @@ public class IntegrationHelper {
     public static boolean isLoadedRandomThings = false;
     public static boolean isLoadedEbWizardry = false;
     public static boolean isLoadedJEI = false;
+    public static boolean isLoadedConarm = false;
 
 
     public static String idTwilight = "twilightforest";
@@ -49,6 +50,7 @@ public class IntegrationHelper {
         isLoadedRandomThings = isLoaded("randomthings");
         isLoadedEbWizardry = isLoaded("ebwizardry");
         isLoadedJEI = isLoaded("jei");
+        isLoadedConarm = isLoaded("conarm");
 
         isLoadedFuture = isLoaded(idFuture);
         if(!isLoadedFuture)

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "vint:dryer" },
+    "facing=south": { "model": "vint:dryer", "y": 180 },
+    "facing=west":  { "model": "vint:dryer", "y": 270 },
+    "facing=east":  { "model": "vint:dryer", "y": 90 }
+  }
+}

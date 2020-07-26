@@ -32,6 +32,7 @@ public class TwilightTransmutationsData {
 
         CINDER.time = 250;
         CINDER.register(Blocks.CHEST, BlockRegister.STORE);
+        CINDER.register(TFItems.ore_magnet, TFItems.knightmetal_ingot);
 
         CINDER.time = 500;
         CINDER.register(Blocks.CLAY, TFBlocks.maze_stone);

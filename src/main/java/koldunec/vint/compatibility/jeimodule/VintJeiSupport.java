@@ -1,6 +1,8 @@
 package koldunec.vint.compatibility.jeimodule;
 
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.client.gui.GuiDryer;
+import koldunec.vint.client.gui.GuiTower;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.items.Scroll;
@@ -44,11 +46,17 @@ public class VintJeiSupport implements IModPlugin {
 
     @Override
     public void register(IModRegistry registry) {
+        if(IntegrationHelper.isLoadedTinkers){
+            registry.addRecipeCatalyst(new ItemStack(BlockRegister.DRYER), "tconstruct.dryingrack");
+            registry.addRecipeClickArea(GuiDryer.class, 80, 35, 101-80, 49-35, "tconstruct.dryingrack");
+            registry.addIngredientInfo(new ItemStack(BlockRegister.DRYER), VanillaTypes.ITEM, "vint.jei.docs.dryer");
+        }
         if(!IntegrationHelper.isLoadedTwilight)
             return;
 
         registry.addRecipes(RecipeLimbo.LIST_OF_SIMPLES, SAFE.getUid());
         registry.addRecipeCatalyst(new ItemStack(BlockRegister.TOWER_FURNACE), SAFE.getUid());
+        registry.addRecipeClickArea(GuiTower.class, 80, 35, 101-80, 49-35, SAFE.getUid());
 
         registry.addIngredientInfo(new ItemStack(ItemRegister.BORER_REED), VanillaTypes.ITEM, "vint.jei.docs.borer");
         registry.addIngredientInfo(Scroll.SCROLLS, VanillaTypes.ITEM, "vint.jei.docs.scroll");

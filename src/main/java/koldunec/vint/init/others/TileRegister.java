@@ -1,6 +1,7 @@
 package koldunec.vint.init.others;
 
 import koldunec.vint.tileentities.EntityStore;
+import koldunec.vint.tileentities.TileEntityDryer;
 import koldunec.vint.tileentities.TileLlama;
 import koldunec.vint.tileentities.TileTower;
 import koldunec.vint.vint;
@@ -12,5 +13,6 @@ public class TileRegister {
         GameRegistry.registerTileEntity(EntityStore.class, new ResourceLocation(vint.MODID,"st_ore"));
         GameRegistry.registerTileEntity(TileLlama.class,new ResourceLocation(vint.MODID,"tilellama"));
         GameRegistry.registerTileEntity(TileTower.class,new ResourceLocation(vint.MODID,"twilight_reactor"));
+        GameRegistry.registerTileEntity(TileEntityDryer.class, new ResourceLocation(vint.MODID, "tinker_dryer"));
     }
 }

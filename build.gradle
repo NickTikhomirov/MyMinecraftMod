@@ -67,6 +67,8 @@ dependencies {
     provided 'culinary:culinaryconstruct-1.3.3.2'
     provided 'tas:ToughAsNails-1.12.2-3.1.0.141-universal'
     provided 'arl:AutoRegLib-1.3-32'
+    provided 'conarm:conarm-1.12.2-1.2.5.3'
+    
 
     // the deobf configurations:  'deobfCompile' and 'deobfProvided' are the same as the normal compile and provided,
     // except that these dependencies get remapped to your current MCP mappings
