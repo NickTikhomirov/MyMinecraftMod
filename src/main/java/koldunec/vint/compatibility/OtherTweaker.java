@@ -7,6 +7,7 @@ import koldunec.vint.items.Chlesis;
 import koldunec.vint.items.tools.Broom;
 import koldunec.vint.items.agriculture.ReedPowderItem;
 import koldunec.vint.objectbuilders.SimpleItems;
+import koldunec.vint.utils.BehaviourDispenseFood;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDispenser;
 import net.minecraft.init.Blocks;

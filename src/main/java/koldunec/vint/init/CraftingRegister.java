@@ -1,6 +1,8 @@
 package koldunec.vint.init;
 
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.compatibility.OtherIntegration.QuarkInt;
+import koldunec.vint.compatibility.Sidemod_Items;
 import koldunec.vint.recipes.BrewRegister;
 import koldunec.vint.recipes.TwilightTransmutations.TransmutationsRegister;
 import net.minecraft.init.Items;
@@ -10,6 +12,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.common.crafting.IRecipeFactory;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import scala.Int;
 
 import static net.minecraftforge.common.crafting.CraftingHelper.*;
 
@@ -40,10 +43,16 @@ public class CraftingRegister
             GameRegistry.addSmelting(Item.getByNameOrId("chisel:chisel_diamond"), new ItemStack(ItemRegister.CHLESIS), 10F);
         }
         if(IntegrationHelper.isLoadedFuture){
-            GameRegistry.addSmelting(
-                    Item.getByNameOrId(IntegrationHelper.idFuture+":honey_block"),
-                    new ItemStack(ItemRegister.HONEY_CRYSTAL), 1F
-            );
+            if(IntegrationHelper.isLoadedTinkers)
+                GameRegistry.addSmelting(
+                        Sidemod_Items.getFuture("honey_block"),
+                        new ItemStack(ItemRegister.HONEY_CRYSTAL), 1F
+                );
+            if(IntegrationHelper.isLoadedQuark){
+                ItemStack result = new ItemStack(QuarkInt.getTallow());
+                result.setTranslatableName("quark.vint.name.wax");
+                GameRegistry.addSmelting(Sidemod_Items.getFuture("honeycomb"), result, 1F);
+            }
         }
     }
 

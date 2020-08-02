@@ -38,14 +38,25 @@ public class TwilightTransmutationsIntegration {
 
         if(IntegrationHelper.isLoaded("conduit")){
             Defaulter CONDUIT = new Defaulter(Sidemod_Items.ConduitHeart());
+            ContainerTower.CATALYSTS_FOR_TRANSFER.put(CONDUIT.catalyst, 0);
 
             CONDUIT.register(Items.GLOWSTONE_DUST, Items.PRISMARINE_CRYSTALS);
             CONDUIT.register(Items.QUARTZ, Items.PRISMARINE_SHARD);
             CONDUIT.register(Blocks.NETHER_WART_BLOCK, Blocks.SPONGE);
             CONDUIT.register(BlockRegister.WARPED_WART, Blocks.SPONGE);
             CONDUIT.register(Sidemod_Items.Focus(), Sidemod_Items.ConduitShell());
-
-            ContainerTower.CATALYSTS_FOR_TRANSFER.put(CONDUIT.catalyst, 0);
+            CONDUIT.register(Items.PORKCHOP, Items.FISH);
+            CONDUIT.register(Items.COOKED_PORKCHOP, Items.COOKED_FISH);
+            if(IntegrationHelper.isLoadedTinkers) {
+                Item i = Item.getByNameOrId(IntegrationHelper.idTinker+":edible");
+                CONDUIT.register(i, 13, i, 20);   // pig jerky to fish jerky
+                CONDUIT.register(i, Items.FISH, 2);         // bacon to clownfish
+            }
+            if(IntegrationHelper.isLoadedNatura){
+                Item i = Item.getByNameOrId("natura:edibles");
+                CONDUIT.register(i, Items.FISH, 1);         // imp meat to salmon
+                CONDUIT.register(i, 1, Items.COOKED_FISH, 1); // same but cooked
+            }
 
             CONDUIT.catalyst = TFItems.lamp_of_cinders;    // NO MORE CONDUIT
             CONDUIT.time = 250;
@@ -55,6 +66,13 @@ public class TwilightTransmutationsIntegration {
         if(IntegrationHelper.isLoadedFuture){
             Defaulter ICE = new Defaulter(ItemRegister.FROZEN_CORE);
             ICE.register(Blocks.PACKED_ICE, Sidemod_Items.BlueIce());
+
+            Item trident = Sidemod_Items.getFuture("trident");
+            RepairRecipe.BuildAndJEI_AndSave(trident, new ItemStack(Items.PRISMARINE_SHARD), 25);
+            RepairRecipe.BuildAndJEI_AndSave(trident, new ItemStack(Items.PRISMARINE_CRYSTALS), 50);
+            RepairRecipe.BuildAndJEI_AndSave(trident, new ItemStack(ItemRegister.FROZEN_CORE), 50);
+            if(IntegrationHelper.isLoaded("conduit"))
+                RepairRecipe.BuildAndJEI_AndSave(trident, new ItemStack(Sidemod_Items.ConduitShell()), 250);
 
             RecipeInput in = new RecipeInput(Items.LAVA_BUCKET, Sidemod_Items.BlueIce());
             RecipeOutput out = new BasaltProvider(BlockRegister.BASALT_RAW, 50);

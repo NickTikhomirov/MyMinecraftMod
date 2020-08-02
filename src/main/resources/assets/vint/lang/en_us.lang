@@ -76,8 +76,8 @@ modifier.cool.desc=§oVery cool§r\nYour tool cools you.
 modifier.blood_hydration.name=Hydrated With Blood
 modifier.blood_hydration.desc=§oZombie juice with spider smoothie§r\nHitting enemies sometimes hydrates you.
 
-modifier.experimental_armor.name=Experimental Cooking
-modifier.experimental_armor.desc=§oBad guys are good cooks§r\nEating vanilla meat gives you double foodpoints.
+modifier.experimental_armor.name=Experiment 116
+modifier.experimental_armor.desc=§oArmor that helps to eat§r\nEating vanilla meat gives you double foodpoints (effect doesn't stack).
 
 
 modifier.dmg_deal.extra=Damage+7, but some drops are disabled
@@ -161,6 +161,7 @@ item.aurora_core.name=Aurora Core
 
 item.moss.name=Moss
 item.bamboo_hoe.name=Bamboo Hoe
+item.bamboo_shovel.name=Bamboo Shovel
 
 item.honey_crystal.name=Honey Crystal
 item.bamboo_bread.name=Bamboo Bread
@@ -229,6 +230,9 @@ tile.twilight_reactor.name=Twilight Reactor
 container.twilight_reactor=Twilight Reactor
 tile.tinker_dryer.name=Dryer
 vint.container.dryer=Dryer
+tile.flopper.name=Flopper
+vint.container.flopper=Flopper
+container.st_ore=StOre
 
 tile.gem_ore.name=Gem Ore
 
@@ -345,9 +349,9 @@ lingering_potion.effect.vint:short_enderprotection=Bomb for Endermen
 tipped_arrow.effect.vint:enderprotection=Useless Arrow
 tipped_arrow.effect.vint:short_enderprotection=Useless Arrow
 
+quark.vint.name.wax=Wax
 
 potion.potency.3=IV
-container.st_ore=StOre
 
 vint.chat.msg0=Well Done!
 vint:flavor2=Amber hate Embers!

@@ -9,6 +9,7 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemHoe;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
@@ -86,6 +87,16 @@ public class ObjectBuilder {
         i.setMaxDamage(100);
         i.setUnlocalizedName("bamboo_hoe");
         i.setRegistryName("bamboo_hoe");
+        i.setCreativeTab(vint.magicTab);
+        return i;
+    }
+
+    public static Item BuildBambooShovel(){
+        ItemSpade i = new ItemSpade(MaterialRegister.BAMBOO_MATERIAL);
+        i.setMaxStackSize(1);
+        i.setMaxDamage(100);
+        i.setUnlocalizedName("bamboo_shovel");
+        i.setRegistryName("bamboo_shovel");
         i.setCreativeTab(vint.magicTab);
         return i;
     }

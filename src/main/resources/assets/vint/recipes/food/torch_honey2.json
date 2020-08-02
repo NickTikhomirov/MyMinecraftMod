@@ -1,0 +1,26 @@
+{
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"futuremc"
+    },
+    {
+      "type":"is_loaded",
+      "id":"twilightforest"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "twilightforest:torchberries"
+    },
+    {
+      "item": "futuremc:honey_bottle"
+    }
+  ],
+  "result":
+    {
+      "item": "vint:honey_berry",
+      "count": 3
+    }
+}

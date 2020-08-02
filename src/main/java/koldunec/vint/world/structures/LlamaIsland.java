@@ -1,5 +1,6 @@
 package koldunec.vint.world.structures;
 
+import koldunec.vint.IntegrationHelper;
 import koldunec.vint.vint;
 import koldunec.vint.init.BlockRegister;
 import koldunec.vint.init.others.LootRegister;
@@ -28,6 +29,9 @@ public class LlamaIsland implements ISkyIsle {
 
     @Override
     public ResourceLocation getLocation() {
+        if(IntegrationHelper.idFuture.equals("futuremc"))
+            if(vint.random.nextInt(2)==0)
+                return new ResourceLocation(vint.MODID+":bee_island1");
         return new ResourceLocation(vint.MODID+":best_island1");
     }
 

@@ -3,6 +3,7 @@ package koldunec.vint.recipes.TwilightTransmutations.RecipeResults;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.jeimodule.RecipeLimbo;
 import koldunec.vint.init.ItemRegister;
+import koldunec.vint.recipes.TwilightTransmutations.TransmutationsRegister;
 import koldunec.vint.tileentities.TileTower;
 import koldunec.vint.utils.ItemWithMeta;
 import net.minecraft.init.Blocks;
@@ -56,5 +57,9 @@ public class RepairRecipe implements ITwilightResult {
         if(IntegrationHelper.isLoadedJEI)
             new RecipeLimbo.RepairRecipeJEI(result);
         return result;
+    }
+
+    public static void BuildAndJEI_AndSave(Item tool, ItemStack material, int amount){
+        TransmutationsRegister.RECIPES_2.add(BuildAndJEI(tool, material, amount));
     }
 }

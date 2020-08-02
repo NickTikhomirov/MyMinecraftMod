@@ -1,9 +1,6 @@
 package koldunec.vint.init.others;
 
-import koldunec.vint.tileentities.EntityStore;
-import koldunec.vint.tileentities.TileEntityDryer;
-import koldunec.vint.tileentities.TileLlama;
-import koldunec.vint.tileentities.TileTower;
+import koldunec.vint.tileentities.*;
 import koldunec.vint.vint;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.common.registry.GameRegistry;
@@ -14,5 +11,6 @@ public class TileRegister {
         GameRegistry.registerTileEntity(TileLlama.class,new ResourceLocation(vint.MODID,"tilellama"));
         GameRegistry.registerTileEntity(TileTower.class,new ResourceLocation(vint.MODID,"twilight_reactor"));
         GameRegistry.registerTileEntity(TileEntityDryer.class, new ResourceLocation(vint.MODID, "tinker_dryer"));
+        GameRegistry.registerTileEntity(TileEntityFlopper.class, new ResourceLocation(vint.MODID, "flopper"));
     }
 }

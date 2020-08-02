@@ -1,10 +1,9 @@
 package koldunec.vint.compatibility.Tinker.materials;
 
-import c4.conarm.common.armor.traits.ArmorTraits;
-import c4.conarm.lib.materials.ArmorMaterials;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.compatibility.Tinker.ColorConstants;
 import koldunec.vint.compatibility.Tinker.ConarmIntegration;
+import koldunec.vint.compatibility.Tinker.ConarmProvider;
 import slimeknights.tconstruct.library.materials.BowStringMaterialStats;
 import slimeknights.tconstruct.library.materials.ExtraMaterialStats;
 import slimeknights.tconstruct.library.materials.HandleMaterialStats;
@@ -34,7 +33,7 @@ public class MaterialCarminite extends BaseMaterial {
         addTrait(TinkerTraits.lightweight, HANDLE);
         addTrait(TinkerTraits.unnatural, HANDLE);
         if(IntegrationHelper.isLoadedConarm){
-            ArmorMaterials.addArmorTrait(this, ConarmIntegration.EXPERIMENTAL, PLATES);
+            ConarmProvider.addArmorTrait(this, ConarmIntegration.EXPERIMENTAL, PLATES);
         }
     }
 

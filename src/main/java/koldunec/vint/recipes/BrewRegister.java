@@ -23,6 +23,9 @@ public class BrewRegister {
         initPoisonProtection();
         initOther();
 
+        if(IntegrationHelper.isLoadedRandomThings)
+            PotionHelper.addMix(PotionTypes.WATER, Ingredient.fromItem(Item.getByNameOrId("randomthings:glowingmushroom")), PotionTypes.THICK);
+
         PotionHelper.addMix(PotionTypes.THICK, Ingredient.fromItem(Item.getItemFromBlock(BlockRegister.BLUE_NETHER_MUSH)), PotionTypes.INVISIBILITY);
         PotionHelper.addMix(PotionTypes.THICK, Ingredient.fromItem(Item.getItemFromBlock(BlockRegister.RED_NETHER_MUSH)), PotionTypes.STRENGTH);
 

@@ -9,6 +9,8 @@ import slimeknights.tconstruct.library.tinkering.Category;
 import slimeknights.tconstruct.library.tools.ToolCore;
 
 public class Complex extends ModifierTrait {
+    public static float amount = 4;
+
     public Complex() {
         super("complex", TechHelper.getColor(255,128,255));
     }
@@ -19,7 +21,7 @@ public class Complex extends ModifierTrait {
             return super.damage(tool, player, target, damage, newDamage, isCritical);
         String modid = TechHelper.getRegistryName(target).getResourceDomain();
         if(modid.equals("primitivemobs"))
-            newDamage+=3;
+            newDamage+=amount;
         return super.damage(tool, player, target, damage, newDamage, isCritical);
     }
 

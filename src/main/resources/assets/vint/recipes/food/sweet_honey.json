@@ -1,0 +1,22 @@
+{
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"minecraftfuture"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraftfuture:sweetberry"
+    },
+    {
+      "item": "minecraftfuture:honey_bottle"
+    }
+  ],
+  "result":
+    {
+      "item": "vint:honey_berry",
+      "count": 2
+    }
+}

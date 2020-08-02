@@ -88,7 +88,7 @@ public class BlockRegister {
 
     public static Block DRYER = new Dryer(false);
     public static Block DRYER_LIT = new Dryer(true);
-
+    public static Block FLOPPER = put(new BlockFlopper());
 
     public static Block TOWER_FURNACE = new TowerFurnace(false);
     public static Block TOWER_FURNACE_LIT = new TowerFurnace(true);

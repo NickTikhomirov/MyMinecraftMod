@@ -51,8 +51,6 @@ public class ConfigureMaterials {
         configureLog(GOLD_LOG);
         configureLog(GREEN_LOG);
 
-
-
         TinkerRegistry.integrate(NETHER_CACTUS).preInit();
         TinkerRegistry.integrate(CRIMSON_LOG).preInit();
         TinkerRegistry.integrate(WARPED_LOG).preInit();
@@ -68,19 +66,8 @@ public class ConfigureMaterials {
 
         CARMINITE.addParts();
         FROZEN.addParts();
-
-        TinkerRegistry.addMaterialStats(MAZESTONE,
-                new HeadMaterialStats(255, 3F, 2F, 4),
-                new ExtraMaterialStats(340)
-        );
-
-        TinkerRegistry.addMaterialStats(IRONWOOD,
-                new HeadMaterialStats(204, 6F, 4F, 2),
-                new ExtraMaterialStats(50),
-                new HandleMaterialStats(1, 60),
-                new BowMaterialStats(0.5F, 1.5F,7)
-        );
-
+        MAZESTONE.addParts();
+        IRONWOOD.addParts();
 
         TinkerRegistry.addMaterialStats(AURORA,
                 new HeadMaterialStats(511,11F,2F, 4));
@@ -88,7 +75,7 @@ public class ConfigureMaterials {
 
         CARMINITE.register();
         FROZEN.register();
-        TinkerRegistry.integrate(MAZESTONE).preInit();
+        MAZESTONE.register();
         TinkerRegistry.integrate(AURORA).preInit();
         TinkerRegistry.integrate(IRONWOOD,IRONWOOD_JIJA,"Ironwood").preInit();
     }
@@ -168,31 +155,22 @@ public class ConfigureMaterials {
             return;
         CARMINITE.addItem(new ItemStack(Item.getByNameOrId("twilightforest:carminite"), 1), 1, 144);
         CARMINITE.setRepresentativeItem(Item.getByNameOrId("twilightforest:carminite"));
-        CARMINITE.registerTraits();
-
         for(int i=0; i<8; ++i)
             MAZESTONE.addItem(new ItemStack(Item.getByNameOrId("twilightforest:maze_stone"), 1, i),1, 144);
         MAZESTONE.setRepresentativeItem(new ItemStack(Block.getBlockFromName("twilightforest:maze_stone"), 1, 1));
-        MAZESTONE.setCraftable(true).setCastable(false);
-        MAZESTONE.addTrait(LEFT_HAND_RULE, HEAD);
-        MAZESTONE.addTrait(TinkerTraits.duritos, EXTRA);
-        MAZESTONE.addTrait(MAZEY, HEAD).addTrait(MAZEY, EXTRA);
-        MAZESTONE.addTrait(TConstruct.twilit, HEAD).addTrait(TConstruct.twilit, EXTRA);
-        MAZESTONE.addTrait(TinkerTraits.heavy, EXTRA);
-
         IRONWOOD.addItem(TFItems.ironwood_ingot,1, 144);
         IRONWOOD.setRepresentativeItem(TFItems.ironwood_ingot);
-        IRONWOOD.addTrait(TConstruct.twilit).addTrait(TinkerTraits.ecological).addTrait(TinkerTraits.magnetic);
-        IRONWOOD.addTrait(TConstruct.twilit, HEAD).addTrait(TinkerTraits.ecological, HEAD).addTrait(TinkerTraits.magnetic2, HEAD);
-        IRONWOOD.setCastable(true).setCraftable(false);
-
         FROZEN.addItem(ItemRegister.FROZEN_CORE);
         FROZEN.setRepresentativeItem(ItemRegister.FROZEN_CORE);
-        FROZEN.registerTraits();
 
         AURORA.setCastable(false).setCraftable(false);
         AURORA.setRepresentativeItem(ItemRegister.AURORA_CORE);
         AURORA.addTrait(SHIFTING).addTrait(WONDERBREAKER);
+
+        CARMINITE.registerTraits();
+        MAZESTONE.registerTraits();
+        FROZEN.registerTraits();
+        IRONWOOD.registerTraits();
 
         if(IntegrationHelper.isLoadedTough)
             FROZEN.addTrait(COOL, HEAD).addTrait(COOL, BOW).addTrait(COOL, SHAFT);

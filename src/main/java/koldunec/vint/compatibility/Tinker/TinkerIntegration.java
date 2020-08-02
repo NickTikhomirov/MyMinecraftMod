@@ -1,8 +1,6 @@
 package koldunec.vint.compatibility.Tinker;
 
-import koldunec.vint.compatibility.Tinker.materials.BaseMaterial;
-import koldunec.vint.compatibility.Tinker.materials.MaterialCarminite;
-import koldunec.vint.compatibility.Tinker.materials.MaterialFrozen;
+import koldunec.vint.compatibility.Tinker.materials.*;
 import koldunec.vint.compatibility.Tinker.traits.*;
 import koldunec.vint.compatibility.Tinker.traits.tas_tic.Cool;
 import koldunec.vint.compatibility.Tinker.traits.tas_tic.SweetBlood;
@@ -22,7 +20,6 @@ import net.minecraftforge.fluids.Fluid;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.event.FMLInterModComms;
 import slimeknights.mantle.util.RecipeMatch;
-import slimeknights.tconstruct.library.DryingRecipe;
 import slimeknights.tconstruct.library.TinkerRegistry;
 import slimeknights.tconstruct.library.materials.*;
 import slimeknights.tconstruct.library.modifiers.Modifier;
@@ -43,8 +40,8 @@ public class TinkerIntegration {
     public static ArrayList<BaseMaterial> list = new ArrayList<>();
 
     public static BaseMaterial CARMINITE = new MaterialCarminite();
-    public static Material IRONWOOD = new Material("ironwood", ColorConstants.IRONWOOD_COLOR);
-    public static Material MAZESTONE = new Material("mazestone", ColorConstants.MAZESTONE_COLOR);
+    public static BaseMaterial IRONWOOD = new Ironwood();
+    public static BaseMaterial MAZESTONE = new Mazestone();
     public static BaseMaterial FROZEN = new MaterialFrozen();
     public static Material AURORA = new Material("aurora", ColorConstants.FROZEN_COLOR, true);
 
@@ -93,6 +90,9 @@ public class TinkerIntegration {
 
     public static void preInit(){
         TinkerRegistry.registerDryingRecipe(ItemRegister.VITASARIA, ItemRegister.DUST, 5*60*20);
+        if(IntegrationHelper.isLoadedFuture){
+            TinkerRegistry.registerDryingRecipe(Sidemod_Items.getFuture("honey_block"), ItemRegister.HONEY_CRYSTAL, 5*60*20);
+        }
         preInitJija();
 
         if(IntegrationHelper.isLoadedFuture)

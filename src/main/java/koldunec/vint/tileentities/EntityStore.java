@@ -1,6 +1,6 @@
 package koldunec.vint.tileentities;
 
-import koldunec.vint.tileentities.containers.container_store;
+import koldunec.vint.tileentities.containers.ContainerStore;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -48,7 +48,7 @@ public class EntityStore extends TileEntityLockableLoot {
 
     @Override
     public Container createContainer(InventoryPlayer playerInventory, EntityPlayer playerIn) {
-        return new container_store(playerInventory,this,playerIn);
+        return new ContainerStore(playerInventory,this,playerIn);
     }
 
     @Override

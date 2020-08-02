@@ -33,6 +33,7 @@ public class ItemRegister{
     public static Item POWDER_REED = new ReedPowderItem();
 
     public static Item BAMBOO_HOE = put(ObjectBuilder.BuildBambooHoe());
+    public static Item BAMBOO_SHOVEL = put(ObjectBuilder.BuildBambooShovel());
 
     public static Item GHAST_SEEDS = put(new GhastSeeds());
 

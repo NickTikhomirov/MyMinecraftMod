@@ -1,5 +1,7 @@
 package koldunec.vint.compatibility.OtherIntegration;
 
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.chunk.Chunk;
 import vazkii.quark.world.block.BlockHugeGlowshroom;
@@ -11,5 +13,9 @@ public class QuarkInt {
                 ch.getWorld().rand,
                 new BlockPos((ch.x<<4)+x, y, (ch.z<<4)+z),
                 true);
+    }
+
+    public static Item getTallow(){
+        return Item.getByNameOrId("quark:tallow");
     }
 }

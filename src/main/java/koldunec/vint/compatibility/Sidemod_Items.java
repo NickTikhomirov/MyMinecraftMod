@@ -54,4 +54,10 @@ public class Sidemod_Items {
             return Block.getBlockFromName(IntegrationHelper.idFuture+":blue_ice");
         return Blocks.AIR;
     }
+
+    public static Item getFuture(String name){
+        if(!IntegrationHelper.isLoadedFuture)
+            return Items.AIR;
+        return Item.getByNameOrId(IntegrationHelper.idFuture+":"+name);
+    }
 }

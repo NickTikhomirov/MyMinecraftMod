@@ -1,0 +1,22 @@
+{
+  "conditions": [
+    {
+      "type":"is_loaded",
+      "id":"futuremc"
+    }
+  ],
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "futuremc:sweet_berries"
+    },
+    {
+      "item": "futuremc:honey_bottle"
+    }
+  ],
+  "result":
+    {
+      "item": "vint:honey_berry",
+      "count": 2
+    }
+}
