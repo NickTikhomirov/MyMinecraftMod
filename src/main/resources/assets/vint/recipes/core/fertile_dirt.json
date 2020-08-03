@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "EVE",
+    "PDM"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    "V": {
+      "item": "vint:curingseeds"
+    },
+    "E": {
+      "item": "minecraft:spider_eye"
+    },
+    "P": {
+      "item": "minecraft:pumpkin_seeds"
+    },
+    "M": {
+      "item": "minecraft:melon_seeds"
+    },
+    "D": [
+      {
+        "item": "minecraft:dirt",
+        "data": 0
+      },
+      {
+        "item": "minecraft:dirt",
+        "data": 1
+      }
+    ]
+  },
+  "result": {
+    "item": "vint:fertile_dirt"
+  }
+}

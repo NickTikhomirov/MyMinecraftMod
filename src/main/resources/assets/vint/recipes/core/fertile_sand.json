@@ -1,0 +1,39 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " B ",
+    "EVE",
+    "PDM"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:dye",
+      "data": 15
+    },
+    "V": {
+      "item": "vint:curingseeds"
+    },
+    "E": {
+      "item": "minecraft:spider_eye"
+    },
+    "P": {
+      "item": "minecraft:reeds"
+    },
+    "M": {
+      "item": "minecraft:cactus"
+    },
+    "D": [
+      {
+        "item": "minecraft:sand",
+        "data": 0
+      },
+      {
+        "item": "minecraft:sand",
+        "data": 1
+      }
+    ]
+  },
+  "result": {
+    "item": "vint:fertile_sand"
+  }
+}

@@ -1,6 +1,7 @@
 package koldunec.vint.blocks.plants;
 
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.init.BlockRegister;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockCrops;
 import net.minecraft.block.BlockDirt;
@@ -43,18 +44,14 @@ public class TorchBerry extends BlockCrops {
     @Override
     public void updateTick(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         super.updateTick(worldIn, pos, state, rand);
-        if (!worldIn.isAreaLoaded(pos, 1)) return;
-        int age = this.getAge(state);
-        if (age >= this.getMaxAge())
-        return;
+        if (!worldIn.isAreaLoaded(pos, 1))
+            return;
+        if (getAge(state) >= getMaxAge())
+            return;
         IBlockState soilstate = worldIn.getBlockState(pos.up());
-        Block soil = soilstate.getBlock();
-        int chance = 6;
-        if(soil.equals(Blocks.DIRT))
-            if(soilstate.getValue(BlockDirt.VARIANT).equals(BlockDirt.DirtType.PODZOL))
-                chance = 3;
+        int chance = 6 - checkSoil(soilstate);
         if(net.minecraftforge.common.ForgeHooks.onCropsGrowPre(worldIn, pos, state, rand.nextInt(chance) == 0)) {
-            worldIn.setBlockState(pos, this.withAge(age + 1), 2);
+            worldIn.setBlockState(pos, withAge(getAge(state) + 1), 2);
             net.minecraftforge.common.ForgeHooks.onCropsGrowPost(worldIn, pos, state, worldIn.getBlockState(pos));
         }
     }
@@ -63,15 +60,16 @@ public class TorchBerry extends BlockCrops {
         Block soil = state.getBlock();
         if(soil.equals(Blocks.DIRT))
             return (state.getValue(BlockDirt.VARIANT).equals(BlockDirt.DirtType.PODZOL))?3:1;
-        if(soil.equals(Blocks.GRASS))       return 1;
-        if(soil.equals(Blocks.MYCELIUM))    return 1;
-        if(soil.equals(Blocks.GRASS_PATH))  return 2;
-        if(soil.equals(Blocks.SOUL_SAND))   return 2;
-        if(soil.equals(Blocks.FARMLAND))    return 1;
+        if(soil.equals(BlockRegister.FERTILE_DIRT)) return 3;
+        if(soil.equals(Blocks.GRASS))               return 1;
+        if(soil.equals(Blocks.MYCELIUM))            return 1;
+        if(soil.equals(Blocks.GRASS_PATH))          return 2;
+        if(soil.equals(Blocks.SOUL_SAND))           return 2;
+        if(soil.equals(Blocks.FARMLAND))            return 1;
         if(IntegrationHelper.isLoadedNatura)
             if(soil.getRegistryName().getResourcePath().equals("nether_tainted_soil"))
-                                            return 1;
-                                            return 0;
+                                                    return 1;
+                                                    return 0;
     }
 
     @Override
@@ -84,7 +82,7 @@ public class TorchBerry extends BlockCrops {
             if(rand.nextBoolean())
                 drops.add(new ItemStack(TFItems.torchberries,1));
         if(getAge(state)==3)
-            drops.add(new ItemStack(TFItems.torchberries,1));
+            drops.add(new ItemStack(TFItems.torchberries,2));
     }
 
     @Override

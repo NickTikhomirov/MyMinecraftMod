@@ -1,6 +1,7 @@
 package koldunec.vint.compatibility.Tinker;
 
 import koldunec.vint.IntegrationHelper;
+import koldunec.vint.compatibility.Sidemod_Items;
 import koldunec.vint.init.CompatibilityRegister;
 import koldunec.vint.init.ItemRegister;
 import net.minecraft.block.Block;
@@ -136,6 +137,7 @@ public class ConfigureMaterials {
     public static void ConfigureFuture(){
         if(!IntegrationHelper.isLoadedFuture)
             return;
+        TinkerRegistry.registerDryingRecipe(Sidemod_Items.getFuture("honey_block"), ItemRegister.HONEY_CRYSTAL, 5*60*20);
 
         BAMBOO.addItem(CompatibilityRegister.FUTURE_BAMBOO,1,144);
         BAMBOO.setRepresentativeItem(CompatibilityRegister.FUTURE_BAMBOO);

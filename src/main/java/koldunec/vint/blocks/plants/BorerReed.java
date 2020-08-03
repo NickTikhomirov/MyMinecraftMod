@@ -3,7 +3,6 @@ package koldunec.vint.blocks.plants;
 import koldunec.vint.utils.NeighbourChecker;
 import koldunec.vint.IntegrationHelper;
 import koldunec.vint.init.ItemRegister;
-import koldunec.vint.items.gunpowder_reed.block_gunreed;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -37,9 +36,9 @@ public class BorerReed extends Block implements IPlantable {
     public BorerReed(){
         super(Material.PLANTS);
         setDefaultState(this.blockState.getBaseState().withProperty(AGE,0));
-        this.setTickRandomly(true);
-        this.setRegistryName("borer_reed_block");
-        this.setUnlocalizedName("borer_reed_block");
+        setTickRandomly(true);
+        setRegistryName("borer_reed_block");
+        setUnlocalizedName("borer_reed_block");
         setLightOpacity(0);
         setSoundType(SoundType.PLANT);
     }
@@ -69,12 +68,11 @@ public class BorerReed extends Block implements IPlantable {
 
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-        IBlockState state = worldIn.getBlockState(pos.down());
-        Block block = state.getBlock();
-        if (block == this) {
+        if (worldIn.getBlockState(pos.down()).getBlock() == this)
             return true;
-        }
-        if(!isFullWood(worldIn,pos.down()))
+        if (worldIn.getBlockState(pos.up()).getBlock() == this)
+            return true;
+        if(!isFullWood(worldIn,pos.down()) && !isFullWood(worldIn,pos.up()))
             return false;
         return super.canPlaceBlockAt(worldIn, pos);
     }
@@ -85,12 +83,14 @@ public class BorerReed extends Block implements IPlantable {
     }
 
     public boolean checkAndDrop(World worldIn, BlockPos pos){
-        pos = pos.down();
-
-        if(isFullWood(worldIn, pos) || worldIn.getBlockState(pos).getBlock().equals(this))
+        BlockPos down = pos.down();
+        BlockPos up = pos.up();
+        if(isFullWood(worldIn, up) || worldIn.getBlockState(up).getBlock().equals(this))
+            return true;
+        if(isFullWood(worldIn, down) || worldIn.getBlockState(down).getBlock().equals(this))
             return true;
         dropBlockAsItem(worldIn, pos, this.getDefaultState(), 0);
-        worldIn.setBlockToAir(pos.up());
+        worldIn.setBlockToAir(pos);
         return false;
     }
 
@@ -146,7 +146,9 @@ public class BorerReed extends Block implements IPlantable {
         BlockPos base = bp.down();
         if(bp.getY()<3)
             return false;
-        return isSafeWood(w, base) && isFullWood(w,base.down());
+        if(!isSafeWood(w, base))
+            return false;
+        return isTopFixed(w, base) || isFullWood(w,base.down());
     }
 
     public boolean isFullWood(World w, BlockPos bp){
@@ -169,19 +171,25 @@ public class BorerReed extends Block implements IPlantable {
         return NeighbourChecker.checkHorizontal(w,bp,NeighbourChecker::checkLiquid)==0;
     }
 
+    private boolean isTopFixed(World w, BlockPos pos){
+        int y=1;
+        for(; w.getBlockState(pos.add(0,y,0)).getBlock().equals(this); ++y){
+            if(pos.getY()+y>254)
+                return false;
+        }
+        return isFullWood(w, pos.add(0,y,0));
+    }
+
 
 
 
     @Override
     public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess source, BlockPos pos) {
-        return block_gunreed.REED_AABB;
+        return PowderReedBlock.REED_AABB;
     }
 
     @Nullable
-    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos)
-    {
-        return NULL_AABB;
-    }
+    public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) { return NULL_AABB; }
 
 
     @Override
@@ -192,10 +200,7 @@ public class BorerReed extends Block implements IPlantable {
     @Override
     public IBlockState getStateFromMeta(int meta) { return this.getDefaultState().withProperty(AGE,meta); }
 
-
     @Override
-    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) {
-        return new ItemStack(ItemRegister.BORER_REED);
-    }
+    public ItemStack getItem(World worldIn, BlockPos pos, IBlockState state) { return new ItemStack(ItemRegister.BORER_REED); }
 
 }

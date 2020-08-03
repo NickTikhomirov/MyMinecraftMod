@@ -8,7 +8,7 @@ import koldunec.vint.blocks.plants.GlowCactus;
 import koldunec.vint.blocks.plants.TorchBerry;
 import koldunec.vint.items.baseItems.basic_block;
 import koldunec.vint.items.curinggrass.curingCrops;
-import koldunec.vint.items.gunpowder_reed.block_gunreed;
+import koldunec.vint.blocks.plants.PowderReedBlock;
 import koldunec.vint.objectbuilders.ObjectBuilder;
 import koldunec.vint.objectbuilders.TriDirectionaBuilder;
 import net.minecraft.block.Block;
@@ -63,6 +63,8 @@ public class BlockRegister {
     public static Block GREEN_PLANKS = put(ObjectBuilder.BuildDefaultPlanks("green_planks",false));
 
     public static Block NETHER_CACTUS = put(new GlowCactus());
+    public static Block FERTILE_DIRT = put(FertileBlock.BuildDirt());
+    public static Block FERTILE_SAND = put(FertileBlock.BuildSand());
 
     public static Block WATER_PORTAL = new basic_block("portal_water", Material.IRON,"pickaxe",1,5F, 30.0F,0);
     public static Block CURING_CROPS = new curingCrops("curing_crops");
@@ -72,7 +74,7 @@ public class BlockRegister {
 
     public static Block LLAMA_SPAWNER = new LlamaFlower();
     public static Block STORE = put(new stORE());
-    public static Block REED_GUNPOWDER = new block_gunreed();
+    public static Block REED_GUNPOWDER = new PowderReedBlock();
     public static Block REED_BORER = new BorerReed();
 
     public static Block BRICKS_Light = new basic_block("block_bricks_light",Material.ROCK, "pickaxe",0,2F ,30F,255);

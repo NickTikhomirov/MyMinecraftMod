@@ -183,6 +183,8 @@ tile.block_redmoss.name=Bloody Cobble
 tile.block_oldstone.name=Old Cobble
 tile.st_ore.name=StORE
 tile.llama_flower.name=Llama Flower
+tile.fertile_dirt.name=Fertilized Grass
+tile.fertile_sand.name=Fertilized Sand
 
 tile.fake_iron.name=Fake Iron Block
 tile.fake_gold.name=Fake Gold Block

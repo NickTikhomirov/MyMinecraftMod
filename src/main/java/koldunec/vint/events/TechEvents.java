@@ -4,7 +4,7 @@ import koldunec.vint.utils.EnumScrollTypes;
 import koldunec.vint.utils.EnumTwilightScrollTypes;
 import koldunec.vint.vint;
 import koldunec.vint.items.another_dye_please_dont_blame_me;
-import koldunec.vint.items.gunpowder_reed.block_gunreed;
+import koldunec.vint.blocks.plants.PowderReedBlock;
 import koldunec.vint.init.ItemRegister;
 import koldunec.vint.recipes.dragonBreathFix;
 import koldunec.vint.recipes.paint_operator;
@@ -38,7 +38,7 @@ public class TechEvents {
             ModelLoader.setCustomModelResourceLocation(Scroll, type.ordinal(), new ModelResourceLocation(Scroll.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
         for(EnumTwilightScrollTypes type : EnumTwilightScrollTypes.values())
             ModelLoader.setCustomModelResourceLocation(Twi_Scroll, type.ordinal(), new ModelResourceLocation(Twi_Scroll.getRegistryName() + "_" + type.toString().toLowerCase(),"inventory"));
-        for(block_gunreed.reedTypes type: block_gunreed.reedTypes.values())
+        for(PowderReedBlock.reedTypes type: PowderReedBlock.reedTypes.values())
             ModelLoader.setCustomModelResourceLocation(Reed, type.ordinal(),new ModelResourceLocation(Reed.getRegistryName()+"_"+type.toString().toLowerCase(),"inventory"));
     }
 

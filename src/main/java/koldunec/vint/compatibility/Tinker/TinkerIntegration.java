@@ -90,9 +90,6 @@ public class TinkerIntegration {
 
     public static void preInit(){
         TinkerRegistry.registerDryingRecipe(ItemRegister.VITASARIA, ItemRegister.DUST, 5*60*20);
-        if(IntegrationHelper.isLoadedFuture){
-            TinkerRegistry.registerDryingRecipe(Sidemod_Items.getFuture("honey_block"), ItemRegister.HONEY_CRYSTAL, 5*60*20);
-        }
         preInitJija();
 
         if(IntegrationHelper.isLoadedFuture)

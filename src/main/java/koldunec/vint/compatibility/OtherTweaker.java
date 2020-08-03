@@ -31,6 +31,7 @@ public class OtherTweaker {
             Composter.inputs.put("minecraft:spider_eye",0.2F);
             Composter.inputs.put("minecraft:nether_wart", 0.5F);
             Composter.inputs.put("vint:curinggrass", 0.3F);
+            Composter.inputs.put("vint:curingseeds", 0.3F);
             Composter.inputs.put("vint:radio_cactus", 0.65F);
             Composter.inputs.put("minecraft:web", 1F);
             if(IntegrationHelper.isLoadedNatura){
